@@ -130,3 +130,7 @@ main[data-area] .eyebrow{color:var(--ai)}
 @media(max-width:1200px){.grid.areas{grid-template-columns:repeat(3,minmax(0,1fr))}.paths{grid-template-columns:1fr}}
 @media(max-width:800px){.levels,.simsummary{grid-template-columns:1fr}.grid.areas{grid-template-columns:repeat(2,minmax(0,1fr))}.glossrow{grid-template-columns:1fr;gap:4px}.simcount{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:520px){.grid.areas{grid-template-columns:1fr}}
+.brief{background:var(--soft);border-left:4px solid var(--a,var(--teal));padding:12px 16px;margin:0 0 20px;font-size:14px;line-height:1.7}
+.brief strong{display:block;font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:var(--ai,var(--teal));margin-bottom:3px}
+.dupnote{font-size:12px;color:var(--muted);border-top:1px dashed var(--line);padding-top:10px;margin-top:26px}
+.doc ul,.doc ol{padding-left:22px}.doc li{margin:5px 0}

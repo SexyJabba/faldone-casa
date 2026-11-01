@@ -2,6 +2,12 @@
 /* Strato "chiaro e concreto" della rev 4.4: testi per profani e sistemisti, colori per area,
    glossario e simulatore di guasti ricalcolato sull'architettura 4.4 (nucleo a 5 voti, quorum 3). */
 (function(){
+
+/* ---------- SCHEDE RISCRITTE: stesso testo per tutti i codici che condividevano il contenuto ---------- */
+if(window.SCHEDE_G){window.SCHEDE_G.forEach(g=>g.codes.forEach(code=>{const c=lookup[code];if(!c)return;
+  const others=g.codes.filter(x=>x!==code);
+  const note=others.length?'<p class="dupnote">Questo testo vale anche per le schede: '+others.map(x=>'<a href="#'+x+'">'+x+'</a>').join(' · ')+'.</p>':'';
+  c.html=g.html+note+g.tails[code];c.plain=g.plain;if(g.title)c.title=g.title;c.rewritten=true;}));}
 const AREAS={
  orient:{label:'Orientamento',desc:'Come leggere il faldone'},
  infra:{label:'Infrastruttura',desc:'Macchine, rete, rack'},
