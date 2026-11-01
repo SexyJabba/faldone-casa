@@ -1,0 +1,430 @@
+{
+  "date": "2026-10-20",
+  "photos": [
+    {
+      "photo_id": "RAM-F01",
+      "file": "RAM-F01.avif",
+      "original_source": "/Users/jabba/Downloads/b97ced4c-a093-4baa-bf64-f4a4bf8a2d50.avif",
+      "caption": "Quattro ECC UDIMM Hynix da 8 GB per M4",
+      "size_bytes": 111224,
+      "sha256": "560e26fcdc7d827fa2ab0eec736f624b462917f8c82547d9cfc367fadf529138",
+      "provenance": "Foto fornite dall’utente per RAM in arrivo; ricevimento e test non attestati"
+    },
+    {
+      "photo_id": "RAM-F02",
+      "file": "RAM-F02.webp",
+      "original_source": "/var/folders/59/968g8qnj3sq_748_cyxldg2m0000gn/T/codex-clipboard-f749d479-2732-4964-b021-9eb3ebf8a16f.webp",
+      "caption": "Lotto misto dieci moduli Samsung/Cisco",
+      "size_bytes": 105094,
+      "sha256": "0c9ea3618a484849363cf8d725052494d8011eeda94c2c12567aca5e567a6336",
+      "provenance": "Foto fornite dall’utente per RAM in arrivo; ricevimento e test non attestati"
+    },
+    {
+      "photo_id": "RAM-F03",
+      "file": "RAM-F03.webp",
+      "original_source": "/var/folders/59/968g8qnj3sq_748_cyxldg2m0000gn/T/codex-clipboard-c549e0b4-d78c-4d09-9deb-efa14efb2823.webp",
+      "caption": "Due Micron DDR3L RDIMM da 16 GB",
+      "size_bytes": 105766,
+      "sha256": "72764b74b525e2b1630a1d3581fdf65d2d8cef3ba3eb5f204156ae0fc9dfae02",
+      "provenance": "Foto fornite dall’utente per RAM in arrivo; ricevimento e test non attestati"
+    },
+    {
+      "photo_id": "RAM-F04",
+      "file": "RAM-F04.webp",
+      "original_source": "/var/folders/59/968g8qnj3sq_748_cyxldg2m0000gn/T/codex-clipboard-8f736c43-150d-46a3-8d7d-518e6800f9e7.webp",
+      "caption": "Sei Kingston DDR3 RDIMM da 16 GB",
+      "size_bytes": 150996,
+      "sha256": "0a2745b1f9a5d0b3cf34ed62f813b06c0dcad52d11781bfa7b2bf976228e8db2",
+      "provenance": "Foto fornite dall’utente per RAM in arrivo; ricevimento e test non attestati"
+    },
+    {
+      "photo_id": "RAM-F05",
+      "file": "RAM-F05.webp",
+      "original_source": "/var/folders/59/968g8qnj3sq_748_cyxldg2m0000gn/T/codex-clipboard-5c9b7728-a833-4865-a10f-ed3d37476195.webp",
+      "caption": "Singolo Samsung DDR3L RDIMM con etichetta rivenditore",
+      "size_bytes": 96988,
+      "sha256": "031dd46de7c11809448c9349befb33b13a5c7bf323d0425437863289fea2278f",
+      "provenance": "Foto fornite dall’utente per RAM in arrivo; ricevimento e test non attestati"
+    }
+  ],
+  "products": [
+    {
+      "code": "INV-076",
+      "manufacturer": "SK hynix / etichette HPE",
+      "model": "HMT41GU7BFR8C-PB (lettura foto, da riscontro all’arrivo)",
+      "qty": 4,
+      "capacity_gb": 8,
+      "technology": "DDR3 ECC UDIMM",
+      "rank": "2Rx8",
+      "speed_mt_s": 1600,
+      "voltage": "1.5 V nominale, da riscontro datasheet/SPD",
+      "node": "M4",
+      "evidence": [
+        "RAM-F01"
+      ],
+      "confidence": "Capacità/tipo/velocità leggibili; P/N da riscontrare su ogni esemplare"
+    },
+    {
+      "code": "INV-075",
+      "manufacturer": "Samsung / etichette Cisco",
+      "model": "M393B2G70DB0-CMA (lettura rappresentativa del lotto)",
+      "qty": 7,
+      "capacity_gb": 16,
+      "technology": "DDR3 ECC RDIMM",
+      "rank": "2Rx4",
+      "speed_mt_s": 1866,
+      "voltage": "1.5 V",
+      "node": "M3/M6; associazione esemplari da fissare",
+      "evidence": [
+        "RAM-F02"
+      ],
+      "confidence": "Famiglia leggibile su più etichette; verificare suffissi/seriali singoli all’arrivo"
+    },
+    {
+      "code": "INV-101",
+      "manufacturer": "Samsung / etichette Cisco",
+      "model": "M393A2G40DB0-CPB (lettura foto a risoluzione limitata)",
+      "qty": 2,
+      "capacity_gb": 16,
+      "technology": "DDR4 ECC RDIMM",
+      "rank": "2Rx4",
+      "speed_mt_s": 2133,
+      "voltage": "1.2 V nominale, da riscontro all’arrivo",
+      "node": "M5",
+      "evidence": [
+        "RAM-F02"
+      ],
+      "confidence": "DDR4/2133 e distinzione dal lotto DDR3; P/N da verificare su foto ravvicinata"
+    },
+    {
+      "code": "INV-099",
+      "manufacturer": "Kingston",
+      "model": "KVR16R11D4/16… (suffisso finale da confermare)",
+      "qty": 6,
+      "capacity_gb": 16,
+      "technology": "DDR3 ECC RDIMM",
+      "rank": "2Rx4",
+      "speed_mt_s": 1600,
+      "voltage": "1.5 V",
+      "node": "M3/M6; associazione esemplari da fissare",
+      "evidence": [
+        "RAM-F04"
+      ],
+      "confidence": "Etichetta PC3-12800R e 1.5V leggibili; non inventare suffisso I/HB"
+    },
+    {
+      "code": "INV-100",
+      "manufacturer": "Samsung",
+      "model": "M393B2G70QH0-YK0 (famiglia letta, da confronto fra i due esemplari)",
+      "qty": 2,
+      "capacity_gb": 16,
+      "technology": "DDR3L ECC RDIMM",
+      "rank": "2Rx4",
+      "speed_mt_s": 1600,
+      "voltage": "1.35 V / 1.5 V da datasheet famiglia",
+      "node": "M2",
+      "evidence": [
+        "RAM-F02",
+        "RAM-F05"
+      ],
+      "confidence": "Due moduli Samsung DDR3L nel conteggio; verificare corrispondenza P/N e suffissi fra foto"
+    },
+    {
+      "code": "INV-105",
+      "manufacturer": "Micron",
+      "model": "MT36KSF2G72PZ-1G6E1FF",
+      "qty": 1,
+      "capacity_gb": 16,
+      "technology": "DDR3L ECC RDIMM",
+      "rank": "2Rx4",
+      "speed_mt_s": 1600,
+      "voltage": "1.35 V nominale",
+      "node": "M2",
+      "evidence": [
+        "RAM-F03"
+      ],
+      "confidence": "Etichetta leggibile, modulo superiore"
+    },
+    {
+      "code": "INV-106",
+      "manufacturer": "Micron",
+      "model": "MT36KSF2G72PZ-1G6E1HF",
+      "qty": 1,
+      "capacity_gb": 16,
+      "technology": "DDR3L ECC RDIMM",
+      "rank": "2Rx4",
+      "speed_mt_s": 1600,
+      "voltage": "1.35 V nominale",
+      "node": "M2",
+      "evidence": [
+        "RAM-F03"
+      ],
+      "confidence": "Etichetta leggibile, modulo inferiore"
+    }
+  ],
+  "observations": [
+    {
+      "observation_id": "INV-076-FOTO-01",
+      "product_code": "INV-076",
+      "photo_id": "RAM-F01",
+      "position": "modulo 1, ordine originale da sinistra a destra",
+      "visible_tag": "",
+      "manufacturer_serial": null,
+      "physical_instance_confirmed": false,
+      "receipt_status": "in arrivo secondo utente",
+      "note": "Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto"
+    },
+    {
+      "observation_id": "INV-076-FOTO-02",
+      "product_code": "INV-076",
+      "photo_id": "RAM-F01",
+      "position": "modulo 2, ordine originale da sinistra a destra",
+      "visible_tag": "",
+      "manufacturer_serial": null,
+      "physical_instance_confirmed": false,
+      "receipt_status": "in arrivo secondo utente",
+      "note": "Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto"
+    },
+    {
+      "observation_id": "INV-076-FOTO-03",
+      "product_code": "INV-076",
+      "photo_id": "RAM-F01",
+      "position": "modulo 3, ordine originale da sinistra a destra",
+      "visible_tag": "",
+      "manufacturer_serial": null,
+      "physical_instance_confirmed": false,
+      "receipt_status": "in arrivo secondo utente",
+      "note": "Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto"
+    },
+    {
+      "observation_id": "INV-076-FOTO-04",
+      "product_code": "INV-076",
+      "photo_id": "RAM-F01",
+      "position": "modulo 4, ordine originale da sinistra a destra",
+      "visible_tag": "",
+      "manufacturer_serial": null,
+      "physical_instance_confirmed": false,
+      "receipt_status": "in arrivo secondo utente",
+      "note": "Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto"
+    },
+    {
+      "observation_id": "INV-075-FOTO-01",
+      "product_code": "INV-075",
+      "photo_id": "RAM-F02",
+      "position": "modulo 1, dall’alto",
+      "visible_tag": "",
+      "manufacturer_serial": null,
+      "physical_instance_confirmed": false,
+      "receipt_status": "in arrivo secondo utente",
+      "note": "Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto"
+    },
+    {
+      "observation_id": "INV-075-FOTO-02",
+      "product_code": "INV-075",
+      "photo_id": "RAM-F02",
+      "position": "modulo 2, dall’alto",
+      "visible_tag": "",
+      "manufacturer_serial": null,
+      "physical_instance_confirmed": false,
+      "receipt_status": "in arrivo secondo utente",
+      "note": "Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto"
+    },
+    {
+      "observation_id": "INV-075-FOTO-03",
+      "product_code": "INV-075",
+      "photo_id": "RAM-F02",
+      "position": "modulo 3, dall’alto",
+      "visible_tag": "",
+      "manufacturer_serial": null,
+      "physical_instance_confirmed": false,
+      "receipt_status": "in arrivo secondo utente",
+      "note": "Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto"
+    },
+    {
+      "observation_id": "INV-075-FOTO-04",
+      "product_code": "INV-075",
+      "photo_id": "RAM-F02",
+      "position": "modulo 4, dall’alto",
+      "visible_tag": "",
+      "manufacturer_serial": null,
+      "physical_instance_confirmed": false,
+      "receipt_status": "in arrivo secondo utente",
+      "note": "Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto"
+    },
+    {
+      "observation_id": "INV-075-FOTO-05",
+      "product_code": "INV-075",
+      "photo_id": "RAM-F02",
+      "position": "modulo 5, dall’alto",
+      "visible_tag": "",
+      "manufacturer_serial": null,
+      "physical_instance_confirmed": false,
+      "receipt_status": "in arrivo secondo utente",
+      "note": "Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto"
+    },
+    {
+      "observation_id": "INV-101-FOTO-01",
+      "product_code": "INV-101",
+      "photo_id": "RAM-F02",
+      "position": "modulo 6, dall’alto",
+      "visible_tag": "",
+      "manufacturer_serial": null,
+      "physical_instance_confirmed": false,
+      "receipt_status": "in arrivo secondo utente",
+      "note": "Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto"
+    },
+    {
+      "observation_id": "INV-101-FOTO-02",
+      "product_code": "INV-101",
+      "photo_id": "RAM-F02",
+      "position": "modulo 7, dall’alto",
+      "visible_tag": "",
+      "manufacturer_serial": null,
+      "physical_instance_confirmed": false,
+      "receipt_status": "in arrivo secondo utente",
+      "note": "Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto"
+    },
+    {
+      "observation_id": "INV-075-FOTO-06",
+      "product_code": "INV-075",
+      "photo_id": "RAM-F02",
+      "position": "modulo 8, dall’alto",
+      "visible_tag": "",
+      "manufacturer_serial": null,
+      "physical_instance_confirmed": false,
+      "receipt_status": "in arrivo secondo utente",
+      "note": "Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto"
+    },
+    {
+      "observation_id": "INV-075-FOTO-07",
+      "product_code": "INV-075",
+      "photo_id": "RAM-F02",
+      "position": "modulo 9, dall’alto",
+      "visible_tag": "",
+      "manufacturer_serial": null,
+      "physical_instance_confirmed": false,
+      "receipt_status": "in arrivo secondo utente",
+      "note": "Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto"
+    },
+    {
+      "observation_id": "INV-100-FOTO-01",
+      "product_code": "INV-100",
+      "photo_id": "RAM-F02",
+      "position": "modulo 10, dall’alto",
+      "visible_tag": "",
+      "manufacturer_serial": null,
+      "physical_instance_confirmed": false,
+      "receipt_status": "in arrivo secondo utente",
+      "note": "Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto"
+    },
+    {
+      "observation_id": "INV-105-FOTO-01",
+      "product_code": "INV-105",
+      "photo_id": "RAM-F03",
+      "position": "superiore",
+      "visible_tag": "DPAEQ24007 (codice etichetta, non dichiarato seriale SPD)",
+      "manufacturer_serial": null,
+      "physical_instance_confirmed": false,
+      "receipt_status": "in arrivo secondo utente",
+      "note": "Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto"
+    },
+    {
+      "observation_id": "INV-106-FOTO-01",
+      "product_code": "INV-106",
+      "photo_id": "RAM-F03",
+      "position": "inferiore",
+      "visible_tag": "DPAEMK8012 (codice etichetta, non dichiarato seriale SPD)",
+      "manufacturer_serial": null,
+      "physical_instance_confirmed": false,
+      "receipt_status": "in arrivo secondo utente",
+      "note": "Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto"
+    },
+    {
+      "observation_id": "INV-099-FOTO-01",
+      "product_code": "INV-099",
+      "photo_id": "RAM-F04",
+      "position": "modulo 1, dall’alto",
+      "visible_tag": "",
+      "manufacturer_serial": null,
+      "physical_instance_confirmed": false,
+      "receipt_status": "in arrivo secondo utente",
+      "note": "Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto"
+    },
+    {
+      "observation_id": "INV-099-FOTO-02",
+      "product_code": "INV-099",
+      "photo_id": "RAM-F04",
+      "position": "modulo 2, dall’alto",
+      "visible_tag": "",
+      "manufacturer_serial": null,
+      "physical_instance_confirmed": false,
+      "receipt_status": "in arrivo secondo utente",
+      "note": "Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto"
+    },
+    {
+      "observation_id": "INV-099-FOTO-03",
+      "product_code": "INV-099",
+      "photo_id": "RAM-F04",
+      "position": "modulo 3, dall’alto",
+      "visible_tag": "",
+      "manufacturer_serial": null,
+      "physical_instance_confirmed": false,
+      "receipt_status": "in arrivo secondo utente",
+      "note": "Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto"
+    },
+    {
+      "observation_id": "INV-099-FOTO-04",
+      "product_code": "INV-099",
+      "photo_id": "RAM-F04",
+      "position": "modulo 4, dall’alto",
+      "visible_tag": "",
+      "manufacturer_serial": null,
+      "physical_instance_confirmed": false,
+      "receipt_status": "in arrivo secondo utente",
+      "note": "Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto"
+    },
+    {
+      "observation_id": "INV-099-FOTO-05",
+      "product_code": "INV-099",
+      "photo_id": "RAM-F04",
+      "position": "modulo 5, dall’alto",
+      "visible_tag": "",
+      "manufacturer_serial": null,
+      "physical_instance_confirmed": false,
+      "receipt_status": "in arrivo secondo utente",
+      "note": "Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto"
+    },
+    {
+      "observation_id": "INV-099-FOTO-06",
+      "product_code": "INV-099",
+      "photo_id": "RAM-F04",
+      "position": "modulo 6, dall’alto",
+      "visible_tag": "",
+      "manufacturer_serial": null,
+      "physical_instance_confirmed": false,
+      "receipt_status": "in arrivo secondo utente",
+      "note": "Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto"
+    },
+    {
+      "observation_id": "INV-100-FOTO-02",
+      "product_code": "INV-100",
+      "photo_id": "RAM-F05",
+      "position": "singolo",
+      "visible_tag": "",
+      "manufacturer_serial": null,
+      "physical_instance_confirmed": false,
+      "receipt_status": "in arrivo secondo utente",
+      "note": "Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto"
+    }
+  ],
+  "total_observations": 23,
+  "total_capacity_gb": 336,
+  "receipt_verified": false,
+  "compatibility_tested": false,
+  "notes": [
+    "INV-105/106 sono nuovi codici prodotto locali rev4; Micron separati da INV-100 Samsung, che passa da quattro a due unità. Registro storico conservato.",
+    "Correzioni rispetto al dichiarato precedente: Samsung PC3 a 1866 MT/s, Kingston PC3 a 1600 MT/s, gruppo DDR3L misto due Samsung e due Micron.",
+    "I dati fotografici non attestano frequenza negoziata, integrità o compatibilità del sistema.",
+    "Suffissi P/N e seriali non leggibili restano aperti. Non sono state ricostruite cifre da barcode illeggibili."
+  ]
+}

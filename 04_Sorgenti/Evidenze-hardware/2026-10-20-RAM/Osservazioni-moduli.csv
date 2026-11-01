@@ -1,0 +1,24 @@
+observation_id;product_code;photo_id;position;visible_tag;manufacturer_serial;physical_instance_confirmed;receipt_status;note
+INV-076-FOTO-01;INV-076;RAM-F01;modulo 1, ordine originale da sinistra a destra;;;False;in arrivo secondo utente;Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto
+INV-076-FOTO-02;INV-076;RAM-F01;modulo 2, ordine originale da sinistra a destra;;;False;in arrivo secondo utente;Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto
+INV-076-FOTO-03;INV-076;RAM-F01;modulo 3, ordine originale da sinistra a destra;;;False;in arrivo secondo utente;Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto
+INV-076-FOTO-04;INV-076;RAM-F01;modulo 4, ordine originale da sinistra a destra;;;False;in arrivo secondo utente;Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto
+INV-075-FOTO-01;INV-075;RAM-F02;modulo 1, dall’alto;;;False;in arrivo secondo utente;Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto
+INV-075-FOTO-02;INV-075;RAM-F02;modulo 2, dall’alto;;;False;in arrivo secondo utente;Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto
+INV-075-FOTO-03;INV-075;RAM-F02;modulo 3, dall’alto;;;False;in arrivo secondo utente;Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto
+INV-075-FOTO-04;INV-075;RAM-F02;modulo 4, dall’alto;;;False;in arrivo secondo utente;Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto
+INV-075-FOTO-05;INV-075;RAM-F02;modulo 5, dall’alto;;;False;in arrivo secondo utente;Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto
+INV-101-FOTO-01;INV-101;RAM-F02;modulo 6, dall’alto;;;False;in arrivo secondo utente;Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto
+INV-101-FOTO-02;INV-101;RAM-F02;modulo 7, dall’alto;;;False;in arrivo secondo utente;Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto
+INV-075-FOTO-06;INV-075;RAM-F02;modulo 8, dall’alto;;;False;in arrivo secondo utente;Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto
+INV-075-FOTO-07;INV-075;RAM-F02;modulo 9, dall’alto;;;False;in arrivo secondo utente;Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto
+INV-100-FOTO-01;INV-100;RAM-F02;modulo 10, dall’alto;;;False;in arrivo secondo utente;Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto
+INV-105-FOTO-01;INV-105;RAM-F03;superiore;DPAEQ24007 (codice etichetta, non dichiarato seriale SPD);;False;in arrivo secondo utente;Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto
+INV-106-FOTO-01;INV-106;RAM-F03;inferiore;DPAEMK8012 (codice etichetta, non dichiarato seriale SPD);;False;in arrivo secondo utente;Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto
+INV-099-FOTO-01;INV-099;RAM-F04;modulo 1, dall’alto;;;False;in arrivo secondo utente;Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto
+INV-099-FOTO-02;INV-099;RAM-F04;modulo 2, dall’alto;;;False;in arrivo secondo utente;Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto
+INV-099-FOTO-03;INV-099;RAM-F04;modulo 3, dall’alto;;;False;in arrivo secondo utente;Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto
+INV-099-FOTO-04;INV-099;RAM-F04;modulo 4, dall’alto;;;False;in arrivo secondo utente;Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto
+INV-099-FOTO-05;INV-099;RAM-F04;modulo 5, dall’alto;;;False;in arrivo secondo utente;Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto
+INV-099-FOTO-06;INV-099;RAM-F04;modulo 6, dall’alto;;;False;in arrivo secondo utente;Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto
+INV-100-FOTO-02;INV-100;RAM-F05;singolo;;;False;in arrivo secondo utente;Identità di osservazione fotografica: non sostituisce seriale e riscontro sul modulo ricevuto

@@ -1,0 +1,116 @@
+code,category,model,quantity,assignment,inventory_state,source,notes
+INV-001,hdd,Western Digital WD10EAVS 1 TB,8,6WD10EAVS a M4 RAIDZ2; 2riserva,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1; decisioni confermate20 ottobre2026,
+INV-002,hdd,Western Digital WD10EZRX 1 TB,2,2WD10EZRX mirror M6 Seafile/audio,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1; decisioni confermate20 ottobre2026,Seafile senza backup aggiuntivo per scelta utente.
+INV-003,ssd,Samsung 850 EVO 250 GB,1,M5 boot,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1; decisioni confermate20 ottobre2026,
+INV-004,ssd,Kingston SSDNow V300 120 GB,1,M6 boot,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1; decisioni confermate20 ottobre2026,
+INV-005,nvme,Crucial P310 4 TB + Lexar E750,1,P310 nel secondo M.2 di M2; box Lexar E750 libero,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,"Un solo NVMe; il box è accessorio separato, non collegato a M2."
+INV-006,nvme,Western Digital PC SN530 512 GB,1,M3 / Proxmox e IA,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,"Rettifica del modello e taglio: stesso supporto precedentemente descritto genericamente WD Green M.2 500 GB. Box ORICO separato in INV-089, non un secondo SSD."
+INV-007,ssd,Kingston SSDNow V200 120 GB,1,M1 boot,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1; decisioni confermate20 ottobre2026,
+INV-008,ssd,Samsung 850 EVO 500 GB,1,M6 download/staging,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1; decisioni confermate20 ottobre2026,
+INV-009,nvme,Sabrent Rocket 512 GB,1,M2 / boot,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-010,hdd,Western Digital WD3200AAJS 320 GB,1,Non assegnato / magazzino,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-011,hdd,Western Digital WD1601ABYS 160 GB,1,Non assegnato / magazzino,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-012,hdd,Western Digital WD1600AAJS 160 GB,1,Non assegnato / magazzino,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-013,hdd,Seagate ST1000LM024 1 TB,2,M5 / registrazioni Frigate,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-014,hdd,HGST Z7K500-500,1,Non assegnato / magazzino,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-015,hdd,Hitachi Z5K500-500,1,Non assegnato / magazzino,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-016,hdd,HGST Z5K500-500,1,Non assegnato / magazzino,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-018,usb,corsair flash voyager slider,1,Non assegnato / magazzino,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-019,usb,lexar ljds73-16g,1,Non assegnato / magazzino,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-020,usb,verbatim usb 2.0,2,Non assegnato / magazzino,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-021,usb,kingston data traveler 100g3,1,Non assegnato / magazzino,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-022,usb,tdk 16gb,1,Non assegnato / magazzino,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-023,card,tohaoll u1 v10 hc,1,Non assegnato / magazzino,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-024,card,kingston sdc10g2/64gb,1,Non assegnato / magazzino,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-025,card,lexar 800x pro,1,Non assegnato / magazzino,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-026,card,generic,1,Non assegnato / magazzino,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-027,card,generic class 6,1,Non assegnato / magazzino,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-028,card,generic class 4,1,Non assegnato / magazzino,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-029,mobo,ASUS X99-DELUXE,1,"MP4, PC primo fratello nella configurazione 4.2",CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1; decisioni confermate20 ottobre2026,Assegnazione di configurazione; trasferimento effettivo non attestato.
+INV-030,mobo,HUANANZHI X99-T8,1,M3,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-031,mobo,ASRock X79 Extreme3,1,Magazzino libero / riuso o cessione,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,Kit di riferimento; nessuna attestazione di funzionamento o consegna.
+INV-032,mobo,MSI H97M-ECO,1,Magazzino libero / riserva o riuso,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-033,mobo,ASUS H61M-K,1,M7 / router di riserva manuale,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-034,mobo,ASRock Q1900M,1,S1 / utilita locali,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-035,ram,G.Skill F4-2666C15Q-32GVR / moduli 8 GB,4,"MP4, PC primo fratello nella configurazione 4.2",CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1; decisioni confermate20 ottobre2026,Assegnazione di configurazione; trasferimento effettivo non attestato.
+INV-036,ram,ELPIDA 4 GB 2Rx4 PC3-10600R-9-10-E1,5,Non assegnato / magazzino,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-037,ram,hynix 4 GB 2Rx4 PC3-10600R-9-10-E1,9,Non assegnato / magazzino,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-038,ram,Kingston HyperX DDR3 4 GB,8,"4 moduli liberi per kit H97; altri 4 non attribuiti a un nodo, fuori stima",CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-039,ram,Kingston HyperX DDR3 8 GB,2,M7 / 2 moduli,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-040,ram,99u5474-038.a00lf,1,Non assegnato / magazzino,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-041,ram,hynix 4gb 2rx8 pc3-10600u-9-11-b1,1,S1 / un modulo censito da 4 GB; secondo esemplare n.d.,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-042,ram,nanya nt2gc72b8pa0nf-cg,1,Non assegnato / magazzino,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-043,cpu,Intel Core i7-5930K,1,"MP4, PC primo fratello nella configurazione 4.2",CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1; decisioni confermate20 ottobre2026,Assegnazione di configurazione; trasferimento effettivo non attestato.
+INV-044,cpu,Intel Core i7-3820,1,Magazzino libero / riuso o cessione,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,Kit di riferimento; nessuna attestazione di funzionamento o consegna.
+INV-045,cpu,Intel Xeon E5-2630L v2,1,Magazzino libero; nessuna assegnazione a M6 Q3A,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-046,cpu,Intel Xeon E3-1220L v2,1,M7 / router di riserva manuale,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-047,cpu,Intel Xeon E3-1265L v3,1,M4,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-048,cpu,Intel Xeon E5-2678 v3,1,M3,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-049,cpu,Intel Celeron J1900,1,S1 / CPU saldata alla Q1900M,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-050,psu,be quiet! Dark Power Pro 850 W,1,M3,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-051,psu,Cooler Master RS-700-ASAB-L3,1,M4,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-052,psu,Thermaltake Smart SE SPS-730M,1,Allocazione individuale n.d.; escluso dai lotti valutati per cessione,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-053,psu,Corsair CX500 CP-9020047,1,M2,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-054,psu,FSP ATX-350PNF,2,Allocazione individuale n.d.; escluso dai lotti valutati per cessione,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-055,gpu,ZOTAC GeForce RTX2080 Blower 8 GB,1,"MP4, PC primo fratello nella configurazione 4.2",CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1; decisioni confermate20 ottobre2026,Assegnazione di configurazione; trasferimento effettivo non attestato.
+INV-057,gpu,Gigabyte GV-N970G1 GAMING-4GD,1,Non assegnato / magazzino,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-058,gpu,Sapphire Radeon HD6570 4 GB,1,Non assegnato / magazzino,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-059,case,Case rack 4U / telaio INV-059,1,Allocazione individuale n.d.; escluso dai lotti valutati per cessione,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-060,case,Case rack 4U / telaio INV-060,1,M3 / telaio,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-061,case,Case rack 4U / telaio INV-061,1,M1 / telaio,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-062,case,Case rack 4U / telaio INV-062,1,Allocazione individuale n.d.; escluso dai lotti valutati per cessione,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-063,case,Case rack 4U / telaio INV-063,1,Allocazione individuale n.d.; escluso dai lotti valutati per cessione,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-064,case,HP ProLiant DL180 G6 / frontale e 10 tray,1,M4 / riuso del frontale e dei tray; restante chassis non assegnato,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-065,pcie,Intel EXPI9301CTBLK,1,Non assegnato / magazzino,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-066,pcie,Intel EXPI9300PTBLK,1,Non assegnato / magazzino,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-067,pcie,LSI SAS9207-8i,1,Riserva futuro pool SSD M2,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,Non richiesta nella fase P310 NVMe.
+INV-068,pcie,HP NC380T,1,Non assegnato / magazzino,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-069,pcie,Fenvi FV-AC1200,1,Non assegnato / magazzino,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-070,pcie,Fenvi FV-AXE3000,1,Non assegnato / magazzino,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-071,pcie,ASUS Hyper M.2 X4,1,Magazzino,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,CSV 2026-10-01 + configurazione3.1.1,
+INV-072,cpu,Intel Core i5-4570T,1,Magazzino libero / riserva o riuso,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Aggiornamenti successivi al CSV 2026-10-01,
+INV-073,mobo,ASUS P9D-MH/SAS/10G-DUAL,1,M4,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Aggiornamenti successivi al CSV 2026-10-01, Installazione e test non attestati.
+INV-074,mobo,D1581-Q3 / Intel Xeon D-1581,1,M5 / D1581-Q3,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Aggiornamenti successivi al CSV 2026-10-01,
+INV-075,ram,"Lotto Samsung DDR3 RDIMM16 GB PC3, MPN per esemplare da etichetta",7,"Lotto con INV-099: 13 moduli totali, 8 su M3 e 5 liberi; PC3 non PC3L",IDENTITÀ PARZIALE,Aggiornamento utente 2026-10-19; decisioni confermate20 ottobre2026,Foto lotto misto PC3/PC3L/PC4:non attribuire2133MT/s a tutte le DDR3.7DDR3da riconciliare; rank/seriali non inventati.
+INV-076,ram,DDR3 ECC UDIMM 8 GB / codice modulo richiesto,4,M4,IDENTITÀ PARZIALE,Aggiornamenti successivi al CSV 2026-10-01,
+INV-077,gpu,MSI GeForce RTX3060 Ventus2X 12 GB,1,M3 IA,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Aggiornamenti successivi al CSV 2026-10-01; decisioni confermate20 ottobre2026, Pop!_OS attuale; nessun benchmark attestato.
+INV-078,client,HP t520,2,Due client esterni per amici; LibreELEC/Jellyfin/offline USB,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Aggiornamenti successivi al CSV 2026-10-01; decisioni confermate20 ottobre2026,Due esemplari:4 GB PC3L-12800S e Apacer M.2 8 GB ciascuno. Non piu client audio C5/C6. S3/S4 passano ai Wyse. Prova H.265 1080p positiva dichiarata.
+INV-079,client,Dell OptiPlex 7070 Ultra / Intel Core i5-8265U,4,"Quattro 7070: Vito, cucina, camera, salone",CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Aggiornamenti successivi al CSV 2026-10-01; decisioni confermate20 ottobre2026,"C1/C2 client senza agenti; C3/C4 votanti e riserve HA, base 16 GB. Nessun kit32 GB imposto. C3/C4 riserve HA; C2 estensione cluster solo scenario."
+INV-080,nic,Mellanox MNPA19-XTR,2 kit NIC + AOC,Due MNPA19-XTR a M3/M6; due AOC 3 m per la stella 10G LGS352C,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Aggiornamenti successivi al CSV 2026-10-01,"Quattro uplink: M2 49, M3 50, M4 51, M6 52; due DAC 1 m completano il cablaggio."
+INV-081,nic,Mellanox MCX312A-XCBT,1,M2,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Aggiornamenti successivi al CSV 2026-10-01,
+INV-082,nic,GLOTRENDS I226-T4,1,M1,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Aggiornamenti successivi al CSV 2026-10-01,
+INV-083,gpu,NVIDIA Quadro NVS290 / variante bus da identificare,2,Magazzino / console,IDENTITÀ PARZIALE,Aggiornamenti successivi al CSV 2026-10-01,
+INV-084,nvme,Samsung PM991a 256 GB,2,NVMe non assegnati alla base M3; identità dei singoli supporti n.d.,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Aggiornamenti successivi al CSV 2026-10-01,
+INV-085,nvme,Samsung PM991 256 GB,1,NVMe non assegnato alla base M3; identità del supporto n.d.,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Aggiornamenti successivi al CSV 2026-10-01,
+INV-086,nvme,Intenso 3835440 PCIe Premium 250 GB,1,SH3,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Aggiornamenti successivi al CSV 2026-10-01,
+INV-087,hdd,Seagate ST2000DM008 2 TB,4,M4 / media,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Aggiornamenti successivi al CSV 2026-10-01,
+INV-088,ssd,SSD enterprise480/500 GB di riferimento per M2; SKU da scegliere,8,Futuro pool M2; P310 4 TB nella base corrente,EVOLUZIONE / POOL SSD,Aggiornamenti successivi al CSV 2026-10-01; decisioni confermate20 ottobre2026,Otto unità in quattro mirror come evoluzione; SKU e scelta SATA/SAS nella roadmap.
+INV-089,enclosure,ORICO USB 10Gb/s / bridge RTL9210B-CG,1,SH3 / box,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Aggiornamenti successivi al CSV 2026-10-01,
+INV-090,network,NETGEAR GS305E,1,Rete / ruolo di switch nel registro,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Aggiornamenti successivi al CSV 2026-10-01,
+INV-091,mobile,Google Pixel 7,1,MD1,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Aggiornamenti successivi al CSV 2026-10-01,
+INV-092,mobile,Google Pixel 10 Pro,1,MD2,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Aggiornamenti successivi al CSV 2026-10-01,
+INV-093,mobile,Apple iPhone 11,1,MD3,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Aggiornamenti successivi al CSV 2026-10-01,
+INV-094,mobile,Apple iPad / modello richiesto,1,MD4,IDENTITÀ PARZIALE,Aggiornamenti successivi al CSV 2026-10-01,
+INV-095,pc,Apple MacBook M5 personale,1,"MP1 / a casa, utente dedicato al lavoro",CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Aggiornamenti successivi al CSV 2026-10-01,
+INV-096,pc,Apple MacBook Air M1 / 8 GB / 256 GB,1,"Scenario Air M1 archiviato, escluso dalla configurazione di riferimento",ARCHIVIO / ESCLUSO DALL’ASSETTO,Aggiornamenti successivi al CSV 2026-10-01,Ultima conferma utente 2026-10-29; nessuna ricezione attestata.
+INV-097,gpu,Intel Arc A310 / produttore e SKU da indicare,1,M6 / Jellyfin,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Aggiornamento IA e visione utente 2026-10-18; decisioni confermate20 ottobre2026,Acceleratore multimediale M6; variante e produttore n.d.
+INV-098,npu,Hailo-8 / SKU e key da indicare,1,M5 / Frigate e vision-gateway,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Aggiornamento IA e visione utente 2026-10-18,Hailo-8 M-key su M5; percorso detector distinto dalla decodifica video e dall’OCR Paperless.
+INV-099,ram,"Kingston KVR16R11D4/16, 16GB2Rx4 PC3-12800R 1.5V",6,"Lotto con INV-075: 13 moduli totali, 8 su M3 e 5 liberi; PC3 non PC3L",IDENTITÀ PARZIALE,Aggiornamento utente 2026-10-19; decisioni confermate20 ottobre2026,"Sei moduli da foto:DDR3-1600, non1866 dichiarati inizialmente; seriali da arrivi."
+INV-100,ram,DDR3L 16 GB RDIMM:Micron MT36KSF2G72PZ-1G6E1HF e Samsung M393B2G70DB0-YK0 da foto,4,M2 4 x16 GB PC3L,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Aggiornamento utente 2026-10-19; decisioni confermate20 ottobre2026,"Gruppo4moduli, composizione per seriale da associare. PC3L-12800R1600, non tutti Samsung come primo racconto."
+INV-101,ram,"DDR4 PC4 ECC RDIMM 16 GB / produttore, MPN e velocita da indicare",2,M1 32 GB DDR4 ECC RDIMM,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Aggiornamento utente 2026-10-19; decisioni confermate20 ottobre2026,Due DDR4Registered dal lotto iniziale; foto ed etichette da associare. Non contare come DDR3.
+INV-102,mobo,BKHD C612NP-21 VER1.1,1,Escluso dall’assetto di riferimento,ARCHIVIO / ESCLUSO DALL’ASSETTO,Decisioni utente 2026-10-19; decisioni confermate20 ottobre2026,Rettifica 1 novembre: ordine annullato; nessuna consegna o disponibilita.
+INV-103,cpu,Intel Xeon E5-2630L v3,1,Escluso dall’assetto di riferimento,ARCHIVIO / ESCLUSO DALL’ASSETTO,Decisioni utente 2026-10-19; decisioni confermate20 ottobre2026,Rettifica 1 novembre: ordine annullato; nessuna consegna o disponibilita.
+INV-104,mobo,ASUS Z9PR-D12,1,Candidata storica scartata; non riutilizzare il codice,ARCHIVIO / ESCLUSO DALL’ASSETTO,Decisioni utente 2026-10-19; decisioni confermate20 ottobre2026,Z9PA-U8 a sua volta esclusa dalla base 4.4.
+DA-ASSOCIARE-T110-II,server,Dell PowerEdge T110 II / E3-1220 v2 / 8 GB,1,Riserva complementare e unità RDX SATA; M7 resta H61M-K,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Lotto 150 EUR 2026-10-29,"Modello PSU, seriali e stato da riscontro"
+DA-ASSOCIARE-RDX,backup,RDX QuikStor SATA / generazione da associare,1,RDX per copie offline tematiche,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Lotto T110/Wyse,Cartucce dati rimovibili; non è nastro. Generazione lettore n.d.
+DA-ASSOCIARE-WYSE3030,client,Dell Wyse 3030 N03D / 4 GB / 32 GB dichiarati,5,Laboratorio; S3; S4; studio; Hi-Fi salone,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Lotto 150 EUR 2026-10-29,Cinque alimentatori inclusi; 32 GB da riscontrare
+DA-ASSOCIARE-ACER,pc,Acer Aspire 7 A715-42G-R2VB / dotazione dichiarata,1,MP3 fisso laboratorio,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Conferma utente 2026-10-23,"16 GB, 5700U, RTX3050 Ti 4 GB, P3 Plus 1 TB"
+DA-ASSOCIARE-EBL14B,pc,Microtech EBL14B,1,Ingresso: pannello citofono/allarme,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Conferme utente 2026-10-23/30,"Batteria, audio/video e dotazione da riscontro"
+DA-ASSOCIARE-KINDLE,reader,"Kindle 11a generazione USB-C, modello da associare",1,Biblioteca/plancia personale,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Conferma utente 2026-10-23,Un solo dispositivo; vecchio non trovato
+DA-ASSOCIARE-K19S,dock,"Dock regolamentare K19S, variante da associare",1,Postazioni casa,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Conferma utente 2026-10-29,Non dedurre WD19/TB da sola sigla
+INV-105,motherboard,MACHINIST X99 PR9-H + Xeon E5-2630L v3,1,M1,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Conversazione utente 1 novembre 2026,
+INV-106,motherboard,D1581-Q3A / Xeon D-1581,2,M2 e M6,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Conversazione utente 1 novembre 2026,
+INV-107,nic,Mellanox MCX312A-XCBT dual 10GbE,0 aggiuntivi,Alias dell’esemplare INV-081 su M2,ALIAS / NON SOMMARE,Conversazione utente 1 novembre 2026,Il nuovo ordine conferma la MCX312A già censita come INV-081; non è una seconda scheda.
+INV-108,cavo,DAC passivo SFP+ 10G 1 m,2,Dorsale a stella LGS352C,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Conversazione utente 1 novembre 2026,
+INV-109,ram,HP/Hynix PC3L-10600R ECC RDIMM 16 GB,6,M5: 2 moduli; M6: 4 moduli,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Conversazione utente 1 novembre 2026,
+INV-110,switch,Linksys LGS352C-EU,1,Switch fidato / 48x1G +4x10G,CENSITO / ASSEGNAZIONE DI RIFERIMENTO,Conversazione utente 1 novembre 2026,

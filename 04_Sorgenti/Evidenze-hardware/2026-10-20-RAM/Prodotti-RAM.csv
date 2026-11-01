@@ -1,0 +1,8 @@
+code;manufacturer;model;qty;capacity_gb;technology;rank;speed_mt_s;voltage;node;confidence
+INV-076;SK hynix / etichette HPE;HMT41GU7BFR8C-PB (lettura foto, da riscontro all’arrivo);4;8;DDR3 ECC UDIMM;2Rx8;1600;1.5 V nominale, da riscontro datasheet/SPD;M4;"Capacità/tipo/velocità leggibili; P/N da riscontrare su ogni esemplare"
+INV-075;Samsung / etichette Cisco;M393B2G70DB0-CMA (lettura rappresentativa del lotto);7;16;DDR3 ECC RDIMM;2Rx4;1866;1.5 V;"M3/M6; associazione esemplari da fissare";"Famiglia leggibile su più etichette; verificare suffissi/seriali singoli all’arrivo"
+INV-101;Samsung / etichette Cisco;M393A2G40DB0-CPB (lettura foto a risoluzione limitata);2;16;DDR4 ECC RDIMM;2Rx4;2133;1.2 V nominale, da riscontro all’arrivo;M5;"DDR4/2133 e distinzione dal lotto DDR3; P/N da verificare su foto ravvicinata"
+INV-099;Kingston;KVR16R11D4/16… (suffisso finale da confermare);6;16;DDR3 ECC RDIMM;2Rx4;1600;1.5 V;"M3/M6; associazione esemplari da fissare";"Etichetta PC3-12800R e 1.5V leggibili; non inventare suffisso I/HB"
+INV-100;Samsung;M393B2G70QH0-YK0 (famiglia letta, da confronto fra i due esemplari);2;16;DDR3L ECC RDIMM;2Rx4;1600;1.35 V / 1.5 V da datasheet famiglia;M2;"Due moduli Samsung DDR3L nel conteggio; verificare corrispondenza P/N e suffissi fra foto"
+INV-105;Micron;MT36KSF2G72PZ-1G6E1FF;1;16;DDR3L ECC RDIMM;2Rx4;1600;1.35 V nominale;M2;Etichetta leggibile, modulo superiore
+INV-106;Micron;MT36KSF2G72PZ-1G6E1HF;1;16;DDR3L ECC RDIMM;2Rx4;1600;1.35 V nominale;M2;Etichetta leggibile, modulo inferiore

@@ -1,0 +1,1227 @@
+{
+ "versione": 1,
+ "aggiornato": "2026-10-21",
+ "regola": "Una foto reale (cartella reali/) sostituisce sempre quella di repertorio nella pagina; la repertorio resta archiviata.",
+ "articoli": {
+  "INV-001": {
+   "repertorio": {
+    "file": "repertorio/INV-001.jpg",
+    "immagine": "http://esaitech.com/cdn/shop/files/img53057.jpg?v=1771822404",
+    "pagina": "https://esaitech.com/products/western-digital-caviar-green-wd10eavs-1tb-5400rpm-8mb-sata-300-3-5-hard-drive",
+    "sha256": "f062e43688697ff8ce590be9b3052dcd4b6948045508237bcde9e6fa1e186e74",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-002": {
+   "repertorio": {
+    "file": "repertorio/INV-002.jpg",
+    "immagine": "http://serverdiskdrives.com/cdn/shop/files/WD10EZRX_d8dc96d0-c7b2-45e7-b2b3-50f8dbdbfdd6.jpg?v=1762885023",
+    "pagina": "https://serverdiskdrives.com/products/wd10ezrx-western-digital-1tb-5400rpm-6gbps-3-5-sata-hard-drive",
+    "sha256": "8333ca9ffb3fb2d9595240efd4acfb72c4f4793fcfbecfa90a2a008244f8765d",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-003": {
+   "repertorio": {
+    "file": "repertorio/INV-003.jpg",
+    "immagine": "http://esaitech.com/cdn/shop/files/samsung_mz-75e250b_am_850_evo_250gb_sata_6.0_gbps_2.5-inch_solid_state_drive.jpg?v=1771910933",
+    "pagina": "https://esaitech.com/products/samsung-mz-75e250b-am-850-evo-250gb-sata-6-0-gbps-2-5-ssd",
+    "sha256": "0a9d7199479bdd03699909a68a217015b9a3e34a44197e366b44d9ea47027689",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-004": {
+   "repertorio": {
+    "file": "repertorio/INV-004.jpg",
+    "immagine": "https://cdn.inet.se/product/688x386/5316148_0.jpg",
+    "pagina": "https://www.scan.co.uk/products/120gb-kingston-ssdnow-v300-25-slim-7mm-ssd-sata-6gb-s-mlc-flash-read-450mb-s-write-450mb-s-85000-iop",
+    "sha256": "3106e62413a0bf8a23cdef44f8517185cf6645d6cb820a8c5855c6c1cf29595e",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-005": {
+   "repertorio": {
+    "file": "repertorio/INV-005.jpg",
+    "immagine": "https://bizweb.dktcdn.net/thumb/grande/100/329/122/products/ssd-crucial-p310-4tb-m-2-pcie-gen4-x4-nvme-ct4000p310ssd8-01.jpg?v=1769415572677",
+    "pagina": "https://www.scan.co.uk/products/4tb-crucial-p310-m2-2280-pcie-40-x4-nvme-ssd-7100mb-s-read-6000mb-s-write-1000k-1000k-iops",
+    "sha256": "2a9e3125a5c5971947a6e56aa1fadddbc86571de45c09d40faea75c6948d1414",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-006": {
+   "repertorio": {
+    "file": "repertorio/INV-006.jpg",
+    "immagine": "https://www.notebookcheck.net/fileadmin/Notebooks/Western_Digital/wdc_sn530.jpg",
+    "pagina": "https://compridis.be/en/products/western-digital-wd-pc-sn530-m-2-80-mm-512-gb-ssd-sdbpnpz-512g-1006a",
+    "sha256": "f4d95e39c9c0cdd9f789a488e8ffad2990f3fe402bed4e109ebc6efba79cc896",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-007": {
+   "repertorio": {
+    "file": "repertorio/INV-007.jpg",
+    "immagine": "http://esaitech.com/cdn/shop/files/Kingston_TechnologySVP200S37A-120G_SSDNow_V_200_120Gb_Serial_ATA-III_6.0Gbps_2.5-Inch_Internal_Soild_State_Drive__SSD.jpg?v=1772000460",
+    "pagina": "https://esaitech.com/products/kingston-technology-svp200s37a-120g-ssdnow-v200-120gb-serial-ata-iii-6-0gbps-2-5-inch-internal-soild-state-drive-ssd",
+    "sha256": "9e1bee34f39e7cde5d47317176335af2230ee4941836768ef9e594cf8b9e3f15",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-008": {
+   "repertorio": {
+    "file": "repertorio/INV-008.jpg",
+    "immagine": "http://esaitech.com/cdn/shop/files/samsung_mz-75e250b_am_850_evo_250gb_sata_6.0_gbps_2.5-inch_solid_state_drive.jpg?v=1771910933",
+    "pagina": "https://esaitech.com/products/samsung-mz-75e250b-am-850-evo-250gb-sata-6-0-gbps-2-5-ssd",
+    "sha256": "0a9d7199479bdd03699909a68a217015b9a3e34a44197e366b44d9ea47027689",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-009": {
+   "repertorio": {
+    "file": "repertorio/INV-009.jpg",
+    "immagine": "http://sabrent.com/cdn/shop/products/SB-ROCKET-512GB-Main.jpg?v=1635798600",
+    "pagina": "https://sabrent.com/products/sb-rocket-512",
+    "sha256": "11982a8fb377d44976d701002caebe107bb1985244a1448ba3e96ba47d111330",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-010": {
+   "repertorio": {
+    "file": "repertorio/INV-010.jpg",
+    "immagine": "https://cdn.shopify.com/s/files/1/0597/9131/1011/files/western_digital_internal_serial_ata-3gbps_caviar_blue_wd3200aajs.jpg?v=1771991201",
+    "pagina": "https://www.disctech.com/Western-Digital-Caviar-Blue-WD3200AAJS-SATA-Hard-Disk-Drive",
+    "sha256": "5ab328da7cd155b17cf18149f16f6fd9fe7cc4bf4c7dad9fab20cb4e89e267ff",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-011": {
+   "repertorio": {
+    "file": "repertorio/INV-011.jpg",
+    "immagine": "https://cdn.shopify.com/s/files/1/0597/9131/1011/files/img98117.jpg?v=1771867630",
+    "pagina": "https://www.disctech.com/Western-Digital-RE2-WD1601ABYS-Enterprise-SATA-Hard-Drive",
+    "sha256": "c0fd2cc90310f520a2c16d279b990c36d881436400a47c21aa376a4823eac57d",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-012": {
+   "repertorio": {
+    "file": "repertorio/INV-012.jpg",
+    "immagine": "http://esaitech.com/cdn/shop/files/WD1600AAJS.jpg?v=1771817544",
+    "pagina": "https://esaitech.com/products/western-digital-caviar-blue-wd1600aajs-160gb-7200rpm-sata-3-5-hard-drive",
+    "sha256": "a56c44b907c1b416ba79d03decb08ebcb3cee55edd56f11d70eb7cc5e2c05fe3",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-013": {
+   "repertorio": {
+    "file": "repertorio/INV-013.jpg",
+    "immagine": "https://c1.neweggimages.com/ProductImage/22-152-291-02.jpg",
+    "pagina": "https://www.buildcores.com/products/Storage/i08qjn81v/Samsung-Spinpoint-M8-1TB-HDD-2.5%22-5400RPM-SATA",
+    "sha256": "ea967f422f30c4654fbf9badd15d2c30de07dbcac72cce894602324d0cfc2d71",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-014": {
+   "repertorio": {
+    "file": "repertorio/INV-014.jpg",
+    "immagine": "http://esaitech.com/cdn/shop/files/HGST_HTS725050A7E630_Travelstar_Z7K500_500Gb_7200RPM_Serial_ATA-6.0Gbps_32Mb_Cache_2.5-Inch_Internal_Hard_Drive.jpg?v=1772028865",
+    "pagina": "https://esaitech.com/products/2-5-500gb-7200rpm-sata-7mm-hts725050a7e630",
+    "sha256": "acc74f1c5249c94110407ad103a21e5164a84beecaef5c2055829f800645e4c4",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-015": {
+   "repertorio": {
+    "file": "repertorio/INV-015.jpg",
+    "immagine": "https://c1.neweggimages.com/ProductImage/22-145-953-02.jpg",
+    "pagina": "https://esaitech.com/products/2-5in-7-0mm-500gb-5400rpm-sata-ea-rv-0j39685",
+    "sha256": "45dc606f723ef5858a1f4646a76df69b4989959c06667a02c61b06412ff216af",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-016": {
+   "repertorio": {
+    "file": "repertorio/INV-016.jpg",
+    "immagine": "https://c1.neweggimages.com/ProductImage/22-145-953-02.jpg",
+    "pagina": "https://esaitech.com/products/2-5in-7-0mm-500gb-5400rpm-sata-ea-rv-0j39685",
+    "sha256": "45dc606f723ef5858a1f4646a76df69b4989959c06667a02c61b06412ff216af",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata",
+    "copia_di": "INV-015",
+    "nota": "Stessa famiglia Travelstar Z5K500 di INV-015."
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-018": {
+   "repertorio": {
+    "file": "repertorio/INV-018.jpg",
+    "immagine": "https://media.arvutitark.ee/MzcpNCXn_-LHBJR44Dwy0jYJc1Q=/trim/fit-in/800x800/https%3A%2F%2Fcms.arvutitark.ee%2Fstorage%2Fmedia-hub-olev%2F2023%2F01%2F319834%2F0-86720200-1673889999.jpg",
+    "pagina": "https://store.ccnytech.com/products/corsair-64gb-flash-voyager-slider-x1-1178441",
+    "sha256": "af99233842b1562e0013edc96cd7205d0263fb7cbea619ba5f45b21b997182ca",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-019": {
+   "repertorio": {
+    "file": "repertorio/INV-019.jpg",
+    "immagine": "https://c1.neweggimages.com/ProductImage/20-191-436-03.jpg",
+    "pagina": "https://www.newegg.com/lexar-model-ljds73-64gasbna-64gb/p/N82E16820191436",
+    "sha256": "007cf023c1bb8b9ca2a98b72579da816d36d51c61aa575002b9ec8ef89a68d8e",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata",
+    "nota": "JumpDrive S73 da 64 GB (verde); il 16 GB e viola."
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-020": {
+   "repertorio": {
+    "file": "repertorio/INV-020.jpg",
+    "immagine": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Chiavetta_USB_Verbatim.jpg/960px-Chiavetta_USB_Verbatim.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Chiavetta_USB_Verbatim.jpg",
+    "sha256": "f3490b7ea9b7a2b18421a024f3d79ef6246c44cfbaf9f8c0833d70d7f70db7c9",
+    "data": "2026-10-21",
+    "licenza": "CC BY 4.0",
+    "autore": "SerpenteViola",
+    "fonte": "Wikimedia Commons",
+    "nota": "Immagine indicativa di una chiavetta Verbatim."
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-021": {
+   "repertorio": {
+    "file": "repertorio/INV-021.jpg",
+    "immagine": "https://cdn.shopify.com/s/files/1/0597/9131/1011/files/DT100G3_32GB.jpg?v=1772105833",
+    "pagina": "https://esaitech.com/products/kingston-data-traveler-dt100g3-32gb-32gb-usb-flash-drive",
+    "sha256": "9ce4bbd13a929b2603b165f91c62e2854232d17a33b0364e981d79bd52bed7f5",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-022": {
+   "repertorio": null,
+   "lotto": [],
+   "reali": [],
+   "mancante": "Nessuna foto di repertorio affidabile trovata; aggiungere la foto reale."
+  },
+  "INV-023": {
+   "repertorio": {
+    "file": "repertorio/INV-023.jpg",
+    "immagine": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/MicroSD_card_2GB_focus-stacked.jpg/960px-MicroSD_card_2GB_focus-stacked.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "pagina": "https://commons.wikimedia.org/wiki/File:MicroSD_card_2GB_focus-stacked.jpg",
+    "sha256": "e619bf4fa8254505b234ebda50b64e896300853ad410bbecbe9b607f2a9a5f82",
+    "data": "2026-10-21",
+    "licenza": "CC BY-SA 3.0",
+    "autore": "Afrank99",
+    "fonte": "Wikimedia Commons",
+    "nota": "Immagine indicativa di una microSD."
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-024": {
+   "repertorio": {
+    "file": "repertorio/INV-024.jpg",
+    "immagine": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/MicroSD_card_2GB_focus-stacked.jpg/960px-MicroSD_card_2GB_focus-stacked.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "pagina": "https://commons.wikimedia.org/wiki/File:MicroSD_card_2GB_focus-stacked.jpg",
+    "sha256": "e619bf4fa8254505b234ebda50b64e896300853ad410bbecbe9b607f2a9a5f82",
+    "data": "2026-10-21",
+    "licenza": "CC BY-SA 3.0",
+    "autore": "Afrank99",
+    "fonte": "Wikimedia Commons",
+    "copia_di": "INV-023",
+    "nota": "Immagine indicativa di una microSD."
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-025": {
+   "repertorio": {
+    "file": "repertorio/INV-025.jpg",
+    "immagine": "https://americas.lexar.com/wp-content/uploads/2023/11/800x_PRO_SD_256GB_Photo1.png",
+    "pagina": "https://www.camerahouse.com.au/lexar-professional-800x-sdhc-32gb-120mb-s-v10-uhs-i-memory-card",
+    "sha256": "5cfe5e76dc71b0ad607375764f61e66d37b498ef97d6329acc70d2500fbea334",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-026": {
+   "repertorio": {
+    "file": "repertorio/INV-026.jpg",
+    "immagine": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/SanDisk_128MB_SD_card.jpg/960px-SanDisk_128MB_SD_card.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "pagina": "https://commons.wikimedia.org/wiki/File:SanDisk_128MB_SD_card.jpg",
+    "sha256": "b248ac4f7f1d355ab2804960ef450aa7c9251b573ad497132cae8b7019cfec6c",
+    "data": "2026-10-21",
+    "licenza": "CC BY-SA 4.0",
+    "autore": "Mister rf",
+    "fonte": "Wikimedia Commons",
+    "nota": "Immagine indicativa di una scheda SD."
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-027": {
+   "repertorio": {
+    "file": "repertorio/INV-027.jpg",
+    "immagine": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/SanDisk_128MB_SD_card.jpg/960px-SanDisk_128MB_SD_card.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "pagina": "https://commons.wikimedia.org/wiki/File:SanDisk_128MB_SD_card.jpg",
+    "sha256": "b248ac4f7f1d355ab2804960ef450aa7c9251b573ad497132cae8b7019cfec6c",
+    "data": "2026-10-21",
+    "licenza": "CC BY-SA 4.0",
+    "autore": "Mister rf",
+    "fonte": "Wikimedia Commons",
+    "copia_di": "INV-026",
+    "nota": "Immagine indicativa di una scheda SD."
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-028": {
+   "repertorio": {
+    "file": "repertorio/INV-028.jpg",
+    "immagine": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/SanDisk_128MB_SD_card.jpg/960px-SanDisk_128MB_SD_card.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "pagina": "https://commons.wikimedia.org/wiki/File:SanDisk_128MB_SD_card.jpg",
+    "sha256": "b248ac4f7f1d355ab2804960ef450aa7c9251b573ad497132cae8b7019cfec6c",
+    "data": "2026-10-21",
+    "licenza": "CC BY-SA 4.0",
+    "autore": "Mister rf",
+    "fonte": "Wikimedia Commons",
+    "copia_di": "INV-026",
+    "nota": "Immagine indicativa di una scheda SD."
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-029": {
+   "repertorio": null,
+   "lotto": [],
+   "reali": [],
+   "mancante": "Nessuna foto di repertorio affidabile trovata; aggiungere la foto reale."
+  },
+  "INV-030": {
+   "repertorio": {
+    "file": "../2026-10-20-Schede-madri/m3-x99-t8.jpg",
+    "fonte": "Foto fornita dall'utente (vedi LEGGIMI delle schede madri)",
+    "sha256": "5ab7291f1c761f42192f323a911d6a9609bbc91a64e64df92a9e50f95d1b9592",
+    "data": "2026-10-20"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-031": {
+   "repertorio": {
+    "file": "repertorio/INV-031.jpg",
+    "immagine": "https://c1.neweggimages.com/ProductImage/13-157-287-02.jpg",
+    "pagina": "https://www.asrock.com/MB/Intel/X79%20Extreme3/index.asp",
+    "sha256": "297be71da2535b9c27a7b44267e4b8ee1fc81f7bc9598161cceeb1924c7e86e4",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-032": {
+   "repertorio": {
+    "file": "../2026-10-20-Schede-madri/m1-h97m-eco.jpg",
+    "fonte": "Foto fornita dall'utente (vedi LEGGIMI delle schede madri)",
+    "sha256": "8e7b2e59d5cf5ae91a3cf48047235a528b62e0838b574415f171d0ba4e30a6a4",
+    "data": "2026-10-20"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-033": {
+   "repertorio": null,
+   "lotto": [],
+   "reali": [],
+   "mancante": "Nessuna foto di repertorio affidabile trovata; aggiungere la foto reale."
+  },
+  "INV-034": {
+   "repertorio": {
+    "file": "../2026-10-20-Schede-madri/s1-q1900m.jpg",
+    "fonte": "Foto fornita dall'utente (vedi LEGGIMI delle schede madri)",
+    "sha256": "0eff81f14b2b9f357da26cc2529243b1268a33a7d9ef50c93b722f0f6c369ada",
+    "data": "2026-10-20"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-035": {
+   "repertorio": {
+    "file": "repertorio/INV-035.jpg",
+    "immagine": "https://c1.neweggimages.com/ProductImage/20-231-969-01.jpg",
+    "pagina": "https://www.gskill.com/product/165/184/1536118287/F4-2666C15Q-32GVR",
+    "sha256": "2f99a1877403c2f5925632d3e00ee429879b2b759e2dc0552ffc626e1b079bb6",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata",
+    "nota": "Stessa linea Ripjaws V DDR4-2666 (kit 2x16 GB in foto)."
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-036": {
+   "repertorio": {
+    "file": "repertorio/INV-036.jpg",
+    "immagine": "https://cdn.shopify.com/s/files/1/0597/9131/1011/files/specifications.jpg?v=1771994366",
+    "pagina": "https://esaitech.com/products/kingston-valueram-kvr16r11d4-16-ddr3-1600-16gb-2gx72-ecc-reg-cl11-server-memory",
+    "sha256": "e0e200b642e3da2d32e2d930aac57dfdf548cbf5fc4e4b71540566e95efa909f",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata",
+    "copia_di": "INV-099",
+    "nota": "Immagine indicativa di un modulo DDR3 RDIMM."
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-037": {
+   "repertorio": {
+    "file": "repertorio/INV-037.jpg",
+    "immagine": "https://cdn.shopify.com/s/files/1/0597/9131/1011/files/specifications.jpg?v=1771994366",
+    "pagina": "https://esaitech.com/products/kingston-valueram-kvr16r11d4-16-ddr3-1600-16gb-2gx72-ecc-reg-cl11-server-memory",
+    "sha256": "e0e200b642e3da2d32e2d930aac57dfdf548cbf5fc4e4b71540566e95efa909f",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata",
+    "copia_di": "INV-099",
+    "nota": "Immagine indicativa di un modulo DDR3 RDIMM."
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-038": {
+   "repertorio": null,
+   "lotto": [],
+   "reali": [],
+   "mancante": "Nessuna foto di repertorio affidabile trovata; aggiungere la foto reale."
+  },
+  "INV-039": {
+   "repertorio": null,
+   "lotto": [],
+   "reali": [],
+   "mancante": "Nessuna foto di repertorio affidabile trovata; aggiungere la foto reale."
+  },
+  "INV-040": {
+   "repertorio": {
+    "file": "repertorio/INV-040.jpg",
+    "immagine": "https://cdn.shopify.com/s/files/1/0597/9131/1011/files/Hynix_HMT351U6CFR8C-PB_4GB_PC3-12800_DDR3-1600MHz_non-ECC_Unbuffered_CL11_240-Pin_Dual_Rank_HYNIX_Memory_Module.jpg?v=1772027916",
+    "pagina": "https://esaitech.com/products/hynix-hmt351u6cfr8c-pb-4gb-pc3-12800-ddr3-1600mhz-non-ecc-unbuffered-cl11-240-pin-dual-rank-hynix-memory-module",
+    "sha256": "147ab67e1a6afe9dd18a3c1ce727d3f072031f13b995f60d06f93781163353cd",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata",
+    "copia_di": "INV-041",
+    "nota": "Immagine indicativa di un modulo DDR3 DIMM."
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-041": {
+   "repertorio": {
+    "file": "repertorio/INV-041.jpg",
+    "immagine": "https://cdn.shopify.com/s/files/1/0597/9131/1011/files/Hynix_HMT351U6CFR8C-PB_4GB_PC3-12800_DDR3-1600MHz_non-ECC_Unbuffered_CL11_240-Pin_Dual_Rank_HYNIX_Memory_Module.jpg?v=1772027916",
+    "pagina": "https://esaitech.com/products/hynix-hmt351u6cfr8c-pb-4gb-pc3-12800-ddr3-1600mhz-non-ecc-unbuffered-cl11-240-pin-dual-rank-hynix-memory-module",
+    "sha256": "147ab67e1a6afe9dd18a3c1ce727d3f072031f13b995f60d06f93781163353cd",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata",
+    "nota": "Variante HMT351U6CFR8C-PB (1600); la tua e -H9."
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-042": {
+   "repertorio": null,
+   "lotto": [],
+   "reali": [],
+   "mancante": "Nessuna foto di repertorio affidabile trovata; aggiungere la foto reale."
+  },
+  "INV-043": {
+   "repertorio": {
+    "file": "repertorio/INV-043.jpg",
+    "immagine": "https://cdn.shopify.com/s/files/1/0597/9131/1011/files/intelcorei7_61599f7e-6089-400a-90ef-c8063f5c5a7c.jpg?v=1772360549",
+    "pagina": "https://esaitech.com/products/intel-core-i7-i7-5900-i7-5930k-hexa-core-6-core-3-5-ghz-processor",
+    "sha256": "8b399ead50a9acd44ac3b3307dbfff50d04eb286973044af8578d79b86deb793",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-044": {
+   "repertorio": {
+    "file": "repertorio/INV-044.jpg",
+    "immagine": "https://cdn.shopify.com/s/files/1/0597/9131/1011/files/19_e14851f5-88e4-4322-8890-2018d953ff36.jpg?v=1771994142",
+    "pagina": "https://esaitech.com/products/intel-semiconductor-bx80619i73820-sandybridge-i7-3820-3-60g",
+    "sha256": "0023a0494d5cb64eb0b8852027c372778b5a9db0e16412828f454b2bf4757df7",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-045": {
+   "repertorio": {
+    "file": "repertorio/INV-045.jpg",
+    "immagine": "https://cdn.shopify.com/s/files/1/0597/9131/1011/files/intel_e5-2600_b931f71c-9621-4039-bbbd-42572e043bce.jpg?v=1772363180",
+    "pagina": "https://esaitech.com/products/intel-xeon-e5-2600-e5-2630l-hexa-core-6-core-2-ghz-processor",
+    "sha256": "fabb2be45bb28f5c47ec47382d121741568d3bea6d6669bf33832ee9ba1f8c92",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata",
+    "nota": "Immagine indicativa Xeon E5-2600 (LGA2011)."
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-046": {
+   "repertorio": {
+    "file": "repertorio/INV-046.jpg",
+    "immagine": "https://cdn.shopify.com/s/files/1/0597/9131/1011/files/IntelXeon_c7bba27f-3039-4027-a078-5be0640f7ec9.jpg?v=1772363017",
+    "pagina": "https://esaitech.com/products/intel-xeon-e3-1200-e3-1220lv2-dual-core-2-core-2-3-ghz-processor",
+    "sha256": "0e9508184ea172fb410b76f12197327c064c225a20684f21e70b53a4331f716d",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-047": {
+   "repertorio": {
+    "file": "repertorio/INV-047.jpg",
+    "immagine": "https://cdn.shopify.com/s/files/1/0597/9131/1011/files/26_a46070ba-5fe8-46ad-a61e-c7a6963764f6.jpg?v=1771956790",
+    "pagina": "https://esaitech.com/products/intel-cm8064601467406-xeon-e3-1265l-v3-4-core-2-50ghz-8mb-45watt-processor",
+    "sha256": "2c66f7bbb13ff9ec4ebdef556e59e6c325ba5f7bde62c8f5b3f94253b21acc18",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-048": {
+   "repertorio": {
+    "file": "repertorio/INV-048.jpg",
+    "immagine": "https://cdn.shopify.com/s/files/1/0597/9131/1011/files/IntelXeonE5v3_d576b41b-ec94-4c43-ae7f-6e5c6005d5bf.jpg?v=1772363238",
+    "pagina": "https://esaitech.com/products/e5-2678-v3-2-50ghz-30m-12-core-spcl-sourcing-see-notes",
+    "sha256": "17b8979a95a9a1fcb8e411659f159ccde7c497869f24ac076aa6a48b02ffdf66",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-049": {
+   "repertorio": {
+    "file": "../2026-10-20-Schede-madri/s1-q1900m.jpg",
+    "fonte": "Foto fornita dall'utente (vedi LEGGIMI delle schede madri)",
+    "sha256": "0eff81f14b2b9f357da26cc2529243b1268a33a7d9ef50c93b722f0f6c369ada",
+    "data": "2026-10-20"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-050": {
+   "repertorio": {
+    "file": "repertorio/INV-050.jpg",
+    "immagine": "https://c1.neweggimages.com/ProductImage/A68VS2305100XB4ALC9.jpg",
+    "pagina": "https://www.newegg.com/p/1HU-004H-00042",
+    "sha256": "eabdb831ce45ac495c3c2300247344dc1e40e3270c26d2beaf4729282cffcc4d",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata",
+    "nota": "Immagine della linea Dark Power; versione esatta da riscontro."
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-051": {
+   "repertorio": {
+    "file": "repertorio/INV-051.jpg",
+    "immagine": "https://www.techpowerup.com/img/12-01-05/cooler_master_gx_lite_psu_01.jpg",
+    "pagina": "https://www.newegg.com/p/N82E16817171032",
+    "sha256": "69182a658131c7d5706ac59cb4025eb011ac7c4bb7bf059275278425d872f64b",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-052": {
+   "repertorio": {
+    "file": "repertorio/INV-052.jpg",
+    "immagine": "https://media.arvutitark.ee/t7KNcpSAKNyoK-aj0TPgQi3HkSE=/trim/fit-in/800x800/https%3A%2F%2Fcms.arvutitark.ee%2Fstorage%2Fmedia-hub-olev%2F2024%2F09%2F660707%2F0-81936500-1726825330.jpg",
+    "pagina": "https://www.newegg.com/p/2S7-0877-00DB8",
+    "sha256": "dee6f525d257b19810e9954bc992f75c0568bec399517552efd3010624a91242",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-053": {
+   "repertorio": {
+    "file": "repertorio/INV-053.jpg",
+    "immagine": "https://c1.neweggimages.com/ProductImage/17-139-027-02.jpg",
+    "pagina": "https://www.newegg.com/corsair-cx-series-cx500-cp-9020047-na-500w/p/N82E16817139027",
+    "sha256": "79b7820bfd7332bc063daa2aad0ee81382792b3d7aea2326e07a25108d52d63b",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-054": {
+   "repertorio": {
+    "file": "repertorio/INV-054.jpg",
+    "immagine": "https://cdn.multitronic.fi/images/prod/small2/A/6/9PA350AN05-5.jpg",
+    "pagina": "https://www.multitronic.fi/en/products/1288855",
+    "sha256": "b78614032e8d78000e309c9351391b352b9107b3c66cf32e3341735edddccbfb",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata",
+    "nota": "Immagine indicativa di un alimentatore FSP ATX 350 W."
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-055": {
+   "repertorio": {
+    "file": "repertorio/INV-055.jpg",
+    "immagine": "https://c1.neweggimages.com/ProductImage/14-500-436-V10.jpg",
+    "pagina": "https://www.zotac.com/us/product/graphics_card/zotac-gaming-geforce-rtx-2080-blower",
+    "sha256": "08511208e1ff51824657e2375ab9607003354495d12ea085cbf8ab0b389d35cb",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-057": {
+   "repertorio": {
+    "file": "repertorio/INV-057.jpg",
+    "immagine": "https://c1.neweggimages.com/ProductImage/14-125-684-01.jpg",
+    "pagina": "https://www.gigabyte.com/Graphics-Card/GV-N970G1-GAMING-4GD-rev-10-11",
+    "sha256": "dd87eef544753f24a730da0aabb912d953335de2f3ed542bd57b9d33e6541592",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-058": {
+   "repertorio": {
+    "file": "repertorio/INV-058.jpg",
+    "immagine": "https://c1.neweggimages.com/ProductImage/14-102-942-07.jpg",
+    "pagina": "https://www.newegg.com/sapphire-radeon-hd-6570-100324l/p/N82E16814102942",
+    "sha256": "290df0032dde58af70ff0d87de5eb992d93717bcae1d2075f08387997eeca88a",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata",
+    "nota": "Variante 2 GB della stessa scheda."
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-059": {
+   "repertorio": {
+    "file": "repertorio/INV-059.jpg",
+    "immagine": "https://c1.neweggimages.com/ProductImageCompressAll300/11-147-327-12.jpg",
+    "pagina": "https://www.rosewill.com/rosewill-rsv-l4000u-black/p/9SIA072GJ92809",
+    "sha256": "7e14a598ebc754bec36ff6fe2d1651744ecc578c5f8989b4b76885dd1aef10e5",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata",
+    "nota": "Immagine indicativa di un case rack 4U (Rosewill RSV-L4000)."
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-060": {
+   "repertorio": {
+    "file": "repertorio/INV-060.jpg",
+    "immagine": "https://c1.neweggimages.com/ProductImageCompressAll300/11-147-327-12.jpg",
+    "pagina": "https://www.rosewill.com/rosewill-rsv-l4000u-black/p/9SIA072GJ92809",
+    "sha256": "7e14a598ebc754bec36ff6fe2d1651744ecc578c5f8989b4b76885dd1aef10e5",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata",
+    "copia_di": "INV-059",
+    "nota": "Immagine indicativa di un case rack 4U (Rosewill RSV-L4000)."
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-061": {
+   "repertorio": {
+    "file": "repertorio/INV-061.jpg",
+    "immagine": "https://c1.neweggimages.com/ProductImageCompressAll300/11-147-327-12.jpg",
+    "pagina": "https://www.rosewill.com/rosewill-rsv-l4000u-black/p/9SIA072GJ92809",
+    "sha256": "7e14a598ebc754bec36ff6fe2d1651744ecc578c5f8989b4b76885dd1aef10e5",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata",
+    "copia_di": "INV-059",
+    "nota": "Immagine indicativa di un case rack 4U (Rosewill RSV-L4000)."
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-062": {
+   "repertorio": {
+    "file": "repertorio/INV-062.jpg",
+    "immagine": "https://c1.neweggimages.com/ProductImageCompressAll300/11-147-327-12.jpg",
+    "pagina": "https://www.rosewill.com/rosewill-rsv-l4000u-black/p/9SIA072GJ92809",
+    "sha256": "7e14a598ebc754bec36ff6fe2d1651744ecc578c5f8989b4b76885dd1aef10e5",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata",
+    "copia_di": "INV-059",
+    "nota": "Immagine indicativa di un case rack 4U (Rosewill RSV-L4000)."
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-063": {
+   "repertorio": {
+    "file": "repertorio/INV-063.jpg",
+    "immagine": "https://c1.neweggimages.com/ProductImageCompressAll300/11-147-327-12.jpg",
+    "pagina": "https://www.rosewill.com/rosewill-rsv-l4000u-black/p/9SIA072GJ92809",
+    "sha256": "7e14a598ebc754bec36ff6fe2d1651744ecc578c5f8989b4b76885dd1aef10e5",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata",
+    "copia_di": "INV-059",
+    "nota": "Immagine indicativa di un case rack 4U (Rosewill RSV-L4000)."
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-064": {
+   "repertorio": {
+    "file": "repertorio/INV-064.jpg",
+    "immagine": "https://www.servethehome.com/wp-content/uploads/2013/05/HP-DL180-G6-Internal-View.jpg",
+    "pagina": "https://www.servethehome.com/hp-proliant-dl180-g6-dual-intel-xeon-2u-storage-server-review/",
+    "sha256": "12ac5659aa26d14300cfc842ca9e03477c981e8bfb5df3c127177c4268e71717",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata",
+    "nota": "Vista interna di un DL180 G6 (ServeTheHome)."
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-065": {
+   "repertorio": {
+    "file": "repertorio/INV-065.jpg",
+    "immagine": "https://c1.neweggimages.com/ProductImage/33-106-081-02.jpg",
+    "pagina": "https://www.newegg.com/intel-expi9301ctblk-1pk/p/N82E16833106081",
+    "sha256": "7598945273db88e4d04a946b07db5931153a77474c072bf1da8917a726f61271",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-066": {
+   "repertorio": {
+    "file": "repertorio/INV-066.jpg",
+    "immagine": "https://cdn.shopify.com/s/files/1/0597/9131/1011/files/11344716.jpg?v=1771896297",
+    "pagina": "https://esaitech.com/products/intel-expi9300ptblk-pro-1000-pt-desktop-adapter-10-gigabit-pci-x-bulk",
+    "sha256": "034f44a949643b7eb6262aaa836a112b2bf017a4370de5c94edf401a1e931be4",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-067": {
+   "repertorio": {
+    "file": "repertorio/INV-067.jpg",
+    "immagine": "https://www.serversupply.com//images/item/287587.jpg",
+    "pagina": "https://www.newegg.com/p/0ZK-0FTD-00NV1",
+    "sha256": "ab7dd5de7ed10a52d80915bfe85df31297288e7e7cc8b8bc65481bc30e84cb77",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-068": {
+   "repertorio": {
+    "file": "repertorio/INV-068.jpg",
+    "immagine": "https://cdn11.bigcommerce.com/s-017c0/products/1645/images/8902/374443_001_1__34404.1577736677.600.500.jpg?c=2",
+    "pagina": "https://store.flagshiptech.com/hp-394795-b21-374443-001-nc380t-pcie-dual-port-gigabit-ethernet-adapter",
+    "sha256": "8067e039b1f18e0c75bfe318185e28d58edfadb77994d123b9f741a794bee44d",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-069": {
+   "repertorio": {
+    "file": "repertorio/INV-069.jpg",
+    "immagine": "https://c1.neweggimages.com/ProductImage/ADXZS200919KPDLk.jpg",
+    "pagina": "https://www.newegg.com/fenvi-fv1850-8265-pci-express/p/0XM-00JK-00004",
+    "sha256": "dfb47fb6fafce4596b8d04da488bd850bc793b1c02af76ca908649cccbec4833",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata",
+    "nota": "Fenvi AC1200 con Bluetooth 4.0; revisione esatta da riscontro."
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-070": {
+   "repertorio": null,
+   "lotto": [],
+   "reali": [],
+   "mancante": "Nessuna foto di repertorio affidabile trovata; aggiungere la foto reale."
+  },
+  "INV-071": {
+   "repertorio": null,
+   "lotto": [],
+   "reali": [],
+   "mancante": "Nessuna foto di repertorio affidabile trovata; aggiungere la foto reale."
+  },
+  "INV-072": {
+   "repertorio": {
+    "file": "repertorio/INV-072.jpg",
+    "immagine": "https://cdn.shopify.com/s/files/1/0597/9131/1011/files/IntelCorei5_22be800a-9ced-428a-b179-4d474a22a3b8.jpg?v=1772360704",
+    "pagina": "https://esaitech.com/products/intel-i5-4570t-lga1150-dual-core",
+    "sha256": "dc15cbf9be032f16df9ec3ef8e7880ef9cfdffa7fb1a0205847a02bce3148a95",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-073": {
+   "repertorio": {
+    "file": "../2026-10-20-Schede-madri/m4-p9d-mh.jpg",
+    "fonte": "Foto fornita dall'utente (vedi LEGGIMI delle schede madri)",
+    "sha256": "4b00003a389f30c8b2054565f7b37d37dc9a970a7b27203062ee843cc5e1a6cc",
+    "data": "2026-10-20"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-074": {
+   "repertorio": {
+    "file": "../2026-10-20-Schede-madri/m2-xeon-d1581.jpg",
+    "fonte": "Foto fornita dall'utente (vedi LEGGIMI delle schede madri)",
+    "sha256": "4fc1544761ac0b17cd06cab42edfe02f9540395765e294ea6b8b0501dbae3016",
+    "data": "2026-10-20"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-075": {
+   "repertorio": null,
+   "lotto": [
+    {
+     "file": "../2026-10-20-RAM/RAM-F02.webp",
+     "origine": "Foto del lotto fornita dall'utente prima della consegna",
+     "sha256": "0c9ea3618a484849363cf8d725052494d8011eeda94c2c12567aca5e567a6336"
+    }
+   ],
+   "reali": []
+  },
+  "INV-076": {
+   "repertorio": null,
+   "lotto": [
+    {
+     "file": "../2026-10-20-RAM/RAM-F01.avif",
+     "origine": "Foto del lotto fornita dall'utente prima della consegna",
+     "sha256": "560e26fcdc7d827fa2ab0eec736f624b462917f8c82547d9cfc367fadf529138"
+    }
+   ],
+   "reali": []
+  },
+  "INV-077": {
+   "repertorio": {
+    "file": "repertorio/INV-077.jpg",
+    "immagine": "https://c1.neweggimages.com/ProductImage/14-137-632-03.jpg",
+    "pagina": "https://www.msi.com/Graphics-Card/GeForce-RTX-3060-VENTUS-2X-12G-OC",
+    "sha256": "1dece1d39fef478c67b89fc2db05da14f3e575653e251a675a6c594822666ae6",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-078": {
+   "repertorio": {
+    "file": "../2026-10-20-Schede-madri/s3s4-t520.jpg",
+    "fonte": "Foto fornita dall'utente (vedi LEGGIMI delle schede madri)",
+    "sha256": "a5b20e09652acb74d4a4bde6ecc9ad6118c13407f57948587cdac6571c25c401",
+    "data": "2026-10-20"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-079": {
+   "repertorio": {
+    "file": "../2026-10-20-Schede-madri/c-optiplex-ultra.jpg",
+    "fonte": "Foto fornita dall'utente (vedi LEGGIMI delle schede madri)",
+    "sha256": "681cc9548bd9b6ce77c41dd5e81976b2771b799620fd53be3a6ad353ef7e8702",
+    "data": "2026-10-20"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-080": {
+   "repertorio": null,
+   "lotto": [],
+   "reali": [],
+   "mancante": "Nessuna foto di repertorio affidabile trovata; aggiungere la foto reale."
+  },
+  "INV-081": {
+   "repertorio": {
+    "file": "repertorio/INV-081.jpg",
+    "immagine": "https://c1.neweggimages.com/ProductImage/BDKWS24101115PC5K0E.jpg",
+    "pagina": "https://www.newegg.com/p/2RC-00HZ-00083",
+    "sha256": "8356f0249074987391dce1eee9793baef5c7723e7b0236833ba9c03dd24f2ed8",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-082": {
+   "repertorio": {
+    "file": "repertorio/INV-082.jpg",
+    "immagine": "http://shop.zimaspace.com/cdn/shop/files/pcie-to-4-port-25g-ethernet-adapter-intel-i225-chipset-8304085.png?v=1760772256",
+    "pagina": "https://shop.zimaspace.com/products/pcie-x4-to-4-port-2-5-gigabit-ethernet-card-intel-i226-chipset",
+    "sha256": "b08ccbe4dc5d76b32e5e6620d16cca18ed22eb98662298453b2095602a37cba5",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata",
+    "nota": "Immagine indicativa di una scheda 4x2.5GbE Intel. Da verificare: le GLOTRENDS 4 porte trovate usano chip Realtek, nessuna I226-T4 GLOTRENDS rintracciata."
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-083": {
+   "repertorio": {
+    "file": "repertorio/INV-083.jpg",
+    "immagine": "https://cdn.shopify.com/s/files/1/0597/9131/1011/files/1011172899.jpg?v=1771823381",
+    "pagina": "https://esaitech.com/products/hp-gn502ut-smart-buy-nvidia-quadro-nvs-290-256mb-pci-express-video-card",
+    "sha256": "da7ad96666f68d98e6dbfc45ff844cf9fdf57004bf4aa66c39d4d7fafe53eb92",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-084": {
+   "repertorio": {
+    "file": "repertorio/INV-084.jpg",
+    "immagine": "https://www.lambda-tek.com/componentshop/images/imgB45329940.jpg",
+    "pagina": "https://www.lambda-tek.com/Samsung-MZVLQ256HBJD-00B00~sh/B45329940",
+    "sha256": "8440cc32a31d37e3181ae488d4e47af2bd72f7763d09dea458129b308a3e0953",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-085": {
+   "repertorio": {
+    "file": "repertorio/INV-085.jpg",
+    "immagine": "https://www.notebookcheck.net/fileadmin/Notebooks/Samsung/generic_samsung_ssd.jpg",
+    "pagina": "https://screenmoove.com/products/samsung-pm991-m-2-256-gb-pci-express-3-0-3d-tlc-nand-nvme-internal-solid-state-drive-mzvlq256hajd-00000",
+    "sha256": "56ee0506d3c197a700d7d586fd841b062ee6c86a6a4ce53390c422de5384a92c",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata",
+    "nota": "Immagine indicativa di un NVMe Samsung OEM."
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-086": {
+   "repertorio": {
+    "file": "repertorio/INV-086.jpg",
+    "immagine": "https://www.dateks.lv/images/pic/1200/630/277/1193.jpg",
+    "pagina": "https://store.datek.co.uk/intenso-m-2-ssd-pcie-premium-250-gb-pci-express-3-0-nvme-3835440",
+    "sha256": "cc6b08fcd55ea794e10d6145a453a7201600a7bf1de80ebc0d66525107bd87e8",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-087": {
+   "repertorio": {
+    "file": "repertorio/INV-087.jpg",
+    "immagine": "http://esaitech.com/cdn/shop/files/ST2000DM008-25PK.jpg?v=1772227014",
+    "pagina": "https://store.qamba.com.au/products/seagate-barracuda-desktop-internal-3-5-inch-sata-drive-2tb-6gb-s-7200rpm-2yr-wty-1165846",
+    "sha256": "62938a70e5558abbea7cd50ea8f948282a16edbec851ca95a3c3039193646985",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata",
+    "nota": "Immagine della confezione da 25 pezzi dello stesso modello."
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-088": {
+   "repertorio": {
+    "file": "repertorio/INV-088.jpg",
+    "immagine": "https://cdn.shopify.com/s/files/1/0597/9131/1011/files/MZ7LH480HAHQ.jpg?v=1772310434",
+    "pagina": "https://esaitech.com/products/samsung-pm883-480gb-sata-6gb-s-2-5-tlc-enterprise-ssd",
+    "sha256": "5cbeec1aeaa13cde7a227b333bdd44083a8bfe1cc3f79a840f51d32ad6a1a67b",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata",
+    "nota": "Riferimento Samsung PM883 480 GB: SKU ancora da scegliere."
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-089": {
+   "repertorio": {
+    "file": "repertorio/INV-089.jpg",
+    "immagine": "http://oricotechs.com/cdn/shop/files/AXM2-1200-1.jpg?v=1749217751&width=2048",
+    "pagina": "https://oricotechs.com/products/orico-axm2-10gbps-m-2-nvme-aluminum-enclosure-with-silicon-protecter",
+    "sha256": "6ef4a06c3239d988713cea2286ec9c2378f22dfaf0a26b0ec324f41aab3576c0",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata",
+    "nota": "Immagine indicativa di un box ORICO NVMe 10 Gb/s."
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-090": {
+   "repertorio": {
+    "file": "repertorio/INV-090.jpg",
+    "immagine": "https://assets.netgear.com/transform/32397b2f-b805-4da0-af07-a686a9e1d606/GS305E_productcarousel_hero_image",
+    "pagina": "https://www.netgear.com/nl/business/wired/switches/easy-smart/gs305e/",
+    "sha256": "00e6ecc5cd826a23d6d5de6c0788a88bbd9ce0be570d03b47a9660caad62cb30",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-091": {
+   "repertorio": null,
+   "lotto": [],
+   "reali": [],
+   "mancante": "Nessuna foto di repertorio affidabile trovata; aggiungere la foto reale."
+  },
+  "INV-092": {
+   "repertorio": {
+    "file": "repertorio/INV-092.jpg",
+    "immagine": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Pixel10Pro_Announce_YT_Thumbnail_SS.width-1300.png",
+    "pagina": "https://www.gsmarena.com/google_pixel_10_pro_5g-13987.php",
+    "sha256": "1908de983621ae6127c39cc659af6763ee22a5282279d4d416a3cf1aed40b80e",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-093": {
+   "repertorio": {
+    "file": "repertorio/INV-093.jpg",
+    "immagine": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/IPhone_11_RED.jpg/960px-IPhone_11_RED.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "pagina": "https://commons.wikimedia.org/wiki/File:IPhone_11_RED.jpg",
+    "sha256": "1150d22293bd20670055645705bb9b5d136e831505f0ce72c904199adb91324f",
+    "data": "2026-10-21",
+    "licenza": "CC BY-SA 4.0",
+    "autore": "Ahmadkurdi44",
+    "fonte": "Wikimedia Commons"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-094": {
+   "repertorio": null,
+   "lotto": [],
+   "reali": [],
+   "mancante": "Modello da indicare prima di cercare una foto di repertorio."
+  },
+  "INV-095": {
+   "repertorio": null,
+   "lotto": [],
+   "reali": [],
+   "mancante": "Modello da indicare prima di cercare una foto di repertorio."
+  },
+  "INV-096": {
+   "repertorio": {
+    "file": "repertorio/INV-096.jpg",
+    "immagine": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Macbook_Air_2020_%28M1%29.jpg/960px-Macbook_Air_2020_%28M1%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Macbook_Air_2020_(M1).jpg",
+    "sha256": "ef84f8468751fcf6dc553696340ea89b031e6575de14ad29e555ba1c72e7bf29",
+    "data": "2026-10-21",
+    "licenza": "CC BY-SA 4.0",
+    "autore": "Jelican9",
+    "fonte": "Wikimedia Commons"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-097": {
+   "repertorio": {
+    "file": "repertorio/INV-097.jpg",
+    "immagine": "https://c1.neweggimages.com/ProductImage/14-993-008-01.jpg",
+    "pagina": "https://www.sparkle.com.tw/en/A310-ECO",
+    "sha256": "f04d5b39558b58c996112cadb9c978cf42e5d90675397b00f9ab6be6bae2cb44",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata",
+    "nota": "Riferimento Sparkle Arc A310 ECO: produttore e SKU da scegliere."
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-098": {
+   "repertorio": null,
+   "lotto": [],
+   "reali": [],
+   "mancante": "Nessuna foto di repertorio affidabile trovata; aggiungere la foto reale."
+  },
+  "INV-099": {
+   "repertorio": {
+    "file": "repertorio/INV-099.jpg",
+    "immagine": "https://cdn.shopify.com/s/files/1/0597/9131/1011/files/specifications.jpg?v=1771994366",
+    "pagina": "https://esaitech.com/products/kingston-valueram-kvr16r11d4-16-ddr3-1600-16gb-2gx72-ecc-reg-cl11-server-memory",
+    "sha256": "e0e200b642e3da2d32e2d930aac57dfdf548cbf5fc4e4b71540566e95efa909f",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [
+    {
+     "file": "../2026-10-20-RAM/RAM-F04.webp",
+     "origine": "Foto del lotto fornita dall'utente prima della consegna",
+     "sha256": "0a2745b1f9a5d0b3cf34ed62f813b06c0dcad52d11781bfa7b2bf976228e8db2"
+    }
+   ],
+   "reali": []
+  },
+  "INV-100": {
+   "repertorio": null,
+   "lotto": [
+    {
+     "file": "../2026-10-20-RAM/RAM-F03.webp",
+     "origine": "Foto del lotto fornita dall'utente prima della consegna",
+     "sha256": "72764b74b525e2b1630a1d3581fdf65d2d8cef3ba3eb5f204156ae0fc9dfae02"
+    },
+    {
+     "file": "../2026-10-20-RAM/RAM-F05.webp",
+     "origine": "Foto del lotto fornita dall'utente prima della consegna",
+     "sha256": "031dd46de7c11809448c9349befb33b13a5c7bf323d0425437863289fea2278f"
+    }
+   ],
+   "reali": []
+  },
+  "INV-101": {
+   "repertorio": null,
+   "lotto": [
+    {
+     "file": "../2026-10-20-RAM/RAM-F02.webp",
+     "origine": "Foto del lotto fornita dall'utente prima della consegna",
+     "sha256": "0c9ea3618a484849363cf8d725052494d8011eeda94c2c12567aca5e567a6336"
+    }
+   ],
+   "reali": []
+  },
+  "INV-102": {
+   "repertorio": {
+    "file": "../2026-10-20-Schede-madri/m5-c612np.jpg",
+    "fonte": "Foto fornita dall'utente (vedi LEGGIMI delle schede madri)",
+    "sha256": "abf4865e8627d425f3d0dadd905090ab906e6f1f6242a76619f8a966ee1c968a",
+    "data": "2026-10-20"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-103": {
+   "repertorio": {
+    "file": "repertorio/INV-103.jpg",
+    "immagine": "https://cdn.shopify.com/s/files/1/0597/9131/1011/files/IntelXeonE5v3_d576b41b-ec94-4c43-ae7f-6e5c6005d5bf.jpg?v=1772363238",
+    "pagina": "https://esaitech.com/products/e5-2678-v3-2-50ghz-30m-12-core-spcl-sourcing-see-notes",
+    "sha256": "17b8979a95a9a1fcb8e411659f159ccde7c497869f24ac076aa6a48b02ffdf66",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata",
+    "copia_di": "INV-048",
+    "nota": "Stessa famiglia Xeon E5 v3 (LGA2011-3) di INV-048."
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "INV-104": {
+   "repertorio": {
+    "file": "repertorio/INV-104.jpg",
+    "immagine": "https://c1.neweggimages.com/ProductImage/13-131-938-01.jpg",
+    "pagina": "https://www.asus.com/au/commercial-servers-workstations/z9prd12/",
+    "sha256": "ad980b8cd5daa4a42cd6e68a0fe5d9f58acee3fe914f861620ffbcbef0cf42fb",
+    "data": "2026-10-21",
+    "fonte": "Pagina prodotto (produttore, scheda tecnica o rivenditore); uso di consultazione privata"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "CASE-LANBERG": {
+   "repertorio": {
+    "file": "repertorio/CASE-LANBERG.jpg",
+    "immagine": "http://lanberg.eu/media/cache/optimized/uploads/lanberg-eu/5b/5bb798b049adddac90d39b55bcec7184a95cacf27fb92ff7d14b0d9b8880.jpg",
+    "pagina": "https://lanberg.eu/news/new-server-cases-sc-01",
+    "sha256": "dfc110f3ce619299d53bae297a8428d8f411d10c5a26fe4ad7c2e3bec8504398",
+    "data": "2026-10-21",
+    "fonte": "Annuncio del produttore (serie SC01 4U), ritaglio; uso di consultazione privata",
+    "nota": "Lanberg SC01 4U, serie del SC01-5204-12B"
+   },
+   "lotto": [],
+   "reali": []
+  },
+  "CASE-TECHLY": {
+   "repertorio": {
+    "file": "repertorio/CASE-TECHLY.jpg",
+    "immagine": "https://images.morele.net/i1064/4780727_1_i1064.jpg",
+    "pagina": "https://www.morele.net/obudowa-serwerowa-techly-i-case-mp-p4hx-blk6-307377-4780727/",
+    "sha256": "90e68141d21717edd18d6d3c1f904ee91a9a7c46bcdb87568330fafea958fd31",
+    "data": "2026-10-21",
+    "fonte": "Rivenditore; modello della stessa famiglia (MP-P4HX), la variante JX non e in rete; uso di consultazione privata",
+    "nota": "Techly I-CASE MP-P4 (famiglia), non la variante esatta"
+   },
+   "lotto": [],
+   "reali": []
+  }
+ }
+}

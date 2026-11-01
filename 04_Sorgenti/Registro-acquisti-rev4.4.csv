@@ -1,0 +1,10 @@
+id,item,qty,amount,state,detail,target
+A44-01,D1581-Q3A,2,189.67,Acquisto dichiarato,Screenshot 1 novembre: verifica pagamento; consegna non attestata,"M2 e M6, subordinati al collaudo"
+A44-02,MACHINIST X99 PR9-H + CPU,1,47.88,Acquisto dichiarato,"Variante Motherboard+CPU; Xeon E5-2630L v3 dichiarato, SKU da identificare; RAM kit non presunta",M1
+A44-03,Mellanox MCX312A-XCBT dual 10GbE,1,32.99,Acquisto dichiarato,Verifica pagamento nello screenshot; test link/codifica da fare,"M2, link dedicati M3 e M4"
+A44-04,"DAC passivi 10G, 1 m",2,22.44,Acquisto dichiarato,"Due cavi, non due kit NIC; lunghezze e abbinamenti da riscontro",Uplink M4/M6 verso switch: proposta
+A44-05,6 x16 GB Hynix/HP PC3L-10600R RDIMM,6,85,Acquistato,Offerta di 85 EUR accettata e acquisto confermato dall’utente; spese accessorie non comunicate,"Distribuzione approvata: 2 moduli M5, 4 M6"
+A44-06,Cartucce HP RDX 2 TB,3,150,Proposta da acquistare,Subito 50 EUR ciascuna riferiti; stato e compatibilita da verificare,"Foto/video, documenti, lavoro: tre selezioni diverse"
+A44-07,BKHD + E5-2630L v3,0,,Ordine annullato,Correzione esplicita utente rispetto alla 4.3,Escluso dalla configurazione
+A44-08,Pool 8 SSD enterprise M2,0,,Rinviato,Vecchio preventivo 350-400 EUR; non prezzo attuale verificato,P310 4 TB come segnaposto
+A44-09,Linksys LGS352C-EU,1,,Ordinato,"Ordine confermato utente; prezzo finale non comunicato, 147 EUR era segnalazione storica","Switch fidato, stella 10GbE"

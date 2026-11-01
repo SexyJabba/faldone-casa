@@ -1,0 +1,173 @@
+{
+  "cards": [
+    {
+      "code": "REV4-VITO",
+      "title": "Vito: il nodo mobile tra lavoro e camper",
+      "body": "## Identità e missione\n\nIl Mercedes Vito W639 è il nodo mobile dell’infrastruttura: porta sul campo documenti, strumenti di lavoro e servizi del camper, mantenendo un collegamento con casa quando la rete lo consente. Il mezzo è acquistato; la sua dotazione informatica è una configurazione da realizzare. La disponibilità di una connessione non sostituisce l’autonomia locale: una giornata di lavoro o una sosta devono poter continuare anche con casa irraggiungibile.\n\nIl riferimento di bordo è **C1, Dell OptiPlex 7070 Ultra con i5-8265U e 8 GB di RAM censiti**. La capacità dello storage va riscontrata sull’esemplare. Il touchscreen, il modem LTE, la SIM del veicolo, la power station e WiCAN Pro non sono considerati ricevuti o installati. La dock K19S disponibile resta censita a casa; una seconda dock non è un acquisto obbligatorio. Il MacBook personale e gli altri dispositivi possono affiancare C1, senza diventare requisiti della postazione.\n\n## Tre ambiti, un solo sistema di lavoro\n\n| Ambito | Funzione | Dipendenza principale |\n| --- | --- | --- |\n| Bordo | Dashboard, documenti selezionati, bozze e servizi camper | Energia e rete locali |\n| Casa | Archivio, backup, servizi applicativi, calcolo IA M3 | Collegamento privato e server disponibile |\n| Cloud di lavoro | Sheets condivisi, agenda e assistenza interattiva | Account autorizzato e Internet |\n\nI dati operativi persistono nei registri concordati con la segretaria. Il Dell ospita una selezione utile alla trasferta e le nuove informazioni ancora da consegnare; non introduce un secondo archivio gestionale indipendente. Il raccordo è descritto in [[REV4-VLAV]] e [[REV4-VSYNC]].\n\n## Autonomia e confini\n\nC1 resta fuori dal quorum del cluster domestico. Spegnimento, viaggio o assenza di LTE non devono togliere voti alla casa. M3 offre elaborazioni più impegnative su richiesta o in coda; nessun servizio essenziale del camper richiede che la GPU domestica sia accesa. Un modello locale sul Dell è un’evoluzione da valutare dopo le misure, non una funzione garantita dagli 8 GB disponibili.\n\nIl quadro a bordo distingue **Lavoro, Camper, Offline, Rientro e Riserva energia**. Le pagine del faldone descrivono configurazione e procedure: non mostrano telemetria inventata. Ogni futura misura dovrà riportare origine, ora e validità. Questa impostazione rende il Vito una parte riconoscibile dell’intero progetto, con proprie prove di accettazione e una roadmap dalle vacanze di Natale 2026.\n\n## Base documentale\n\nQuesta scheda sviluppa le decisioni consolidate in REV3-MOB, INF-05.29, REV3-WRK e nel censimento C1 della revisione 4.3. Per porte e configurazioni della piattaforma, il riferimento esterno è il [manuale Dell 7070 Ultra](https://dl.dell.com/topicspdf/optiplex-7070-ultra_owners-manual2_en-us.pdf); la dotazione dell’esemplare prevale sulle possibilità del catalogo."
+    },
+    {
+      "code": "REV4-VLAV",
+      "title": "Lavoro a bordo: dal cantiere al registro",
+      "body": "## Una postazione utile sul campo\n\nIl Vito affianca il laboratorio come luogo di consultazione, raccolta e preparazione del lavoro. Il touchscreen offre una superficie leggibile per cantiere, agenda e documenti; telefono, tablet o Mac possono fornire la voce secondo l’app effettivamente disponibile. L’uso della postazione e la revisione dei contenuti avvengono in sosta. La configurazione non dipende dall’acquisto ancora incerto del MacBook Air.\n\nGoogle AI Pro è dichiarato attivo sull’account di lavoro. I fogli Google Sheets condivisi con la segretaria restano la fonte operativa comune; l’abbonamento del titolare non viene esteso per deduzione ad altri utenti. Gemini in Sheets documenta analisi, tabelle e modifiche di intervalli, ma ogni funzione va provata sull’account e sul foglio reale. Una conversazione vocale non attesta da sola l’inserimento di un rapportino. [Guida ufficiale Gemini in Sheets](https://support.google.com/docs/answer/14356410?hl=en).\n\n## Il percorso di un rapportino\n\n1. Selezionare il cantiere e la data; consultare l’ultima situazione disponibile.\n2. Raccogliere ore, lavorazioni, materiali, osservazioni e prossima azione. Eventuali foto conservano il riferimento al cantiere.\n3. Preparare una bozza strutturata, distinguendo fatti, quantità da verificare e richieste ancora aperte.\n4. Rivedere nomi, ore, date e destinazione prima della registrazione.\n5. Salvare nel registro concordato e mostrare il collegamento o identificativo della voce effettivamente scritta.\n\nLo stato “salvato” significa che il record esiste nella destinazione corretta. Una trascrizione o una risposta dell’assistente rimane una bozza finché questo riscontro manca. Appuntamenti e scadenze seguono Calendar e il sistema attività concordato, evitando un terzo elenco scollegato.\n\n## Quando manca Internet\n\nLa preparazione della trasferta comprende una selezione di documenti disponibili sul dispositivo: schede del cantiere, contatti operativi, elaborati necessari e procedure. Il metodo concreto di disponibilità offline va collaudato; vedere un nome di file in Drive non prova che il contenuto sia già scaricato. Le nuove bozze ricevono un’identità stabile e restano “da inviare”. Al rientro vengono confrontate con le modifiche della segretaria e registrate senza duplicazioni.\n\n## Assistenti e risorse\n\nC1 rimane inizialmente una postazione da 8 GB: dashboard, consultazione e raccolta dati hanno precedenza. L’Acer resta fisso in laboratorio come sede prevista degli assistenti di lavoro; M3 è il calcolo principale su richiesta. L’automazione tramite API richiede una configurazione e un bilancio propri: Google distingue i vantaggi dell’abbonamento negli strumenti interattivi dall’utilizzo API con fatturazione. [Piani Google AI e API](https://ai.google.dev/gemini-api/docs/google-ai-plans).\n\nIl collaudo finale consiste in un caso completo, condiviso con la segretaria: raccogliere un rapporto anche senza rete, riconnettersi e ritrovare una sola registrazione corretta nel foglio. Collegamenti: [[REV4-VSYNC]], [[REV4-VTEST]]."
+    },
+    {
+      "code": "REV4-VCAMP",
+      "title": "Camper: servizi locali e modalità di sosta",
+      "body": "## Il camper continua a funzionare senza casa\n\nLe funzioni essenziali della sosta devono dipendere dal sistema locale del mezzo. Il progetto prevede una dashboard camper e valuta Home Assistant di bordo per integrare i dispositivi effettivamente presenti. La sede e il metodo d’installazione del servizio vanno scelti dopo la prova di C1: una macchina Windows dedicata alla diagnostica, un servizio locale e lo spegnimento per risparmio energetico devono convivere con una politica esplicita. Non è ancora attestato un server Home Assistant installato nel Vito.\n\nIl primo lavoro è censire l’allestimento reale. Energia servizi, temperature, illuminazione, acqua e altri impianti sono **categorie da rilevare**, non sensori già disponibili. Per ogni funzione si annotano dispositivo, alimentazione, possibilità di comando locale, interfaccia utilizzabile e comportamento quando il computer è spento. Una dashboard non sostituisce i comandi essenziali del mezzo.\n\n## Una pagina di bordo leggibile\n\nLa vista principale propone pochi elementi: modalità attiva, disponibilità rete, stato del computer, documenti locali e dati camper verificati. Una misura assente rimane “non integrata”. Una misura vecchia mostra l’ora dell’ultima lettura. Il progetto non attribuisce al Vito posizione GPS, livelli o percentuali che non siano stati acquisiti da dispositivi reali.\n\nWiCAN Pro è candidato alla telemetria veicolo; acquisto e montaggio restano da confermare. La documentazione corrente descrive un’integrazione Home Assistant locale, con parametri configurati e indicazione dei dati non aggiornati. La posizione richiede un accessorio che la fornisca. Queste possibilità non certificano quali parametri siano leggibili sul W639 specifico. [Integrazione Home Assistant di MeatPi](https://docs.meatpi.com/wican-pro/send-data/home-assistant/).\n\n## Sosta, intrattenimento e uso quotidiano\n\nLa selezione di documenti camper, manuali e contenuti multimediali viene preparata prima della partenza e dimensionata sullo storage effettivo. Il collegamento a Jellyfin di casa è un servizio aggiuntivo quando rete e server sono disponibili; i contenuti scelti per l’uso offline non devono richiederne l’accensione. Le copie locali vanno distinte dall’archivio originale e possono avere un limite di spazio esplicito.\n\nLa modalità sosta mantiene accesi soltanto i servizi necessari. Spegnere il display non deve essere confuso con spegnere il computer; spegnere il computer interrompe i servizi ospitati su di esso. Il requisito del modem sempre attivo resta subordinato al dimensionamento della batteria servizi e alle soglie di riserva, senza attribuire un’autonomia non misurata.\n\n## Prova di accettazione\n\nLa prova camper si svolge con Internet assente e casa non raggiungibile: aprire i documenti selezionati, usare i comandi locali previsti, verificare quali dati restano aggiornati e arrestare ordinatamente il PC. Le funzioni che falliscono vengono dichiarate dipendenti dalla rete o rinviate. Il risultato confluisce in [[REV4-VTEST]], mentre alimentazione e profili sono descritti in [[REV4-VENE]]."
+    },
+    {
+      "code": "REV4-VNET",
+      "title": "Rete mobile: bordo, casa e cloud",
+      "body": "## Una rete propria del veicolo\n\nIl Vito dispone, nel progetto, di un modem LTE e di una SIM dedicati. Modello, piano dati e collocazione restano da scegliere; la SIM ho. prevista per casa non viene trasferita implicitamente al mezzo. Il collegamento mobile serve il lavoro interattivo, l’accesso ai servizi autorizzati e la consegna dei dati raccolti. “Sempre attivo” descrive un obiettivo di disponibilità, non una connessione garantita in ogni luogo.\n\nLa rete locale di bordo deve restare utilizzabile senza Internet. C1, dashboard e dispositivi del camper devono poter comunicare attraverso percorsi locali verificati. Eventuali ospiti ricevono un accesso separato dalla gestione e dalla diagnostica, se l’apparato scelto lo consente; la separazione non viene attribuita a un modem ancora non selezionato.\n\n## Accesso ai servizi domestici\n\nIl percorso candidato è un collegamento privato avviato dal veicolo verso i servizi necessari. L’accesso viene limitato per identità e destinazione: documenti, applicazioni o acquisizione della telemetria non richiedono un ponte indiscriminato verso tutta la LAN domestica. L’eventuale presenza di CGNAT e il metodo di attraversamento vanno verificati con le SIM reali. Il mezzo resta fuori da Corosync, dal qdevice e da ogni voto del cluster.\n\nLa maggiore potenza disponibile in casa apre servizi utili: elaborazioni documentali su M3, archivi su M2 e raccolta dello stato nel monitoraggio. La disponibilità del calcolo non diventa una condizione per compilare una bozza o consultare un manuale. Se M3 è spento, l’utente può scegliere la coda o richiedere l’accensione secondo la politica domestica.\n\n## Traffico e priorità\n\nLa configurazione distingue attività interattive, documenti operativi e trasferimenti voluminosi. Voce, agenda e piccoli aggiornamenti hanno precedenza durante il lavoro. Foto numerose, media e copie estese attendono una connessione adatta, salvo scelta esplicita. Soglie e limiti dipendono dal piano del veicolo: i valori già previsti per la SIM domestica non si applicano automaticamente.\n\nIl trasferimento di dati veicolo tramite collegamento privato è una possibilità documentata da MeatPi, da collaudare con la destinazione effettiva. L’integrazione Home Assistant conserva anche informazioni sull’anzianità delle letture; il monitoraggio deve presentarle correttamente. [Dati WiCAN e Home Assistant](https://docs.meatpi.com/wican-pro/send-data/home-assistant/).\n\n## Osservabilità mobile\n\nIl quadro di casa mostra ultima comunicazione, stato dichiarato e disponibilità del percorso. Un Vito non raggiungibile può essere parcheggiato, spento o fuori copertura: non genera automaticamente lo stesso allarme di un server domestico fermo. La verifica utile separa rete locale, modem, collegamento privato e applicazione. Il controllo remoto non sostituisce il funzionamento locale e non certifica che una misura del camper sia recente.\n\nCollegamenti: [[REV4-VSYNC]] per la consegna dei dati, [[REV4-VENE]] per le politiche di alimentazione e [[REV4-VTEST]] per i collaudi di disconnessione."
+    },
+    {
+      "code": "REV4-VENE",
+      "title": "Energia di bordo: alimentazione, carichi e riserva",
+      "body": "## Separare avviamento e servizi\n\nL’architettura richiesta usa una batteria servizi separata dalla batteria d’avviamento, attraverso una power station da definire. L’Anker SOLIX C1000X è un esempio della revisione precedente, non un acquisto confermato. Il progetto energetico del Vito è distinto dall’UPS del rack: capacità, ricarica, collegamenti e autonomia non si trasferiscono da un impianto all’altro.\n\nLe utenze da misurare sono modem, computer, display e accessori realmente installati. Prima della scelta definitiva si prepara una tabella con potenza a riposo, potenza in uso, durata prevista e modalità di spegnimento. I consumi di tutta la casa, il TDP della CPU o i watt massimi di un alimentatore non descrivono il consumo medio del veicolo.\n\n## Alimentare il Dell e il touchscreen\n\nIl manuale del 7070 Ultra distingue la porta USB-C posteriore con Power Delivery dalla porta laterale con DisplayPort Alt Mode. L’alimentazione attraverso USB-C è un percorso documentato della piattaforma, ma va provato con accumulo e cavo effettivi. [Manuale Dell 7070 Ultra](https://dl.dell.com/topicspdf/optiplex-7070-ultra_owners-manual2_en-us.pdf).\n\nLa configurazione desiderata evita una dock aggiuntiva: alimentazione al Dell e collegamento del touchscreen attraverso la porta adatta. Un unico cavo al monitor deve essere verificato per video, touch e potenza; se non basta, il monitor avrà un’alimentazione separata esplicitamente prevista. Non si certifica l’abbinamento prima di conoscere il display. Le prove comprendono avvio, ripresa, luminosità abituale e funzionamento sotto carico.\n\n## Profili energetici\n\n- **Lavoro:** modem, computer e display attivi per la sessione; elaborazioni pesanti delegate quando conveniente.\n- **Sosta camper:** display spento quando non serve; servizi locali soltanto se necessari e alimentati.\n- **Offline:** attività locali e raccolta delle bozze; nessun tentativo continuo di elaborazione cloud.\n- **Riserva:** sospensione delle copie e dei carichi non essenziali, salvataggio delle bozze, arresto controllato del PC.\n\nLe soglie della modalità riserva saranno fissate dopo le misure. L’ordine di arresto deve preservare i dati ancora da sincronizzare; la ripresa deve mostrare chiaramente quali attività sono rimaste incomplete. Il modem non resta acceso a costo di compromettere le funzioni prioritarie del mezzo.\n\n## Misure che chiudono il progetto\n\nL’autonomia si stima dall’energia effettivamente utilizzabile e dall’assorbimento medio del profilo, includendo perdite e riserva. Il risultato riporta condizioni e strumenti di misura. Vanno collaudati anche ricarica e uso contemporaneo secondo la documentazione dell’accumulo scelto; il faldone non fornisce cablaggi o protezioni di un impianto ancora non definito.\n\nIl montaggio finale deve lasciare ventilazione, accessibilità ai connettori e fissaggio adeguati all’uso mobile. Prima di una trasferta si verificano carica, cavi, spazio libero e presenza delle copie locali. Le prove energetiche entrano nella checklist [[REV4-VTEST]] e determinano quali servizi di [[REV4-VCAMP]] possano restare attivi."
+    },
+    {
+      "code": "REV4-VDIAG",
+      "title": "Diagnostica W639: telemetria e strumenti Mercedes",
+      "body": "## Partire dall’identità del mezzo\n\nPrima di scegliere software e interfaccia diagnostica si registrano anno, motorizzazione, classe Euro e identificazione precisa del W639. Questi dati non sono ancora presenti nella configurazione consolidata. Il numero di telaio, se archiviato, appartiene alla documentazione privata del mezzo e non deve comparire automaticamente in una versione del sito destinata alla condivisione.\n\nIl progetto distingue due funzioni. **Telemetria** significa raccogliere parametri disponibili e mostrarli nelle dashboard. **Diagnostica Mercedes** significa usare strumenti compatibili con le centraline e con le operazioni richieste. Un dispositivo utile alla prima funzione non viene considerato automaticamente completo per la seconda.\n\n## WiCAN Pro come candidato\n\nWiCAN Pro è previsto, ma acquisto, firmware e installazione non sono attestati. La documentazione corrente descrive invio dei dati OBD verso Home Assistant e applicazioni diagnostiche; il manuale consultato riguarda firmware 6 e successivi. Parametri e qualità delle letture devono essere provati sul veicolo reale. [Manuale WiCAN Pro](https://docs.meatpi.com/wican-pro/).\n\nPer il percorso PassThru, MeatPi documenta il supporto J2534 e specifica che i protocolli K-line non sono supportati. Questa limitazione impedisce di promettere una diagnosi completa del W639 soltanto dal nome dell’adattatore. [Compatibilità J2534 WiCAN](https://docs.meatpi.com/wican-pro/send-data/j2534/).\n\n## Valutare XENTRY senza acquisti al buio\n\nLe FAQ Mercedes delimitano XENTRY Pass Thru EU alle serie previste, fra cui i van Euro 5/6. Richiedono connessione online, contratto e crediti; indicano 8 GB di RAM minimi, 16 GB consigliati e almeno 150 GB di spazio libero. [FAQ ufficiali XENTRY Pass Thru EU](https://b2bconnect.mercedes-benz.com/ee/help/faq/software/xentry-pass-thru-eu).\n\nC1 ha 8 GB censiti e uno storage ancora da misurare: la disponibilità del PC non equivale quindi a una postazione diagnostica pronta. Occorre prima verificare copertura del mezzo, sistema operativo compatibile, spazio e convivenza con gli altri servizi. La diagnostica offline non è una promessa di questo percorso. Se il veicolo richiede una soluzione diversa, l’interfaccia corretta viene scelta separatamente dalla telemetria camper.\n\n## Sessioni e conservazione dei risultati\n\nLa prima fase privilegia lettura, identificazione e raccolta dei rapporti. Ogni sessione annota data, condizioni osservate, strumento, versione e file prodotti. I codici letti sono evidenze da interpretare, non diagnosi meccaniche definitive. L’assistente può ordinare documenti e suggerire riferimenti da verificare; non prende decisioni autonome sulle centraline.\n\nCancellazione errori, codifica e scrittura firmware non fanno parte delle operazioni implicitamente approvate dal faldone. I risultati utili vengono associati al registro di manutenzione del mezzo e inclusi nel backup dei documenti. Le prove di compatibilità costituiscono un passaggio esplicito della roadmap [[REV4-VTEST]], prima di acquistare licenze o attribuire capacità diagnostiche alla dashboard."
+    },
+    {
+      "code": "REV4-VSYNC",
+      "title": "Dati mobili: preparazione, sincronizzazione e recupero",
+      "body": "## Un archivio autorevole e una copia di viaggio\n\nIl Vito porta con sé i dati necessari alla prossima attività, non una copia indiscriminata dell’intera infrastruttura. I registri di lavoro rimangono quelli condivisi con la segretaria; i documenti personali e operativi mantengono la loro collocazione autorevole. La copia a bordo è selezionata, datata e verificata. Lo spazio viene definito dopo il censimento dello storage di C1.\n\nIl piano distingue tre insiemi: **documenti da consultare**, **nuovi dati raccolti** e **copie tecniche di configurazione**. Manuali, elaborati e procedure devono aprirsi realmente senza rete. Foto, note e rapportini nuovi rimangono protetti sul dispositivo fino alla consegna verificata. Configurazioni e istruzioni di recupero permettono di ricostruire la postazione senza dipendere dal computer guasto.\n\n## Preparazione della partenza\n\nPrima dell’uscita si selezionano cantieri e documenti, si aggiorna la copia locale e si registra quando è stata preparata. La verifica include apertura di alcuni file, disponibilità degli allegati e accesso alla procedura di emergenza. Le applicazioni cloud possono avere funzioni offline diverse: il faldone non presume che un collegamento visibile equivalga a contenuto scaricato.\n\nLe credenziali non vengono inserite nei documenti di consultazione. La cifratura del dispositivo e la custodia della chiave di recupero vanno scelte e provate con il sistema operativo effettivo. I dati di clienti e lavoro ricevono una conservazione proporzionata all’uso: una trasferta conclusa non giustifica lasciare indefinitamente ogni documento sul mezzo.\n\n## Raccolta e riallineamento\n\nOgni bozza riceve un identificativo stabile, cantiere, data e stato. Gli stati di progetto sono “locale”, “da inviare”, “registrata” e “da verificare”. Una modifica della segretaria intervenuta durante l’assenza non viene sostituita senza confronto. Una consegna ripetuta deve riconoscere il record già presente, evitando rapportini doppi.\n\nAl rientro si verifica prima la disponibilità della destinazione, poi si trasferiscono i nuovi contenuti e si controlla l’esito. Soltanto dopo la conferma si aggiorna lo stato locale. Le copie volumetriche attendono una connessione adatta; i documenti urgenti possono essere consegnati via LTE secondo il piano dati. Il metodo tecnico concreto di sincronizzazione resta da implementare e collaudare: questa scheda ne definisce i requisiti.\n\n## Backup e recupero\n\nIl nuovo piano domestico comprende copie locali sui WD, destinazione remota Drive e selezioni offline RDX. I documenti e i lavori provenienti dal Vito entrano in questi percorsi dopo la consegna; la sola sincronizzazione non sostituisce un backup versionato. Le cartucce tematiche sono ancora da acquistare, e la scelta di cifratura del caricamento di transizione Drive resta aperta.\n\nIl criterio conclusivo è pratico: recuperare un documento e una configurazione di bordo su un dispositivo diverso da C1. Se il Dell viene perso o si guasta, i dati già consegnati devono essere ritrovabili e le bozze non ancora salvate altrove devono risultare esplicitamente a rischio. Collegamenti: [[REV4-VLAV]], [[REV4-VTEST]]."
+    },
+    {
+      "code": "REV4-VTEST",
+      "title": "Vito: roadmap di attivazione e prove di accettazione",
+      "body": "## Dalle vacanze di Natale alla prima trasferta completa\n\nIl calendario della 4.4 parte dalle vacanze di Natale 2026. Le finestre seguenti organizzano il lavoro; consegne, compatibilità e disponibilità dell’utente determinano la data effettiva. Una fase incompleta mantiene aperte le successive che ne dipendono. Il nodo mobile viene attivato gradualmente senza attendere che ogni ottimizzazione del rack sia terminata.\n\n## Vacanze di Natale 2026: censimento e banco\n\nIdentificare C1 fisico, memoria, storage e alimentazione; registrare anno, motore e classe Euro del W639. Definire touchscreen, modem, SIM, accumulo e percorso diagnostico prima degli acquisti mancanti. Provare video, touch, alimentazione, riavvio e carico del Dell con i componenti effettivi. Verificare disponibilità dei documenti locali e accesso ai registri condivisi usando un caso di prova concordato.\n\nLa fase termina con una distinta chiara: disponibile, da acquistare, compatibile in prova, ancora incerto. Gli 8 GB censiti rimangono la base; eventuali aumenti si giustificano con il carico misurato. Per la diagnosi Mercedes, i requisiti del software vanno confrontati con spazio e memoria effettivi prima di considerare il PC pronto. [Requisiti e copertura XENTRY](https://b2bconnect.mercedes-benz.com/ee/help/faq/software/xentry-pass-thru-eu).\n\n## Fine vacanze e gennaio 2027: bordo essenziale\n\nCompletare il montaggio dopo le prove da banco, attivare la rete locale e verificare il collegamento privato ai soli servizi necessari. Preparare la dashboard essenziale e un insieme di documenti di viaggio. Misurare i consumi dei profili lavoro, sosta e riserva. Provare perdita di LTE, indisponibilità della casa, arresto ordinato e ripresa con bozze ancora da inviare.\n\nUn rapportino viene raccolto senza rete, consegnato al ritorno e ritrovato una sola volta nel registro corretto. I media e i documenti selezionati si aprono senza collegamenti remoti. Queste prove hanno precedenza sulle automazioni accessorie.\n\n## Gennaio 2027: camper, telemetria e monitoraggio\n\nIntegrare soltanto sensori e dispositivi realmente presenti. WiCAN entra nel piano dopo acquisto e riscontro sul mezzo; funzioni non provate restano marcate. Collegare il monitoraggio domestico mostrando ultima comunicazione e dati non aggiornati. Collaudare il profilo camper con casa irraggiungibile e verificare che il suo funzionamento non dipenda dal quorum domestico.\n\n## Consolidamento successivo\n\nEseguire una trasferta pilota, raccogliere problemi e correggere le dipendenze. Solo dopo si valutano assistente locale, nuove automazioni o maggiore memoria. La consegna comprende inventario aggiornato, configurazioni recuperabili e registrazione delle prove con data ed esito.\n\nLa checklist finale richiede: USB-C stabile; documenti offline leggibili; nessun rapportino duplicato; dati camper con validità esplicita; backup recuperato su altro dispositivo; arresto senza perdita delle bozze; nessun voto domestico attribuito a C1. Nessuna casella è segnata completata sulla base della sola pubblicazione del faldone."
+    }
+  ],
+  "profiles": [
+    {
+      "id": "lavoro",
+      "title": "Lavoro in trasferta",
+      "summary": "Consultare il cantiere, raccogliere evidenze e trasformare la bozza in un record condiviso.",
+      "steps": [
+        "Preparare documenti e agenda prima della partenza.",
+        "In sosta, selezionare cantiere e raccogliere ore, lavorazioni, materiali e foto.",
+        "Rivedere la bozza e registrarla nel foglio corretto.",
+        "Verificare il riferimento al record salvato."
+      ],
+      "offline": "Documenti selezionati e bozze locali; consegna differita con controllo dei conflitti.",
+      "energy": "PC e display durante la sessione; attività pesanti delegate o rinviate."
+    },
+    {
+      "id": "camper",
+      "title": "Sosta camper",
+      "summary": "Usare le funzioni locali e i contenuti preparati anche senza il collegamento con casa.",
+      "steps": [
+        "Controllare lo stato energetico realmente disponibile.",
+        "Aprire la dashboard locale e verificare la data delle letture.",
+        "Usare soltanto sensori e comandi già collaudati.",
+        "Spegnere display e servizi non necessari."
+      ],
+      "offline": "Manuali e contenuti selezionati restano disponibili; nessuna dipendenza obbligatoria da Jellyfin o M3.",
+      "energy": "Profilo di sosta da misurare; modem attivo subordinato alla riserva servizi."
+    },
+    {
+      "id": "offline",
+      "title": "Senza copertura",
+      "summary": "Continuare a consultare e raccogliere senza confondere bozze e dati già sincronizzati.",
+      "steps": [
+        "Mostrare che LTE o casa non sono raggiungibili.",
+        "Aprire la selezione di documenti realmente scaricata.",
+        "Salvare nuove informazioni con identificativo e stato locale.",
+        "Accodare la consegna senza creare registrazioni duplicate."
+      ],
+      "offline": "È il profilo locale esplicito; cloud e diagnosi che richiedono Internet risultano indisponibili.",
+      "energy": "Evitare tentativi continui e trasferimenti inutili; mantenere i servizi essenziali."
+    },
+    {
+      "id": "rientro",
+      "title": "Rientro e riallineamento",
+      "summary": "Consegnare il lavoro, aggiornare le copie di viaggio e verificare il recupero.",
+      "steps": [
+        "Scegliere la connessione adatta ai trasferimenti.",
+        "Inviare nuovi dati e confrontare eventuali modifiche concorrenti.",
+        "Verificare registrazioni, file e backup prima di liberare spazio.",
+        "Preparare documenti e configurazioni per la prossima uscita."
+      ],
+      "offline": "I dati non consegnati rimangono locali e chiaramente marcati.",
+      "energy": "Trasferimenti estesi con alimentazione stabile e spazio libero verificato."
+    },
+    {
+      "id": "riserva",
+      "title": "Riserva energia",
+      "summary": "Preservare comunicazioni prioritarie e bozze quando l’energia disponibile scende.",
+      "steps": [
+        "Rilevare la soglia dal sistema energetico effettivo.",
+        "Sospendere copie e carichi non essenziali.",
+        "Salvare le bozze e annotare le attività incomplete.",
+        "Arrestare ordinatamente PC e display secondo il profilo collaudato."
+      ],
+      "offline": "La ripresa deve mostrare quali dati aspettano ancora la consegna.",
+      "energy": "Soglie da definire dopo le misure; nessuna autonomia presunta."
+    }
+  ],
+  "timeline": [
+    {
+      "id": "vito-banco",
+      "window": "Vacanze di Natale 2026",
+      "title": "Identità e prova da banco",
+      "depends_on": [],
+      "deliverables": [
+        "Censimento C1 e W639",
+        "Scelta dei componenti mancanti",
+        "Prova alimentazione, video e touch",
+        "Caso di lavoro di prova"
+      ],
+      "gate": "Dotazione e compatibilità documentate; nessuna installazione definitiva basata su ipotesi."
+    },
+    {
+      "id": "vito-base",
+      "window": "Fine vacanze di Natale / gennaio 2027",
+      "title": "Bordo essenziale",
+      "depends_on": [
+        "vito-banco"
+      ],
+      "deliverables": [
+        "Rete locale e accesso privato",
+        "Documenti offline",
+        "Dashboard essenziale",
+        "Misure energia e arresto"
+      ],
+      "gate": "Una sessione di lavoro funziona senza casa e senza LTE."
+    },
+    {
+      "id": "vito-integrazioni",
+      "window": "Gennaio 2027",
+      "title": "Camper e telemetria",
+      "depends_on": [
+        "vito-base"
+      ],
+      "deliverables": [
+        "Sensori reali censiti",
+        "WiCAN se acquistato e compatibile",
+        "Monitoraggio con ultima comunicazione",
+        "Prova dei profili camper e riserva"
+      ],
+      "gate": "Dati recenti distinguibili dai dati vecchi; funzioni locali autonome."
+    },
+    {
+      "id": "vito-pilota",
+      "window": "Dopo i collaudi di gennaio 2027",
+      "title": "Trasferta pilota e consolidamento",
+      "depends_on": [
+        "vito-integrazioni"
+      ],
+      "deliverables": [
+        "Rapportino senza duplicati",
+        "Rientro e sincronizzazione verificati",
+        "Recupero su altro dispositivo",
+        "Inventario e configurazioni aggiornati"
+      ],
+      "gate": "Problemi rilevati risolti o documentati; automazioni avanzate solo dopo il consolidamento."
+    }
+  ],
+  "source_checked_on": "2026-11-01",
+  "status": "Contenuti progettuali; nessuna installazione o consegna aggiuntiva attestata"
+}
