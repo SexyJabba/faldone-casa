@@ -1,0 +1,1489 @@
+[
+ {
+  "id": "OPNSENSE",
+  "kind": "service",
+  "name": "OPNsense",
+  "title": "Firewall, instradamento, DHCP e DNS privati",
+  "oneLine": "Decide chi entra e chi esce e collega fra loro le reti private. Gira in una VM su M1.",
+  "scopes": [
+   "sala-server"
+  ],
+  "audience": "infrastruttura",
+  "remote": "none",
+  "cards": [
+   "INF-03.02",
+   "INF-02.07",
+   "REV3-RET"
+  ],
+  "activities": [
+   {
+    "text": "raggiungere i servizi di casa da fuori"
+   },
+   {
+    "text": "passare da una rete privata all'altra"
+   },
+   {
+    "text": "risolvere i nomi dei servizi interni (DNS)"
+   }
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "non_attestato",
+   "src": [
+    "REV4-ROAD"
+   ]
+  },
+  "rel": [
+   [
+    "hosted_on",
+    "M1"
+   ],
+   [
+    "depends_on",
+    "WAN1",
+    {
+     "req": "optional",
+     "note": "Una delle due WAN basta per uscire."
+    }
+   ],
+   [
+    "depends_on",
+    "WAN2",
+    {
+     "req": "optional"
+    }
+   ],
+   [
+    "recovers_on",
+    "M7",
+    {
+     "note": "Subentro manuale: secondo avvio o M7. Nessuna HA automatica.",
+     "cond": {
+      "all": [
+       {
+        "test": "T-M1"
+       }
+      ]
+     },
+     "manual": true
+    }
+   ]
+  ]
+ },
+ {
+  "id": "ZABBIX",
+  "kind": "service",
+  "name": "Zabbix",
+  "title": "Metriche e log",
+  "oneLine": "Raccoglie metriche e log dell'impianto in una VM separata su M1. Nessuna telemetria è già attiva.",
+  "scopes": [
+   "sala-server",
+   "laboratorio"
+  ],
+  "audience": "gestione",
+  "remote": "none",
+  "cards": [
+   "REV4-MON"
+  ],
+  "activities": [
+   {
+    "text": "vedere lo stato misurato delle macchine"
+   }
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "non_attestato",
+   "note": "«Nessuna telemetria già attiva».",
+   "src": [
+    "REV3-SRV"
+   ]
+  },
+  "rel": [
+   [
+    "hosted_on",
+    "M1"
+   ]
+  ]
+ },
+ {
+  "id": "NEXTCLOUD",
+  "kind": "service",
+  "name": "Nextcloud",
+  "title": "File e documenti personali",
+  "oneLine": "Lo spazio personale di file e documenti, sincronizzato su telefono e PC.",
+  "scopes": [
+   "sala-server"
+  ],
+  "audience": "personale",
+  "remote": "private",
+  "cards": [
+   "INF-03.14",
+   "INF-12.04",
+   "INF-12.05",
+   "INF-12.06"
+  ],
+  "activities": [
+   {
+    "text": "aprire i documenti da telefono e PC"
+   },
+   {
+    "text": "salvare o modificare un documento",
+    "write": true
+   },
+   {
+    "text": "consegnare un file con un link"
+   }
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "non_attestato",
+   "src": [
+    "REV4-ROAD"
+   ]
+  },
+  "rel": [
+   [
+    "hosted_on",
+    "M2"
+   ],
+   [
+    "depends_on",
+    "D-DOC"
+   ],
+   [
+    "depends_on",
+    "D-APPDB"
+   ],
+   [
+    "recovers_on",
+    "C4",
+    {
+     "cond": {
+      "all": [
+       {
+        "test": "T-HA-APP"
+       },
+       {
+        "quorumAt": "C4"
+       },
+       {
+        "factKnown": "C4.diskCapacity"
+       }
+      ]
+     },
+     "note": "Subentro solo se la replica completa entra nel disco di C4: non si promette di replicare 4 TB su 256 GB.",
+     "src": [
+      "INF-03.01",
+      "INF-08.08"
+     ]
+    }
+   ]
+  ],
+  "facts": {
+   "rpoTarget": {
+    "value": 5,
+    "unit": "min",
+    "ev": "documented",
+    "src": [
+     "INF-08.08"
+    ],
+    "note": "Obiettivo di progetto, non misurato."
+   },
+   "rtoTarget": {
+    "value": 15,
+    "unit": "min",
+    "ev": "documented",
+    "src": [
+     "INF-08.08"
+    ],
+    "note": "Obiettivo di progetto, non misurato."
+   }
+  }
+ },
+ {
+  "id": "VIKUNJA",
+  "kind": "service",
+  "name": "Vikunja",
+  "title": "Attività e roadmap",
+  "oneLine": "Gestione delle attività: qui si segue l'avanzamento dei lavori.",
+  "scopes": [
+   "sala-server",
+   "laboratorio"
+  ],
+  "audience": "personale",
+  "remote": "private",
+  "cards": [
+   "INF-03.41"
+  ],
+  "activities": [
+   {
+    "text": "consultare e aggiornare le attività",
+    "write": true
+   }
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "non_attestato",
+   "src": [
+    "REV4-ROAD"
+   ]
+  },
+  "rel": [
+   [
+    "hosted_on",
+    "M2"
+   ],
+   [
+    "depends_on",
+    "D-APPDB"
+   ],
+   [
+    "recovers_on",
+    "C4",
+    {
+     "cond": {
+      "all": [
+       {
+        "test": "T-HA-APP"
+       },
+       {
+        "quorumAt": "C4"
+       },
+       {
+        "factKnown": "C4.diskCapacity"
+       }
+      ]
+     },
+     "src": [
+      "INF-08.08"
+     ]
+    }
+   ]
+  ],
+  "facts": {
+   "rpoTarget": {
+    "value": 5,
+    "unit": "min",
+    "ev": "documented",
+    "src": [
+     "INF-08.08"
+    ]
+   },
+   "rtoTarget": {
+    "value": 15,
+    "unit": "min",
+    "ev": "documented",
+    "src": [
+     "INF-08.08"
+    ]
+   }
+  }
+ },
+ {
+  "id": "N8N",
+  "kind": "service",
+  "name": "n8n",
+  "title": "Automazioni",
+  "oneLine": "Flussi automatici fra servizi, con OCR e proposte degli assistenti.",
+  "scopes": [
+   "sala-server",
+   "laboratorio"
+  ],
+  "audience": "personale",
+  "remote": "none",
+  "cards": [
+   "INF-03.24"
+  ],
+  "activities": [
+   {
+    "text": "far girare le automazioni programmate"
+   }
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "non_attestato",
+   "src": [
+    "REV4-ROAD"
+   ]
+  },
+  "rel": [
+   [
+    "hosted_on",
+    "M2"
+   ],
+   [
+    "depends_on",
+    "D-APPDB"
+   ],
+   [
+    "recovers_on",
+    "C4",
+    {
+     "cond": {
+      "all": [
+       {
+        "test": "T-HA-APP"
+       },
+       {
+        "quorumAt": "C4"
+       },
+       {
+        "factKnown": "C4.diskCapacity"
+       }
+      ]
+     },
+     "src": [
+      "INF-08.08"
+     ]
+    }
+   ]
+  ],
+  "facts": {
+   "rpoTarget": {
+    "value": 5,
+    "unit": "min",
+    "ev": "documented",
+    "src": [
+     "INF-08.08"
+    ]
+   },
+   "rtoTarget": {
+    "value": 15,
+    "unit": "min",
+    "ev": "documented",
+    "src": [
+     "INF-08.08"
+    ]
+   }
+  }
+ },
+ {
+  "id": "IMMICH",
+  "kind": "service",
+  "name": "Immich",
+  "title": "Foto e video di casa",
+  "oneLine": "L'archivio di foto e video: originali, album e ricerca. Può aspettare M2: non ha un subentro previsto.",
+  "scopes": [
+   "sala-server",
+   "casa"
+  ],
+  "audience": "personale",
+  "remote": "private",
+  "cards": [
+   "INF-03.15"
+  ],
+  "activities": [
+   {
+    "text": "vedere le foto da telefono e PC"
+   },
+   {
+    "text": "caricare nuove foto dal telefono",
+    "write": true
+   },
+   {
+    "text": "cercare una foto per contenuto"
+   }
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "non_attestato",
+   "src": [
+    "REV4-ROAD"
+   ]
+  },
+  "rel": [
+   [
+    "hosted_on",
+    "M2"
+   ],
+   [
+    "depends_on",
+    "D-FOTO"
+   ],
+   [
+    "depends_on",
+    "VISIONGW",
+    {
+     "req": "optional",
+     "note": "Pre-analisi facoltativa: senza ponte restano le funzioni native."
+    }
+   ]
+  ]
+ },
+ {
+  "id": "PAPERLESS",
+  "kind": "service",
+  "name": "Paperless-ngx",
+  "title": "Archivio documenti cartacei",
+  "oneLine": "Documenti scansionati e resi ricercabili con l'OCR ufficiale.",
+  "scopes": [
+   "sala-server"
+  ],
+  "audience": "personale",
+  "remote": "private",
+  "cards": [
+   "INF-03.38"
+  ],
+  "activities": [
+   {
+    "text": "cercare un documento archiviato"
+   },
+   {
+    "text": "archiviare una nuova scansione",
+    "write": true
+   }
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "non_attestato",
+   "src": [
+    "REV4-ROAD"
+   ]
+  },
+  "rel": [
+   [
+    "hosted_on",
+    "M2"
+   ],
+   [
+    "depends_on",
+    "D-DOC"
+   ],
+   [
+    "depends_on",
+    "D-APPDB"
+   ]
+  ]
+ },
+ {
+  "id": "SYNCTHING",
+  "kind": "service",
+  "name": "Syncthing",
+  "title": "Sincronizzazione cartelle",
+  "oneLine": "Tiene allineate alcune cartelle fra dispositivi. Sincronizzare non è fare backup: un errore si propaga.",
+  "scopes": [
+   "sala-server"
+  ],
+  "audience": "personale",
+  "remote": "none",
+  "cards": [
+   "INF-03.17"
+  ],
+  "activities": [
+   {
+    "text": "ritrovare una cartella aggiornata su un altro dispositivo"
+   }
+  ],
+  "rel": [
+   [
+    "hosted_on",
+    "M2"
+   ],
+   [
+    "depends_on",
+    "D-DOC"
+   ]
+  ]
+ },
+ {
+  "id": "SMB",
+  "kind": "service",
+  "name": "SMB/NFS",
+  "title": "Cartelle di rete",
+  "oneLine": "Le cartelle condivise di casa, servite da M2. I dischi di backup non sono condivisione primaria.",
+  "scopes": [
+   "sala-server"
+  ],
+  "audience": "personale",
+  "remote": "none",
+  "cards": [
+   "INF-03.16"
+  ],
+  "activities": [
+   {
+    "text": "aprire le cartelle condivise dal PC"
+   },
+   {
+    "text": "salvare file nelle cartelle di rete",
+    "write": true
+   }
+  ],
+  "rel": [
+   [
+    "hosted_on",
+    "M2"
+   ],
+   [
+    "depends_on",
+    "D-DOC"
+   ]
+  ]
+ },
+ {
+  "id": "APPS-CASA",
+  "kind": "service",
+  "name": "App di casa",
+  "title": "Tandoor, Grocy, HomeBox, Firefly III, Stirling PDF",
+  "oneLine": "Ricette, dispensa, oggetti di casa, conti e strumenti PDF. Nessun subentro: aspettano M2.",
+  "scopes": [
+   "casa"
+  ],
+  "audience": "personale",
+  "remote": "private",
+  "cards": [
+   "INF-03.39",
+   "INF-03.40",
+   "INF-03.37",
+   "INF-03.42",
+   "INF-03.35"
+  ],
+  "activities": [
+   {
+    "text": "consultare ricette, dispensa e oggetti di casa"
+   },
+   {
+    "text": "registrare spese e movimenti",
+    "write": true
+   }
+  ],
+  "rel": [
+   [
+    "hosted_on",
+    "M2"
+   ],
+   [
+    "depends_on",
+    "D-APPDB"
+   ]
+  ]
+ },
+ {
+  "id": "OPENWEBUI",
+  "kind": "service",
+  "name": "Open WebUI",
+  "title": "Interfaccia degli assistenti locali",
+  "oneLine": "L'interfaccia è su M2; il calcolo vero avviene su M3, che si accende su conferma o in coda.",
+  "scopes": [
+   "laboratorio"
+  ],
+  "audience": "personale",
+  "remote": "private",
+  "cards": [
+   "INF-03.25"
+  ],
+  "activities": [
+   {
+    "text": "fare una domanda all'assistente locale"
+   }
+  ],
+  "rel": [
+   [
+    "hosted_on",
+    "M2"
+   ],
+   [
+    "depends_on",
+    "LLM"
+   ]
+  ]
+ },
+ {
+  "id": "LLM",
+  "kind": "service",
+  "name": "Motori LLM/VLM",
+  "title": "Calcolo IA locale",
+  "oneLine": "Modelli di linguaggio e visione eseguiti su M3 con la RTX 3060.",
+  "scopes": [
+   "laboratorio",
+   "sala-server"
+  ],
+  "audience": "personale",
+  "remote": "none",
+  "cards": [
+   "INF-03.07",
+   "INF-03.26"
+  ],
+  "activities": [
+   {
+    "text": "far elaborare testi e immagini all'IA locale"
+   }
+  ],
+  "rel": [
+   [
+    "hosted_on",
+    "M3"
+   ]
+  ]
+ },
+ {
+  "id": "HAOS",
+  "kind": "service",
+  "name": "Home Assistant",
+  "title": "Centro della domotica",
+  "oneLine": "Le automazioni di casa: luci, scenari, avvisi. Subentro previsto su C3 dopo collaudo.",
+  "scopes": [
+   "casa"
+  ],
+  "audience": "famiglia",
+  "remote": "private",
+  "cards": [
+   "INF-03.28",
+   "INF-08.08",
+   "REV4-DOM"
+  ],
+  "activities": [
+   {
+    "text": "far partire le automazioni (luci, scenari)"
+   },
+   {
+    "text": "comandare la casa dall'app"
+   },
+   {
+    "text": "ricevere gli avvisi della casa"
+   }
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "non_attestato",
+   "src": [
+    "REV4-ROAD"
+   ]
+  },
+  "rel": [
+   [
+    "hosted_on",
+    "M5"
+   ],
+   [
+    "depends_on",
+    "MQTT"
+   ],
+   [
+    "depends_on",
+    "D-HA"
+   ],
+   [
+    "recovers_on",
+    "C3",
+    {
+     "cond": {
+      "all": [
+       {
+        "test": "T-HA-DOM"
+       },
+       {
+        "quorumAt": "C3"
+       }
+      ]
+     },
+     "src": [
+      "INF-08.08"
+     ]
+    }
+   ]
+  ],
+  "facts": {
+   "rpoTarget": {
+    "value": 5,
+    "unit": "min",
+    "ev": "documented",
+    "src": [
+     "INF-08.08"
+    ]
+   },
+   "rtoTarget": {
+    "value": 5,
+    "unit": "min",
+    "ev": "documented",
+    "src": [
+     "INF-08.08"
+    ]
+   }
+  }
+ },
+ {
+  "id": "MQTT",
+  "kind": "service",
+  "name": "MQTT",
+  "title": "Canale dei messaggi dei sensori",
+  "oneLine": "Il broker che porta i messaggi fra radio e Home Assistant, in un guest separato su M5.",
+  "scopes": [
+   "casa"
+  ],
+  "audience": "infrastruttura",
+  "remote": "none",
+  "cards": [
+   "INF-03.28",
+   "INF-08.08"
+  ],
+  "activities": [
+   {
+    "text": "far arrivare i messaggi dei sensori"
+   }
+  ],
+  "rel": [
+   [
+    "hosted_on",
+    "M5"
+   ],
+   [
+    "recovers_on",
+    "C3",
+    {
+     "cond": {
+      "all": [
+       {
+        "test": "T-HA-DOM"
+       },
+       {
+        "quorumAt": "C3"
+       }
+      ]
+     },
+     "src": [
+      "INF-08.08"
+     ]
+    }
+   ]
+  ],
+  "facts": {
+   "rpoTarget": {
+    "value": 5,
+    "unit": "min",
+    "ev": "documented",
+    "src": [
+     "INF-08.08"
+    ]
+   },
+   "rtoTarget": {
+    "value": 5,
+    "unit": "min",
+    "ev": "documented",
+    "src": [
+     "INF-08.08"
+    ]
+   }
+  }
+ },
+ {
+  "id": "Z2M",
+  "kind": "service",
+  "name": "Zigbee2MQTT",
+  "title": "Ponte radio",
+  "oneLine": "Traduce la radio Zigbee in messaggi MQTT. Gira su S3, indipendente da M5.",
+  "scopes": [
+   "casa"
+  ],
+  "audience": "infrastruttura",
+  "remote": "none",
+  "cards": [
+   "INF-03.28"
+  ],
+  "activities": [
+   {
+    "text": "ricevere i segnali dei sensori Zigbee"
+   }
+  ],
+  "rel": [
+   [
+    "hosted_on",
+    "S3"
+   ],
+   [
+    "depends_on",
+    "NET-ZIGBEE"
+   ],
+   [
+    "depends_on",
+    "MQTT",
+    {
+     "note": "Per inoltrare i messaggi serve il broker (M5 o C3)."
+    }
+   ]
+  ]
+ },
+ {
+  "id": "ZB-BINDING",
+  "kind": "service",
+  "name": "Binding Zigbee diretti",
+  "title": "Comandi diretti fra dispositivi",
+  "oneLine": "Dove configurato, un interruttore comanda la luce direttamente via radio, senza server. Quali dispositivi abbiano un binding non è documentato.",
+  "scopes": [
+   "casa"
+  ],
+  "audience": "famiglia",
+  "remote": "none",
+  "cards": [
+   "INF-03.28",
+   "INF-08.08"
+  ],
+  "activities": [
+   {
+    "text": "accendere una luce da un interruttore con binding"
+   }
+  ],
+  "facts": {
+   "devices": {
+    "value": null,
+    "ev": "unknown",
+    "src": [
+     "INF-03.28"
+    ],
+    "note": "Elenco dei binding configurati non documentato."
+   }
+  },
+  "rel": [
+   [
+    "depends_on",
+    "NET-ZIGBEE"
+   ]
+  ],
+  "determinable": false,
+  "undeterminedReason": "Funziona solo dove un binding è configurato; quali dispositivi lo abbiano non è documentato."
+ },
+ {
+  "id": "FRIGATE",
+  "kind": "service",
+  "name": "Frigate",
+  "title": "Videosorveglianza locale",
+  "oneLine": "Analizza le telecamere e registra gli eventi per 7 giorni. Non ha subentro: Hailo e registrazioni non migrano.",
+  "scopes": [
+   "casa"
+  ],
+  "audience": "famiglia",
+  "remote": "private",
+  "cards": [
+   "INF-03.29",
+   "INF-07.01",
+   "INF-03.44"
+  ],
+  "activities": [
+   {
+    "text": "rivedere gli eventi delle telecamere"
+   },
+   {
+    "text": "ricevere avvisi di movimento"
+   }
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "da_acquisire",
+   "note": "Hailo-8 e camere ancora da acquistare.",
+   "src": [
+    "REV3-OPEN"
+   ]
+  },
+  "rel": [
+   [
+    "hosted_on",
+    "M5"
+   ],
+   [
+    "depends_on",
+    "D-CAM"
+   ],
+   [
+    "depends_on",
+    "NET-IOT"
+   ]
+  ]
+ },
+ {
+  "id": "VISIONGW",
+  "kind": "service",
+  "name": "Vision-gateway",
+  "title": "Pre-analisi delle immagini",
+  "oneLine": "Pre-elaborazione facoltativa di foto e documenti con Hailo su M5. Non sostituisce le funzioni native.",
+  "scopes": [
+   "casa"
+  ],
+  "audience": "infrastruttura",
+  "remote": "none",
+  "cards": [
+   "INF-03.47",
+   "REV3-VIS"
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "da_acquisire",
+   "note": "Dipende da Hailo, non acquistato.",
+   "src": [
+    "REV3-OPEN"
+   ]
+  },
+  "rel": [
+   [
+    "hosted_on",
+    "M5"
+   ]
+  ]
+ },
+ {
+  "id": "JELLYFIN",
+  "kind": "service",
+  "name": "Jellyfin",
+  "title": "Film e serie",
+  "oneLine": "Il server dei film su M6. Legge i file dal pool media di M4: se il file è là, la richiesta sveglia M4.",
+  "scopes": [
+   "sala-server",
+   "terzi",
+   "casa"
+  ],
+  "audience": "utenti autorizzati",
+  "remote": "caddy",
+  "cards": [
+   "INF-03.05",
+   "INF-03.19",
+   "REV3-EXT"
+  ],
+  "activities": [
+   {
+    "text": "guardare un film o una serie"
+   },
+   {
+    "text": "far vedere un film agli amici autorizzati"
+   }
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "non_attestato",
+   "src": [
+    "REV4-ROAD"
+   ]
+  },
+  "rel": [
+   [
+    "hosted_on",
+    "M6"
+   ],
+   [
+    "depends_on",
+    "D-MEDIA",
+    {
+     "note": "«La richiesta di visione risveglia M4 se il file è remoto»."
+    }
+   ]
+  ]
+ },
+ {
+  "id": "AUDIO",
+  "kind": "service",
+  "name": "Navidrome, Audiobookshelf, Snapcast",
+  "title": "Musica e audiolibri",
+  "oneLine": "Musica, audiolibri e audio multistanza (Snapcast solo in casa). Copie locali quotate su M6.",
+  "scopes": [
+   "casa"
+  ],
+  "audience": "personale",
+  "remote": "private",
+  "cards": [
+   "INF-03.20",
+   "INF-03.34",
+   "INF-03.45"
+  ],
+  "activities": [
+   {
+    "text": "ascoltare musica e audiolibri"
+   }
+  ],
+  "rel": [
+   [
+    "hosted_on",
+    "M6"
+   ],
+   [
+    "depends_on",
+    "D-AUDIO"
+   ]
+  ]
+ },
+ {
+  "id": "SEAFILE",
+  "kind": "service",
+  "name": "Seafile",
+  "title": "File per utenti esterni",
+  "oneLine": "Cloud per 10 utenti esterni da 50 GB. Protetto solo da un mirror: nessun backup aggiuntivo.",
+  "scopes": [
+   "terzi"
+  ],
+  "audience": "utenti autorizzati",
+  "remote": "caddy",
+  "cards": [
+   "INF-03.49"
+  ],
+  "activities": [
+   {
+    "text": "scambiare file con gli utenti esterni",
+    "write": true
+   }
+  ],
+  "rel": [
+   [
+    "hosted_on",
+    "M6"
+   ],
+   [
+    "depends_on",
+    "D-SEAFILE"
+   ]
+  ],
+  "limits": [
+   "Il mirror protegge dal guasto di un disco, non da cancellazioni o errori: per i file degli esterni non c'è backup aggiuntivo."
+  ]
+ },
+ {
+  "id": "ARR",
+  "kind": "service",
+  "name": "Download e «arr»",
+  "title": "Download automatizzati",
+  "oneLine": "Scaricamenti in container separati, con scrittura limitata sul pool media.",
+  "scopes": [
+   "sala-server"
+  ],
+  "audience": "interno",
+  "remote": "none",
+  "cards": [
+   "INF-03.21",
+   "INF-03.22",
+   "INF-06.08"
+  ],
+  "activities": [
+   {
+    "text": "aggiungere nuovi titoli alla libreria",
+    "write": true
+   }
+  ],
+  "rel": [
+   [
+    "hosted_on",
+    "M6"
+   ],
+   [
+    "depends_on",
+    "D-MEDIA",
+    {
+     "req": "optional",
+     "note": "Senza M4 i download restano nello staging."
+    }
+   ]
+  ]
+ },
+ {
+  "id": "CADDY",
+  "kind": "service",
+  "name": "Caddy",
+  "title": "Porta d'ingresso dei servizi",
+  "oneLine": "Il proxy che pubblica i servizi concessi verso l'esterno. HTTPS non equivale a limitare l'accesso ai soli dispositivi autorizzati.",
+  "scopes": [
+   "sala-server",
+   "terzi"
+  ],
+  "audience": "infrastruttura",
+  "remote": "none",
+  "cards": [
+   "INF-03.18",
+   "INF-12.03"
+  ],
+  "activities": [
+   {
+    "text": "entrare nei servizi da fuori casa"
+   }
+  ],
+  "rel": [
+   [
+    "hosted_on",
+    "S1"
+   ],
+   [
+    "depends_on",
+    "OPNSENSE",
+    {
+     "note": "Il percorso filtrato passa da M1."
+    }
+   ]
+  ]
+ },
+ {
+  "id": "VAULTWARDEN",
+  "kind": "service",
+  "name": "Vaultwarden",
+  "title": "Gestore delle password",
+  "oneLine": "Le password di casa. Escluso dalla VPS; le chiavi di recupero sono disponibili offline anche senza il vault.",
+  "scopes": [
+   "sala-server"
+  ],
+  "audience": "famiglia",
+  "remote": "private",
+  "cards": [
+   "INF-03.23"
+  ],
+  "activities": [
+   {
+    "text": "recuperare una password dal vault"
+   },
+   {
+    "text": "salvare una nuova password",
+    "write": true
+   }
+  ],
+  "rel": [
+   [
+    "hosted_on",
+    "S1"
+   ],
+   [
+    "depends_on",
+    "D-VAULT"
+   ]
+  ]
+ },
+ {
+  "id": "NOTIFY",
+  "kind": "service",
+  "name": "ntfy, Uptime Kuma, Beszel",
+  "title": "Notifiche e controlli",
+  "oneLine": "Avvisi e controlli di raggiungibilità su S1. Distinguono lo spegnimento normale da un guasto.",
+  "scopes": [
+   "sala-server",
+   "laboratorio"
+  ],
+  "audience": "gestione",
+  "remote": "none",
+  "cards": [
+   "INF-08.03",
+   "INF-12.13"
+  ],
+  "activities": [
+   {
+    "text": "ricevere avvisi di guasto sul telefono"
+   }
+  ],
+  "rel": [
+   [
+    "hosted_on",
+    "S1"
+   ]
+  ]
+ },
+ {
+  "id": "WOL",
+  "kind": "service",
+  "name": "Sentinella WoL",
+  "title": "Accensione remota",
+  "oneLine": "S4 invia per primo il comando che accende M3, M4 e M6; C4 è il secondo mittente. Inviare il comando non significa nodo pronto.",
+  "scopes": [
+   "sala-server"
+  ],
+  "audience": "infrastruttura",
+  "remote": "none",
+  "cards": [
+   "INF-03.32"
+  ],
+  "activities": [
+   {
+    "text": "accendere i server a richiesta"
+   }
+  ],
+  "rel": [
+   [
+    "hosted_on",
+    "S4"
+   ]
+  ]
+ },
+ {
+  "id": "RELAY",
+  "kind": "service",
+  "name": "Osservatore e relay esterno",
+  "title": "Controllo da fuori casa",
+  "oneLine": "Guarda i servizi dall'esterno e fa da relay. Non accende macchine in casa senza un percorso predisposto.",
+  "scopes": [
+   "sala-server"
+  ],
+  "audience": "gestione",
+  "remote": "none",
+  "cards": [
+   "INF-03.52"
+  ],
+  "status": {
+   "decision": "proposta",
+   "realization": "non_attestato",
+   "src": [
+    "INF-03.06"
+   ]
+  },
+  "rel": [
+   [
+    "hosted_on",
+    "S2"
+   ]
+  ]
+ },
+ {
+  "id": "SUNSHINE",
+  "kind": "service",
+  "name": "Windows, Steam, Sunshine",
+  "title": "Gioco e Windows in streaming",
+  "oneLine": "Windows sull'Acer MP3 con gioco in streaming verso i client fidati.",
+  "scopes": [
+   "laboratorio",
+   "casa"
+  ],
+  "audience": "client fidati",
+  "remote": "none",
+  "cards": [
+   "ATL-10",
+   "ATL-15"
+  ],
+  "activities": [
+   {
+    "text": "giocare in streaming su un client di casa"
+   }
+  ],
+  "rel": [
+   [
+    "hosted_on",
+    "MP3"
+   ]
+  ]
+ },
+ {
+  "id": "HERMES",
+  "kind": "service",
+  "name": "Hermes",
+  "title": "Assistente personale",
+  "oneLine": "Assistente che propone archiviazioni e azioni; scrive solo dopo conferma. Usa M3 su conferma o in coda.",
+  "scopes": [
+   "laboratorio"
+  ],
+  "audience": "personale",
+  "remote": "none",
+  "cards": [
+   "INF-06.06",
+   "INF-06.11",
+   "REV3-AGN"
+  ],
+  "activities": [
+   {
+    "text": "chiedere all'assistente di preparare una proposta"
+   }
+  ],
+  "rel": [
+   [
+    "hosted_on",
+    "MP3"
+   ],
+   [
+    "depends_on",
+    "LLM",
+    {
+     "req": "optional",
+     "note": "M3 su conferma o coda."
+    }
+   ]
+  ]
+ },
+ {
+  "id": "OPENCLAW",
+  "kind": "service",
+  "name": "OpenClaw",
+  "title": "Agente operatore",
+  "oneLine": "Agente con Windows come ambiente operatore; runtime e permessi da validare. La macchina che lo ospita è indicata in modo diverso nelle schede.",
+  "scopes": [
+   "laboratorio"
+  ],
+  "audience": "personale",
+  "remote": "none",
+  "cards": [
+   "INF-06.11",
+   "INF-02.07",
+   "REV3-SRV"
+  ],
+  "issues": [
+   "I-OPENCLAW"
+  ],
+  "rel": [
+   [
+    "hosted_on",
+    "MP3",
+    {
+     "ev": "documented",
+     "note": "REV3-SRV indica MP3; INF-02.07 e INF-03.14 indicano MP1. Vedi incongruenza I-OPENCLAW."
+    }
+   ]
+  ]
+ },
+ {
+  "id": "GEMINI",
+  "kind": "service",
+  "name": "Gemini / Google AI Pro",
+  "title": "Assistente dell'account di lavoro",
+  "oneLine": "Voce, Sheets e Calendar dell'account di lavoro, su servizi Google esterni.",
+  "scopes": [
+   "vito",
+   "laboratorio"
+  ],
+  "audience": "lavoro",
+  "remote": "none",
+  "cards": [
+   "INF-06.13",
+   "REV3-WRK"
+  ],
+  "external": true,
+  "activities": [
+   {
+    "text": "dettare e consultare l'agenda di lavoro"
+   }
+  ]
+ },
+ {
+  "id": "VITO-KIT",
+  "kind": "service",
+  "name": "Kit di bordo",
+  "title": "Documenti offline e rapportini",
+  "oneLine": "Documenti selezionati, rapportini e dashboard del Vito. Funziona offline; invia al rientro o via LTE senza duplicati.",
+  "scopes": [
+   "vito"
+  ],
+  "audience": "lavoro",
+  "remote": "none",
+  "cards": [
+   "REV4-VLAV",
+   "REV4-VSYNC",
+   "REV4-VITO"
+  ],
+  "activities": [
+   {
+    "text": "consultare i documenti di cantiere"
+   },
+   {
+    "text": "compilare il rapportino di giornata",
+    "write": true
+   },
+   {
+    "text": "inviare il rapportino all'archivio"
+   }
+  ],
+  "rel": [
+   [
+    "hosted_on",
+    "C1"
+   ],
+   [
+    "depends_on",
+    "D-VITO"
+   ],
+   [
+    "depends_on",
+    "NET-VITO",
+    {
+     "req": "optional",
+     "note": "Senza rete l'invio è differito; la consultazione resta."
+    }
+   ]
+  ]
+ },
+ {
+  "id": "JF-OFFLINE",
+  "kind": "service",
+  "name": "Visione offline degli amici",
+  "title": "Titoli su chiavetta USB",
+  "oneLine": "Gli HP degli amici riproducono i titoli già copiati su USB, senza svegliare i server.",
+  "scopes": [
+   "terzi"
+  ],
+  "audience": "due amici",
+  "remote": "none",
+  "cards": [
+   "INF-05.30",
+   "REV3-EXT"
+  ],
+  "activities": [
+   {
+    "text": "guardare i titoli già copiati sulla chiavetta"
+   }
+  ],
+  "rel": [
+   [
+    "hosted_on",
+    "HP-AMICI"
+   ]
+  ]
+ },
+ {
+  "id": "DASH-INGRESSO",
+  "kind": "service",
+  "name": "Dashboard ingresso",
+  "title": "Pannello citofono e allarme",
+  "oneLine": "Pannello locale per citofono e allarme, fuori dal quorum.",
+  "scopes": [
+   "casa"
+  ],
+  "audience": "famiglia",
+  "remote": "none",
+  "cards": [
+   "INF-05.31"
+  ],
+  "activities": [
+   {
+    "text": "vedere citofono e stato allarme all'ingresso"
+   }
+  ],
+  "rel": [
+   [
+    "hosted_on",
+    "MICROTECH"
+   ],
+   [
+    "depends_on",
+    "HAOS",
+    {
+     "req": "optional",
+     "ev": "unknown",
+     "note": "Le schede non specificano quali funzioni del pannello dipendano da Home Assistant."
+    }
+   ]
+  ]
+ },
+ {
+  "id": "ACCESSO-PRIVATO",
+  "kind": "service",
+  "name": "Accesso remoto personale",
+  "title": "Accesso privato da fuori casa",
+  "oneLine": "Il percorso con cui i propri dispositivi raggiungono i servizi personali da fuori. Il meccanismo concreto non è specificato nelle schede.",
+  "scopes": [
+   "sala-server"
+  ],
+  "audience": "personale",
+  "remote": "none",
+  "cards": [
+   "INF-03.18",
+   "INF-02.07"
+  ],
+  "facts": {
+   "mechanism": {
+    "value": null,
+    "ev": "unknown",
+    "src": [
+     "INF-03.18"
+    ],
+    "note": "«Nextcloud e Hermes su M2 richiedono comunque l'accesso remoto personale dalla rete»: tecnologia e nodo non indicati."
+   }
+  },
+  "issues": [
+   "Q-ACCESSO"
+  ],
+  "rel": [
+   [
+    "depends_on",
+    "OPNSENSE"
+   ],
+   [
+    "depends_on",
+    "CADDY"
+   ]
+  ],
+  "determinable": false,
+  "undeterminedReason": "Meccanismo di accesso remoto personale non documentato: non si può dire se funziona."
+ }
+]

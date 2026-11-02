@@ -1,0 +1,12 @@
+{
+ "schemaVersion": 1,
+ "revision": "4.4",
+ "documentDate": "2026-11-01",
+ "modelDate": "2026-11-02",
+ "implementationStart": "2026-12-23",
+ "title": "Il Faldone",
+ "subtitle": "Casa · Sala server · Laboratorio · Vito",
+ "statement": "Architettura di riferimento 4.4: progetto approvato, da attuare a partire dal 23 dicembre 2026. Nessuna parte è dichiarata installata o collaudata se non è registrata una prova.",
+ "telemetry": "Nessun connettore di osservazione è collegato: lo stato osservato di ogni elemento è «non rilevato».",
+ "owner": "Alessandro Rinaldi"
+}

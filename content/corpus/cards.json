@@ -1,0 +1,2729 @@
+[
+ {
+  "code": "INF-00.01",
+  "title": "Consultazione e configurazione 4.4",
+  "block": "00",
+  "scope": "reference",
+  "group": "g001",
+  "pdf": "02_PDF_correnti/Schede/INF-00.01_r4.4.pdf",
+  "md": "01_Vault_MD/00_Orientamento/INF-00.01.md"
+ },
+ {
+  "code": "INF-00.02",
+  "title": "Consultazione e configurazione 4.4",
+  "block": "00",
+  "scope": "reference",
+  "group": "g001",
+  "pdf": "02_PDF_correnti/Schede/INF-00.02_r4.4.pdf",
+  "md": "01_Vault_MD/00_Orientamento/INF-00.02.md"
+ },
+ {
+  "code": "INF-00.03",
+  "title": "Consultazione e configurazione 4.4",
+  "block": "00",
+  "scope": "reference",
+  "group": "g001",
+  "pdf": "02_PDF_correnti/Schede/INF-00.03_r4.4.pdf",
+  "md": "01_Vault_MD/00_Orientamento/INF-00.03.md"
+ },
+ {
+  "code": "INF-01.01",
+  "title": "Architettura e apparati della revisione 4.4",
+  "block": "01",
+  "scope": "reference",
+  "group": "g002",
+  "pdf": "02_PDF_correnti/Schede/INF-01.01_r4.4.pdf",
+  "md": "01_Vault_MD/01_Architettura_e_inventario/INF-01.01.md"
+ },
+ {
+  "code": "INF-01.02",
+  "title": "Architettura e apparati della revisione 4.4",
+  "block": "01",
+  "scope": "reference",
+  "group": "g002",
+  "pdf": "02_PDF_correnti/Schede/INF-01.02_r4.4.pdf",
+  "md": "01_Vault_MD/01_Architettura_e_inventario/INF-01.02.md"
+ },
+ {
+  "code": "INF-01.03",
+  "title": "Alimentatori, telai e assemblaggio",
+  "block": "01",
+  "scope": "reference",
+  "group": "g003",
+  "pdf": "02_PDF_correnti/Schede/INF-01.03_r4.4.pdf",
+  "md": "01_Vault_MD/01_Architettura_e_inventario/INF-01.03.md"
+ },
+ {
+  "code": "INF-01.05",
+  "title": "Energia: nucleo stabile e carichi attivati quando servono",
+  "block": "01",
+  "scope": "reference",
+  "group": "g004",
+  "pdf": "02_PDF_correnti/Schede/INF-01.05_r4.4.pdf",
+  "md": "01_Vault_MD/01_Architettura_e_inventario/INF-01.05.md"
+ },
+ {
+  "code": "INF-01.06",
+  "title": "Scheda di identificazione macchina",
+  "block": "01",
+  "scope": "reference",
+  "group": "g005",
+  "pdf": "02_PDF_correnti/Schede/INF-01.06_r4.4.pdf",
+  "md": "01_Vault_MD/01_Architettura_e_inventario/INF-01.06.md"
+ },
+ {
+  "code": "INF-01.08",
+  "title": "Dell OptiPlex 7070 Ultra / scheda modello",
+  "block": "01",
+  "scope": "reference",
+  "group": "g006",
+  "pdf": "02_PDF_correnti/Schede/INF-01.08_r4.4.pdf",
+  "md": "01_Vault_MD/01_Architettura_e_inventario/INF-01.08.md"
+ },
+ {
+  "code": "INF-01.09",
+  "title": "Architettura e apparati della revisione 4.4",
+  "block": "01",
+  "scope": "reference",
+  "group": "g002",
+  "pdf": "02_PDF_correnti/Schede/INF-01.09_r4.4.pdf",
+  "md": "01_Vault_MD/01_Architettura_e_inventario/INF-01.09.md"
+ },
+ {
+  "code": "INF-01.10",
+  "title": "Memorie: disponibilita, distribuzione e utilizzo",
+  "block": "01",
+  "scope": "reference",
+  "group": "g007",
+  "pdf": "02_PDF_correnti/Schede/INF-01.10_r4.4.pdf",
+  "md": "01_Vault_MD/01_Architettura_e_inventario/INF-01.10.md"
+ },
+ {
+  "code": "INF-01.11",
+  "title": "Storage: transizione e destinazioni definitive",
+  "block": "01",
+  "scope": "reference",
+  "group": "g008",
+  "pdf": "02_PDF_correnti/Schede/INF-01.11_r4.4.pdf",
+  "md": "01_Vault_MD/01_Architettura_e_inventario/INF-01.11.md"
+ },
+ {
+  "code": "INF-01.12",
+  "title": "Espansioni e verifiche delle schede ricevute",
+  "block": "01",
+  "scope": "reference",
+  "group": "g009",
+  "pdf": "02_PDF_correnti/Schede/INF-01.12_r4.4.pdf",
+  "md": "01_Vault_MD/01_Architettura_e_inventario/INF-01.12.md"
+ },
+ {
+  "code": "INF-01.13",
+  "title": "Alimentatori, telai e assemblaggio",
+  "block": "01",
+  "scope": "reference",
+  "group": "g003",
+  "pdf": "02_PDF_correnti/Schede/INF-01.13_r4.4.pdf",
+  "md": "01_Vault_MD/01_Architettura_e_inventario/INF-01.13.md"
+ },
+ {
+  "code": "INF-01.14",
+  "title": "Supporti legacy e apparati della casa",
+  "block": "01",
+  "scope": "reference",
+  "group": "g010",
+  "pdf": "02_PDF_correnti/Schede/INF-01.14_r4.4.pdf",
+  "md": "01_Vault_MD/01_Architettura_e_inventario/INF-01.14.md"
+ },
+ {
+  "code": "INF-01.15",
+  "title": "Dispositivi personali e lavoro: separazione e ponte Mac",
+  "block": "01",
+  "scope": "reference",
+  "group": "g011",
+  "pdf": "02_PDF_correnti/Schede/INF-01.15_r4.4.pdf",
+  "md": "01_Vault_MD/01_Architettura_e_inventario/INF-01.15.md"
+ },
+ {
+  "code": "INF-01.16",
+  "title": "M6: media, servizi esterni e margine di calcolo",
+  "block": "01",
+  "scope": "reference",
+  "group": "g012",
+  "pdf": "02_PDF_correnti/Schede/INF-01.16_r4.4.pdf",
+  "md": "01_Vault_MD/01_Architettura_e_inventario/INF-01.16.md"
+ },
+ {
+  "code": "INF-01.17",
+  "title": "Nomenclatura e identita",
+  "block": "01",
+  "scope": "reference",
+  "group": "g013",
+  "pdf": "02_PDF_correnti/Schede/INF-01.17_r4.4.pdf",
+  "md": "01_Vault_MD/01_Architettura_e_inventario/INF-01.17.md"
+ },
+ {
+  "code": "INF-01.18",
+  "title": "Magazzino e componenti liberati",
+  "block": "01",
+  "scope": "reference",
+  "group": "g014",
+  "pdf": "02_PDF_correnti/Schede/INF-01.18_r4.4.pdf",
+  "md": "01_Vault_MD/01_Architettura_e_inventario/INF-01.18.md"
+ },
+ {
+  "code": "INF-01.19",
+  "title": "Inventario prodotti e componenti",
+  "block": "01",
+  "scope": "reference",
+  "group": "g015",
+  "pdf": "02_PDF_correnti/Schede/INF-01.19_r4.4.pdf",
+  "md": "01_Vault_MD/01_Architettura_e_inventario/INF-01.19.md"
+ },
+ {
+  "code": "INF-02.01",
+  "title": "Rete: percorsi chiari per casa, servizi e Vito",
+  "block": "02",
+  "scope": "reference",
+  "group": "g016",
+  "pdf": "02_PDF_correnti/Schede/INF-02.01_r4.4.pdf",
+  "md": "01_Vault_MD/02_Rete_e_accessi/INF-02.01.md"
+ },
+ {
+  "code": "INF-02.02",
+  "title": "Rete: percorsi chiari per casa, servizi e Vito",
+  "block": "02",
+  "scope": "reference",
+  "group": "g016",
+  "pdf": "02_PDF_correnti/Schede/INF-02.02_r4.4.pdf",
+  "md": "01_Vault_MD/02_Rete_e_accessi/INF-02.02.md"
+ },
+ {
+  "code": "INF-02.03",
+  "title": "Permessi per utenti e servizi",
+  "block": "02",
+  "scope": "reference",
+  "group": "g017",
+  "pdf": "02_PDF_correnti/Schede/INF-02.03_r4.4.pdf",
+  "md": "01_Vault_MD/02_Rete_e_accessi/INF-02.03.md"
+ },
+ {
+  "code": "INF-02.04",
+  "title": "DNS e nomi: recupero senza servizi centrali",
+  "block": "02",
+  "scope": "reference",
+  "group": "g018",
+  "pdf": "02_PDF_correnti/Schede/INF-02.04_r4.4.pdf",
+  "md": "01_Vault_MD/02_Rete_e_accessi/INF-02.04.md"
+ },
+ {
+  "code": "INF-02.05",
+  "title": "Indirizzi, DHCP e orologi",
+  "block": "02",
+  "scope": "reference",
+  "group": "g018",
+  "pdf": "02_PDF_correnti/Schede/INF-02.05_r4.4.pdf",
+  "md": "01_Vault_MD/02_Rete_e_accessi/INF-02.05.md"
+ },
+ {
+  "code": "INF-02.06",
+  "title": "HTTPS e proxy con accesso diretto di recupero",
+  "block": "02",
+  "scope": "reference",
+  "group": "g018",
+  "pdf": "02_PDF_correnti/Schede/INF-02.06_r4.4.pdf",
+  "md": "01_Vault_MD/02_Rete_e_accessi/INF-02.06.md"
+ },
+ {
+  "code": "INF-02.07",
+  "title": "Accesso remoto e accensione inferenza",
+  "block": "02",
+  "scope": "reference",
+  "group": "g019",
+  "pdf": "02_PDF_correnti/Schede/INF-02.07_r4.4.pdf",
+  "md": "01_Vault_MD/02_Rete_e_accessi/INF-02.07.md"
+ },
+ {
+  "code": "INF-02.08",
+  "title": "Rete: percorsi chiari per casa, servizi e Vito",
+  "block": "02",
+  "scope": "reference",
+  "group": "g016",
+  "pdf": "02_PDF_correnti/Schede/INF-02.08_r4.4.pdf",
+  "md": "01_Vault_MD/02_Rete_e_accessi/INF-02.08.md"
+ },
+ {
+  "code": "INF-02.09",
+  "title": "Rete: percorsi chiari per casa, servizi e Vito",
+  "block": "02",
+  "scope": "reference",
+  "group": "g016",
+  "pdf": "02_PDF_correnti/Schede/INF-02.09_r4.4.pdf",
+  "md": "01_Vault_MD/02_Rete_e_accessi/INF-02.09.md"
+ },
+ {
+  "code": "INF-02.10",
+  "title": "Aggiungere un dispositivo alla rete",
+  "block": "02",
+  "scope": "reference",
+  "group": "g020",
+  "pdf": "02_PDF_correnti/Schede/INF-02.10_r4.4.pdf",
+  "md": "01_Vault_MD/02_Rete_e_accessi/INF-02.10.md"
+ },
+ {
+  "code": "INF-02.11",
+  "title": "Rete: percorsi chiari per casa, servizi e Vito",
+  "block": "02",
+  "scope": "reference",
+  "group": "g016",
+  "pdf": "02_PDF_correnti/Schede/INF-02.11_r4.4.pdf",
+  "md": "01_Vault_MD/02_Rete_e_accessi/INF-02.11.md"
+ },
+ {
+  "code": "INF-03.01",
+  "title": "Cluster stabile: cinque voti, carichi a richiesta separati",
+  "block": "03",
+  "scope": "reference",
+  "group": "g021",
+  "pdf": "02_PDF_correnti/Schede/INF-03.01_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.01.md"
+ },
+ {
+  "code": "INF-03.02",
+  "title": "M1: rete, monitoraggio e recupero",
+  "block": "03",
+  "scope": "reference",
+  "group": "g022",
+  "pdf": "02_PDF_correnti/Schede/INF-03.02_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.02.md"
+ },
+ {
+  "code": "INF-03.03",
+  "title": "M2: applicazioni e P310 segnaposto",
+  "block": "03",
+  "scope": "reference",
+  "group": "g023",
+  "pdf": "02_PDF_correnti/Schede/INF-03.03_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.03.md"
+ },
+ {
+  "code": "INF-03.04",
+  "title": "Applicazioni personali e appartamenti",
+  "block": "03",
+  "scope": "reference",
+  "group": "g024",
+  "pdf": "02_PDF_correnti/Schede/INF-03.04_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.04.md"
+ },
+ {
+  "code": "INF-03.05",
+  "title": "M6: media, servizi esterni e margine di calcolo",
+  "block": "03",
+  "scope": "reference",
+  "group": "g012",
+  "pdf": "02_PDF_correnti/Schede/INF-03.05_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.05.md"
+ },
+ {
+  "code": "INF-03.06",
+  "title": "S1-S4: utilita, radio e testimone",
+  "block": "03",
+  "scope": "reference",
+  "group": "g025",
+  "pdf": "02_PDF_correnti/Schede/INF-03.06_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.06.md"
+ },
+ {
+  "code": "INF-03.07",
+  "title": "M3: inferenza dedicata e calcolo a richiesta",
+  "block": "03",
+  "scope": "reference",
+  "group": "g026",
+  "pdf": "02_PDF_correnti/Schede/INF-03.07_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.07.md"
+ },
+ {
+  "code": "INF-03.08",
+  "title": "M5: domotica e visione locale",
+  "block": "03",
+  "scope": "reference",
+  "group": "g027",
+  "pdf": "02_PDF_correnti/Schede/INF-03.08_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.08.md"
+ },
+ {
+  "code": "INF-03.09",
+  "title": "Guasti, disponibilita e recupero",
+  "block": "03",
+  "scope": "reference",
+  "group": "g028",
+  "pdf": "02_PDF_correnti/Schede/INF-03.09_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.09.md"
+ },
+ {
+  "code": "INF-03.10",
+  "title": "Architettura e apparati della revisione 4.4",
+  "block": "03",
+  "scope": "reference",
+  "group": "g002",
+  "pdf": "02_PDF_correnti/Schede/INF-03.10_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.10.md"
+ },
+ {
+  "code": "INF-03.11",
+  "title": "S1-S4: utilita, radio e testimone",
+  "block": "03",
+  "scope": "reference",
+  "group": "g025",
+  "pdf": "02_PDF_correnti/Schede/INF-03.11_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.11.md"
+ },
+ {
+  "code": "INF-03.12",
+  "title": "S1-S4: utilita, radio e testimone",
+  "block": "03",
+  "scope": "reference",
+  "group": "g025",
+  "pdf": "02_PDF_correnti/Schede/INF-03.12_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.12.md"
+ },
+ {
+  "code": "INF-03.13",
+  "title": "Servizi: collocazione e dipendenze",
+  "block": "03",
+  "scope": "reference",
+  "group": "g029",
+  "pdf": "02_PDF_correnti/Schede/INF-03.13_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.13.md"
+ },
+ {
+  "code": "INF-03.14",
+  "title": "Nextcloud: M2 e DMZ dedicata",
+  "block": "03",
+  "scope": "reference",
+  "group": "g030",
+  "pdf": "02_PDF_correnti/Schede/INF-03.14_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.14.md"
+ },
+ {
+  "code": "INF-03.15",
+  "title": "Immich: ML nativo e pre-analisi separata",
+  "block": "03",
+  "scope": "reference",
+  "group": "g031",
+  "pdf": "02_PDF_correnti/Schede/INF-03.15_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.15.md"
+ },
+ {
+  "code": "INF-03.16",
+  "title": "SMB/NFS: pool primario M2 e backup M4",
+  "block": "03",
+  "scope": "reference",
+  "group": "g032",
+  "pdf": "02_PDF_correnti/Schede/INF-03.16_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.16.md"
+ },
+ {
+  "code": "INF-03.17",
+  "title": "Syncthing: cartelle e repliche",
+  "block": "03",
+  "scope": "reference",
+  "group": "g033",
+  "pdf": "02_PDF_correnti/Schede/INF-03.17_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.17.md"
+ },
+ {
+  "code": "INF-03.18",
+  "title": "Vaultwarden: accesso e recupero",
+  "block": "03",
+  "scope": "reference",
+  "group": "g034",
+  "pdf": "02_PDF_correnti/Schede/INF-03.18_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.18.md"
+ },
+ {
+  "code": "INF-03.19",
+  "title": "M6: media, servizi esterni e margine di calcolo",
+  "block": "03",
+  "scope": "reference",
+  "group": "g012",
+  "pdf": "02_PDF_correnti/Schede/INF-03.19_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.19.md"
+ },
+ {
+  "code": "INF-03.20",
+  "title": "Servizi audio e client dedicati",
+  "block": "03",
+  "scope": "reference",
+  "group": "g035",
+  "pdf": "02_PDF_correnti/Schede/INF-03.20_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.20.md"
+ },
+ {
+  "code": "INF-03.21",
+  "title": "Download e arr isolati su M6",
+  "block": "03",
+  "scope": "reference",
+  "group": "g036",
+  "pdf": "02_PDF_correnti/Schede/INF-03.21_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.21.md"
+ },
+ {
+  "code": "INF-03.22",
+  "title": "Download e arr isolati su M6",
+  "block": "03",
+  "scope": "reference",
+  "group": "g036",
+  "pdf": "02_PDF_correnti/Schede/INF-03.22_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.22.md"
+ },
+ {
+  "code": "INF-03.23",
+  "title": "Caddy e dashboard",
+  "block": "03",
+  "scope": "reference",
+  "group": "g034",
+  "pdf": "02_PDF_correnti/Schede/INF-03.23_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.23.md"
+ },
+ {
+  "code": "INF-03.24",
+  "title": "n8n, OCR e Hermes",
+  "block": "03",
+  "scope": "reference",
+  "group": "g037",
+  "pdf": "02_PDF_correnti/Schede/INF-03.24_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.24.md"
+ },
+ {
+  "code": "INF-03.25",
+  "title": "Open WebUI e backend IA",
+  "block": "03",
+  "scope": "reference",
+  "group": "g038",
+  "pdf": "02_PDF_correnti/Schede/INF-03.25_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.25.md"
+ },
+ {
+  "code": "INF-03.26",
+  "title": "M3: inferenza dedicata e calcolo a richiesta",
+  "block": "03",
+  "scope": "reference",
+  "group": "g026",
+  "pdf": "02_PDF_correnti/Schede/INF-03.26_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.26.md"
+ },
+ {
+  "code": "INF-03.27",
+  "title": "Acer fisso: Windows, lavoro e Sunshine",
+  "block": "03",
+  "scope": "reference",
+  "group": "g039",
+  "pdf": "02_PDF_correnti/Schede/INF-03.27_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.27.md"
+ },
+ {
+  "code": "INF-03.28",
+  "title": "Home Assistant, MQTT e radio indipendente",
+  "block": "03",
+  "scope": "reference",
+  "group": "g040",
+  "pdf": "02_PDF_correnti/Schede/INF-03.28_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.28.md"
+ },
+ {
+  "code": "INF-03.29",
+  "title": "M5: domotica e visione locale",
+  "block": "03",
+  "scope": "reference",
+  "group": "g027",
+  "pdf": "02_PDF_correnti/Schede/INF-03.29_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.29.md"
+ },
+ {
+  "code": "INF-03.30",
+  "title": "S1-S4: utilita, radio e testimone",
+  "block": "03",
+  "scope": "reference",
+  "group": "g025",
+  "pdf": "02_PDF_correnti/Schede/INF-03.30_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.30.md"
+ },
+ {
+  "code": "INF-03.31",
+  "title": "S1-S4: utilita, radio e testimone",
+  "block": "03",
+  "scope": "reference",
+  "group": "g025",
+  "pdf": "02_PDF_correnti/Schede/INF-03.31_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.31.md"
+ },
+ {
+  "code": "INF-03.32",
+  "title": "Wake-on-LAN e recupero",
+  "block": "03",
+  "scope": "reference",
+  "group": "g041",
+  "pdf": "02_PDF_correnti/Schede/INF-03.32_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.32.md"
+ },
+ {
+  "code": "INF-03.33",
+  "title": "Energia: nucleo stabile e carichi attivati quando servono",
+  "block": "03",
+  "scope": "reference",
+  "group": "g004",
+  "pdf": "02_PDF_correnti/Schede/INF-03.33_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.33.md"
+ },
+ {
+  "code": "INF-03.34",
+  "title": "Servizi audio e client dedicati",
+  "block": "03",
+  "scope": "reference",
+  "group": "g035",
+  "pdf": "02_PDF_correnti/Schede/INF-03.34_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.34.md"
+ },
+ {
+  "code": "INF-03.35",
+  "title": "Stirling PDF",
+  "block": "03",
+  "scope": "reference",
+  "group": "g042",
+  "pdf": "02_PDF_correnti/Schede/INF-03.35_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.35.md"
+ },
+ {
+  "code": "INF-03.36",
+  "title": "S1-S4: utilita, radio e testimone",
+  "block": "03",
+  "scope": "reference",
+  "group": "g025",
+  "pdf": "02_PDF_correnti/Schede/INF-03.36_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.36.md"
+ },
+ {
+  "code": "INF-03.37",
+  "title": "HomeBox",
+  "block": "03",
+  "scope": "reference",
+  "group": "g043",
+  "pdf": "02_PDF_correnti/Schede/INF-03.37_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.37.md"
+ },
+ {
+  "code": "INF-03.38",
+  "title": "Paperless: OCR ufficiale e derivati visivi",
+  "block": "03",
+  "scope": "reference",
+  "group": "g044",
+  "pdf": "02_PDF_correnti/Schede/INF-03.38_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.38.md"
+ },
+ {
+  "code": "INF-03.39",
+  "title": "Tandoor",
+  "block": "03",
+  "scope": "reference",
+  "group": "g045",
+  "pdf": "02_PDF_correnti/Schede/INF-03.39_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.39.md"
+ },
+ {
+  "code": "INF-03.40",
+  "title": "Grocy",
+  "block": "03",
+  "scope": "reference",
+  "group": "g046",
+  "pdf": "02_PDF_correnti/Schede/INF-03.40_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.40.md"
+ },
+ {
+  "code": "INF-03.41",
+  "title": "Vikunja",
+  "block": "03",
+  "scope": "reference",
+  "group": "g047",
+  "pdf": "02_PDF_correnti/Schede/INF-03.41_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.41.md"
+ },
+ {
+  "code": "INF-03.42",
+  "title": "Firefly III",
+  "block": "03",
+  "scope": "reference",
+  "group": "g048",
+  "pdf": "02_PDF_correnti/Schede/INF-03.42_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.42.md"
+ },
+ {
+  "code": "INF-03.43",
+  "title": "Wh isper e Piper: profilo voce",
+  "block": "03",
+  "scope": "reference",
+  "group": "g049",
+  "pdf": "02_PDF_correnti/Schede/INF-03.43_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.43.md"
+ },
+ {
+  "code": "INF-03.44",
+  "title": "go2rtc: flussi e sorgenti video",
+  "block": "03",
+  "scope": "reference",
+  "group": "g050",
+  "pdf": "02_PDF_correnti/Schede/INF-03.44_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.44.md"
+ },
+ {
+  "code": "INF-03.45",
+  "title": "Servizi audio e client dedicati",
+  "block": "03",
+  "scope": "reference",
+  "group": "g035",
+  "pdf": "02_PDF_correnti/Schede/INF-03.45_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.45.md"
+ },
+ {
+  "code": "INF-03.46",
+  "title": "M6: media, servizi esterni e margine di calcolo",
+  "block": "03",
+  "scope": "reference",
+  "group": "g012",
+  "pdf": "02_PDF_correnti/Schede/INF-03.46_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.46.md"
+ },
+ {
+  "code": "INF-03.47",
+  "title": "Vision-gateway su M5",
+  "block": "03",
+  "scope": "reference",
+  "group": "g051",
+  "pdf": "02_PDF_correnti/Schede/INF-03.47_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.47.md"
+ },
+ {
+  "code": "INF-03.48",
+  "title": "M5: domotica e visione locale",
+  "block": "03",
+  "scope": "reference",
+  "group": "g027",
+  "pdf": "02_PDF_correnti/Schede/INF-03.48_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.48.md"
+ },
+ {
+  "code": "INF-03.49",
+  "title": "Seafile: cloud esterno e limite di protezione",
+  "block": "03",
+  "scope": "reference",
+  "group": "g052",
+  "pdf": "02_PDF_correnti/Schede/INF-03.49_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.49.md"
+ },
+ {
+  "code": "INF-03.50",
+  "title": "M7: riserva manuale e candidato T110 II",
+  "block": "03",
+  "scope": "reference",
+  "group": "g053",
+  "pdf": "02_PDF_correnti/Schede/INF-03.50_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.50.md"
+ },
+ {
+  "code": "INF-03.51",
+  "title": "Rete: percorsi chiari per casa, servizi e Vito",
+  "block": "03",
+  "scope": "reference",
+  "group": "g016",
+  "pdf": "02_PDF_correnti/Schede/INF-03.51_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.51.md"
+ },
+ {
+  "code": "INF-03.52",
+  "title": "S2: VPS complementare",
+  "block": "03",
+  "scope": "reference",
+  "group": "g054",
+  "pdf": "02_PDF_correnti/Schede/INF-03.52_r4.4.pdf",
+  "md": "01_Vault_MD/03_Nodi_software_e_servizi/INF-03.52.md"
+ },
+ {
+  "code": "INF-04.01",
+  "title": "Storage: transizione e destinazioni definitive",
+  "block": "04",
+  "scope": "reference",
+  "group": "g008",
+  "pdf": "02_PDF_correnti/Schede/INF-04.01_r4.4.pdf",
+  "md": "01_Vault_MD/04_Dati_e_recupero/INF-04.01.md"
+ },
+ {
+  "code": "INF-04.02",
+  "title": "Storage: transizione e destinazioni definitive",
+  "block": "04",
+  "scope": "reference",
+  "group": "g008",
+  "pdf": "02_PDF_correnti/Schede/INF-04.02_r4.4.pdf",
+  "md": "01_Vault_MD/04_Dati_e_recupero/INF-04.02.md"
+ },
+ {
+  "code": "INF-04.03",
+  "title": "Storage: transizione e destinazioni definitive",
+  "block": "04",
+  "scope": "reference",
+  "group": "g008",
+  "pdf": "02_PDF_correnti/Schede/INF-04.03_r4.4.pdf",
+  "md": "01_Vault_MD/04_Dati_e_recupero/INF-04.03.md"
+ },
+ {
+  "code": "INF-04.04",
+  "title": "Snapshot, versioni e retention",
+  "block": "04",
+  "scope": "reference",
+  "group": "g055",
+  "pdf": "02_PDF_correnti/Schede/INF-04.04_r4.4.pdf",
+  "md": "01_Vault_MD/04_Dati_e_recupero/INF-04.04.md"
+ },
+ {
+  "code": "INF-04.05",
+  "title": "Backup: locale, fuori casa e selezioni offline",
+  "block": "04",
+  "scope": "reference",
+  "group": "g056",
+  "pdf": "02_PDF_correnti/Schede/INF-04.05_r4.4.pdf",
+  "md": "01_Vault_MD/04_Dati_e_recupero/INF-04.05.md"
+ },
+ {
+  "code": "INF-04.06",
+  "title": "Storage: transizione e destinazioni definitive",
+  "block": "04",
+  "scope": "reference",
+  "group": "g008",
+  "pdf": "02_PDF_correnti/Schede/INF-04.06_r4.4.pdf",
+  "md": "01_Vault_MD/04_Dati_e_recupero/INF-04.06.md"
+ },
+ {
+  "code": "INF-04.07",
+  "title": "Backup: locale, fuori casa e selezioni offline",
+  "block": "04",
+  "scope": "reference",
+  "group": "g056",
+  "pdf": "02_PDF_correnti/Schede/INF-04.07_r4.4.pdf",
+  "md": "01_Vault_MD/04_Dati_e_recupero/INF-04.07.md"
+ },
+ {
+  "code": "INF-04.08",
+  "title": "Mac, Pixel e archivio personale",
+  "block": "04",
+  "scope": "reference",
+  "group": "g057",
+  "pdf": "02_PDF_correnti/Schede/INF-04.08_r4.4.pdf",
+  "md": "01_Vault_MD/04_Dati_e_recupero/INF-04.08.md"
+ },
+ {
+  "code": "INF-04.09",
+  "title": "Drive: Arca temporanea e backup remoto",
+  "block": "04",
+  "scope": "reference",
+  "group": "g058",
+  "pdf": "02_PDF_correnti/Schede/INF-04.09_r4.4.pdf",
+  "md": "01_Vault_MD/04_Dati_e_recupero/INF-04.09.md"
+ },
+ {
+  "code": "INF-04.10",
+  "title": "Recupero di file e applicazioni",
+  "block": "04",
+  "scope": "reference",
+  "group": "g059",
+  "pdf": "02_PDF_correnti/Schede/INF-04.10_r4.4.pdf",
+  "md": "01_Vault_MD/04_Dati_e_recupero/INF-04.10.md"
+ },
+ {
+  "code": "INF-04.11",
+  "title": "Backup: locale, fuori casa e selezioni offline",
+  "block": "04",
+  "scope": "reference",
+  "group": "g056",
+  "pdf": "02_PDF_correnti/Schede/INF-04.11_r4.4.pdf",
+  "md": "01_Vault_MD/04_Dati_e_recupero/INF-04.11.md"
+ },
+ {
+  "code": "INF-04.12",
+  "title": "Backup: locale, fuori casa e selezioni offline",
+  "block": "04",
+  "scope": "reference",
+  "group": "g056",
+  "pdf": "02_PDF_correnti/Schede/INF-04.12_r4.4.pdf",
+  "md": "01_Vault_MD/04_Dati_e_recupero/INF-04.12.md"
+ },
+ {
+  "code": "INF-04.13",
+  "title": "Drive: Arca temporanea e backup remoto",
+  "block": "04",
+  "scope": "reference",
+  "group": "g058",
+  "pdf": "02_PDF_correnti/Schede/INF-04.13_r4.4.pdf",
+  "md": "01_Vault_MD/04_Dati_e_recupero/INF-04.13.md"
+ },
+ {
+  "code": "INF-05.01",
+  "title": "Client Dell, HP e postazioni",
+  "block": "05",
+  "scope": "reference",
+  "group": "g060",
+  "pdf": "02_PDF_correnti/Schede/INF-05.01_r4.4.pdf",
+  "md": "01_Vault_MD/05_Client_nelle_stanze/INF-05.01.md"
+ },
+ {
+  "code": "INF-05.02",
+  "title": "Identikit del client",
+  "block": "05",
+  "scope": "reference",
+  "group": "g061",
+  "pdf": "02_PDF_correnti/Schede/INF-05.02_r4.4.pdf",
+  "md": "01_Vault_MD/05_Client_nelle_stanze/INF-05.02.md"
+ },
+ {
+  "code": "INF-05.03",
+  "title": "Video, audio e collegamenti delle postazioni",
+  "block": "05",
+  "scope": "reference",
+  "group": "g062",
+  "pdf": "02_PDF_correnti/Schede/INF-05.03_r4.4.pdf",
+  "md": "01_Vault_MD/05_Client_nelle_stanze/INF-05.03.md"
+ },
+ {
+  "code": "INF-05.04",
+  "title": "USB e periferiche della postazione",
+  "block": "05",
+  "scope": "reference",
+  "group": "g063",
+  "pdf": "02_PDF_correnti/Schede/INF-05.04_r4.4.pdf",
+  "md": "01_Vault_MD/05_Client_nelle_stanze/INF-05.04.md"
+ },
+ {
+  "code": "INF-05.05",
+  "title": "Profilo A: PC e thin client",
+  "block": "05",
+  "scope": "reference",
+  "group": "g064",
+  "pdf": "02_PDF_correnti/Schede/INF-05.05_r4.4.pdf",
+  "md": "01_Vault_MD/05_Client_nelle_stanze/INF-05.05.md"
+ },
+ {
+  "code": "INF-05.06",
+  "title": "Profilo B: Android TV e box Android",
+  "block": "05",
+  "scope": "reference",
+  "group": "g065",
+  "pdf": "02_PDF_correnti/Schede/INF-05.06_r4.4.pdf",
+  "md": "01_Vault_MD/05_Client_nelle_stanze/INF-05.06.md"
+ },
+ {
+  "code": "INF-05.07",
+  "title": "Profilo C: Apple TV e TV stick",
+  "block": "05",
+  "scope": "reference",
+  "group": "g066",
+  "pdf": "02_PDF_correnti/Schede/INF-05.07_r4.4.pdf",
+  "md": "01_Vault_MD/05_Client_nelle_stanze/INF-05.07.md"
+ },
+ {
+  "code": "INF-05.08",
+  "title": "Profilo D: app direttamente nella Smart TV",
+  "block": "05",
+  "scope": "reference",
+  "group": "g067",
+  "pdf": "02_PDF_correnti/Schede/INF-05.08_r4.4.pdf",
+  "md": "01_Vault_MD/05_Client_nelle_stanze/INF-05.08.md"
+ },
+ {
+  "code": "INF-05.09",
+  "title": "Profilo E: tablet e telefoni",
+  "block": "05",
+  "scope": "reference",
+  "group": "g068",
+  "pdf": "02_PDF_correnti/Schede/INF-05.09_r4.4.pdf",
+  "md": "01_Vault_MD/05_Client_nelle_stanze/INF-05.09.md"
+ },
+ {
+  "code": "INF-05.10",
+  "title": "Altri endpoint e riuso del materiale",
+  "block": "05",
+  "scope": "reference",
+  "group": "g069",
+  "pdf": "02_PDF_correnti/Schede/INF-05.10_r4.4.pdf",
+  "md": "01_Vault_MD/05_Client_nelle_stanze/INF-05.10.md"
+ },
+ {
+  "code": "INF-05.11",
+  "title": "Client Dell, HP e postazioni",
+  "block": "05",
+  "scope": "reference",
+  "group": "g060",
+  "pdf": "02_PDF_correnti/Schede/INF-05.11_r4.4.pdf",
+  "md": "01_Vault_MD/05_Client_nelle_stanze/INF-05.11.md"
+ },
+ {
+  "code": "INF-05.12",
+  "title": "Servizi locali dei client",
+  "block": "05",
+  "scope": "reference",
+  "group": "g070",
+  "pdf": "02_PDF_correnti/Schede/INF-05.12_r4.4.pdf",
+  "md": "01_Vault_MD/05_Client_nelle_stanze/INF-05.12.md"
+ },
+ {
+  "code": "INF-05.13",
+  "title": "Uso simultaneo e musica da remoto",
+  "block": "05",
+  "scope": "reference",
+  "group": "g071",
+  "pdf": "02_PDF_correnti/Schede/INF-05.13_r4.4.pdf",
+  "md": "01_Vault_MD/05_Client_nelle_stanze/INF-05.13.md"
+ },
+ {
+  "code": "INF-05.14",
+  "title": "Uso quotidiano e diagnosi",
+  "block": "05",
+  "scope": "reference",
+  "group": "g072",
+  "pdf": "02_PDF_correnti/Schede/INF-05.14_r4.4.pdf",
+  "md": "01_Vault_MD/05_Client_nelle_stanze/INF-05.14.md"
+ },
+ {
+  "code": "INF-05.15",
+  "title": "Matrice conclusiva: capacità dei client",
+  "block": "05",
+  "scope": "reference",
+  "group": "g073",
+  "pdf": "02_PDF_correnti/Schede/INF-05.15_r4.4.pdf",
+  "md": "01_Vault_MD/05_Client_nelle_stanze/INF-05.15.md"
+ },
+ {
+  "code": "INF-05.17",
+  "title": "Scheda client / stanza",
+  "block": "05",
+  "scope": "reference",
+  "group": "g074",
+  "pdf": "02_PDF_correnti/Schede/INF-05.17_r4.4.pdf",
+  "md": "01_Vault_MD/05_Client_nelle_stanze/INF-05.17.md"
+ },
+ {
+  "code": "INF-05.18",
+  "title": "Contenuti esterni e limiti dei client",
+  "block": "05",
+  "scope": "reference",
+  "group": "g075",
+  "pdf": "02_PDF_correnti/Schede/INF-05.18_r4.4.pdf",
+  "md": "01_Vault_MD/05_Client_nelle_stanze/INF-05.18.md"
+ },
+ {
+  "code": "INF-05.19",
+  "title": "Client, stanze e servizi assegnati",
+  "block": "05",
+  "scope": "reference",
+  "group": "g060",
+  "pdf": "02_PDF_correnti/Schede/INF-05.19_r4.4.pdf",
+  "md": "01_Vault_MD/05_Client_nelle_stanze/INF-05.19.md"
+ },
+ {
+  "code": "INF-05.20",
+  "title": "Client Dell, HP e postazioni",
+  "block": "05",
+  "scope": "reference",
+  "group": "g060",
+  "pdf": "02_PDF_correnti/Schede/INF-05.20_r4.4.pdf",
+  "md": "01_Vault_MD/05_Client_nelle_stanze/INF-05.20.md"
+ },
+ {
+  "code": "INF-05.21",
+  "title": "Client Dell, HP e postazioni",
+  "block": "05",
+  "scope": "reference",
+  "group": "g060",
+  "pdf": "02_PDF_correnti/Schede/INF-05.21_r4.4.pdf",
+  "md": "01_Vault_MD/05_Client_nelle_stanze/INF-05.21.md"
+ },
+ {
+  "code": "INF-05.22",
+  "title": "Acer fisso: Windows, lavoro e Sunshine",
+  "block": "05",
+  "scope": "reference",
+  "group": "g039",
+  "pdf": "02_PDF_correnti/Schede/INF-05.22_r4.4.pdf",
+  "md": "01_Vault_MD/05_Client_nelle_stanze/INF-05.22.md"
+ },
+ {
+  "code": "INF-05.23",
+  "title": "Client Dell, HP e postazioni",
+  "block": "05",
+  "scope": "reference",
+  "group": "g060",
+  "pdf": "02_PDF_correnti/Schede/INF-05.23_r4.4.pdf",
+  "md": "01_Vault_MD/05_Client_nelle_stanze/INF-05.23.md"
+ },
+ {
+  "code": "INF-05.24",
+  "title": "Client Dell, HP e postazioni",
+  "block": "05",
+  "scope": "reference",
+  "group": "g060",
+  "pdf": "02_PDF_correnti/Schede/INF-05.24_r4.4.pdf",
+  "md": "01_Vault_MD/05_Client_nelle_stanze/INF-05.24.md"
+ },
+ {
+  "code": "INF-05.25",
+  "title": "Client Dell, HP e postazioni",
+  "block": "05",
+  "scope": "reference",
+  "group": "g060",
+  "pdf": "02_PDF_correnti/Schede/INF-05.25_r4.4.pdf",
+  "md": "01_Vault_MD/05_Client_nelle_stanze/INF-05.25.md"
+ },
+ {
+  "code": "INF-05.26",
+  "title": "Client Dell, HP e postazioni",
+  "block": "05",
+  "scope": "reference",
+  "group": "g060",
+  "pdf": "02_PDF_correnti/Schede/INF-05.26_r4.4.pdf",
+  "md": "01_Vault_MD/05_Client_nelle_stanze/INF-05.26.md"
+ },
+ {
+  "code": "INF-05.27",
+  "title": "Client Dell, HP e postazioni",
+  "block": "05",
+  "scope": "reference",
+  "group": "g060",
+  "pdf": "02_PDF_correnti/Schede/INF-05.27_r4.4.pdf",
+  "md": "01_Vault_MD/05_Client_nelle_stanze/INF-05.27.md"
+ },
+ {
+  "code": "INF-05.28",
+  "title": "Client Dell, HP e postazioni",
+  "block": "05",
+  "scope": "reference",
+  "group": "g060",
+  "pdf": "02_PDF_correnti/Schede/INF-05.28_r4.4.pdf",
+  "md": "01_Vault_MD/05_Client_nelle_stanze/INF-05.28.md"
+ },
+ {
+  "code": "INF-05.29",
+  "title": "Vito: lavoro, camper e autonomia mobile",
+  "block": "05",
+  "scope": "reference",
+  "group": "g076",
+  "pdf": "02_PDF_correnti/Schede/INF-05.29_r4.4.pdf",
+  "md": "01_Vault_MD/05_Client_nelle_stanze/INF-05.29.md"
+ },
+ {
+  "code": "INF-05.30",
+  "title": "Client esterni HP: online e offline",
+  "block": "05",
+  "scope": "reference",
+  "group": "g077",
+  "pdf": "02_PDF_correnti/Schede/INF-05.30_r4.4.pdf",
+  "md": "01_Vault_MD/05_Client_nelle_stanze/INF-05.30.md"
+ },
+ {
+  "code": "INF-05.31",
+  "title": "Microtech ingresso e Kindle personale",
+  "block": "05",
+  "scope": "reference",
+  "group": "g078",
+  "pdf": "02_PDF_correnti/Schede/INF-05.31_r4.4.pdf",
+  "md": "01_Vault_MD/05_Client_nelle_stanze/INF-05.31.md"
+ },
+ {
+  "code": "INF-06.01",
+  "title": "Assistenti sui portatili",
+  "block": "06",
+  "scope": "reference",
+  "group": "g039",
+  "pdf": "02_PDF_correnti/Schede/INF-06.01_r4.4.pdf",
+  "md": "01_Vault_MD/06_Segreteria_e_IA/INF-06.01.md"
+ },
+ {
+  "code": "INF-06.02",
+  "title": "Assistenti sui portatili",
+  "block": "06",
+  "scope": "reference",
+  "group": "g039",
+  "pdf": "02_PDF_correnti/Schede/INF-06.02_r4.4.pdf",
+  "md": "01_Vault_MD/06_Segreteria_e_IA/INF-06.02.md"
+ },
+ {
+  "code": "INF-06.03",
+  "title": "Voce: ingresso, modello e uscita",
+  "block": "06",
+  "scope": "reference",
+  "group": "g079",
+  "pdf": "02_PDF_correnti/Schede/INF-06.03_r4.4.pdf",
+  "md": "01_Vault_MD/06_Segreteria_e_IA/INF-06.03.md"
+ },
+ {
+  "code": "INF-06.04",
+  "title": "Ricerca documentale e RAG",
+  "block": "06",
+  "scope": "reference",
+  "group": "g080",
+  "pdf": "02_PDF_correnti/Schede/INF-06.04_r4.4.pdf",
+  "md": "01_Vault_MD/06_Segreteria_e_IA/INF-06.04.md"
+ },
+ {
+  "code": "INF-06.05",
+  "title": "Ingresso fonti e qualità",
+  "block": "06",
+  "scope": "reference",
+  "group": "g081",
+  "pdf": "02_PDF_correnti/Schede/INF-06.05_r4.4.pdf",
+  "md": "01_Vault_MD/06_Segreteria_e_IA/INF-06.05.md"
+ },
+ {
+  "code": "INF-06.06",
+  "title": "Permessi Hermes",
+  "block": "06",
+  "scope": "reference",
+  "group": "g082",
+  "pdf": "02_PDF_correnti/Schede/INF-06.06_r4.4.pdf",
+  "md": "01_Vault_MD/06_Segreteria_e_IA/INF-06.06.md"
+ },
+ {
+  "code": "INF-06.07",
+  "title": "Corpus e confini documentali",
+  "block": "06",
+  "scope": "reference",
+  "group": "g083",
+  "pdf": "02_PDF_correnti/Schede/INF-06.07_r4.4.pdf",
+  "md": "01_Vault_MD/06_Segreteria_e_IA/INF-06.07.md"
+ },
+ {
+  "code": "INF-06.08",
+  "title": "Spotify e Lidarr: confine delle automazioni",
+  "block": "06",
+  "scope": "reference",
+  "group": "g084",
+  "pdf": "02_PDF_correnti/Schede/INF-06.08_r4.4.pdf",
+  "md": "01_Vault_MD/06_Segreteria_e_IA/INF-06.08.md"
+ },
+ {
+  "code": "INF-06.09",
+  "title": "Assistenti sui portatili",
+  "block": "06",
+  "scope": "reference",
+  "group": "g039",
+  "pdf": "02_PDF_correnti/Schede/INF-06.09_r4.4.pdf",
+  "md": "01_Vault_MD/06_Segreteria_e_IA/INF-06.09.md"
+ },
+ {
+  "code": "INF-06.10",
+  "title": "Assistenti sui portatili",
+  "block": "06",
+  "scope": "reference",
+  "group": "g039",
+  "pdf": "02_PDF_correnti/Schede/INF-06.10_r4.4.pdf",
+  "md": "01_Vault_MD/06_Segreteria_e_IA/INF-06.10.md"
+ },
+ {
+  "code": "INF-06.11",
+  "title": "Hermes e OpenClaw: allegati, proposte e conferme",
+  "block": "06",
+  "scope": "reference",
+  "group": "g085",
+  "pdf": "02_PDF_correnti/Schede/INF-06.11_r4.4.pdf",
+  "md": "01_Vault_MD/06_Segreteria_e_IA/INF-06.11.md"
+ },
+ {
+  "code": "INF-06.12",
+  "title": "M3: inferenza dedicata e calcolo a richiesta",
+  "block": "06",
+  "scope": "reference",
+  "group": "g026",
+  "pdf": "02_PDF_correnti/Schede/INF-06.12_r4.4.pdf",
+  "md": "01_Vault_MD/06_Segreteria_e_IA/INF-06.12.md"
+ },
+ {
+  "code": "INF-06.13",
+  "title": "Lavoro: Gemini e registri condivisi",
+  "block": "06",
+  "scope": "reference",
+  "group": "g086",
+  "pdf": "02_PDF_correnti/Schede/INF-06.13_r4.4.pdf",
+  "md": "01_Vault_MD/06_Segreteria_e_IA/INF-06.13.md"
+ },
+ {
+  "code": "INF-07.01",
+  "title": "Casa, allarme e videosorveglianza",
+  "block": "07",
+  "scope": "reference",
+  "group": "g087",
+  "pdf": "02_PDF_correnti/Schede/INF-07.01_r4.4.pdf",
+  "md": "01_Vault_MD/07_Casa_e_sicurezza/INF-07.01.md"
+ },
+ {
+  "code": "INF-07.02",
+  "title": "Edificio, aree e utenti",
+  "block": "07",
+  "scope": "reference",
+  "group": "g081",
+  "pdf": "02_PDF_correnti/Schede/INF-07.02_r4.4.pdf",
+  "md": "01_Vault_MD/07_Casa_e_sicurezza/INF-07.02.md"
+ },
+ {
+  "code": "INF-07.03",
+  "title": "Home Assistant, MQTT e radio indipendente",
+  "block": "07",
+  "scope": "reference",
+  "group": "g040",
+  "pdf": "02_PDF_correnti/Schede/INF-07.03_r4.4.pdf",
+  "md": "01_Vault_MD/07_Casa_e_sicurezza/INF-07.03.md"
+ },
+ {
+  "code": "INF-07.04",
+  "title": "Allarme: funzioni definitive",
+  "block": "07",
+  "scope": "reference",
+  "group": "g081",
+  "pdf": "02_PDF_correnti/Schede/INF-07.04_r4.4.pdf",
+  "md": "01_Vault_MD/07_Casa_e_sicurezza/INF-07.04.md"
+ },
+ {
+  "code": "INF-07.05",
+  "title": "M5: domotica e visione locale",
+  "block": "07",
+  "scope": "reference",
+  "group": "g027",
+  "pdf": "02_PDF_correnti/Schede/INF-07.05_r4.4.pdf",
+  "md": "01_Vault_MD/07_Casa_e_sicurezza/INF-07.05.md"
+ },
+ {
+  "code": "INF-07.06",
+  "title": "Clima: controllo, misura e previsione",
+  "block": "07",
+  "scope": "reference",
+  "group": "g081",
+  "pdf": "02_PDF_correnti/Schede/INF-07.06_r4.4.pdf",
+  "md": "01_Vault_MD/07_Casa_e_sicurezza/INF-07.06.md"
+ },
+ {
+  "code": "INF-07.07",
+  "title": "Meteo, orto ed energia",
+  "block": "07",
+  "scope": "reference",
+  "group": "g088",
+  "pdf": "02_PDF_correnti/Schede/INF-07.07_r4.4.pdf",
+  "md": "01_Vault_MD/07_Casa_e_sicurezza/INF-07.07.md"
+ },
+ {
+  "code": "INF-07.08",
+  "title": "Pannelli e comandi della casa",
+  "block": "07",
+  "scope": "reference",
+  "group": "g081",
+  "pdf": "02_PDF_correnti/Schede/INF-07.08_r4.4.pdf",
+  "md": "01_Vault_MD/07_Casa_e_sicurezza/INF-07.08.md"
+ },
+ {
+  "code": "INF-07.09",
+  "title": "Inventario assegnato dei sensori",
+  "block": "07",
+  "scope": "reference",
+  "group": "g081",
+  "pdf": "02_PDF_correnti/Schede/INF-07.09_r4.4.pdf",
+  "md": "01_Vault_MD/07_Casa_e_sicurezza/INF-07.09.md"
+ },
+ {
+  "code": "INF-07.10",
+  "title": "Citofono e controllo accessi",
+  "block": "07",
+  "scope": "reference",
+  "group": "g081",
+  "pdf": "02_PDF_correnti/Schede/INF-07.10_r4.4.pdf",
+  "md": "01_Vault_MD/07_Casa_e_sicurezza/INF-07.10.md"
+ },
+ {
+  "code": "INF-07.11",
+  "title": "M5: domotica e visione locale",
+  "block": "07",
+  "scope": "reference",
+  "group": "g027",
+  "pdf": "02_PDF_correnti/Schede/INF-07.11_r4.4.pdf",
+  "md": "01_Vault_MD/07_Casa_e_sicurezza/INF-07.11.md"
+ },
+ {
+  "code": "INF-07.12",
+  "title": "Budget sicurezza e strategia usato",
+  "block": "07",
+  "scope": "reference",
+  "group": "g081",
+  "pdf": "02_PDF_correnti/Schede/INF-07.12_r4.4.pdf",
+  "md": "01_Vault_MD/07_Casa_e_sicurezza/INF-07.12.md"
+ },
+ {
+  "code": "INF-08.01",
+  "title": "Energia: nucleo stabile e carichi attivati quando servono",
+  "block": "08",
+  "scope": "reference",
+  "group": "g004",
+  "pdf": "02_PDF_correnti/Schede/INF-08.01_r4.4.pdf",
+  "md": "01_Vault_MD/08_Esercizio_e_manutenzione/INF-08.01.md"
+ },
+ {
+  "code": "INF-08.02",
+  "title": "Tagliando periodico",
+  "block": "08",
+  "scope": "reference",
+  "group": "g089",
+  "pdf": "02_PDF_correnti/Schede/INF-08.02_r4.4.pdf",
+  "md": "01_Vault_MD/08_Esercizio_e_manutenzione/INF-08.02.md"
+ },
+ {
+  "code": "INF-08.03",
+  "title": "Notifiche immediate e riepiloghi",
+  "block": "08",
+  "scope": "reference",
+  "group": "g090",
+  "pdf": "02_PDF_correnti/Schede/INF-08.03_r4.4.pdf",
+  "md": "01_Vault_MD/08_Esercizio_e_manutenzione/INF-08.03.md"
+ },
+ {
+  "code": "INF-08.04",
+  "title": "Triage e contenimento",
+  "block": "08",
+  "scope": "reference",
+  "group": "g091",
+  "pdf": "02_PDF_correnti/Schede/INF-08.04_r4.4.pdf",
+  "md": "01_Vault_MD/08_Esercizio_e_manutenzione/INF-08.04.md"
+ },
+ {
+  "code": "INF-08.05",
+  "title": "M1: rete, monitoraggio e recupero",
+  "block": "08",
+  "scope": "reference",
+  "group": "g022",
+  "pdf": "02_PDF_correnti/Schede/INF-08.05_r4.4.pdf",
+  "md": "01_Vault_MD/08_Esercizio_e_manutenzione/INF-08.05.md"
+ },
+ {
+  "code": "INF-08.06",
+  "title": "Transizione: copie prima, nuovi pool dopo",
+  "block": "08",
+  "scope": "reference",
+  "group": "g092",
+  "pdf": "02_PDF_correnti/Schede/INF-08.06_r4.4.pdf",
+  "md": "01_Vault_MD/08_Esercizio_e_manutenzione/INF-08.06.md"
+ },
+ {
+  "code": "INF-08.07",
+  "title": "Transizione: copie prima, nuovi pool dopo",
+  "block": "08",
+  "scope": "reference",
+  "group": "g092",
+  "pdf": "02_PDF_correnti/Schede/INF-08.07_r4.4.pdf",
+  "md": "01_Vault_MD/08_Esercizio_e_manutenzione/INF-08.07.md"
+ },
+ {
+  "code": "INF-08.08",
+  "title": "Home Assistant e subentro",
+  "block": "08",
+  "scope": "reference",
+  "group": "g093",
+  "pdf": "02_PDF_correnti/Schede/INF-08.08_r4.4.pdf",
+  "md": "01_Vault_MD/08_Esercizio_e_manutenzione/INF-08.08.md"
+ },
+ {
+  "code": "INF-08.09",
+  "title": "Aggiornamenti, account e accessi",
+  "block": "08",
+  "scope": "reference",
+  "group": "g094",
+  "pdf": "02_PDF_correnti/Schede/INF-08.09_r4.4.pdf",
+  "md": "01_Vault_MD/08_Esercizio_e_manutenzione/INF-08.09.md"
+ },
+ {
+  "code": "INF-08.10",
+  "title": "Registro intervento e chiusura",
+  "block": "08",
+  "scope": "reference",
+  "group": "g095",
+  "pdf": "02_PDF_correnti/Schede/INF-08.10_r4.4.pdf",
+  "md": "01_Vault_MD/08_Esercizio_e_manutenzione/INF-08.10.md"
+ },
+ {
+  "code": "INF-08.11",
+  "title": "S1-S4: utilita, radio e testimone",
+  "block": "08",
+  "scope": "reference",
+  "group": "g025",
+  "pdf": "02_PDF_correnti/Schede/INF-08.11_r4.4.pdf",
+  "md": "01_Vault_MD/08_Esercizio_e_manutenzione/INF-08.11.md"
+ },
+ {
+  "code": "INF-08.12",
+  "title": "S1-S4: utilita, radio e testimone",
+  "block": "08",
+  "scope": "reference",
+  "group": "g025",
+  "pdf": "02_PDF_correnti/Schede/INF-08.12_r4.4.pdf",
+  "md": "01_Vault_MD/08_Esercizio_e_manutenzione/INF-08.12.md"
+ },
+ {
+  "code": "ATL-01",
+  "title": "Architettura e apparati della revisione 4.4",
+  "block": "S01",
+  "scope": "reference",
+  "group": "g002",
+  "pdf": "02_PDF_correnti/Schede/ATL-01_r4.4.pdf",
+  "md": "01_Vault_MD/S01_Atlante/ATL-01.md"
+ },
+ {
+  "code": "ATL-02",
+  "title": "Servizi: collocazione e dipendenze",
+  "block": "S01",
+  "scope": "reference",
+  "group": "g029",
+  "pdf": "02_PDF_correnti/Schede/ATL-02_r4.4.pdf",
+  "md": "01_Vault_MD/S01_Atlante/ATL-02.md"
+ },
+ {
+  "code": "ATL-03",
+  "title": "Rete: percorsi chiari per casa, servizi e Vito",
+  "block": "S01",
+  "scope": "reference",
+  "group": "g016",
+  "pdf": "02_PDF_correnti/Schede/ATL-03_r4.4.pdf",
+  "md": "01_Vault_MD/S01_Atlante/ATL-03.md"
+ },
+ {
+  "code": "ATL-04",
+  "title": "Architettura e apparati della revisione 4.4",
+  "block": "S01",
+  "scope": "reference",
+  "group": "g002",
+  "pdf": "02_PDF_correnti/Schede/ATL-04_r4.4.pdf",
+  "md": "01_Vault_MD/S01_Atlante/ATL-04.md"
+ },
+ {
+  "code": "ATL-05",
+  "title": "M1: rete, monitoraggio e recupero",
+  "block": "S01",
+  "scope": "reference",
+  "group": "g022",
+  "pdf": "02_PDF_correnti/Schede/ATL-05_r4.4.pdf",
+  "md": "01_Vault_MD/S01_Atlante/ATL-05.md"
+ },
+ {
+  "code": "ATL-06",
+  "title": "M2: applicazioni e P310 segnaposto",
+  "block": "S01",
+  "scope": "reference",
+  "group": "g023",
+  "pdf": "02_PDF_correnti/Schede/ATL-06_r4.4.pdf",
+  "md": "01_Vault_MD/S01_Atlante/ATL-06.md"
+ },
+ {
+  "code": "ATL-07",
+  "title": "Storage: transizione e destinazioni definitive",
+  "block": "S01",
+  "scope": "reference",
+  "group": "g008",
+  "pdf": "02_PDF_correnti/Schede/ATL-07_r4.4.pdf",
+  "md": "01_Vault_MD/S01_Atlante/ATL-07.md"
+ },
+ {
+  "code": "ATL-08",
+  "title": "M6: media, servizi esterni e margine di calcolo",
+  "block": "S01",
+  "scope": "reference",
+  "group": "g012",
+  "pdf": "02_PDF_correnti/Schede/ATL-08_r4.4.pdf",
+  "md": "01_Vault_MD/S01_Atlante/ATL-08.md"
+ },
+ {
+  "code": "ATL-09",
+  "title": "M3: inferenza dedicata e calcolo a richiesta",
+  "block": "S01",
+  "scope": "reference",
+  "group": "g026",
+  "pdf": "02_PDF_correnti/Schede/ATL-09_r4.4.pdf",
+  "md": "01_Vault_MD/S01_Atlante/ATL-09.md"
+ },
+ {
+  "code": "ATL-10",
+  "title": "Windows, Sunshine e postazione di lavoro",
+  "block": "S01",
+  "scope": "reference",
+  "group": "g096",
+  "pdf": "02_PDF_correnti/Schede/ATL-10_r4.4.pdf",
+  "md": "01_Vault_MD/S01_Atlante/ATL-10.md"
+ },
+ {
+  "code": "ATL-11",
+  "title": "Backup: locale, fuori casa e selezioni offline",
+  "block": "S01",
+  "scope": "reference",
+  "group": "g056",
+  "pdf": "02_PDF_correnti/Schede/ATL-11_r4.4.pdf",
+  "md": "01_Vault_MD/S01_Atlante/ATL-11.md"
+ },
+ {
+  "code": "ATL-12",
+  "title": "M5: domotica e visione locale",
+  "block": "S01",
+  "scope": "reference",
+  "group": "g027",
+  "pdf": "02_PDF_correnti/Schede/ATL-12_r4.4.pdf",
+  "md": "01_Vault_MD/S01_Atlante/ATL-12.md"
+ },
+ {
+  "code": "ATL-13",
+  "title": "S1-S4: utilita, radio e testimone",
+  "block": "S01",
+  "scope": "reference",
+  "group": "g025",
+  "pdf": "02_PDF_correnti/Schede/ATL-13_r4.4.pdf",
+  "md": "01_Vault_MD/S01_Atlante/ATL-13.md"
+ },
+ {
+  "code": "ATL-14",
+  "title": "Client Dell, HP e postazioni",
+  "block": "S01",
+  "scope": "reference",
+  "group": "g060",
+  "pdf": "02_PDF_correnti/Schede/ATL-14_r4.4.pdf",
+  "md": "01_Vault_MD/S01_Atlante/ATL-14.md"
+ },
+ {
+  "code": "ATL-15",
+  "title": "Windows, Sunshine e postazione di lavoro",
+  "block": "S01",
+  "scope": "reference",
+  "group": "g096",
+  "pdf": "02_PDF_correnti/Schede/ATL-15_r4.4.pdf",
+  "md": "01_Vault_MD/S01_Atlante/ATL-15.md"
+ },
+ {
+  "code": "ATL-16",
+  "title": "Client Dell, HP e postazioni",
+  "block": "S01",
+  "scope": "reference",
+  "group": "g060",
+  "pdf": "02_PDF_correnti/Schede/ATL-16_r4.4.pdf",
+  "md": "01_Vault_MD/S01_Atlante/ATL-16.md"
+ },
+ {
+  "code": "ATL-17",
+  "title": "Client Dell, HP e postazioni",
+  "block": "S01",
+  "scope": "reference",
+  "group": "g060",
+  "pdf": "02_PDF_correnti/Schede/ATL-17_r4.4.pdf",
+  "md": "01_Vault_MD/S01_Atlante/ATL-17.md"
+ },
+ {
+  "code": "ATL-18",
+  "title": "Client Dell, HP e postazioni",
+  "block": "S01",
+  "scope": "reference",
+  "group": "g060",
+  "pdf": "02_PDF_correnti/Schede/ATL-18_r4.4.pdf",
+  "md": "01_Vault_MD/S01_Atlante/ATL-18.md"
+ },
+ {
+  "code": "ATL-19",
+  "title": "Client Dell, HP e postazioni",
+  "block": "S01",
+  "scope": "reference",
+  "group": "g060",
+  "pdf": "02_PDF_correnti/Schede/ATL-19_r4.4.pdf",
+  "md": "01_Vault_MD/S01_Atlante/ATL-19.md"
+ },
+ {
+  "code": "ATL-20",
+  "title": "Rete: percorsi chiari per casa, servizi e Vito",
+  "block": "S01",
+  "scope": "reference",
+  "group": "g016",
+  "pdf": "02_PDF_correnti/Schede/ATL-20_r4.4.pdf",
+  "md": "01_Vault_MD/S01_Atlante/ATL-20.md"
+ },
+ {
+  "code": "ATL-21",
+  "title": "Rete: percorsi chiari per casa, servizi e Vito",
+  "block": "S01",
+  "scope": "reference",
+  "group": "g016",
+  "pdf": "02_PDF_correnti/Schede/ATL-21_r4.4.pdf",
+  "md": "01_Vault_MD/S01_Atlante/ATL-21.md"
+ },
+ {
+  "code": "ATL-22",
+  "title": "Storage: transizione e destinazioni definitive",
+  "block": "S01",
+  "scope": "reference",
+  "group": "g008",
+  "pdf": "02_PDF_correnti/Schede/ATL-22_r4.4.pdf",
+  "md": "01_Vault_MD/S01_Atlante/ATL-22.md"
+ },
+ {
+  "code": "ATL-23",
+  "title": "Architettura e apparati della revisione 4.4",
+  "block": "S01",
+  "scope": "reference",
+  "group": "g002",
+  "pdf": "02_PDF_correnti/Schede/ATL-23_r4.4.pdf",
+  "md": "01_Vault_MD/S01_Atlante/ATL-23.md"
+ },
+ {
+  "code": "ATL-24",
+  "title": "Espansioni e verifiche delle schede ricevute",
+  "block": "S01",
+  "scope": "reference",
+  "group": "g009",
+  "pdf": "02_PDF_correnti/Schede/ATL-24_r4.4.pdf",
+  "md": "01_Vault_MD/S01_Atlante/ATL-24.md"
+ },
+ {
+  "code": "ATL-25",
+  "title": "Energia: nucleo stabile e carichi attivati quando servono",
+  "block": "S01",
+  "scope": "reference",
+  "group": "g004",
+  "pdf": "02_PDF_correnti/Schede/ATL-25_r4.4.pdf",
+  "md": "01_Vault_MD/S01_Atlante/ATL-25.md"
+ },
+ {
+  "code": "ATL-26",
+  "title": "Home Assistant, MQTT e radio indipendente",
+  "block": "S01",
+  "scope": "reference",
+  "group": "g040",
+  "pdf": "02_PDF_correnti/Schede/ATL-26_r4.4.pdf",
+  "md": "01_Vault_MD/S01_Atlante/ATL-26.md"
+ },
+ {
+  "code": "ATL-27",
+  "title": "Sicurezza e indipendenza",
+  "block": "S01",
+  "scope": "reference",
+  "group": "g097",
+  "pdf": "02_PDF_correnti/Schede/ATL-27_r4.4.pdf",
+  "md": "01_Vault_MD/S01_Atlante/ATL-27.md"
+ },
+ {
+  "code": "ATL-28",
+  "title": "M5: domotica e visione locale",
+  "block": "S01",
+  "scope": "reference",
+  "group": "g027",
+  "pdf": "02_PDF_correnti/Schede/ATL-28_r4.4.pdf",
+  "md": "01_Vault_MD/S01_Atlante/ATL-28.md"
+ },
+ {
+  "code": "ATL-29",
+  "title": "Guasti, disponibilita e recupero",
+  "block": "S01",
+  "scope": "reference",
+  "group": "g028",
+  "pdf": "02_PDF_correnti/Schede/ATL-29_r4.4.pdf",
+  "md": "01_Vault_MD/S01_Atlante/ATL-29.md"
+ },
+ {
+  "code": "ATL-30",
+  "title": "Personale, lavoro e appartamenti",
+  "block": "S01",
+  "scope": "reference",
+  "group": "g098",
+  "pdf": "02_PDF_correnti/Schede/ATL-30_r4.4.pdf",
+  "md": "01_Vault_MD/S01_Atlante/ATL-30.md"
+ },
+ {
+  "code": "INF-09.01",
+  "title": "Glossario A-L",
+  "block": "S02",
+  "scope": "reference",
+  "group": "g099",
+  "pdf": "02_PDF_correnti/Schede/INF-09.01_r4.4.pdf",
+  "md": "01_Vault_MD/09_Registri_e_fonti/INF-09.01.md"
+ },
+ {
+  "code": "INF-09.02",
+  "title": "Glossario M-Z",
+  "block": "S02",
+  "scope": "reference",
+  "group": "g100",
+  "pdf": "02_PDF_correnti/Schede/INF-09.02_r4.4.pdf",
+  "md": "01_Vault_MD/09_Registri_e_fonti/INF-09.02.md"
+ },
+ {
+  "code": "INF-09.03",
+  "title": "Rubrica tecnica e schede dei servizi",
+  "block": "S02",
+  "scope": "reference",
+  "group": "g101",
+  "pdf": "02_PDF_correnti/Schede/INF-09.03_r4.4.pdf",
+  "md": "01_Vault_MD/09_Registri_e_fonti/INF-09.03.md"
+ },
+ {
+  "code": "INF-09.04",
+  "title": "Protocolli e versi dei collegamenti",
+  "block": "S02",
+  "scope": "reference",
+  "group": "g102",
+  "pdf": "02_PDF_correnti/Schede/INF-09.04_r4.4.pdf",
+  "md": "01_Vault_MD/09_Registri_e_fonti/INF-09.04.md"
+ },
+ {
+  "code": "INF-09.05",
+  "title": "Registri dei parametri",
+  "block": "S02",
+  "scope": "reference",
+  "group": "g103",
+  "pdf": "02_PDF_correnti/Schede/INF-09.05_r4.4.pdf",
+  "md": "01_Vault_MD/09_Registri_e_fonti/INF-09.05.md"
+ },
+ {
+  "code": "INF-09.06",
+  "title": "Storico delle configurazioni",
+  "block": "S02",
+  "scope": "reference",
+  "group": "g104",
+  "pdf": "02_PDF_correnti/Schede/INF-09.06_r4.4.pdf",
+  "md": "01_Vault_MD/09_Registri_e_fonti/INF-09.06.md"
+ },
+ {
+  "code": "INF-09.07",
+  "title": "Fonti e stato di verifica",
+  "block": "S02",
+  "scope": "reference",
+  "group": "g105",
+  "pdf": "02_PDF_correnti/Schede/INF-09.07_r4.4.pdf",
+  "md": "01_Vault_MD/09_Registri_e_fonti/INF-09.07.md"
+ },
+ {
+  "code": "INF-09.08",
+  "title": "Fonti infrastruttura / 1",
+  "block": "S02",
+  "scope": "reference",
+  "group": "g106",
+  "pdf": "02_PDF_correnti/Schede/INF-09.08_r4.4.pdf",
+  "md": "01_Vault_MD/09_Registri_e_fonti/INF-09.08.md"
+ },
+ {
+  "code": "INF-09.09",
+  "title": "Fonti infrastruttura / 2",
+  "block": "S02",
+  "scope": "reference",
+  "group": "g107",
+  "pdf": "02_PDF_correnti/Schede/INF-09.09_r4.4.pdf",
+  "md": "01_Vault_MD/09_Registri_e_fonti/INF-09.09.md"
+ },
+ {
+  "code": "INF-09.10",
+  "title": "Fonti client / 1",
+  "block": "S02",
+  "scope": "reference",
+  "group": "g108",
+  "pdf": "02_PDF_correnti/Schede/INF-09.10_r4.4.pdf",
+  "md": "01_Vault_MD/09_Registri_e_fonti/INF-09.10.md"
+ },
+ {
+  "code": "INF-09.11",
+  "title": "Fonti client / 2",
+  "block": "S02",
+  "scope": "reference",
+  "group": "g109",
+  "pdf": "02_PDF_correnti/Schede/INF-09.11_r4.4.pdf",
+  "md": "01_Vault_MD/09_Registri_e_fonti/INF-09.11.md"
+ },
+ {
+  "code": "INF-09.13",
+  "title": "Storico delle configurazioni",
+  "block": "S02",
+  "scope": "reference",
+  "group": "g104",
+  "pdf": "02_PDF_correnti/Schede/INF-09.13_r4.4.pdf",
+  "md": "01_Vault_MD/09_Registri_e_fonti/INF-09.13.md"
+ },
+ {
+  "code": "INF-09.14",
+  "title": "Fonti hardware e nuovi apparati",
+  "block": "S02",
+  "scope": "reference",
+  "group": "g110",
+  "pdf": "02_PDF_correnti/Schede/INF-09.14_r4.4.pdf",
+  "md": "01_Vault_MD/09_Registri_e_fonti/INF-09.14.md"
+ },
+ {
+  "code": "INF-09.15",
+  "title": "Registro apparati e prodotti",
+  "block": "S02",
+  "scope": "reference",
+  "group": "g013",
+  "pdf": "02_PDF_correnti/Schede/INF-09.15_r4.4.pdf",
+  "md": "01_Vault_MD/09_Registri_e_fonti/INF-09.15.md"
+ },
+ {
+  "code": "INF-11.01",
+  "title": "Tagliandi e periodicità",
+  "block": "S03",
+  "scope": "reference",
+  "group": "g111",
+  "pdf": "02_PDF_correnti/Schede/INF-11.01_r4.4.pdf",
+  "md": "01_Vault_MD/11_Tagliandi_e_registri/INF-11.01.md"
+ },
+ {
+  "code": "INF-11.02",
+  "title": "Apertura del tagliando",
+  "block": "S03",
+  "scope": "reference",
+  "group": "g112",
+  "pdf": "02_PDF_correnti/Schede/INF-11.02_r4.4.pdf",
+  "md": "01_Vault_MD/11_Tagliandi_e_registri/INF-11.02.md"
+ },
+ {
+  "code": "INF-11.03",
+  "title": "MOP · scheda di intervento",
+  "block": "S03",
+  "scope": "reference",
+  "group": "g113",
+  "pdf": "02_PDF_correnti/Schede/INF-11.03_r4.4.pdf",
+  "md": "01_Vault_MD/11_Tagliandi_e_registri/INF-11.03.md"
+ },
+ {
+  "code": "INF-11.04",
+  "title": "Tagliando rete, nodi autonomi e accessi",
+  "block": "S03",
+  "scope": "reference",
+  "group": "g114",
+  "pdf": "02_PDF_correnti/Schede/INF-11.04_r4.4.pdf",
+  "md": "01_Vault_MD/11_Tagliandi_e_registri/INF-11.04.md"
+ },
+ {
+  "code": "INF-11.05",
+  "title": "Tagliando dati, copie e applicazioni",
+  "block": "S03",
+  "scope": "reference",
+  "group": "g115",
+  "pdf": "02_PDF_correnti/Schede/INF-11.05_r4.4.pdf",
+  "md": "01_Vault_MD/11_Tagliandi_e_registri/INF-11.05.md"
+ },
+ {
+  "code": "INF-11.06",
+  "title": "Client, periferiche e flussi multimediali",
+  "block": "S03",
+  "scope": "reference",
+  "group": "g116",
+  "pdf": "02_PDF_correnti/Schede/INF-11.06_r4.4.pdf",
+  "md": "01_Vault_MD/11_Tagliandi_e_registri/INF-11.06.md"
+ },
+ {
+  "code": "INF-11.07",
+  "title": "Energia, casa e sicurezza",
+  "block": "S03",
+  "scope": "reference",
+  "group": "g117",
+  "pdf": "02_PDF_correnti/Schede/INF-11.07_r4.4.pdf",
+  "md": "01_Vault_MD/11_Tagliandi_e_registri/INF-11.07.md"
+ },
+ {
+  "code": "INF-11.08",
+  "title": "Anomalia e azione correttiva",
+  "block": "S03",
+  "scope": "reference",
+  "group": "g118",
+  "pdf": "02_PDF_correnti/Schede/INF-11.08_r4.4.pdf",
+  "md": "01_Vault_MD/11_Tagliandi_e_registri/INF-11.08.md"
+ },
+ {
+  "code": "INF-11.09",
+  "title": "Tagliando annuale e pubblicazione dell’atlante",
+  "block": "S03",
+  "scope": "reference",
+  "group": "g119",
+  "pdf": "02_PDF_correnti/Schede/INF-11.09_r4.4.pdf",
+  "md": "01_Vault_MD/11_Tagliandi_e_registri/INF-11.09.md"
+ },
+ {
+  "code": "INF-11.10",
+  "title": "Verbale di chiusura del tagliando",
+  "block": "S03",
+  "scope": "reference",
+  "group": "g120",
+  "pdf": "02_PDF_correnti/Schede/INF-11.10_r4.4.pdf",
+  "md": "01_Vault_MD/11_Tagliandi_e_registri/INF-11.10.md"
+ },
+ {
+  "code": "INF-11.11",
+  "title": "Registro storico dei tagliandi",
+  "block": "S03",
+  "scope": "reference",
+  "group": "g121",
+  "pdf": "02_PDF_correnti/Schede/INF-11.11_r4.4.pdf",
+  "md": "01_Vault_MD/11_Tagliandi_e_registri/INF-11.11.md"
+ },
+ {
+  "code": "INF-11.12",
+  "title": "Registro visione: versioni, qualità e prestazioni",
+  "block": "S03",
+  "scope": "reference",
+  "group": "g122",
+  "pdf": "02_PDF_correnti/Schede/INF-11.12_r4.4.pdf",
+  "md": "01_Vault_MD/11_Tagliandi_e_registri/INF-11.12.md"
+ },
+ {
+  "code": "INF-12.01",
+  "title": "Famiglia: contenuti dentro casa",
+  "block": "S04",
+  "scope": "reference",
+  "group": "g123",
+  "pdf": "02_PDF_correnti/Schede/INF-12.01_r4.4.pdf",
+  "md": "01_Vault_MD/12_Guide_Pratiche_E_Predisposizioni/INF-12.01.md"
+ },
+ {
+  "code": "INF-12.02",
+  "title": "Famiglia: contenuti fuori casa",
+  "block": "S04",
+  "scope": "reference",
+  "group": "g124",
+  "pdf": "02_PDF_correnti/Schede/INF-12.02_r4.4.pdf",
+  "md": "01_Vault_MD/12_Guide_Pratiche_E_Predisposizioni/INF-12.02.md"
+ },
+ {
+  "code": "INF-12.03",
+  "title": "Accesso esterno ai servizi",
+  "block": "S04",
+  "scope": "reference",
+  "group": "g125",
+  "pdf": "02_PDF_correnti/Schede/INF-12.03_r4.4.pdf",
+  "md": "01_Vault_MD/12_Guide_Pratiche_E_Predisposizioni/INF-12.03.md"
+ },
+ {
+  "code": "INF-12.04",
+  "title": "Nextcloud: consultazione",
+  "block": "S04",
+  "scope": "reference",
+  "group": "g126",
+  "pdf": "02_PDF_correnti/Schede/INF-12.04_r4.4.pdf",
+  "md": "01_Vault_MD/12_Guide_Pratiche_E_Predisposizioni/INF-12.04.md"
+ },
+ {
+  "code": "INF-12.05",
+  "title": "Nextcloud: modifica e cartelle condivise",
+  "block": "S04",
+  "scope": "reference",
+  "group": "g127",
+  "pdf": "02_PDF_correnti/Schede/INF-12.05_r4.4.pdf",
+  "md": "01_Vault_MD/12_Guide_Pratiche_E_Predisposizioni/INF-12.05.md"
+ },
+ {
+  "code": "INF-12.06",
+  "title": "Nextcloud: consegna file",
+  "block": "S04",
+  "scope": "reference",
+  "group": "g128",
+  "pdf": "02_PDF_correnti/Schede/INF-12.06_r4.4.pdf",
+  "md": "01_Vault_MD/12_Guide_Pratiche_E_Predisposizioni/INF-12.06.md"
+ },
+ {
+  "code": "INF-12.07",
+  "title": "Recupero per servizio",
+  "block": "S04",
+  "scope": "reference",
+  "group": "g129",
+  "pdf": "02_PDF_correnti/Schede/INF-12.07_r4.4.pdf",
+  "md": "01_Vault_MD/12_Guide_Pratiche_E_Predisposizioni/INF-12.07.md"
+ },
+ {
+  "code": "INF-12.08",
+  "title": "Home Assistant e subentro",
+  "block": "S04",
+  "scope": "reference",
+  "group": "g093",
+  "pdf": "02_PDF_correnti/Schede/INF-12.08_r4.4.pdf",
+  "md": "01_Vault_MD/12_Guide_Pratiche_E_Predisposizioni/INF-12.08.md"
+ },
+ {
+  "code": "INF-12.09",
+  "title": "M1: rete, monitoraggio e recupero",
+  "block": "S04",
+  "scope": "reference",
+  "group": "g022",
+  "pdf": "02_PDF_correnti/Schede/INF-12.09_r4.4.pdf",
+  "md": "01_Vault_MD/12_Guide_Pratiche_E_Predisposizioni/INF-12.09.md"
+ },
+ {
+  "code": "INF-12.10",
+  "title": "Energia: nucleo stabile e carichi attivati quando servono",
+  "block": "S04",
+  "scope": "reference",
+  "group": "g004",
+  "pdf": "02_PDF_correnti/Schede/INF-12.10_r4.4.pdf",
+  "md": "01_Vault_MD/12_Guide_Pratiche_E_Predisposizioni/INF-12.10.md"
+ },
+ {
+  "code": "INF-12.11",
+  "title": "Client Linux: profili d’uso",
+  "block": "S04",
+  "scope": "reference",
+  "group": "g130",
+  "pdf": "02_PDF_correnti/Schede/INF-12.11_r4.4.pdf",
+  "md": "01_Vault_MD/12_Guide_Pratiche_E_Predisposizioni/INF-12.11.md"
+ },
+ {
+  "code": "INF-12.12",
+  "title": "Pixel, Apple e ponte Mac",
+  "block": "S04",
+  "scope": "reference",
+  "group": "g131",
+  "pdf": "02_PDF_correnti/Schede/INF-12.12_r4.4.pdf",
+  "md": "01_Vault_MD/12_Guide_Pratiche_E_Predisposizioni/INF-12.12.md"
+ },
+ {
+  "code": "INF-12.13",
+  "title": "Manutenzione, notifiche e incidenti",
+  "block": "S04",
+  "scope": "reference",
+  "group": "g132",
+  "pdf": "02_PDF_correnti/Schede/INF-12.13_r4.4.pdf",
+  "md": "01_Vault_MD/12_Guide_Pratiche_E_Predisposizioni/INF-12.13.md"
+ },
+ {
+  "code": "INF-12.14",
+  "title": "Gestione e revoca degli utenti",
+  "block": "S04",
+  "scope": "reference",
+  "group": "g133",
+  "pdf": "02_PDF_correnti/Schede/INF-12.14_r4.4.pdf",
+  "md": "01_Vault_MD/12_Guide_Pratiche_E_Predisposizioni/INF-12.14.md"
+ },
+ {
+  "code": "INF-12.15",
+  "title": "Mappa operativa della configurazione",
+  "block": "S04",
+  "scope": "reference",
+  "group": "g134",
+  "pdf": "02_PDF_correnti/Schede/INF-12.15_r4.4.pdf",
+  "md": "01_Vault_MD/12_Guide_Pratiche_E_Predisposizioni/INF-12.15.md"
+ },
+ {
+  "code": "INF-12.16",
+  "title": "Storage: transizione e destinazioni definitive",
+  "block": "S04",
+  "scope": "reference",
+  "group": "g008",
+  "pdf": "02_PDF_correnti/Schede/INF-12.16_r4.4.pdf",
+  "md": "01_Vault_MD/12_Guide_Pratiche_E_Predisposizioni/INF-12.16.md"
+ },
+ {
+  "code": "INF-13.00",
+  "title": "Modelli di collaborazione fra sedi",
+  "block": "S05",
+  "scope": "reference",
+  "group": "g135",
+  "pdf": "02_PDF_correnti/Schede/INF-13.00_r4.4.pdf",
+  "md": "01_Vault_MD/13_Homelab_Decentralizzati_Tra_Amici/INF-13.00.md"
+ },
+ {
+  "code": "INF-13.01",
+  "title": "Collaborazione: ruoli e confini",
+  "block": "S05",
+  "scope": "reference",
+  "group": "g136",
+  "pdf": "02_PDF_correnti/Schede/INF-13.01_r4.4.pdf",
+  "md": "01_Vault_MD/13_Homelab_Decentralizzati_Tra_Amici/INF-13.01.md"
+ },
+ {
+  "code": "INF-13.02",
+  "title": "Condivisione selettiva dei servizi",
+  "block": "S05",
+  "scope": "reference",
+  "group": "g137",
+  "pdf": "02_PDF_correnti/Schede/INF-13.02_r4.4.pdf",
+  "md": "01_Vault_MD/13_Homelab_Decentralizzati_Tra_Amici/INF-13.02.md"
+ },
+ {
+  "code": "INF-13.03",
+  "title": "Nextcloud fra istanze",
+  "block": "S05",
+  "scope": "reference",
+  "group": "g138",
+  "pdf": "02_PDF_correnti/Schede/INF-13.03_r4.4.pdf",
+  "md": "01_Vault_MD/13_Homelab_Decentralizzati_Tra_Amici/INF-13.03.md"
+ },
+ {
+  "code": "INF-13.04",
+  "title": "Copie reciproche fuori sede",
+  "block": "S05",
+  "scope": "reference",
+  "group": "g139",
+  "pdf": "02_PDF_correnti/Schede/INF-13.04_r4.4.pdf",
+  "md": "01_Vault_MD/13_Homelab_Decentralizzati_Tra_Amici/INF-13.04.md"
+ },
+ {
+  "code": "INF-13.05",
+  "title": "Replica e copie di progetto",
+  "block": "S05",
+  "scope": "reference",
+  "group": "g140",
+  "pdf": "02_PDF_correnti/Schede/INF-13.05_r4.4.pdf",
+  "md": "01_Vault_MD/13_Homelab_Decentralizzati_Tra_Amici/INF-13.05.md"
+ },
+ {
+  "code": "INF-13.06",
+  "title": "Accesso fra sedi",
+  "block": "S05",
+  "scope": "reference",
+  "group": "g141",
+  "pdf": "02_PDF_correnti/Schede/INF-13.06_r4.4.pdf",
+  "md": "01_Vault_MD/13_Homelab_Decentralizzati_Tra_Amici/INF-13.06.md"
+ },
+ {
+  "code": "INF-13.07",
+  "title": "Osservazione e avvisi fra sedi",
+  "block": "S05",
+  "scope": "reference",
+  "group": "g142",
+  "pdf": "02_PDF_correnti/Schede/INF-13.07_r4.4.pdf",
+  "md": "01_Vault_MD/13_Homelab_Decentralizzati_Tra_Amici/INF-13.07.md"
+ },
+ {
+  "code": "INF-13.08",
+  "title": "Conoscenza e strumenti comuni",
+  "block": "S05",
+  "scope": "reference",
+  "group": "g143",
+  "pdf": "02_PDF_correnti/Schede/INF-13.08_r4.4.pdf",
+  "md": "01_Vault_MD/13_Homelab_Decentralizzati_Tra_Amici/INF-13.08.md"
+ },
+ {
+  "code": "INF-13.09",
+  "title": "Calcolo IA a richiesta",
+  "block": "S05",
+  "scope": "reference",
+  "group": "g144",
+  "pdf": "02_PDF_correnti/Schede/INF-13.09_r4.4.pdf",
+  "md": "01_Vault_MD/13_Homelab_Decentralizzati_Tra_Amici/INF-13.09.md"
+ },
+ {
+  "code": "INF-13.10",
+  "title": "Continuità e servizi di riserva",
+  "block": "S05",
+  "scope": "reference",
+  "group": "g145",
+  "pdf": "02_PDF_correnti/Schede/INF-13.10_r4.4.pdf",
+  "md": "01_Vault_MD/13_Homelab_Decentralizzati_Tra_Amici/INF-13.10.md"
+ },
+ {
+  "code": "INF-13.11",
+  "title": "Accordo e uscita",
+  "block": "S05",
+  "scope": "reference",
+  "group": "g146",
+  "pdf": "02_PDF_correnti/Schede/INF-13.11_r4.4.pdf",
+  "md": "01_Vault_MD/13_Homelab_Decentralizzati_Tra_Amici/INF-13.11.md"
+ },
+ {
+  "code": "INF-13.12",
+  "title": "Profilo minimo fra due sedi",
+  "block": "S05",
+  "scope": "reference",
+  "group": "g147",
+  "pdf": "02_PDF_correnti/Schede/INF-13.12_r4.4.pdf",
+  "md": "01_Vault_MD/13_Homelab_Decentralizzati_Tra_Amici/INF-13.12.md"
+ },
+ {
+  "code": "REV3-AGN",
+  "title": "Assistenti e lavoro fra laboratorio e Vito",
+  "block": "S06",
+  "scope": "reference",
+  "group": "g039",
+  "pdf": "02_PDF_correnti/Schede/REV3-AGN_r4.4.pdf",
+  "md": "01_Vault_MD/S06_Configurazione_rev4/REV3-AGN.md"
+ },
+ {
+  "code": "REV3-ATL",
+  "title": "Architettura e apparati della revisione 4.4",
+  "block": "S06",
+  "scope": "reference",
+  "group": "g002",
+  "pdf": "02_PDF_correnti/Schede/REV3-ATL_r4.4.pdf",
+  "md": "01_Vault_MD/S06_Configurazione_rev4/REV3-ATL.md"
+ },
+ {
+  "code": "REV3-BCK",
+  "title": "Backup: locale, fuori casa e selezioni offline",
+  "block": "S06",
+  "scope": "reference",
+  "group": "g056",
+  "pdf": "02_PDF_correnti/Schede/REV3-BCK_r4.4.pdf",
+  "md": "01_Vault_MD/S06_Configurazione_rev4/REV3-BCK.md"
+ },
+ {
+  "code": "REV3-CLOUD",
+  "title": "Drive: Arca temporanea e backup remoto",
+  "block": "S06",
+  "scope": "reference",
+  "group": "g058",
+  "pdf": "02_PDF_correnti/Schede/REV3-CLOUD_r4.4.pdf",
+  "md": "01_Vault_MD/S06_Configurazione_rev4/REV3-CLOUD.md"
+ },
+ {
+  "code": "REV3-CLX",
+  "title": "Cluster stabile: cinque voti, carichi a richiesta separati",
+  "block": "S06",
+  "scope": "reference",
+  "group": "g021",
+  "pdf": "02_PDF_correnti/Schede/REV3-CLX_r4.4.pdf",
+  "md": "01_Vault_MD/S06_Configurazione_rev4/REV3-CLX.md"
+ },
+ {
+  "code": "REV3-ENE",
+  "title": "Energia: nucleo stabile e carichi attivati quando servono",
+  "block": "S06",
+  "scope": "reference",
+  "group": "g004",
+  "pdf": "02_PDF_correnti/Schede/REV3-ENE_r4.4.pdf",
+  "md": "01_Vault_MD/S06_Configurazione_rev4/REV3-ENE.md"
+ },
+ {
+  "code": "REV3-EXT",
+  "title": "Due HP: client esterni e visione offline",
+  "block": "S06",
+  "scope": "reference",
+  "group": "g077",
+  "pdf": "02_PDF_correnti/Schede/REV3-EXT_r4.4.pdf",
+  "md": "01_Vault_MD/S06_Configurazione_rev4/REV3-EXT.md"
+ },
+ {
+  "code": "REV3-FAM",
+  "title": "Recuperi, scambi e postazioni familiari",
+  "block": "S06",
+  "scope": "reference",
+  "group": "g148",
+  "pdf": "02_PDF_correnti/Schede/REV3-FAM_r4.4.pdf",
+  "md": "01_Vault_MD/S06_Configurazione_rev4/REV3-FAM.md"
+ },
+ {
+  "code": "REV3-GST",
+  "title": "Guasti, disponibilita e recupero",
+  "block": "S06",
+  "scope": "reference",
+  "group": "g028",
+  "pdf": "02_PDF_correnti/Schede/REV3-GST_r4.4.pdf",
+  "md": "01_Vault_MD/S06_Configurazione_rev4/REV3-GST.md"
+ },
+ {
+  "code": "REV3-HA",
+  "title": "Cluster stabile: cinque voti, carichi a richiesta separati",
+  "block": "S06",
+  "scope": "reference",
+  "group": "g021",
+  "pdf": "02_PDF_correnti/Schede/REV3-HA_r4.4.pdf",
+  "md": "01_Vault_MD/S06_Configurazione_rev4/REV3-HA.md"
+ },
+ {
+  "code": "REV3-INV",
+  "title": "Magazzino e assegnazioni",
+  "block": "S06",
+  "scope": "reference",
+  "group": "g149",
+  "pdf": "02_PDF_correnti/Schede/REV3-INV_r4.4.pdf",
+  "md": "01_Vault_MD/S06_Configurazione_rev4/REV3-INV.md"
+ },
+ {
+  "code": "REV3-KDL",
+  "title": "Kindle: biblioteca e plancia personale",
+  "block": "S06",
+  "scope": "reference",
+  "group": "g150",
+  "pdf": "02_PDF_correnti/Schede/REV3-KDL_r4.4.pdf",
+  "md": "01_Vault_MD/S06_Configurazione_rev4/REV3-KDL.md"
+ },
+ {
+  "code": "REV3-MAP",
+  "title": "Storage: transizione e destinazioni definitive",
+  "block": "S06",
+  "scope": "reference",
+  "group": "g008",
+  "pdf": "02_PDF_correnti/Schede/REV3-MAP_r4.4.pdf",
+  "md": "01_Vault_MD/S06_Configurazione_rev4/REV3-MAP.md"
+ },
+ {
+  "code": "REV3-MOB",
+  "title": "Vito: lavoro, camper e autonomia mobile",
+  "block": "S06",
+  "scope": "reference",
+  "group": "g076",
+  "pdf": "02_PDF_correnti/Schede/REV3-MOB_r4.4.pdf",
+  "md": "01_Vault_MD/S06_Configurazione_rev4/REV3-MOB.md"
+ },
+ {
+  "code": "REV3-RET",
+  "title": "Rete, WAN e confini",
+  "block": "S06",
+  "scope": "reference",
+  "group": "g151",
+  "pdf": "02_PDF_correnti/Schede/REV3-RET_r4.4.pdf",
+  "md": "01_Vault_MD/S06_Configurazione_rev4/REV3-RET.md"
+ },
+ {
+  "code": "REV3-SRC",
+  "title": "Fonti e versioni",
+  "block": "S06",
+  "scope": "reference",
+  "group": "g152",
+  "pdf": "02_PDF_correnti/Schede/REV3-SRC_r4.4.pdf",
+  "md": "01_Vault_MD/S06_Configurazione_rev4/REV3-SRC.md"
+ },
+ {
+  "code": "REV3-SRV",
+  "title": "Servizi: collocazione e dipendenze",
+  "block": "S06",
+  "scope": "reference",
+  "group": "g029",
+  "pdf": "02_PDF_correnti/Schede/REV3-SRV_r4.4.pdf",
+  "md": "01_Vault_MD/S06_Configurazione_rev4/REV3-SRV.md"
+ },
+ {
+  "code": "REV3-STO",
+  "title": "Storage: transizione e destinazioni definitive",
+  "block": "S06",
+  "scope": "reference",
+  "group": "g008",
+  "pdf": "02_PDF_correnti/Schede/REV3-STO_r4.4.pdf",
+  "md": "01_Vault_MD/S06_Configurazione_rev4/REV3-STO.md"
+ },
+ {
+  "code": "REV3-VIS",
+  "title": "IA, visione e media: confini di calcolo",
+  "block": "S06",
+  "scope": "reference",
+  "group": "g051",
+  "pdf": "02_PDF_correnti/Schede/REV3-VIS_r4.4.pdf",
+  "md": "01_Vault_MD/S06_Configurazione_rev4/REV3-VIS.md"
+ },
+ {
+  "code": "REV3-WRK",
+  "title": "Voce, Sheets e agenda di lavoro",
+  "block": "S06",
+  "scope": "reference",
+  "group": "g086",
+  "pdf": "02_PDF_correnti/Schede/REV3-WRK_r4.4.pdf",
+  "md": "01_Vault_MD/S06_Configurazione_rev4/REV3-WRK.md"
+ },
+ {
+  "code": "REV4-ENER",
+  "title": "Energia: nucleo stabile e carichi attivati quando servono",
+  "block": "S06",
+  "scope": "reference",
+  "group": "g153",
+  "pdf": "02_PDF_correnti/Schede/REV4-ENER_r4.4.pdf",
+  "md": "01_Vault_MD/S06_Configurazione_rev4/REV4-ENER.md"
+ },
+ {
+  "code": "REV4-HOME",
+  "title": "Architettura e apparati",
+  "block": "S06",
+  "scope": "reference",
+  "group": "g002",
+  "pdf": "02_PDF_correnti/Schede/REV4-HOME_r4.4.pdf",
+  "md": "01_Vault_MD/S06_Configurazione_rev4/REV4-HOME.md"
+ },
+ {
+  "code": "REV4-MON",
+  "title": "Osservabilita: capire prima di intervenire",
+  "block": "S06",
+  "scope": "reference",
+  "group": "g154",
+  "pdf": "02_PDF_correnti/Schede/REV4-MON_r4.4.pdf",
+  "md": "01_Vault_MD/S06_Configurazione_rev4/REV4-MON.md"
+ },
+ {
+  "code": "REV4-PCIE",
+  "title": "Espansioni e verifiche delle schede ricevute",
+  "block": "S06",
+  "scope": "reference",
+  "group": "g155",
+  "pdf": "02_PDF_correnti/Schede/REV4-PCIE_r4.4.pdf",
+  "md": "01_Vault_MD/S06_Configurazione_rev4/REV4-PCIE.md"
+ },
+ {
+  "code": "REV4-RAM",
+  "title": "Memorie: distribuzione e utilizzo",
+  "block": "S06",
+  "scope": "reference",
+  "group": "g007",
+  "pdf": "02_PDF_correnti/Schede/REV4-RAM_r4.4.pdf",
+  "md": "01_Vault_MD/S06_Configurazione_rev4/REV4-RAM.md"
+ },
+ {
+  "code": "REV4-VCAMP",
+  "title": "Camper: servizi locali e modalità di sosta",
+  "block": "S06",
+  "scope": "reference",
+  "group": "g156",
+  "pdf": "02_PDF_correnti/Schede/REV4-VCAMP_r4.4.pdf",
+  "md": "01_Vault_MD/S06_Configurazione_rev4/REV4-VCAMP.md"
+ },
+ {
+  "code": "REV4-VDIAG",
+  "title": "Diagnostica W639: telemetria e strumenti Mercedes",
+  "block": "S06",
+  "scope": "reference",
+  "group": "g157",
+  "pdf": "02_PDF_correnti/Schede/REV4-VDIAG_r4.4.pdf",
+  "md": "01_Vault_MD/S06_Configurazione_rev4/REV4-VDIAG.md"
+ },
+ {
+  "code": "REV4-VENE",
+  "title": "Energia di bordo: alimentazione, carichi e riserva",
+  "block": "S06",
+  "scope": "reference",
+  "group": "g158",
+  "pdf": "02_PDF_correnti/Schede/REV4-VENE_r4.4.pdf",
+  "md": "01_Vault_MD/S06_Configurazione_rev4/REV4-VENE.md"
+ },
+ {
+  "code": "REV4-VITO",
+  "title": "Vito · laboratorio mobile e camper",
+  "block": "S06",
+  "scope": "reference",
+  "group": "g159",
+  "pdf": "02_PDF_correnti/Schede/REV4-VITO_r4.4.pdf",
+  "md": "01_Vault_MD/S06_Configurazione_rev4/REV4-VITO.md"
+ },
+ {
+  "code": "REV4-VLAV",
+  "title": "Lavoro a bordo: dal cantiere al registro",
+  "block": "S06",
+  "scope": "reference",
+  "group": "g160",
+  "pdf": "02_PDF_correnti/Schede/REV4-VLAV_r4.4.pdf",
+  "md": "01_Vault_MD/S06_Configurazione_rev4/REV4-VLAV.md"
+ },
+ {
+  "code": "REV4-VNET",
+  "title": "Rete mobile: bordo, casa e cloud",
+  "block": "S06",
+  "scope": "reference",
+  "group": "g161",
+  "pdf": "02_PDF_correnti/Schede/REV4-VNET_r4.4.pdf",
+  "md": "01_Vault_MD/S06_Configurazione_rev4/REV4-VNET.md"
+ },
+ {
+  "code": "REV4-VSYNC",
+  "title": "Dati mobili: preparazione, sincronizzazione e recupero",
+  "block": "S06",
+  "scope": "reference",
+  "group": "g162",
+  "pdf": "02_PDF_correnti/Schede/REV4-VSYNC_r4.4.pdf",
+  "md": "01_Vault_MD/S06_Configurazione_rev4/REV4-VSYNC.md"
+ },
+ {
+  "code": "INF-10.01",
+  "title": "Energia: nucleo stabile e carichi attivati quando servono",
+  "block": "T01",
+  "scope": "reference",
+  "group": "g004",
+  "pdf": "02_PDF_correnti/Schede/INF-10.01_r4.4.pdf",
+  "md": "01_Vault_MD/10_Profili_operativi/INF-10.01.md"
+ },
+ {
+  "code": "INF-10.02",
+  "title": "Energia: nucleo stabile e carichi attivati quando servono",
+  "block": "T01",
+  "scope": "reference",
+  "group": "g004",
+  "pdf": "02_PDF_correnti/Schede/INF-10.02_r4.4.pdf",
+  "md": "01_Vault_MD/10_Profili_operativi/INF-10.02.md"
+ },
+ {
+  "code": "INF-10.03",
+  "title": "Energia: nucleo stabile e carichi attivati quando servono",
+  "block": "T01",
+  "scope": "reference",
+  "group": "g004",
+  "pdf": "02_PDF_correnti/Schede/INF-10.03_r4.4.pdf",
+  "md": "01_Vault_MD/10_Profili_operativi/INF-10.03.md"
+ },
+ {
+  "code": "INF-10.04",
+  "title": "Energia: nucleo stabile e carichi attivati quando servono",
+  "block": "T01",
+  "scope": "reference",
+  "group": "g004",
+  "pdf": "02_PDF_correnti/Schede/INF-10.04_r4.4.pdf",
+  "md": "01_Vault_MD/10_Profili_operativi/INF-10.04.md"
+ },
+ {
+  "code": "REV3-ACQ",
+  "title": "Registro di acquisti e completamenti",
+  "block": "S07",
+  "scope": "roadmap",
+  "group": "g163",
+  "pdf": "02_PDF_correnti/Schede/REV3-ACQ_r4.4.pdf",
+  "md": "01_Vault_MD/S07_Roadmap_e_attuazione/REV3-ACQ.md"
+ },
+ {
+  "code": "REV3-DIFF",
+  "title": "Cosa cambia dalla 4.3",
+  "block": "S07",
+  "scope": "roadmap",
+  "group": "g164",
+  "pdf": "02_PDF_correnti/Schede/REV3-DIFF_r4.4.pdf",
+  "md": "01_Vault_MD/S07_Roadmap_e_attuazione/REV3-DIFF.md"
+ },
+ {
+  "code": "REV3-OPEN",
+  "title": "Identificazione e collaudi della roadmap",
+  "block": "S07",
+  "scope": "roadmap",
+  "group": "g165",
+  "pdf": "02_PDF_correnti/Schede/REV3-OPEN_r4.4.pdf",
+  "md": "01_Vault_MD/S07_Roadmap_e_attuazione/REV3-OPEN.md"
+ },
+ {
+  "code": "REV3-STATO",
+  "title": "Registro di attuazione",
+  "block": "S07",
+  "scope": "roadmap",
+  "group": "g166",
+  "pdf": "02_PDF_correnti/Schede/REV3-STATO_r4.4.pdf",
+  "md": "01_Vault_MD/S07_Roadmap_e_attuazione/REV3-STATO.md"
+ },
+ {
+  "code": "REV3-TRN",
+  "title": "Energia: nucleo stabile e carichi attivati quando servono",
+  "block": "S07",
+  "scope": "roadmap",
+  "group": "g167",
+  "pdf": "02_PDF_correnti/Schede/REV3-TRN_r4.4.pdf",
+  "md": "01_Vault_MD/S07_Roadmap_e_attuazione/REV3-TRN.md"
+ },
+ {
+  "code": "REV4-MIG",
+  "title": "Transizione: copie prima, nuovi pool dopo",
+  "block": "S07",
+  "scope": "roadmap",
+  "group": "g168",
+  "pdf": "02_PDF_correnti/Schede/REV4-MIG_r4.4.pdf",
+  "md": "01_Vault_MD/S07_Roadmap_e_attuazione/REV4-MIG.md"
+ },
+ {
+  "code": "REV4-ROAD",
+  "title": "Roadmap da Natale 2026",
+  "block": "S07",
+  "scope": "roadmap",
+  "group": "g169",
+  "pdf": "02_PDF_correnti/Schede/REV4-ROAD_r4.4.pdf",
+  "md": "01_Vault_MD/S07_Roadmap_e_attuazione/REV4-ROAD.md"
+ },
+ {
+  "code": "REV4-TEST",
+  "title": "Collaudi e registro di accettazione",
+  "block": "S07",
+  "scope": "roadmap",
+  "group": "g170",
+  "pdf": "02_PDF_correnti/Schede/REV4-TEST_r4.4.pdf",
+  "md": "01_Vault_MD/S07_Roadmap_e_attuazione/REV4-TEST.md"
+ },
+ {
+  "code": "REV4-VTEST",
+  "title": "Vito: roadmap di attivazione e prove di accettazione",
+  "block": "S07",
+  "scope": "roadmap",
+  "group": "g171",
+  "pdf": "02_PDF_correnti/Schede/REV4-VTEST_r4.4.pdf",
+  "md": "01_Vault_MD/S07_Roadmap_e_attuazione/REV4-VTEST.md"
+ },
+ {
+  "code": "REV4-CAMPO",
+  "title": "Campo e futura attività agricola",
+  "block": "S08",
+  "scope": "reference",
+  "group": "g172",
+  "pdf": "02_PDF_correnti/Schede/REV4-CAMPO_r4.4.pdf",
+  "md": "01_Vault_MD/S08_Mondi_e_sinergie/REV4-CAMPO.md"
+ },
+ {
+  "code": "REV4-CLIENT",
+  "title": "Client: distribuzione per persone e ambienti",
+  "block": "S08",
+  "scope": "reference",
+  "group": "g173",
+  "pdf": "02_PDF_correnti/Schede/REV4-CLIENT_r4.4.pdf",
+  "md": "01_Vault_MD/S08_Mondi_e_sinergie/REV4-CLIENT.md"
+ },
+ {
+  "code": "REV4-DOM",
+  "title": "Domotica · ambienti che restano governabili",
+  "block": "S08",
+  "scope": "reference",
+  "group": "g174",
+  "pdf": "02_PDF_correnti/Schede/REV4-DOM_r4.4.pdf",
+  "md": "01_Vault_MD/S08_Mondi_e_sinergie/REV4-DOM.md"
+ },
+ {
+  "code": "REV4-ECO",
+  "title": "Sei mondi autonomi, un ecosistema condiviso",
+  "block": "S08",
+  "scope": "reference",
+  "group": "g175",
+  "pdf": "02_PDF_correnti/Schede/REV4-ECO_r4.4.pdf",
+  "md": "01_Vault_MD/S08_Mondi_e_sinergie/REV4-ECO.md"
+ },
+ {
+  "code": "REV4-LAB",
+  "title": "Laboratorio · gestione e supervisione",
+  "block": "S08",
+  "scope": "reference",
+  "group": "g176",
+  "pdf": "02_PDF_correnti/Schede/REV4-LAB_r4.4.pdf",
+  "md": "01_Vault_MD/S08_Mondi_e_sinergie/REV4-LAB.md"
+ },
+ {
+  "code": "REV4-RACK",
+  "title": "Sala server: rack, cablaggi ed energia",
+  "block": "S08",
+  "scope": "reference",
+  "group": "g177",
+  "pdf": "02_PDF_correnti/Schede/REV4-RACK_r4.4.pdf",
+  "md": "01_Vault_MD/S08_Mondi_e_sinergie/REV4-RACK.md"
+ },
+ {
+  "code": "REV4-RIUSO",
+  "title": "Inventario · riuso, vendita e federazione",
+  "block": "S08",
+  "scope": "reference",
+  "group": "g178",
+  "pdf": "02_PDF_correnti/Schede/REV4-RIUSO_r4.4.pdf",
+  "md": "01_Vault_MD/S08_Mondi_e_sinergie/REV4-RIUSO.md"
+ },
+ {
+  "code": "REV4-SALA",
+  "title": "Sala server · capacità trasferibile",
+  "block": "S08",
+  "scope": "reference",
+  "group": "g179",
+  "pdf": "02_PDF_correnti/Schede/REV4-SALA_r4.4.pdf",
+  "md": "01_Vault_MD/S08_Mondi_e_sinergie/REV4-SALA.md"
+ },
+ {
+  "code": "REV4-SIN",
+  "title": "Sinergie: persone, dati e servizi attraverso i rami",
+  "block": "S08",
+  "scope": "reference",
+  "group": "g180",
+  "pdf": "02_PDF_correnti/Schede/REV4-SIN_r4.4.pdf",
+  "md": "01_Vault_MD/S08_Mondi_e_sinergie/REV4-SIN.md"
+ },
+ {
+  "code": "REV4-TERZI",
+  "title": "Servizi e client per terzi",
+  "block": "S08",
+  "scope": "reference",
+  "group": "g181",
+  "pdf": "02_PDF_correnti/Schede/REV4-TERZI_r4.4.pdf",
+  "md": "01_Vault_MD/S08_Mondi_e_sinergie/REV4-TERZI.md"
+ }
+]

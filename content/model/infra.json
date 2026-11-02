@@ -1,0 +1,1568 @@
+[
+ {
+  "id": "P-SALA",
+  "kind": "place",
+  "name": "Sala server",
+  "oneLine": "Il vano con rack, switch e server principali.",
+  "scopes": [
+   "sala-server"
+  ],
+  "cards": [
+   "REV4-RACK",
+   "REV4-SALA"
+  ],
+  "facts": {
+   "coordinate": {
+    "value": null,
+    "ev": "unknown",
+    "src": [
+     "REV4-RACK"
+    ],
+    "note": "Posizioni in U e coordinate del rack non documentate: la vista rack è logica."
+   }
+  }
+ },
+ {
+  "id": "P-LAB",
+  "kind": "place",
+  "name": "Laboratorio (piano terra)",
+  "oneLine": "Postazione di lavoro e gestione con l'Acer MP3.",
+  "scopes": [
+   "laboratorio"
+  ],
+  "cards": [
+   "REV4-LAB"
+  ]
+ },
+ {
+  "id": "P-CASA",
+  "kind": "place",
+  "name": "Appartamento",
+  "oneLine": "Stanze abitate: cucina, camera, salone, ingresso.",
+  "scopes": [
+   "casa"
+  ],
+  "cards": [
+   "REV4-CLIENT",
+   "ATL-30"
+  ]
+ },
+ {
+  "id": "P-CUCINA",
+  "kind": "place",
+  "name": "Cucina",
+  "oneLine": "Postazione C2 e pannello casa.",
+  "scopes": [
+   "casa"
+  ],
+  "parent": "P-CASA",
+  "cards": [
+   "REV4-CLIENT"
+  ]
+ },
+ {
+  "id": "P-CAMERA",
+  "kind": "place",
+  "name": "Camera",
+  "oneLine": "Postazione C3, anche riserva della domotica.",
+  "scopes": [
+   "casa"
+  ],
+  "parent": "P-CASA",
+  "cards": [
+   "REV4-CLIENT"
+  ]
+ },
+ {
+  "id": "P-SALONE",
+  "kind": "place",
+  "name": "Salone",
+  "oneLine": "Postazione C4, anche riserva delle applicazioni.",
+  "scopes": [
+   "casa"
+  ],
+  "parent": "P-CASA",
+  "cards": [
+   "REV4-CLIENT",
+   "INF-03.32"
+  ]
+ },
+ {
+  "id": "P-INGRESSO",
+  "kind": "place",
+  "name": "Ingresso",
+  "oneLine": "Pannello d'ingresso Microtech.",
+  "scopes": [
+   "casa"
+  ],
+  "parent": "P-CASA",
+  "cards": [
+   "INF-05.31"
+  ]
+ },
+ {
+  "id": "P-VITO",
+  "kind": "place",
+  "name": "Vito W639",
+  "oneLine": "Furgone: laboratorio mobile e camper.",
+  "scopes": [
+   "vito"
+  ],
+  "cards": [
+   "REV4-VITO"
+  ]
+ },
+ {
+  "id": "P-CLOUD",
+  "kind": "place",
+  "name": "Fuori casa (cloud)",
+  "oneLine": "Servizi esterni: Google Drive, VPS Oracle, account di lavoro.",
+  "scopes": [
+   "sala-server",
+   "terzi"
+  ],
+  "cards": [
+   "REV3-CLOUD",
+   "INF-03.52"
+  ]
+ },
+ {
+  "id": "P-AMICI",
+  "kind": "place",
+  "name": "Sedi degli amici",
+  "oneLine": "Due client HP t520 presso due amici.",
+  "scopes": [
+   "terzi"
+  ],
+  "cards": [
+   "REV3-EXT"
+  ]
+ },
+ {
+  "id": "CLUSTER",
+  "kind": "cluster",
+  "name": "Nucleo Proxmox",
+  "title": "Cluster stabile a cinque voti",
+  "oneLine": "Cinque macchine sempre accese che decidono a maggioranza: servono 3 voti su 5. Il quorum dice solo se il gruppo può decidere, non se i servizi possono ripartire altrove.",
+  "scopes": [
+   "sala-server"
+  ],
+  "cards": [
+   "INF-03.01",
+   "REV3-HA",
+   "REV3-CLX"
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "non_attestato",
+   "note": "Architettura confermata il 20 ottobre 2026; costruzione prevista nella fase p2 della roadmap.",
+   "src": [
+    "REV3-DIFF",
+    "REV4-ROAD"
+   ]
+  },
+  "facts": {
+   "expectedVotes": {
+    "value": 5,
+    "unit": "voti",
+    "ev": "documented",
+    "src": [
+     "INF-03.01"
+    ]
+   },
+   "quorum": {
+    "value": 3,
+    "unit": "voti",
+    "ev": "documented",
+    "src": [
+     "INF-03.01"
+    ]
+   },
+   "qdevice": {
+    "value": "nessuno",
+    "ev": "documented",
+    "src": [
+     "INF-03.01"
+    ],
+    "note": "Cinque è dispari: nessun voto esterno di spareggio."
+   },
+   "haActive": {
+    "value": false,
+    "ev": "documented",
+    "src": [
+     "REV4-TEST"
+    ],
+    "note": "«HA non attivata finché manca evidenza»: fencing, risorse e repliche vanno collaudati prima."
+   },
+   "corosyncPath": {
+    "value": "rame Gigabit locale sullo switch fidato",
+    "ev": "documented",
+    "src": [
+     "INF-02.07",
+     "INF-03.01"
+    ]
+   }
+  },
+  "limits": [
+   "Il quorum non garantisce RAM, dischi e dati sufficienti per far ripartire un servizio altrove.",
+   "È vietato ridurre expected_votes per nascondere un'assenza."
+  ]
+ },
+ {
+  "id": "M1",
+  "kind": "node",
+  "name": "M1",
+  "title": "Firewall, rete e osservabilità",
+  "hardwareRef": "M1",
+  "oneLine": "Fa da firewall e router delle reti private e ospita il monitoraggio. Se manca: niente accesso da fuori, niente DNS e instradamento privato; la rete della famiglia continua a uscire su Internet.",
+  "scopes": [
+   "sala-server"
+  ],
+  "place": "P-SALA",
+  "power": "always",
+  "vote": true,
+  "cards": [
+   "INF-03.02",
+   "ATL-05",
+   "INF-08.05",
+   "INF-12.09"
+  ],
+  "inventory": [
+   "INV-105",
+   "INV-101",
+   "INV-082",
+   "INV-007"
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "ordinato",
+   "note": "PR9-H con CPU: acquisto dichiarato (A44-02); SKU CPU da identificare, consegna non attestata.",
+   "src": [
+    "REV3-ACQ"
+   ]
+  },
+  "rel": [
+   [
+    "member_of",
+    "CLUSTER"
+   ],
+   [
+    "located_in",
+    "P-SALA"
+   ],
+   [
+    "connected_to",
+    "SW",
+    {
+     "label": "I226-T4 trunk LAN · 1 GbE",
+     "src": [
+      "INF-02.07"
+     ]
+    }
+   ],
+   [
+    "connected_to",
+    "WAN1",
+    {
+     "label": "WAN1"
+    }
+   ],
+   [
+    "connected_to",
+    "WAN2",
+    {
+     "label": "WAN2 (router 5G LAN1)"
+    }
+   ],
+   [
+    "powered_by",
+    "PS-RACK",
+    {
+     "ev": "declared",
+     "note": "Power station del rack: modello e autonomia n.d."
+    }
+   ]
+  ],
+  "limits": [
+   "Firewall senza alta disponibilità automatica: il recupero è manuale (secondo avvio o M7)."
+  ]
+ },
+ {
+  "id": "M2",
+  "kind": "node",
+  "name": "M2",
+  "title": "Applicazioni e dati personali",
+  "hardwareRef": "M2",
+  "oneLine": "Ospita le applicazioni personali e i dati di casa ed è sempre acceso. Se manca, documenti, foto e app personali si fermano; solo Nextcloud, Vikunja e n8n possono ripartire su C4, dopo collaudo.",
+  "scopes": [
+   "sala-server"
+  ],
+  "place": "P-SALA",
+  "power": "always",
+  "vote": true,
+  "cards": [
+   "INF-03.03",
+   "ATL-06"
+  ],
+  "inventory": [
+   "INV-106",
+   "INV-100",
+   "INV-009",
+   "INV-005",
+   "INV-081"
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "ordinato",
+   "note": "D1581-Q3A: acquisto dichiarato (A44-01), consegna non attestata; collaudo NVMe Q3A in roadmap.",
+   "src": [
+    "REV3-ACQ",
+    "REV4-TEST"
+   ]
+  },
+  "rel": [
+   [
+    "member_of",
+    "CLUSTER"
+   ],
+   [
+    "located_in",
+    "P-SALA"
+   ],
+   [
+    "connected_to",
+    "SW",
+    {
+     "label": "MCX312A porta 1 → SFP+ 49 · 10 GbE",
+     "src": [
+      "INF-02.07"
+     ]
+    }
+   ],
+   [
+    "connected_to",
+    "SW",
+    {
+     "label": "gestione e Corosync · rame 1 GbE",
+     "id": "M2-gest",
+     "src": [
+      "INF-02.07"
+     ]
+    }
+   ],
+   [
+    "powered_by",
+    "PS-RACK",
+    {
+     "ev": "declared"
+    }
+   ]
+  ],
+  "limits": [
+   "Disco dati P310 singolo: un guasto del disco ferma i servizi finché non si ripristina dalle copie.",
+   "Spegnere M2 è una manutenzione pianificata, non un'abitudine serale."
+  ]
+ },
+ {
+  "id": "M3",
+  "kind": "node",
+  "name": "M3",
+  "title": "Calcolo di intelligenza artificiale",
+  "hardwareRef": "M3",
+  "oneLine": "Esegue i lavori pesanti di IA con la RTX 3060; si accende su conferma o in coda. Se è spento, l'IA locale aspetta; il resto della casa non cambia.",
+  "scopes": [
+   "sala-server",
+   "laboratorio"
+  ],
+  "place": "P-SALA",
+  "power": "on_demand",
+  "vote": false,
+  "cards": [
+   "INF-03.07",
+   "ATL-09",
+   "INF-02.07",
+   "INF-03.26"
+  ],
+  "inventory": [
+   "INV-030",
+   "INV-048",
+   "INV-077"
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "disponibile",
+   "note": "Scheda e CPU censite in inventario; installazione nel nuovo ruolo non attestata.",
+   "src": [
+    "INF-01.19"
+   ]
+  },
+  "rel": [
+   [
+    "located_in",
+    "P-SALA"
+   ],
+   [
+    "connected_to",
+    "SW",
+    {
+     "label": "MNPA19-XTR → SFP+ 50 · 10 GbE",
+     "src": [
+      "INF-02.07"
+     ]
+    }
+   ],
+   [
+    "powered_by",
+    "PS-RACK",
+    {
+     "ev": "declared"
+    }
+   ]
+  ],
+  "facts": {
+   "autoOff": {
+    "value": 30,
+    "unit": "min",
+    "ev": "documented",
+    "src": [
+     "INF-03.32",
+     "REV3-ENE"
+    ],
+    "note": "Arresto dopo 30 minuti senza lavoro, solo dopo controllo di job, mount e utenti."
+   }
+  }
+ },
+ {
+  "id": "M4",
+  "kind": "node",
+  "name": "M4",
+  "title": "Backup e archivio media",
+  "hardwareRef": "M4",
+  "oneLine": "Custodisce i backup versionati e il pool dei film. Si accende per il backup delle 18:00 e quando serve un file media. Spento non è un guasto.",
+  "scopes": [
+   "sala-server"
+  ],
+  "place": "P-SALA",
+  "power": "on_demand",
+  "vote": false,
+  "cards": [
+   "INF-04.05",
+   "REV3-BCK",
+   "INF-03.16"
+  ],
+  "inventory": [
+   "INV-073",
+   "INV-047",
+   "INV-076",
+   "INV-001",
+   "INV-087"
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "disponibile",
+   "note": "Hardware censito; i WD oggi contengono anche media, diventano solo backup dopo la transizione.",
+   "src": [
+    "REV4-MIG"
+   ]
+  },
+  "rel": [
+   [
+    "located_in",
+    "P-SALA"
+   ],
+   [
+    "connected_to",
+    "SW",
+    {
+     "label": "SFP+ integrata porta 1 → SFP+ 51 · 10 GbE",
+     "src": [
+      "INF-02.07"
+     ]
+    }
+   ],
+   [
+    "powered_by",
+    "PS-RACK",
+    {
+     "ev": "declared"
+    }
+   ]
+  ],
+  "facts": {
+   "autoOff": {
+    "value": 30,
+    "unit": "min",
+    "ev": "documented",
+    "src": [
+     "INF-03.32"
+    ]
+   },
+   "backupWindow": {
+    "value": "18:00 Europe/Rome",
+    "ev": "documented",
+    "src": [
+     "REV3-BCK"
+    ],
+    "note": "Frequenza proposta, da attivare e verificare."
+   }
+  }
+ },
+ {
+  "id": "M5",
+  "kind": "node",
+  "name": "M5",
+  "title": "Domotica e videosorveglianza",
+  "hardwareRef": "M5",
+  "oneLine": "Ospita Home Assistant, il canale MQTT e l'analisi delle telecamere. Se manca, l'automazione si ferma fino al subentro su C3; i comandi Zigbee diretti restano dove configurati.",
+  "scopes": [
+   "sala-server",
+   "casa"
+  ],
+  "place": "P-SALA",
+  "power": "always",
+  "vote": true,
+  "cards": [
+   "INF-03.08",
+   "ATL-12",
+   "INF-03.29",
+   "INF-07.05"
+  ],
+  "inventory": [
+   "INV-074",
+   "INV-109",
+   "INV-098"
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "disponibile",
+   "note": "D1581-Q3 censita; RAM PC3L acquistata (A44-05); Hailo e camere ancora da acquistare.",
+   "src": [
+    "REV3-ACQ",
+    "REV3-OPEN"
+   ]
+  },
+  "rel": [
+   [
+    "member_of",
+    "CLUSTER"
+   ],
+   [
+    "located_in",
+    "P-SALA"
+   ],
+   [
+    "connected_to",
+    "SW",
+    {
+     "label": "interfacce n.d.",
+     "ev": "unknown",
+     "note": "Le interfacce di M5 sono «n.d.» nella mappa di rete: il percorso Corosync non è documentato.",
+     "src": [
+      "INF-02.01"
+     ]
+    }
+   ],
+   [
+    "connected_to",
+    "WAN2",
+    {
+     "label": "router 5G LAN2 · avvisi indipendenti",
+     "src": [
+      "INF-02.01"
+     ]
+    }
+   ],
+   [
+    "powered_by",
+    "PS-RACK",
+    {
+     "ev": "declared"
+    }
+   ]
+  ]
+ },
+ {
+  "id": "M6",
+  "kind": "node",
+  "name": "M6",
+  "title": "Media, file per terzi e download",
+  "hardwareRef": "M6",
+  "oneLine": "Serve film, musica e i file condivisi con persone autorizzate. Si accende su richiesta e non vota nel cluster.",
+  "scopes": [
+   "sala-server",
+   "terzi"
+  ],
+  "place": "P-SALA",
+  "power": "on_demand",
+  "vote": false,
+  "cards": [
+   "INF-03.05",
+   "ATL-08",
+   "INF-01.16",
+   "INF-03.19"
+  ],
+  "inventory": [
+   "INV-106",
+   "INV-109",
+   "INV-080",
+   "INV-004",
+   "INV-008",
+   "INV-002"
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "ordinato",
+   "note": "D1581-Q3A: acquisto dichiarato (A44-01). Arc A310 non acquistata.",
+   "src": [
+    "REV3-ACQ",
+    "REV3-OPEN"
+   ]
+  },
+  "rel": [
+   [
+    "located_in",
+    "P-SALA"
+   ],
+   [
+    "connected_to",
+    "SW",
+    {
+     "label": "MNPA19-XTR → SFP+ 52 · 10 GbE",
+     "src": [
+      "INF-02.07"
+     ]
+    }
+   ],
+   [
+    "powered_by",
+    "PS-RACK",
+    {
+     "ev": "declared"
+    }
+   ]
+  ],
+  "facts": {
+   "autoOff": {
+    "value": null,
+    "ev": "documented",
+    "src": [
+     "REV3-ENE"
+    ],
+    "note": "Nessun timer di spegnimento fissato: attività e tempi di risveglio da misurare."
+   }
+  }
+ },
+ {
+  "id": "M7",
+  "kind": "node",
+  "name": "M7",
+  "title": "Riserva manuale",
+  "hardwareRef": "M7",
+  "oneLine": "Macchina di riserva da avviare a mano, per esempio come router se M1 non si recupera.",
+  "scopes": [
+   "sala-server"
+  ],
+  "place": "P-SALA",
+  "power": "manual",
+  "vote": false,
+  "cards": [
+   "INF-03.50"
+  ],
+  "inventory": [
+   "INV-033",
+   "INV-046",
+   "INV-039"
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "disponibile",
+   "src": [
+    "INF-03.50"
+   ]
+  }
+ },
+ {
+  "id": "ARCA",
+  "kind": "node",
+  "name": "Arca",
+  "title": "Archivio storico attuale",
+  "oneLine": "La macchina d'archivio di oggi, che contiene il P310. Resta intatta finché le copie su Drive non sono verificate.",
+  "scopes": [
+   "sala-server"
+  ],
+  "power": "manual",
+  "vote": false,
+  "cards": [
+   "REV4-MIG",
+   "REV3-CLOUD"
+  ],
+  "status": {
+   "decision": "superata",
+   "realization": "installato",
+   "note": "Configurazione attuale, sostituita dal progetto 4.4 dopo il gate della fase p1.",
+   "src": [
+    "REV4-MIG"
+   ]
+  }
+ },
+ {
+  "id": "S1",
+  "kind": "node",
+  "name": "S1",
+  "title": "Ingressi, password e notifiche",
+  "hardwareRef": "S1",
+  "oneLine": "Porta d'ingresso dei servizi (Caddy), gestore password (Vaultwarden), notifiche e controlli. Se manca, da fuori non si entra e il vault non risponde; le chiavi di recupero restano offline.",
+  "scopes": [
+   "sala-server"
+  ],
+  "place": "P-SALA",
+  "power": "always",
+  "vote": false,
+  "cards": [
+   "INF-03.06",
+   "INF-03.18",
+   "INF-03.23",
+   "ATL-13"
+  ],
+  "inventory": [
+   "INV-034",
+   "INV-049",
+   "INV-041"
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "disponibile",
+   "src": [
+    "INF-01.19"
+   ]
+  },
+  "rel": [
+   [
+    "located_in",
+    "P-SALA"
+   ],
+   [
+    "connected_to",
+    "SW"
+   ],
+   [
+    "powered_by",
+    "PS-RACK",
+    {
+     "ev": "declared"
+    }
+   ]
+  ]
+ },
+ {
+  "id": "S2",
+  "kind": "node",
+  "name": "S2",
+  "title": "VPS esterna (Oracle Always Free)",
+  "hardwareRef": "S2",
+  "oneLine": "Osservatore esterno e relay fuori casa. Non vota, non replica dati, non ospita password.",
+  "scopes": [
+   "sala-server"
+  ],
+  "place": "P-CLOUD",
+  "power": "external",
+  "vote": false,
+  "cards": [
+   "INF-03.52",
+   "INF-03.11"
+  ],
+  "status": {
+   "decision": "proposta",
+   "realization": "non_attestato",
+   "note": "Piano da attivare.",
+   "src": [
+    "INF-03.06"
+   ]
+  },
+  "rel": [
+   [
+    "located_in",
+    "P-CLOUD"
+   ]
+  ]
+ },
+ {
+  "id": "S3",
+  "kind": "node",
+  "name": "S3",
+  "title": "Radio Zigbee",
+  "hardwareRef": "S3",
+  "oneLine": "Porta la chiavetta radio dei sensori. È separata da M5, così la radio non dipende dal server della domotica. Se si guasta, non esiste un secondo coordinatore.",
+  "scopes": [
+   "casa"
+  ],
+  "place": "P-SALA",
+  "power": "always",
+  "vote": false,
+  "cards": [
+   "INF-03.28",
+   "INF-07.03",
+   "ATL-26",
+   "INF-08.08"
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "disponibile",
+   "src": [
+    "INF-03.28"
+   ]
+  },
+  "facts": {
+   "place": {
+    "value": null,
+    "ev": "unknown",
+    "src": [
+     "INF-03.28"
+    ],
+    "note": "Collocazione fisica di S3 non indicata nelle schede: assegnata alla sala server solo come rappresentazione logica."
+   }
+  },
+  "rel": [
+   [
+    "connected_to",
+    "SW"
+   ]
+  ],
+  "limits": [
+   "Coordinatore Zigbee unico: nessun subentro radio automatico."
+  ]
+ },
+ {
+  "id": "S4",
+  "kind": "node",
+  "name": "S4",
+  "title": "Sentinella e accensione remota",
+  "hardwareRef": "S4",
+  "oneLine": "Controlla le altre macchine e invia per primo il comando di accensione (Wake-on-LAN). Non vota.",
+  "scopes": [
+   "sala-server"
+  ],
+  "place": "P-SALA",
+  "power": "always",
+  "vote": false,
+  "cards": [
+   "INF-03.32",
+   "INF-03.06"
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "disponibile",
+   "src": [
+    "INF-03.06"
+   ]
+  },
+  "rel": [
+   [
+    "connected_to",
+    "SW",
+    {
+     "label": "Ethernet · sentinella e WoL",
+     "src": [
+      "INF-02.01"
+     ]
+    }
+   ],
+   [
+    "wakes",
+    "M3",
+    {
+     "label": "primo mittente WoL"
+    }
+   ],
+   [
+    "wakes",
+    "M4",
+    {
+     "label": "primo mittente WoL"
+    }
+   ],
+   [
+    "wakes",
+    "M6",
+    {
+     "label": "primo mittente WoL"
+    }
+   ]
+  ]
+ },
+ {
+  "id": "C1",
+  "kind": "node",
+  "name": "C1",
+  "title": "Nodo mobile del Vito",
+  "hardwareRef": "C1",
+  "oneLine": "Il computer del furgone: lavoro, documenti offline, camper. Funziona senza casa e senza rete; fuori dal quorum.",
+  "scopes": [
+   "vito"
+  ],
+  "place": "P-VITO",
+  "power": "on_demand",
+  "vote": false,
+  "cards": [
+   "INF-05.29",
+   "REV3-MOB",
+   "REV4-VITO"
+  ],
+  "inventory": [
+   "INV-079"
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "disponibile",
+   "note": "SSD, touchscreen, modem/SIM e accumulo da definire.",
+   "src": [
+    "REV3-OPEN"
+   ]
+  },
+  "rel": [
+   [
+    "located_in",
+    "P-VITO"
+   ],
+   [
+    "connected_to",
+    "NET-VITO",
+    {
+     "label": "LTE di bordo"
+    }
+   ]
+  ]
+ },
+ {
+  "id": "C2",
+  "kind": "node",
+  "name": "C2",
+  "title": "Postazione cucina",
+  "hardwareRef": "C2",
+  "oneLine": "Client Linux in cucina: streaming e pannello casa.",
+  "scopes": [
+   "casa"
+  ],
+  "place": "P-CUCINA",
+  "power": "on_demand",
+  "vote": false,
+  "cards": [
+   "ATL-14",
+   "REV4-CLIENT"
+  ],
+  "inventory": [
+   "INV-079"
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "disponibile",
+   "src": [
+    "REV4-CLIENT"
+   ]
+  },
+  "rel": [
+   [
+    "located_in",
+    "P-CUCINA"
+   ]
+  ]
+ },
+ {
+  "id": "C3",
+  "kind": "node",
+  "name": "C3",
+  "title": "Camera · riserva della domotica",
+  "hardwareRef": "C3",
+  "oneLine": "Client in camera, membro del nucleo e riserva di Home Assistant e MQTT. 16 GB e disco da misurare.",
+  "scopes": [
+   "casa",
+   "sala-server"
+  ],
+  "place": "P-CAMERA",
+  "power": "always",
+  "vote": true,
+  "cards": [
+   "INF-08.08",
+   "ATL-14",
+   "REV3-HA"
+  ],
+  "inventory": [
+   "INV-079"
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "disponibile",
+   "src": [
+    "REV4-CLIENT"
+   ]
+  },
+  "rel": [
+   [
+    "member_of",
+    "CLUSTER"
+   ],
+   [
+    "located_in",
+    "P-CAMERA"
+   ],
+   [
+    "connected_to",
+    "SW",
+    {
+     "label": "Ethernet · cluster e repliche",
+     "src": [
+      "INF-02.01"
+     ]
+    }
+   ]
+  ],
+  "facts": {
+   "diskCapacity": {
+    "value": null,
+    "ev": "unknown",
+    "src": [
+     "REV3-OPEN"
+    ],
+    "note": "SSD locale da misurare."
+   }
+  }
+ },
+ {
+  "id": "C4",
+  "kind": "node",
+  "name": "C4",
+  "title": "Salone · riserva delle applicazioni",
+  "hardwareRef": "C4",
+  "oneLine": "Client in salone, membro del nucleo, riserva di Nextcloud, Vikunja e n8n e secondo mittente di accensione remota.",
+  "scopes": [
+   "casa",
+   "sala-server"
+  ],
+  "place": "P-SALONE",
+  "power": "always",
+  "vote": true,
+  "cards": [
+   "INF-08.08",
+   "ATL-14",
+   "INF-03.32"
+  ],
+  "inventory": [
+   "INV-079"
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "disponibile",
+   "src": [
+    "REV4-CLIENT"
+   ]
+  },
+  "rel": [
+   [
+    "member_of",
+    "CLUSTER"
+   ],
+   [
+    "located_in",
+    "P-SALONE"
+   ],
+   [
+    "connected_to",
+    "SW",
+    {
+     "label": "Ethernet · cluster e repliche",
+     "src": [
+      "INF-02.01"
+     ]
+    }
+   ],
+   [
+    "wakes",
+    "M3",
+    {
+     "label": "secondo mittente WoL"
+    }
+   ],
+   [
+    "wakes",
+    "M4",
+    {
+     "label": "secondo mittente WoL"
+    }
+   ],
+   [
+    "wakes",
+    "M6",
+    {
+     "label": "secondo mittente WoL"
+    }
+   ]
+  ],
+  "facts": {
+   "diskCapacity": {
+    "value": null,
+    "ev": "unknown",
+    "src": [
+     "REV3-OPEN"
+    ],
+    "note": "SSD locale da misurare: decide quali guest entrano nella replica."
+   }
+  }
+ },
+ {
+  "id": "MP3",
+  "kind": "node",
+  "name": "MP3",
+  "title": "Acer Aspire 7 del laboratorio",
+  "hardwareRef": "MP3",
+  "oneLine": "Postazione Windows: lavoro, gioco in streaming (Sunshine) e assistente Hermes. Fuori dal cluster.",
+  "scopes": [
+   "laboratorio"
+  ],
+  "place": "P-LAB",
+  "power": "on_demand",
+  "vote": false,
+  "cards": [
+   "ATL-10",
+   "ATL-15",
+   "INF-03.27"
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "disponibile",
+   "src": [
+    "ATL-10"
+   ]
+  },
+  "rel": [
+   [
+    "located_in",
+    "P-LAB"
+   ]
+  ]
+ },
+ {
+  "id": "MP1",
+  "kind": "node",
+  "name": "MP1",
+  "title": "MacBook personale",
+  "hardwareRef": "MP1",
+  "oneLine": "Portatile personale con utente di lavoro separato. Modello e RAM da confermare.",
+  "scopes": [
+   "laboratorio"
+  ],
+  "place": "P-CASA",
+  "power": "on_demand",
+  "vote": false,
+  "cards": [
+   "INF-01.15",
+   "INF-12.12"
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "disponibile",
+   "note": "Modello, RAM e SSD richiesti all'utente.",
+   "src": [
+    "REV3-OPEN"
+   ]
+  }
+ },
+ {
+  "id": "HP-AMICI",
+  "kind": "node",
+  "name": "HP t520 ×2",
+  "title": "Client degli amici",
+  "hardwareRef": "HP amico 1",
+  "oneLine": "Due thin client presso due amici: film da Jellyfin via HTTPS, oppure dalla chiavetta USB senza svegliare i server.",
+  "scopes": [
+   "terzi"
+  ],
+  "place": "P-AMICI",
+  "power": "on_demand",
+  "vote": false,
+  "cards": [
+   "INF-05.30",
+   "REV3-EXT"
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "disponibile",
+   "src": [
+    "REV3-EXT"
+   ]
+  },
+  "rel": [
+   [
+    "located_in",
+    "P-AMICI"
+   ]
+  ]
+ },
+ {
+  "id": "MICROTECH",
+  "kind": "node",
+  "name": "Microtech",
+  "title": "Pannello d'ingresso",
+  "hardwareRef": "Microtech ingresso",
+  "oneLine": "Pannello per citofono e allarme all'ingresso, fuori dal quorum.",
+  "scopes": [
+   "casa"
+  ],
+  "place": "P-INGRESSO",
+  "power": "always",
+  "vote": false,
+  "cards": [
+   "INF-05.31"
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "disponibile",
+   "src": [
+    "INF-05.31"
+   ]
+  },
+  "rel": [
+   [
+    "located_in",
+    "P-INGRESSO"
+   ]
+  ]
+ },
+ {
+  "id": "SW",
+  "kind": "device",
+  "name": "LGS352C-EU",
+  "title": "Switch fidato",
+  "oneLine": "Lo switch centrale: 48 porte RJ45 da 1 GbE e 4 SFP+ da 10 GbE. Senza di lui le macchine del rack non si parlano.",
+  "scopes": [
+   "sala-server"
+  ],
+  "place": "P-SALA",
+  "power": "always",
+  "cards": [
+   "INF-02.07",
+   "REV3-RET"
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "ordinato",
+   "note": "Ordine confermato dall'utente; prezzo finale non comunicato (A44-09).",
+   "src": [
+    "REV3-ACQ"
+   ]
+  },
+  "facts": {
+   "rj45": {
+    "value": 48,
+    "unit": "porte 1 GbE",
+    "ev": "documented",
+    "src": [
+     "INF-02.07"
+    ]
+   },
+   "sfp": {
+    "value": 4,
+    "unit": "porte SFP+ 10 GbE",
+    "ev": "documented",
+    "src": [
+     "INF-02.07"
+    ]
+   },
+   "poe": {
+    "value": false,
+    "ev": "documented",
+    "src": [
+     "INF-02.07"
+    ]
+   },
+   "maxPower": {
+    "value": 43.87,
+    "unit": "W",
+    "ev": "documented",
+    "src": [
+     "INF-02.07"
+    ],
+    "note": "Massimo da datasheet, non consumo misurato."
+   },
+   "rj45Assignment": {
+    "value": null,
+    "ev": "unknown",
+    "src": [
+     "INF-02.07"
+    ],
+    "note": "Assegnazione delle porte RJ45 non ancora definita."
+   }
+  },
+  "rel": [
+   [
+    "located_in",
+    "P-SALA"
+   ],
+   [
+    "powered_by",
+    "PS-RACK",
+    {
+     "ev": "declared"
+    }
+   ]
+  ]
+ },
+ {
+  "id": "R5G",
+  "kind": "device",
+  "name": "Router 5G",
+  "title": "Seconda uscita Internet",
+  "oneLine": "Router 5G esterno: WAN2 verso M1 e percorso di avviso indipendente verso M5.",
+  "scopes": [
+   "sala-server"
+  ],
+  "cards": [
+   "INF-02.01",
+   "REV3-RET"
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "non_attestato",
+   "src": [
+    "INF-02.01"
+   ]
+  }
+ },
+ {
+  "id": "ZB",
+  "kind": "device",
+  "name": "Sonoff ZBDongle-P",
+  "title": "Coordinatore Zigbee",
+  "oneLine": "La chiavetta radio dei sensori, collegata a S3.",
+  "scopes": [
+   "casa"
+  ],
+  "cards": [
+   "INF-03.28"
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "non_attestato",
+   "src": [
+    "INF-03.28"
+   ]
+  },
+  "rel": [
+   [
+    "connected_to",
+    "S3",
+    {
+     "label": "USB"
+    }
+   ]
+  ]
+ },
+ {
+  "id": "PS-RACK",
+  "kind": "device",
+  "name": "Power station del rack",
+  "title": "Protezione elettrica del rack",
+  "oneLine": "Accumulo per il rack. Modello, capacità e autonomia non sono dichiarati: nessuna autonomia viene promessa.",
+  "scopes": [
+   "sala-server"
+  ],
+  "place": "P-SALA",
+  "cards": [
+   "REV3-ENE",
+   "REV4-ENER"
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "non_attestato",
+   "note": "Modello e capacità n.d.; dimensionamento e prove in roadmap.",
+   "src": [
+    "REV3-ENE"
+   ]
+  },
+  "facts": {
+   "capacity": {
+    "value": null,
+    "unit": "Wh",
+    "ev": "unknown",
+    "src": [
+     "REV3-ENE"
+    ]
+   },
+   "autonomy": {
+    "value": null,
+    "unit": "min",
+    "ev": "unknown",
+    "src": [
+     "REV3-ENE"
+    ],
+    "note": "Nessuna autonomia senza misure di assorbimento."
+   }
+  },
+  "rel": [
+   [
+    "powered_by",
+    "GRID"
+   ]
+  ]
+ },
+ {
+  "id": "GRID",
+  "kind": "device",
+  "name": "Rete elettrica",
+  "title": "Alimentazione di casa",
+  "oneLine": "La corrente di casa. Un blackout mette alla prova la sequenza di arresto ordinato.",
+  "scopes": [
+   "sala-server",
+   "casa"
+  ],
+  "cards": [
+   "REV3-ENE"
+  ]
+ },
+ {
+  "id": "WAN1",
+  "kind": "network",
+  "name": "WAN1 · FTTC",
+  "title": "Linea principale",
+  "oneLine": "Fibra fino all'armadio, ultimo tratto in rame. Upload di 4 Mbit/s: è il collo di bottiglia delle copie fuori casa.",
+  "scopes": [
+   "sala-server"
+  ],
+  "cards": [
+   "INF-02.01",
+   "REV3-CLOUD"
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "installato",
+   "note": "Linea esistente («FTTC precedente censita»).",
+   "src": [
+    "REV3-CLOUD"
+   ]
+  },
+  "facts": {
+   "upload": {
+    "value": 4,
+    "unit": "Mbit/s",
+    "ev": "declared",
+    "src": [
+     "REV3-CLOUD"
+    ],
+    "note": "Valore censito, da misurare."
+   }
+  }
+ },
+ {
+  "id": "WAN2",
+  "kind": "network",
+  "name": "WAN2 · 5G",
+  "title": "Linea di riserva",
+  "oneLine": "Router 5G con SIM di casa da 500 GB. Non va consumata automaticamente per trasferire terabyte.",
+  "scopes": [
+   "sala-server"
+  ],
+  "cards": [
+   "INF-02.01",
+   "REV3-CLOUD"
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "non_attestato",
+   "src": [
+    "INF-02.01"
+   ]
+  },
+  "facts": {
+   "quota": {
+    "value": 500,
+    "unit": "GB",
+    "ev": "declared",
+    "src": [
+     "INF-02.01"
+    ]
+   }
+  },
+  "rel": [
+   [
+    "depends_on",
+    "R5G"
+   ]
+  ]
+ },
+ {
+  "id": "NET-FAMIGLIA",
+  "kind": "network",
+  "name": "Rete famiglia e mesh",
+  "title": "Rete dei familiari",
+  "oneLine": "Raggiunge il router del gestore senza passare da M1: un guasto di M1 non toglie Internet alla famiglia.",
+  "scopes": [
+   "casa"
+  ],
+  "cards": [
+   "INF-02.07"
+  ]
+ },
+ {
+  "id": "NET-IOT",
+  "kind": "network",
+  "name": "Reti IoT",
+  "title": "Reti dei dispositivi smart",
+  "oneLine": "VLAN locale, cloud e telecamere, con switch e access point indipendenti da M5.",
+  "scopes": [
+   "casa"
+  ],
+  "cards": [
+   "REV3-RET",
+   "INF-02.01"
+  ],
+  "facts": {
+   "vlanIds": {
+    "value": null,
+    "ev": "unknown",
+    "src": [
+     "INF-02.01"
+    ],
+    "note": "VLAN, subnet e nomi sono campi da compilare prima dell'attivazione."
+   }
+  }
+ },
+ {
+  "id": "NET-ZIGBEE",
+  "kind": "network",
+  "name": "Radio Zigbee",
+  "title": "Rete radio dei sensori",
+  "oneLine": "La radio a basso consumo che collega sensori e interruttori al coordinatore su S3.",
+  "scopes": [
+   "casa"
+  ],
+  "cards": [
+   "INF-03.28"
+  ],
+  "rel": [
+   [
+    "depends_on",
+    "ZB"
+   ]
+  ]
+ },
+ {
+  "id": "NET-VITO",
+  "kind": "network",
+  "name": "LTE del Vito",
+  "title": "Rete di bordo",
+  "oneLine": "Modem e SIM dedicati al veicolo; nessun collegamento libero con la rete di casa.",
+  "scopes": [
+   "vito"
+  ],
+  "cards": [
+   "REV4-VNET"
+  ],
+  "status": {
+   "decision": "approvata",
+   "realization": "non_attestato",
+   "note": "Modem/SIM da definire.",
+   "src": [
+    "REV3-OPEN"
+   ]
+  }
+ }
+]

@@ -1,0 +1,1297 @@
+{
+ "nodes": [
+  [
+   "M1",
+   "MACHINIST X99 PR9-H / Intel Xeon E5-2630L v3",
+   "32 GB DDR4 ECC RDIMM, 2 x 16, disponibili",
+   "Proxmox: OPNsense VM e osservabilita separata; nucleo stabile",
+   "INV-105 / INV-101 / INV-082 / INV-007"
+  ],
+  [
+   "M2",
+   "D1581-Q3A / Intel Xeon D-1581",
+   "64 GB PC3L RDIMM, 4 x 16",
+   "Applicazioni e dati personali; Sabrent per avvio, P310 4 TB per dati; nucleo stabile",
+   "INV-106 / INV-100 / INV-005 / INV-009 / INV-107"
+  ],
+  [
+   "M3",
+   "HUANANZHI X99-T8 / E5-2678 v3",
+   "128 GB, 8 x 16 DDR3 RDIMM",
+   "Proxmox autonomo IA su richiesta; RTX 3060 12 GB; nessun voto nel nucleo",
+   "INV-030 / 048 / 077"
+  ],
+  [
+   "M4",
+   "ASUS P9D-MH/SAS/10G-DUAL / E3-1265L v3",
+   "32 GB, 4 x 8 ECC UDIMM",
+   "Proxmox autonomo/ZFS: WD solo backup dopo transizione; media separati, acceso per richiesta/job",
+   "INV-073 / 047 / 076"
+  ],
+  [
+   "M5",
+   "D1581-Q3 / Intel Xeon D-1581",
+   "32 GB PC3L RDIMM, 2 x 16",
+   "Proxmox: HAOS, MQTT, Frigate/Hailo; nucleo stabile",
+   "INV-074 / INV-109 / INV-098"
+  ],
+  [
+   "M6",
+   "D1581-Q3A / Intel Xeon D-1581",
+   "64 GB PC3L RDIMM, 4 x 16",
+   "Proxmox autonomo: media, Seafile, download; acceso a richiesta",
+   "INV-106 / INV-109 / Arc A310 / MNPA19-XTR"
+  ],
+  [
+   "M7",
+   "ASUS H61M-K / E3-1220L v2",
+   "16 GB, 2 x 8 DDR3",
+   "Riserva manuale H61M-K; PowerEdge T110 II come riserva complementare",
+   "INV-033 / 046 / 039"
+  ],
+  [
+   "S1",
+   "ASRock Q1900M / Celeron J1900",
+   "8 GB, 2 x 4 Hynix PC3-10600U",
+   "Linux: Caddy, Vaultwarden, notifiche e utilita; fuori cluster",
+   "INV-034 / 049 / 041, esemplari n.d."
+  ],
+  [
+   "S2",
+   "Oracle Cloud Always Free, A1",
+   "1 OCPU / 4 GB / boot 50 GB",
+   "Osservazione esterna e relay; niente voto",
+   "Piano Oracle; Servizio esterno"
+  ],
+  [
+   "S3",
+   "Dell Wyse 3030 N03D",
+   "4 GB / 32 GB",
+   "Linux: Sonoff ZBDongle-P, Zigbee2MQTT e dashboard leggera; fuori cluster",
+   "Prodotto/seriale n.d., Wyse radio"
+  ],
+  [
+   "S4",
+   "Dell Wyse 3030 N03D",
+   "4 GB / 32 GB",
+   "Sentinella indipendente e primo mittente WoL; nessun voto nella base 4.4",
+   "Wyse sentinella, codice esemplare n.d."
+  ],
+  [
+   "C1",
+   "Dell OptiPlex 7070 Ultra / i5-8265U",
+   "8 GB, nessun LLM locale",
+   "Vito W639: nodo mobile lavoro/camper autonomo; offline, LTE e recupero; fuori quorum",
+   "INV-079, esemplare C1"
+  ],
+  [
+   "C2",
+   "Dell OptiPlex 7070 Ultra / i5-8265U",
+   "8 GB, espansione solo se necessaria",
+   "Cucina: client Linux, streaming/Moonlight e pannello casa",
+   "INV-079, esemplare C2"
+  ],
+  [
+   "C3",
+   "Dell OptiPlex 7070 Ultra / i5-8265U",
+   "16 GB base HA",
+   "Proxmox client Linux e subentro HAOS/MQTT, senza Hermes",
+   "INV-079, esemplare C3"
+  ],
+  [
+   "C4",
+   "Dell OptiPlex 7070 Ultra / i5-8265U",
+   "16 GB base HA",
+   "Proxmox nucleo: client Linux, riserva app selezionate, secondo mittente WoL",
+   "INV-079, esemplare C4"
+  ],
+  [
+   "MP3",
+   "Acer Aspire 7 A715-42G-R2VB / Ryzen 7 5700U / RTX3050 Ti 4 GB",
+   "16 GB / Crucial P3 Plus1 TB",
+   "Acer sempre fisso in laboratorio: Windows lavoro/gioco, Sunshine; OpenClaw di lavoro e Hermes",
+   "MP3, codice INV n.d.; dotazione dichiarata utente"
+  ],
+  [
+   "MP4",
+   "ASUS X99-DELUXE / i7-5930K / RTX2080",
+   "32 GB DDR4",
+   "PC primo fratello, esterno all’infrastruttura",
+   "INV-029/043/035/055"
+  ],
+  [
+   "Wyse laboratorio",
+   "Dell Wyse 3030 N03D",
+   "4 GB / 32 GB",
+   "Jellyfin, musica e pannello Home Assistant; affianca Acer",
+   "Codice C e INV n.d."
+  ],
+  [
+   "Wyse studio",
+   "Dell Wyse 3030 N03D",
+   "4 GB / 32 GB",
+   "Monitor e client audio verso Behringer CONTROL2USB",
+   "Codice C e INV n.d."
+  ],
+  [
+   "Wyse Hi-Fi salone",
+   "Dell Wyse 3030 N03D",
+   "4 GB / 32 GB",
+   "Client Hi-Fi verso DAC ES9038Q2M USB",
+   "Codice C e INV n.d."
+  ],
+  [
+   "HP amico 1",
+   "HP t520",
+   "4 GB / Apacer M.2 8 GB",
+   "Client esterno Ethernet: LibreELEC, Jellyfin e offline USB",
+   "INV-078, codice CE e seriale n.d."
+  ],
+  [
+   "HP amico 2",
+   "HP t520",
+   "4 GB / Apacer M.2 8 GB",
+   "Client esterno Ethernet: LibreELEC, Jellyfin e offline USB",
+   "INV-078, codice CE e seriale n.d."
+  ],
+  [
+   "Microtech ingresso",
+   "Microtech EBL14B",
+   "Dotazione n.d.; modello 4 GB/64 GB eMMC",
+   "Pannello citofono/allarme, display e batteria integrati; fuori cluster",
+   "Codice MP/INV e seriale n.d."
+  ],
+  [
+   "T110 II",
+   "Dell PowerEdge T110 II / E3-1220 v2",
+   "8 GB",
+   "Riserva complementare e unità RDX SATA",
+   "Prodotto/seriale n.d.; lotto acquistato 150 EUR"
+  ],
+  [
+   "Kindle recuperato",
+   "Kindle 11a generazione USB-C",
+   "Modello base/Paperwhite n.d.",
+   "Biblioteca tecnica e plancia compatta; dispositivo personale",
+   "Codice MD/INV n.d."
+  ],
+  [
+   "MP1",
+   "Apple MacBook M5 personale",
+   "RAM e SSD: n.d.",
+   "A casa: utente lavoro separato, accesso durante la giornata lavorativa; identità personale distinta",
+   "INV-095"
+  ]
+ ],
+ "services": [
+  [
+   "Nextcloud, Vikunja, n8n",
+   "M2 -> C4 in subentro",
+   "Personale",
+   "HA con repliche complete; accesso privato, non pubblicazione generale"
+  ],
+  [
+   "Immich, Paperless, Syncthing, SMB/NFS, Tandoor, Stirling, HomeBox, Grocy, Firefly",
+   "M2",
+   "Personale/interno",
+   "Immich puo attendere M2; non tutti i servizi sono HA"
+  ],
+  [
+   "Open WebUI e backend LLM/VLM",
+   "M2 interfaccia / M3 calcolo",
+   "Personale",
+   "M3 inferenza su conferma o coda; priorita utente > agenti > fondo"
+  ],
+  [
+   "Windows / Steam / Sunshine",
+   "MP3 Acer Aspire 7",
+   "Client fidati",
+   "RTX3050 Ti 4 GB e 16 GB, fuori cluster; Hermes alternato al gioco"
+  ],
+  [
+   "Home Assistant OS e MQTT separato",
+   "M5 -> C3 in subentro",
+   "Interno/personale",
+   "RPO5 min; RTO5 min; radio fisica su S3"
+  ],
+  [
+   "Zigbee2MQTT / Sonoff ZBDongle-P",
+   "S3 Wyse",
+   "Interno IoT",
+   "Binding diretto dove compatibile; radio indipendente da M5"
+  ],
+  [
+   "Frigate, Hailo-8, vision-gateway, go2rtc",
+   "M5",
+   "Interno",
+   "4 camere eventi 7 giorni; sei future; Hailo/registrazioni non HA"
+  ],
+  [
+   "Jellyfin / Arc A310",
+   "M6",
+   "Altri utenti autorizzati",
+   "Ingresso Caddy; richiesta visione risveglia M4 se file remoto"
+  ],
+  [
+   "Navidrome, Audiobookshelf, Snapcast",
+   "M6",
+   "Locale/personale",
+   "Copie locali quotate; Snapcast solo LAN"
+  ],
+  [
+   "Seafile",
+   "M6",
+   "Altri utenti autorizzati",
+   "10 utenti x50 GB; mirror WD10EZRX; nessun backup aggiuntivo"
+  ],
+  [
+   "Downloader e arr",
+   "M6",
+   "Solo interno",
+   "Container e permessi separati; scansioni limitate; niente automatismi extra"
+  ],
+  [
+   "Backup WD e condivisioni media",
+   "M4",
+   "Solo interno",
+   "Backup personali18:00; niente mount WD da M6; media RO e import separati"
+  ],
+  [
+   "Caddy, Vaultwarden, ntfy, Kuma, Beszel, IT-Tools, dashboard",
+   "S1",
+   "Per servizio",
+   "Proxy ingressi ammessi, gestione privata; Vaultwarden non sulla VPS"
+  ],
+  [
+   "Sentinella indipendente e WoL",
+   "S4",
+   "Gestione interna",
+   "Nessun voto; C4 secondo mittente; controllo M1"
+  ],
+  [
+   "Controllo esterno e tunnel/relay",
+   "S2 Oracle",
+   "Esterno complementare",
+   "Non voto cluster, non replica automatica, nessun Vaultwarden"
+  ],
+  [
+   "OpenClaw",
+   "MP3 Acer fisso laboratorio",
+   "Personale",
+   "Windows come ambiente operatore; runtime/permessi da validare; fuori cluster"
+  ],
+  [
+   "Hermes",
+   "MP3 Acer fisso laboratorio",
+   "Personale",
+   "Ambiente e carichi separati da gioco/OpenClaw; M3 su conferma o coda"
+  ],
+  [
+   "Gemini / Google AI Pro",
+   "Account lavoro; postazioni autorizzate",
+   "Personale/lavoro",
+   "Voce, Sheets e Calendar; nessun percorso dispositivo unico"
+  ],
+  [
+   "Client Jellyfin offline",
+   "Due HP t520 esterni",
+   "Due amici",
+   "Ethernet, identita limitate, USB offline; nessun accesso ai backup"
+  ],
+  [
+   "Dashboard ingresso",
+   "Microtech EBL14B",
+   "Locale/personale",
+   "Pannello citofono/allarme, fuori quorum"
+  ],
+  [
+   "Zabbix / metriche e log",
+   "M1 VM separata; S4 controllo minimo; S2 esterno candidato",
+   "Gestione interna",
+   "2 vCPU / 4-8 GB iniziali; quote disco; nessuna telemetria gia attiva"
+  ],
+  [
+   "Documenti offline, rapportini e dashboard Vito",
+   "C1 / LTE / cloud di lavoro",
+   "Mobile e lavoro",
+   "8 GB; sincronizzazione differita, nessuna dipendenza del veicolo dal quorum"
+  ]
+ ],
+ "disks": [
+  [
+   "M1 / SATA",
+   "INV-007 Kingston V200 120 GB",
+   "Boot Proxmox/OPNsense VM",
+   "Secondo disco OPNsense bare metal n.d."
+  ],
+  [
+   "M2 / NVMe",
+   "INV-009 Sabrent Rocket512 GB",
+   "Boot Proxmox",
+   "Locale"
+  ],
+  [
+   "M2 / secondo NVMe",
+   "INV-005 Crucial P310 4 TB",
+   "Dati e servizi personali; P310 4 TB segnaposto del pool SSD",
+   "Singolo disco: copie locali, remote e offline; nessuna ridondanza locale"
+  ],
+  [
+   "M3 / M.2 PCIe2.0x4",
+   "INV-006 WD PC SN530512 GB",
+   "Host e IA",
+   "M3 dedicato al calcolo; Windows su MP3 Acer"
+  ],
+  [
+   "MP3 Aspire 7",
+   "Crucial P3 Plus 1 TB",
+   "Windows/Hermes/giochi",
+   "Rimane nelportatile, non libero per PC"
+  ],
+  [
+   "M4 / SATA native",
+   "6 WD10EAVS1 TB, INV-001",
+   "Backup versionati RAIDZ2, circa 4 TB nominali",
+   "Solo backup; spazio riservato alle versioni"
+  ],
+  [
+   "M4 / LSI2308",
+   "4 ST2000DM0082 TB, INV-087",
+   "Media RAIDZ1, circa 6 TB nominali",
+   "Dischi SMR: prestazioni in riscrittura e ricostruzione inferiori ai CMR"
+  ],
+  [
+   "M5 / SATA",
+   "INV-003 Samsung850EVO 250 GB",
+   "Boot Proxmox e stato",
+   "Sistema e stato persistente"
+  ],
+  [
+   "M5 / SATA",
+   "2 ST1000LM0241 TB, INV-013",
+   "Mirror Frigate circa 1 TB nominale",
+   "4 camere eventi 7 giorni; risultato dipende dai flussi"
+  ],
+  [
+   "M6 / SATA",
+   "INV-004 Kingston V300 120 GB",
+   "Boot Proxmox",
+   "Boot; dati DB separati e quote sullo staging SSD"
+  ],
+  [
+   "M6 / SATA",
+   "INV-008 Samsung850EVO 500 GB",
+   "Download e staging",
+   "Incompleti, seed, quote e margine operativo"
+  ],
+  [
+   "M6 / SATA",
+   "2 WD10EZRX1 TB, INV-002",
+   "Mirror Seafile e copie audio quotate",
+   "10x50 GB; residuo per versioni/audio/margine; nessun backup aggiuntivo cloud"
+  ],
+  [
+   "C3 / C4",
+   "Un SSD locale per Dell",
+   "ZFS host + VM client + repliche HA",
+   "Capacita reale n.d.; singolo SSD senza ridondanza locale"
+  ],
+  [
+   "S3 / S4",
+   "Storage Wyse 32 GB per esemplare",
+   "Linux, radio/testimone e stato",
+   "Apacer 8 GB separati, assegnati agli HP esterni"
+  ],
+  [
+   "M4 / S1 / M7",
+   "Boot n.d. al saldo",
+   "Avvio indipendente",
+   "Modelli e capacità non censiti; nessuna doppia assegnazione"
+  ],
+  [
+   "SH3",
+   "INV-086 Intenso250 GB + INV-089 ORICO",
+   "Supporto esterno assegnato",
+   "Non libera riserva boot"
+  ],
+  [
+   "Due HP esterni",
+   "Apacer M.2 8 GB + USB",
+   "LibreELEC/configurazione + contenuti offline",
+   "Capacita USB n.d."
+  ],
+  [
+   "Microtech ingresso",
+   "64 GB eMMC da modello, n.d.",
+   "Sistema e pannello ingresso",
+   "SSD opzionale, non acquisto imposto"
+  ],
+  [
+   "RDX SATA",
+   "Tre cartucce HP 2 TB",
+   "Selezioni offline: foto/video, documenti, lavoro",
+   "Tre selezioni indipendenti con margine per versioni e crescita"
+  ],
+  [
+   "MP1 / MacBook M5",
+   "SSD interno: n.d.",
+   "Utente personale e utente lavoro separati",
+   "Dati e credenziali per profilo"
+  ]
+ ],
+ "net": [
+  [
+   "FTTC",
+   "WAN1",
+   "M1 / firewall",
+   "Upload4Mbit/s; ordinario/download file con limite dinamico"
+  ],
+  [
+   "Router5G esterno / LAN1",
+   "WAN2",
+   "M1",
+   "SIM ho.casa500 GB, servizi remoti personali ed esterni"
+  ],
+  [
+   "Router5G esterno / LAN2",
+   "Avvisi indipendenti",
+   "M5",
+   "Percorso notifiche anche con M1 fermo; nessun ponte libero"
+  ],
+  [
+   "M1 I226-T4",
+   "Fidata / DMZ personale / esterna",
+   "Switch e reti autorizzate",
+   "Quattro porte fisiche; due WAN e trunk autorizzati, senza quinta porta implicita"
+  ],
+  [
+   "Switch/AP IoT",
+   "VLAN locale/cloud/camere",
+   "M5 / S3 / C3 autorizzati",
+   "Rete e AP non transitano solo da M5"
+  ],
+  [
+   "M5 interfacce n.d.",
+   "Gestione/servizi e percorsi IoT",
+   "Switch/router5G",
+   "Percorso notifiche 5G segmentato; nessun ponte verso le altre reti"
+  ],
+  [
+   "C3 / C4 Ethernet",
+   "Cluster e repliche",
+   "Switch fidato",
+   "Wi-Fi non bridge automatico per VM; client Linux locale separato"
+  ],
+  [
+   "S3 / Sonoff USB",
+   "Zigbee",
+   "Dispositivi compatibili",
+   "Z2M verso broker M5/C3; binding diretto dove supportato"
+  ],
+  [
+   "S4 Ethernet",
+   "Sentinella e WoL",
+   "Nucleo stabile e nodi autonomi",
+   "Nessun qdevice nella base a cinque voti"
+  ],
+  [
+   "3 Halo H1900G",
+   "Wi-Fi IoT",
+   "Appartamento e laboratorio PT",
+   "Reti IoT e famiglia distinte; accessi autorizzati"
+  ],
+  [
+   "Vito LTE",
+   "Rete veicolo autonoma",
+   "C1 e servizi di bordo",
+   "Modem/SIM dedicati, nessun voto Corosync"
+  ],
+  [
+   "Due HP esterni",
+   "Ethernet DHCP",
+   "Jellyfin via HTTPS",
+   "Identita individuali; mai ponte verso LAN fidata"
+  ],
+  [
+   "LGS352C-EU",
+   "Switch fidato / 48 RJ45 1GbE + 4 SFP+10GbE",
+   "Reti segmentate 802.1Q",
+   "Non PoE; inter-VLAN autorizzato via M1"
+  ],
+  [
+   "M2 MCX312A / porta 1",
+   "Dorsale 10GbE",
+   "LGS352C / SFP+49",
+   "App e dati; porta 2 libera"
+  ],
+  [
+   "M3 MNPA19-XTR",
+   "Dorsale 10GbE",
+   "LGS352C / SFP+50",
+   "Calcolo e trasferimenti"
+  ],
+  [
+   "M4 SFP+ integrata / porta 1",
+   "Dorsale 10GbE",
+   "LGS352C / SFP+51",
+   "Storage; seconda SFP+ libera"
+  ],
+  [
+   "M6 MNPA19-XTR",
+   "Dorsale 10GbE",
+   "LGS352C / SFP+52",
+   "Media, Seafile e servizi a terzi"
+  ],
+  [
+   "M1 I226-T4 / trunk LAN",
+   "Routing e firewall",
+   "LGS352C RJ45 / 1GbE",
+   "Il link rame e il routing non sono 10GbE"
+  ],
+  [
+   "M2 / M3 / M4 / M6 gestione",
+   "Management separato",
+   "LGS352C RJ45 / 1GbE",
+   "Nessun indirizzo duplicato su LAN dati e gestione"
+  ]
+ ],
+ "availability": [
+  [
+   "M1 guasto",
+   "Restano 4 voti nel nucleo se gli altri sono online",
+   "Router e monitor M1 assenti; recupero bare metal/M7, sentinella S4"
+  ],
+  [
+   "M2 guasto",
+   "Restano 4 voti; app selezionate su C4 dopo collaudo",
+   "P310 singolo: altri servizi richiedono ripristino; niente migrazione di tutto il disco"
+  ],
+  [
+   "M5 guasto",
+   "Restano 4 voti; HAOS/MQTT su C3 dopo collaudo",
+   "Hailo/registrazioni locali non HA; radio S3 indipendente"
+  ],
+  [
+   "Due membri del nucleo guasti",
+   "Tre voti ancora raggiungibili, maggioranza",
+   "Quorum non equivale a RAM/storage di subentro sufficienti"
+  ],
+  [
+   "M3/M4/M6 spenti",
+   "Cinque membri del nucleo invariati",
+   "IA/media/archivio attendono WoL e servizi pronti"
+  ],
+  [
+   "S4 guasto",
+   "Nessuna perdita di voto",
+   "Sentinella/WoL primario assenti; C4 percorso alternativo"
+  ],
+  [
+   "Vito senza LTE o spento",
+   "Casa e quorum invariati; bordo usa kit offline",
+   "Ultima comunicazione non prova un guasto; sincronizzazione differita"
+  ],
+  [
+   "Blackout prolungato",
+   "Arresto ordinato con quorum ancora disponibile",
+   "Rete per ultima; riaccensione ordinata; nessuna autonomia stimata senza wattmetro"
+  ]
+ ],
+ "ram": [
+  [
+   "M1",
+   "INV-101",
+   "2 x 16 GB DDR4 RDIMM",
+   "32 GB"
+  ],
+  [
+   "M2",
+   "INV-100",
+   "4 x 16 GB PC3L RDIMM",
+   "64 GB"
+  ],
+  [
+   "M3",
+   "INV-075/099",
+   "8x16 GB DDR3 RDIMM",
+   "128 GB"
+  ],
+  [
+   "M4",
+   "INV-076",
+   "4x8 GB ECC UDIMM",
+   "32 GB"
+  ],
+  [
+   "M5",
+   "INV-109",
+   "2 x 16 GB PC3L-10600R RDIMM",
+   "32 GB"
+  ],
+  [
+   "M6",
+   "INV-109",
+   "4 x 16 GB PC3L-10600R RDIMM",
+   "64 GB"
+  ],
+  [
+   "M7",
+   "INV-039",
+   "2x8 GB HyperX",
+   "16 GB"
+  ],
+  [
+   "S1",
+   "Hynix PC3-10600U-9-11-B1",
+   "2x4 GB 2Rx8, esemplari n.d.",
+   "8 GB"
+  ],
+  [
+   "S3/S4",
+   "Wyse 3030",
+   "4 GB ciascuno; 32 GB storage n.d.",
+   "4 GB ciascuno"
+  ],
+  [
+   "Scorta RDIMM16 GB",
+   "INV-075/099",
+   "13 DDR3 - 8 M3 = 5; vecchia assegnazione M6 liberata nel progetto",
+   "80 GB PC3; non sostitutivi automatici dei PC3L"
+  ],
+  [
+   "C1",
+   "DDR4 SO-DIMM",
+   "RAM censita8 GB senza LLM",
+   "8 GB"
+  ],
+  [
+   "C2",
+   "DDR4 SO-DIMM",
+   "RAM censita8 GB",
+   "8 GB"
+  ],
+  [
+   "C3",
+   "DDR4 SO-DIMM",
+   "Base16 GB per HA; misura risorse",
+   "16 GB"
+  ],
+  [
+   "C4",
+   "DDR4 SO-DIMM",
+   "Base16 GB per HA; misura risorse",
+   "16 GB"
+  ],
+  [
+   "MP3",
+   "Aspire 7",
+   "Dotazione dichiarata, composizione slot",
+   "16 GB"
+  ],
+  [
+   "MP1",
+   "INV-095",
+   "Memoria unificata Apple M5",
+   "n.d."
+  ]
+ ],
+ "stock": [
+  [
+   "INV-031 / 044",
+   "ASRock X79 Extreme3 + i7-3820",
+   "1 kit",
+   "Kit libero; cessione o banco self-hosting con DDR3 unbuffered compatibile"
+  ],
+  [
+   "INV-075 / 099",
+   "DDR3 RDIMM 16 GB, lotto PC3 + Kingston",
+   "5 moduli / 80 GB",
+   "13 - 8 M3; nessun PC3 non-L contato nel lotto PC3L"
+  ],
+  [
+   "INV-036",
+   "ELPIDA 4 GB 2Rx4 PC3-10600R-9-10-E1",
+   "5 / 20 GB",
+   "RDIMM legacy liberi"
+  ],
+  [
+   "INV-037",
+   "Hynix 4 GB 2Rx4 PC3-10600R-9-10-E1",
+   "9 / 36 GB",
+   "RDIMM legacy liberi"
+  ],
+  [
+   "INV-040",
+   "Kingston 99U5474-038.A00LF",
+   "1 / 4 GB",
+   "Tipologia ECC n.d.: non contato RDIMM"
+  ],
+  [
+   "INV-042",
+   "Nanya NT2GC72B8PA0NF-CG",
+   "1 / 2 GB",
+   "ECC UDIMM da registro, identita da etichetta"
+  ],
+  [
+   "INV-010",
+   "Western Digital WD3200AAJS 320 GB",
+   "1",
+   "Magazzino; Stato tecnico nel registro di manutenzione"
+  ],
+  [
+   "INV-011",
+   "Western Digital WD1601ABYS 160 GB",
+   "1",
+   "Magazzino; Stato tecnico nel registro di manutenzione"
+  ],
+  [
+   "INV-012",
+   "Western Digital WD1600AAJS 160 GB",
+   "1",
+   "Magazzino; Stato tecnico nel registro di manutenzione"
+  ],
+  [
+   "INV-014 / 015 / 016",
+   "HGST Z7K500-500 / Hitachi Z5K500-500 / HGST Z5K500-500",
+   "1 ciascuno",
+   "Tre HDD da 500 GB; salute attuale n.d."
+  ],
+  [
+   "INV-057",
+   "Gigabyte GV-N970G1 GAMING-4GD / GTX970",
+   "1",
+   "GPU libera da registro; nessuna assegnazione implicita a Frigate"
+  ],
+  [
+   "INV-058",
+   "Sapphire Radeon HD6570 4 GB",
+   "1",
+   "GPU libera da registro"
+  ],
+  [
+   "INV-065 / 066",
+   "Intel EXPI9301CTBLK / EXPI9300PTBLK",
+   "1 ciascuna",
+   "NIC Gigabit libere"
+  ],
+  [
+   "INV-068",
+   "HP NC380T",
+   "1",
+   "NIC dual Gigabit libera; una nuova NIC per M7"
+  ],
+  [
+   "INV-069 / 070",
+   "Fenvi FV-AC1200 / FV-AXE3000",
+   "1 ciascuna",
+   "Adattatori Wi-Fi liberi"
+  ],
+  [
+   "INV-071",
+   "ASUS Hyper M.2 X4",
+   "1",
+   "Adattatore libero; compatibilita per ruolo non presunta"
+  ],
+  [
+   "INV-018",
+   "corsair flash voyager slider",
+   "1",
+   "Supporto a magazzino; capacita/stato come registro, senza valori inventati"
+  ],
+  [
+   "INV-019",
+   "lexar ljds73-16g",
+   "1",
+   "Supporto a magazzino; capacita/stato come registro, senza valori inventati"
+  ],
+  [
+   "INV-020",
+   "verbatim usb 2.0",
+   "2",
+   "Supporto a magazzino; capacita/stato come registro, senza valori inventati"
+  ],
+  [
+   "INV-021",
+   "kingston data traveler 100g3",
+   "1",
+   "Supporto a magazzino; capacita/stato come registro, senza valori inventati"
+  ],
+  [
+   "INV-022",
+   "tdk 16gb",
+   "1",
+   "Supporto a magazzino; capacita/stato come registro, senza valori inventati"
+  ],
+  [
+   "INV-023",
+   "tohaoll u1 v10 hc",
+   "1",
+   "Supporto a magazzino; capacita/stato come registro, senza valori inventati"
+  ],
+  [
+   "INV-024",
+   "kingston sdc10g2/64gb",
+   "1",
+   "Supporto a magazzino; capacita/stato come registro, senza valori inventati"
+  ],
+  [
+   "INV-025",
+   "lexar 800x pro",
+   "1",
+   "Supporto a magazzino; capacita/stato come registro, senza valori inventati"
+  ],
+  [
+   "INV-026",
+   "generic",
+   "1",
+   "Supporto a magazzino; capacita/stato come registro, senza valori inventati"
+  ],
+  [
+   "INV-027",
+   "generic class 6",
+   "1",
+   "Supporto a magazzino; capacita/stato come registro, senza valori inventati"
+  ],
+  [
+   "INV-028",
+   "generic class 4",
+   "1",
+   "Supporto a magazzino; capacita/stato come registro, senza valori inventati"
+  ],
+  [
+   "INV-029/043/035/055",
+   "X99-DELUXE+i75930K+32 GB DDR4+RTX2080",
+   "1 postazione",
+   "MP4 PC primo fratello, non magazzino libero"
+  ],
+  [
+   "INV-001",
+   "WD10EAVS1 TB",
+   "2 residui",
+   "Sei altri a M4; due WD10EZRX a M6; salute"
+  ],
+  [
+   "INV-003/004/007",
+   "EVO 250 / V300 120 / V200 120",
+   "Zero liberi in progetto",
+   "M5 / M6 / M1 confermati recuperabili"
+  ],
+  [
+   "INV-084/085",
+   "Tre Samsung NVMe256 GB",
+   "Saldo aperto",
+   "Riconteggio fisico prima delle destinazioni; SSD Aspire1 TB e Air256 GB non sono questi NVMe"
+  ],
+  [
+   "INV-038",
+   "HyperX 4 GB DDR3",
+   "4 moduli / 16 GB da liberare",
+   "M1 passa a DDR4; disponibilita fisica dopo dismissione vecchia scheda"
+  ],
+  [
+   "INV-041",
+   "Hynix 4 GB2Rx8 PC3-10600U",
+   "2 per S1",
+   "Registro precedente uno: identificare secondo esemplare senza duplicazioni"
+  ],
+  [
+   "INV-083",
+   "Quadro NVS290",
+   "2 censite",
+   "Variante PCIex1 riferita; una possibile console M7, nuova"
+  ],
+  [
+   "PSU n.d.",
+   "6ATX +Delta DPS250AB49L +gruppo AC0632A/2DPS750RBA",
+   "Saldo non libero",
+   "Gruppo ridondante non equivale a due alimentatori ATX separati"
+  ],
+  [
+   "INV-059..064",
+   "5rack4U +frontale10tray3, 5 senza backplane",
+   "Un rack mancante",
+   "50 EUR usato; M4 riusafrontale, S1 chassis HPaccorciato; riconciliare DL180/380"
+  ],
+  [
+   "INV-078",
+   "Due HP t520",
+   "0 liberi",
+   "Due client esterni per amici; ruoli S3/S4 trasferiti ai Wyse"
+  ],
+  [
+   "Halo H1900G",
+   "Tre Mercusys",
+   "0 liberi oggi",
+   "Wi-Fi casa attuale; domotica dopo sostituzione"
+  ],
+  [
+   "Lotto Dell 2026-10-29",
+   "T110 II E3-1220 v2/8 GB + RDX SATA + 5 Wyse 4/32",
+   "150 EUR complessivi",
+   "Tutti gli alimentatori Wyse, nessuna cartuccia; codici n.d."
+  ],
+  [
+   "Wyse 3030 N03D",
+   "Cinque esemplari",
+   "0 liberi",
+   "Laboratorio, S3, S4, studio, Hi-Fi salone"
+  ],
+  [
+   "Microtech EBL14B",
+   "Recuperato",
+   "0 libero in progetto",
+   "Pannello ingresso; dotazione e batteria n.d."
+  ],
+  [
+   "Kindle USB-C 11a gen",
+   "Un solo recuperato",
+   "Assegnato uso personale",
+   "Modello da identificare; altro Kindle non ritrovato"
+  ],
+  [
+   "INV-032/072",
+   "MSI H97M-ECO / i5-4570T",
+   "Libero nell’assetto di riferimento",
+   "Riserva o riuso, non acquisto"
+  ],
+  [
+   "INV-067",
+   "LSI9207-8i",
+   "Non necessaria a M2 con due NVMe",
+   "Conservata per futuro pool SSD, non venduta"
+  ],
+  [
+   "INV-045",
+   "E5-2630L v2",
+   "Non assegnato a M6 nuovo",
+   "Z9PA-U8 non piu in lista acquisti"
+  ]
+ ],
+ "open": [
+  [
+   "Schede D1581",
+   "Q3/Q3A",
+   "Due NVMe Q3A, bus slot, RAM RDIMM e avvio da collaudare sulle revisioni ricevute"
+  ],
+  [
+   "M1",
+   "Xeon E5-2630L v3 e PR9-H",
+   "SKU CPU, avvio senza GPU, IOMMU e passthrough NIC; 4 porte non implicano 4 linee indipendenti"
+  ],
+  [
+   "M6",
+   "Arc + MNPA19-XTR",
+   "Spazi e linee simultanee, alimentazione e driver; Arc non acquistata"
+  ],
+  [
+   "M5",
+   "Hailo e camere",
+   "M-key/PCIe e decodifica da provare; entrambi ancora da acquistare"
+  ],
+  [
+   "Dati",
+   "Volume totale e banda",
+   "5 TB Drive liberi dichiarati; tutti i media inclusi nella transizione; misurare"
+  ],
+  [
+   "RDX",
+   "Modello e tre cartucce HP",
+   "2 TB per selezione e versioni; 150 EUR offerta riferita, non ordine"
+  ],
+  [
+   "Cluster 5",
+   "C3/C4 e repliche",
+   "16 GB nominali e SSD da misurare; failover solo per guest che entrano"
+  ],
+  [
+   "M4",
+   "Media SMR",
+   "RAIDZ1 non ratificato senza prova; possibile mirror a coppie riduce spazio nominale a 4 TB"
+  ],
+  [
+   "Vito",
+   "Identita e dotazione",
+   "Anno/motore/Euro, SSD C1, touchscreen, modem/SIM e accumulo da definire"
+  ],
+  [
+   "Energia",
+   "Rack e veicolo separati",
+   "Assorbimenti e percorsi UPS/USB-C da misurare, nessuna autonomia garantita"
+  ],
+  [
+   "Drive",
+   "Cifratura della transizione",
+   "Scelta utente ancora aperta; raccomandazione cifrare almeno dati privati/lavoro; cartelle da preparare separatamente"
+  ],
+  [
+   "Anagrafiche CPU",
+   "M1 e MacBook M5",
+   "Modello esatto CPU M1, modello MacBook e RAM/SSD richiesti all’utente"
+  ]
+ ],
+ "release": "4.4",
+ "date": "2026-11-01",
+ "architecture_branch": "nucleo_stabile_casa_laboratorio_vito",
+ "cluster": {
+  "members": [
+   "M1",
+   "M2",
+   "M5",
+   "C3",
+   "C4"
+  ],
+  "qnetd": null,
+  "expected_votes": 5,
+  "quorum": 3,
+  "status": "configurazione_di_riferimento",
+  "standalone": [
+   "M3",
+   "M4",
+   "M6"
+  ],
+  "sentinel": "S4",
+  "extension_status": "superata_dal_nucleo_stabile_5_host"
+ },
+ "acquisitions": [
+  {
+   "id": "A44-01",
+   "item": "D1581-Q3A",
+   "qty": 2,
+   "amount": 189.67,
+   "state": "Acquisto dichiarato",
+   "detail": "Screenshot 1 novembre: verifica pagamento; consegna non attestata",
+   "target": "M2 e M6, subordinati al collaudo"
+  },
+  {
+   "id": "A44-02",
+   "item": "MACHINIST X99 PR9-H + CPU",
+   "qty": 1,
+   "amount": 47.88,
+   "state": "Acquisto dichiarato",
+   "detail": "Variante Motherboard+CPU; Xeon E5-2630L v3 dichiarato, SKU da identificare; RAM kit non presunta",
+   "target": "M1"
+  },
+  {
+   "id": "A44-03",
+   "item": "Mellanox MCX312A-XCBT dual 10GbE",
+   "qty": 1,
+   "amount": 32.99,
+   "state": "Acquisto dichiarato",
+   "detail": "Verifica pagamento nello screenshot; test link/codifica da fare",
+   "target": "M2, link dedicati M3 e M4"
+  },
+  {
+   "id": "A44-04",
+   "item": "DAC passivi 10G, 1 m",
+   "qty": 2,
+   "amount": 22.44,
+   "state": "Acquisto dichiarato",
+   "detail": "Due cavi, non due kit NIC; lunghezze e abbinamenti da riscontro",
+   "target": "Uplink M4/M6 verso switch: proposta"
+  },
+  {
+   "id": "A44-05",
+   "item": "6 x16 GB Hynix/HP PC3L-10600R RDIMM",
+   "qty": 6,
+   "amount": 85,
+   "state": "Acquistato",
+   "detail": "Offerta di 85 EUR accettata e acquisto confermato dall’utente; spese accessorie non comunicate",
+   "target": "Distribuzione approvata: 2 moduli M5, 4 M6"
+  },
+  {
+   "id": "A44-06",
+   "item": "Cartucce HP RDX 2 TB",
+   "qty": 3,
+   "amount": 150,
+   "state": "Proposta da acquistare",
+   "detail": "Subito 50 EUR ciascuna riferiti; stato e compatibilita da verificare",
+   "target": "Foto/video, documenti, lavoro: tre selezioni diverse"
+  },
+  {
+   "id": "A44-07",
+   "item": "BKHD + E5-2630L v3",
+   "qty": 0,
+   "amount": null,
+   "state": "Ordine annullato",
+   "detail": "Correzione esplicita utente rispetto alla 4.3",
+   "target": "Escluso dalla configurazione"
+  },
+  {
+   "id": "A44-08",
+   "item": "Pool 8 SSD enterprise M2",
+   "qty": 0,
+   "amount": null,
+   "state": "Rinviato",
+   "detail": "Vecchio preventivo 350-400 EUR; non prezzo attuale verificato",
+   "target": "P310 4 TB come segnaposto"
+  },
+  {
+   "id": "A44-09",
+   "item": "Linksys LGS352C-EU",
+   "qty": 1,
+   "amount": null,
+   "state": "Ordinato",
+   "detail": "Ordine confermato utente; prezzo finale non comunicato, 147 EUR era segnalazione storica",
+   "target": "Switch fidato, stella 10GbE"
+  }
+ ],
+ "roadmap": [
+  {
+   "id": "p0",
+   "date": "23-27 dicembre 2026",
+   "title": "Inventario e prove da banco",
+   "goal": "Sapere che cosa funziona prima di cambiare la casa.",
+   "tasks": [
+    "Registrare consegne e collaudi delle tre D1581, della RAM acquistata e del LGS352C",
+    "Provare RAM, NVMe simultanei, NIC, temperature e avvio senza GPU",
+    "Misurare tutti i dati, inclusi media sui WD e contenuti unici Arca",
+    "Preparare C1 Vito da banco: SSD, alimentazione, display e kit offline"
+   ],
+   "gate": "Inventario riconciliato, dischi identificati e prove annotate. Nessuna cancellazione.",
+   "rollback": "Tutto il sistema precedente resta disponibile."
+  },
+  {
+   "id": "p1",
+   "date": "Dal 27 dicembre 2026 · durata dalla banda",
+   "title": "Arca di transizione su Drive",
+   "goal": "Conservare tutti i dati prima di liberare i dischi.",
+   "tasks": [
+    "Definire cifratura e perimetro delle cartelle in un lavoro separato",
+    "Caricare per lotti con registro esiti e controllo integrita",
+    "Mantenere copia locale indipendente del nucleo irrinunciabile",
+    "Provare ripristino file e applicazione; completare ultimo incremento"
+   ],
+   "gate": "Ogni sorgente da ricostruire ha copia completa verificata e recuperabile.",
+   "rollback": "Sorgenti originali conservate; ripresa dei lotti falliti senza spostamenti."
+  },
+  {
+   "id": "p2",
+   "date": "28 dicembre 2026 - 6 gennaio 2027 · se pronti",
+   "title": "Rete e nucleo stabile",
+   "goal": "Costruire il nuovo nucleo senza dipendere dai server a richiesta.",
+   "tasks": [
+    "Allestire M1 e provare OPNsense, NIC e recupero locale",
+    "Creare nucleo Proxmox M1/M2/M5/C3/C4 a cinque voti",
+    "Installare monitoraggio separato su M1 e sentinella S4",
+    "Collegare M2/M3/M4/M6 alla stella 10G del LGS352C; M3/M4/M6 autonomi"
+   ],
+   "gate": "Rete ripristinabile, quorum controllato e accesso gestione disponibile anche a router fermo.",
+   "rollback": "Vecchio firewall o avvio bare metal; importare configurazione verificata."
+  },
+  {
+   "id": "p3",
+   "date": "Gennaio 2027 o dopo il completamento delle copie",
+   "title": "Dati e applicazioni",
+   "goal": "Liberare il P310 e spostare i dati sulle destinazioni definitive.",
+   "tasks": [
+    "Trasferire P310 da Arca a M2 soltanto dopo gate copie",
+    "Ripristinare app e database; misurare latenza, RAM e spazio",
+    "Evacuare media WD verso pool media collaudato; ricostruire WD per backup",
+    "Provare backup locale e recupero selettivo; introdurre RDX se acquistati"
+   ],
+   "gate": "Dati confrontati, applicazioni provate e almeno un recupero eseguito.",
+   "rollback": "Ripristino da Arca/Drive/RDX secondo copia verificata; mai cancellare unico originale."
+  },
+  {
+   "id": "p4",
+   "date": "Gennaio 2027 · in parallelo alle copie",
+   "title": "Vito: primo viaggio operativo",
+   "goal": "Lavorare e consultare documenti anche senza casa e LTE.",
+   "tasks": [
+    "Verificare monitor/touch e alimentazione con C1 reale",
+    "Configurare rete di bordo e accesso ai soli servizi necessari",
+    "Preparare rapportino offline con invio e conferma senza duplicati",
+    "Provare sosta camper, rientro, copia dati e arresto con energia ridotta"
+   ],
+   "gate": "Rapporto offline recuperato e registrato una sola volta; documenti consultabili senza rete.",
+   "rollback": "Kit documenti locale e procedura manuale; nessuna dipendenza da automazioni non collaudate."
+  },
+  {
+   "id": "p5",
+   "date": "Gennaio-febbraio 2027 · dopo collaudi hardware",
+   "title": "Domotica, media e telemetria",
+   "goal": "Attivare gli acceleratori soltanto dove servono.",
+   "tasks": [
+    "Installare Hailo e camere se acquistati, misurare decodifica e detector",
+    "Provare Arc e rete su M6; abilitare transcodifica soltanto dopo test",
+    "Collaudare HAOS/MQTT su C3 e app selezionate su C4",
+    "Censire eventuali sensori Vito e verificare compatibilita diagnostica"
+   ],
+   "gate": "Carichi reali stabili; failover e recuperi documentati; nessuna capacita presunta.",
+   "rollback": "Direct play/media preparati, Frigate ridotto, gestione manuale e copie precedenti."
+  },
+  {
+   "id": "p6",
+   "date": "Febbraio-marzo 2027 · finestra adattabile",
+   "title": "Ottimizzazione e chiusura",
+   "goal": "Consolidare soltanto cio che e stato misurato.",
+   "tasks": [
+    "Regolare RAM/ARC da metriche; verificare consumi idle e picchi",
+    "Verificare stato backup, spazio Drive e selezioni RDX",
+    "Collaudare perdita LTE del Vito e perdita WAN di casa",
+    "Aggiornare registro installato, schede e lista acquisti residui"
+   ],
+   "gate": "Registro collaudi completo e nessuna sorgente unica dimenticata.",
+   "rollback": "Mantenere configurazione precedente e copie di migrazione finche necessario."
+  }
+ ],
+ "ram_allocation_status": "approvata",
+ "switch": {
+  "model": "Linksys LGS352C-EU",
+  "status": "Ordinato, definitivo",
+  "verified_family": "LGS352C",
+  "rj45_ports": 48,
+  "rj45_speeds_mbps": [
+   10,
+   100,
+   1000
+  ],
+  "rj45_labels": "1–48",
+  "sfp_plus_ports": 4,
+  "sfp_plus_speed_gbps": 10,
+  "sfp_plus_labels": [
+   "49",
+   "50",
+   "51",
+   "52"
+  ],
+  "poe": false,
+  "switching_capacity_gbps": 176,
+  "forwarding_mpps": 130.95,
+  "dram_mb": 512,
+  "mac_entries": 32000,
+  "max_power_w": 43.87,
+  "idle_power_w": null,
+  "fans": 1,
+  "fan_max_rpm": 8200,
+  "dimensions_mm": {
+   "width": 440,
+   "depth": 260,
+   "height": 44
+  },
+  "weight_kg": 3.468,
+  "vlan_802_1q": true,
+  "features": [
+   "VLAN802.1Q",
+   "SNMP",
+   "Port mirroring",
+   "LACP",
+   "ACL",
+   "Static routing",
+   "Backup configurazione"
+  ],
+  "topology": "Stella 10G: M2, M3, M4, M6, una porta per nodo; non richiede M4 acceso per collegare M2/M3",
+  "port_assignment_proposal": {
+   "49": "M2",
+   "50": "M3",
+   "51": "M4",
+   "52": "M6"
+  },
+  "evidence_urls": [
+   "https://support.linksys.com/kb/article/5130-en/?section_id=188",
+   "https://downloads.linksys.com/downloads/datasheet/en/Linksys_Managed_Gigabit_Switches_Datasheet_LGS310C_LGS328C_LGS352C.pdf",
+   "https://downloads.linksys.com/downloads/datasheet/en/LNK-SMB_Managed_Gigabit_Switches_PoE%2Bnon-PoE_Datasheet_FN2_uk.pdf",
+   "https://downloads.linksys.com/support/assets/dofc/CE%20DoC_LGS352C_30JULY2021.pdf"
+  ]
+ }
+}

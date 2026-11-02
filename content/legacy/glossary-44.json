@@ -1,0 +1,98 @@
+[
+ {
+  "term": "Nodo",
+  "text": "Un computer dell’infrastruttura. Nel faldone ha una sigla: M1–M6 sono i server principali, S1–S4 i dispositivi di supporto, C1–C4 mini PC Dell, MP i portatili."
+ },
+ {
+  "term": "Cluster",
+  "text": "Più computer che lavorano come un gruppo e si coprono a vicenda. Qui il gruppo è formato da cinque nodi: M1, M2, M5, C3, C4."
+ },
+ {
+  "term": "Quorum",
+  "text": "La regola della maggioranza. Ogni nodo del cluster ha un voto; il gruppo continua a lavorare solo se almeno la maggioranza dei voti è raggiungibile (qui 3 su 5). Evita che due metà isolate decidano ciascuna per conto proprio."
+ },
+ {
+  "term": "Proxmox VE",
+  "text": "Il programma installato sui server che permette di far girare più computer virtuali su un’unica macchina fisica."
+ },
+ {
+  "term": "VM (macchina virtuale)",
+  "text": "Un computer simulato dentro un server. Una VM si può spostare o ripristinare più facilmente di un computer fisico."
+ },
+ {
+  "term": "Alta disponibilità (HA)",
+  "text": "Un servizio che, se la macchina su cui gira si ferma, riparte su un’altra con una copia dei suoi dati. Non vale per tutti i servizi: nel faldone sono indicati uno per uno."
+ },
+ {
+  "term": "RPO e RTO",
+  "text": "RPO = quanti dati si possono perdere al massimo (es. gli ultimi 5 minuti). RTO = in quanto tempo il servizio torna disponibile. Sono obiettivi di progetto, non risultati misurati."
+ },
+ {
+  "term": "Backup e ridondanza",
+  "text": "Sono due cose diverse. La ridondanza (es. due dischi uguali) evita il fermo se un disco si rompe. Il backup è una copia separata che permette di recuperare i dati dopo un errore o un guasto grave, ma richiede tempo."
+ },
+ {
+  "term": "OPNsense",
+  "text": "Il programma che fa da firewall e router: decide chi può entrare e uscire dalla rete. Gira in una VM su M1."
+ },
+ {
+  "term": "WAN e FTTC",
+  "text": "WAN è il collegamento a internet. FTTC è la fibra fino all’armadio di strada con ultimo tratto in rame: è la linea principale di casa, con soli 4 Mbit/s in upload."
+ },
+ {
+  "term": "VLAN",
+  "text": "Una rete separata dentro lo stesso cavo e lo stesso switch. Serve per tenere distinti, per esempio, i dispositivi della domotica dai computer di lavoro."
+ },
+ {
+  "term": "10 GbE e SFP+",
+  "text": "Collegamento di rete a 10 gigabit al secondo, dieci volte più veloce del normale gigabit. SFP+ è il tipo di porta usato dallo switch per questi collegamenti."
+ },
+ {
+  "term": "Wake-on-LAN (WoL)",
+  "text": "Un comando di rete che accende da remoto una macchina spenta. Permette di tenere spenti i server pesanti finché non servono."
+ },
+ {
+  "term": "Sentinella (S4)",
+  "text": "Un piccolo dispositivo indipendente che controlla gli altri e può mandare i comandi di accensione. Non ha voto nel cluster."
+ },
+ {
+  "term": "ZFS, RAIDZ1, RAIDZ2",
+  "text": "Sistema di gestione dei dischi con controllo di integrità. RAIDZ1 tollera il guasto di un disco, RAIDZ2 di due. Tollerare un guasto non sostituisce il backup."
+ },
+ {
+  "term": "ARC",
+  "text": "La memoria RAM che ZFS usa come cache per rendere più rapidi i dati letti spesso."
+ },
+ {
+  "term": "NVMe / SSD / HDD",
+  "text": "Tre tipi di disco: gli SSD NVMe sono i più veloci, gli HDD a piatti i più capienti ed economici. SMR è una tecnologia di HDD più lenta nelle riscritture."
+ },
+ {
+  "term": "RDX",
+  "text": "Cartucce di disco rimovibili, tenute scollegate, usate per copie offline di foto, documenti e lavoro."
+ },
+ {
+  "term": "TDP",
+  "text": "Potenza termica nominale del processore indicata dal costruttore. Non è il consumo reale del computer alla presa."
+ },
+ {
+  "term": "Home Assistant, MQTT, Zigbee",
+  "text": "Home Assistant è il centro della domotica. MQTT è il canale con cui i sensori e il centro si scambiano messaggi. Zigbee è il tipo di radio usata dai sensori; la chiavetta radio sta su S3, indipendente da M5."
+ },
+ {
+  "term": "Frigate e Hailo",
+  "text": "Frigate analizza le telecamere e registra gli eventi; Hailo-8 è la scheda che accelera il riconoscimento di persone e oggetti."
+ },
+ {
+  "term": "IoT",
+  "text": "Dispositivi collegati alla rete come sensori, prese e luci smart. Stanno in una rete separata."
+ },
+ {
+  "term": "Dorsale",
+  "text": "Il collegamento principale ad alta velocità tra i server e lo switch."
+ },
+ {
+  "term": "n.d.",
+  "text": "Dato non disponibile. Il faldone non lo sostituisce con quello di un modello simile."
+ }
+]

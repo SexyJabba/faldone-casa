@@ -1,0 +1,16 @@
+[
+ {"id": "rif", "title": "Situazione di riferimento", "text": "Nucleo acceso, M3/M4/M6 spenti in attesa di richiesta.", "events": []},
+ {"id": "m2", "title": "M2 indisponibile", "text": "Il server delle app personali si guasta.", "events": [{"type": "fail", "id": "M2"}]},
+ {"id": "m2-c4", "title": "M2 e C4 guasti insieme", "text": "Primario e riserva delle app fermi contemporaneamente.", "events": [{"type": "fail", "id": "M2"}, {"type": "fail", "id": "C4"}]},
+ {"id": "m1", "title": "M1 indisponibile", "text": "Firewall e instradamento privato fermi.", "events": [{"type": "fail", "id": "M1"}]},
+ {"id": "m5", "title": "M5 indisponibile", "text": "Il server della domotica si guasta.", "events": [{"type": "fail", "id": "M5"}]},
+ {"id": "acceso", "title": "Server a richiesta accesi", "text": "M3, M4 e M6 accesi: nessun voto cambia.", "events": [{"type": "on", "id": "M3"}, {"type": "on", "id": "M4"}, {"type": "on", "id": "M6"}]},
+ {"id": "tre", "title": "Tre membri del nucleo fermi", "text": "M2, M5 e C3 fermi: restano 2 voti su 5.", "events": [{"type": "fail", "id": "M2"}, {"type": "fail", "id": "M5"}, {"type": "fail", "id": "C3"}]},
+ {"id": "switch", "title": "Switch fidato guasto", "text": "La rete del cluster si spezza: ogni macchina resta isolata.", "events": [{"type": "fail", "id": "SW"}]},
+ {"id": "wan", "title": "Nessuna linea Internet", "text": "FTTC e 5G fuori servizio.", "events": [{"type": "fail", "id": "WAN1"}, {"type": "fail", "id": "WAN2"}]},
+ {"id": "s1", "title": "S1 fermo", "text": "Porta d'ingresso e vault indisponibili.", "events": [{"type": "fail", "id": "S1"}]},
+ {"id": "vito", "title": "Vito senza connettività", "text": "LTE di bordo assente.", "events": [{"type": "fail", "id": "NET-VITO"}]},
+ {"id": "blackout", "title": "Blackout prolungato", "text": "Manca la corrente; autonomia della power station non dichiarata.", "events": [{"type": "fail", "id": "GRID"}]},
+ {"id": "copia", "title": "Backup su M4 non aggiornato", "text": "L'ultimo backup è vecchio e non è mai stato provato un recupero.", "events": [{"type": "copy", "id": "CP-BCK-M4", "state": "stale"}, {"type": "fail", "id": "ST-P310"}]},
+ {"id": "manut-m2", "title": "Manutenzione pianificata di M2", "text": "Spegnimento intenzionale di M2 per manutenzione.", "events": [{"type": "off", "id": "M2"}]}
+]

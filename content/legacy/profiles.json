@@ -1,0 +1,67 @@
+[
+ {
+  "id": "lavoro",
+  "title": "Lavoro in trasferta",
+  "summary": "Consultare il cantiere, raccogliere evidenze e trasformare la bozza in un record condiviso.",
+  "steps": [
+   "Preparare documenti e agenda prima della partenza.",
+   "In sosta, selezionare cantiere e raccogliere ore, lavorazioni, materiali e foto.",
+   "Rivedere la bozza e registrarla nel foglio corretto.",
+   "Verificare il riferimento al record salvato."
+  ],
+  "offline": "Documenti selezionati e bozze locali; consegna differita con controllo dei conflitti.",
+  "energy": "PC e display durante la sessione; attività pesanti delegate o rinviate."
+ },
+ {
+  "id": "camper",
+  "title": "Sosta camper",
+  "summary": "Usare le funzioni locali e i contenuti preparati anche senza il collegamento con casa.",
+  "steps": [
+   "Controllare lo stato energetico realmente disponibile.",
+   "Aprire la dashboard locale e verificare la data delle letture.",
+   "Usare soltanto sensori e comandi già collaudati.",
+   "Spegnere display e servizi non necessari."
+  ],
+  "offline": "Manuali e contenuti selezionati restano disponibili; nessuna dipendenza obbligatoria da Jellyfin o M3.",
+  "energy": "Profilo di sosta da misurare; modem attivo subordinato alla riserva servizi."
+ },
+ {
+  "id": "offline",
+  "title": "Senza copertura",
+  "summary": "Continuare a consultare e raccogliere senza confondere bozze e dati già sincronizzati.",
+  "steps": [
+   "Mostrare che LTE o casa non sono raggiungibili.",
+   "Aprire la selezione di documenti realmente scaricata.",
+   "Salvare nuove informazioni con identificativo e stato locale.",
+   "Accodare la consegna senza creare registrazioni duplicate."
+  ],
+  "offline": "È il profilo locale esplicito; cloud e diagnosi che richiedono Internet risultano indisponibili.",
+  "energy": "Evitare tentativi continui e trasferimenti inutili; mantenere i servizi essenziali."
+ },
+ {
+  "id": "rientro",
+  "title": "Rientro e riallineamento",
+  "summary": "Consegnare il lavoro, aggiornare le copie di viaggio e verificare il recupero.",
+  "steps": [
+   "Scegliere la connessione adatta ai trasferimenti.",
+   "Inviare nuovi dati e confrontare eventuali modifiche concorrenti.",
+   "Verificare registrazioni, file e backup prima di liberare spazio.",
+   "Preparare documenti e configurazioni per la prossima uscita."
+  ],
+  "offline": "I dati non consegnati rimangono locali e chiaramente marcati.",
+  "energy": "Trasferimenti estesi con alimentazione stabile e spazio libero verificato."
+ },
+ {
+  "id": "riserva",
+  "title": "Riserva energia",
+  "summary": "Preservare comunicazioni prioritarie e bozze quando l’energia disponibile scende.",
+  "steps": [
+   "Rilevare la soglia dal sistema energetico effettivo.",
+   "Sospendere copie e carichi non essenziali.",
+   "Salvare le bozze e annotare le attività incomplete.",
+   "Arrestare ordinatamente PC e display secondo il profilo collaudato."
+  ],
+  "offline": "La ripresa deve mostrare quali dati aspettano ancora la consegna.",
+  "energy": "Soglie legate alla capacità e al carico; autonomia numerica non censita."
+ }
+]

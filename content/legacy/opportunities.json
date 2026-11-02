@@ -1,0 +1,460 @@
+{
+ "release": "4.4",
+ "valuation_date": "2026-11-01",
+ "title": "Inventario che genera valore: riuso, cessione e rete di collaboratori",
+ "scope": "Sottoinsieme identificato e libero nella configurazione finale. Le stime non comprendono l’infrastruttura assegnata e non costituiscono una valutazione di tutto il patrimonio.",
+ "methodology": {
+  "currency": "EUR",
+  "gross_before_fees": true,
+  "shipping_included": false,
+  "sold_transactions_verified": false,
+  "statement": "Le fonti sono annunci diretti e prezzi richiesti; nessuna vendita conclusa recente identica è stata verificata. Le fasce sono inferenze prudenti per una cessione privata, non incassi garantiti. Variazioni dovute a test, accessori, tempi di vendita e domanda.",
+  "untested": "La tabella non valorizza come funzionanti oggetti non testati: per cessione non testata serve una fascia separata per ricambi. Non applicare un prezzo pieno senza prova.",
+  "bundle_discount": "Per cessione rapida in blocco si propone uno sconto negoziale orientativo del 20–25%, non ricavato da uno storico statistico."
+ },
+ "priced_subset": [
+  {
+   "inventory_ids": [
+    "INV-031",
+    "INV-044"
+   ],
+   "item": "ASRock X79 Extreme3 + Core i7-3820, solo scheda e CPU",
+   "quantity_free": 1,
+   "assignment": "libero nella configurazione di riferimento",
+   "quantity_assigned_in_this_lot": 0,
+   "estimated_total_eur_low": 50,
+   "estimated_total_eur_high": 80,
+   "basis": "Stima di realizzo lordo fra privati, dopo test positivo; non prezzo osservato di vendita conclusa",
+   "sources": [
+    "market-x79"
+   ],
+   "assumptions": "Il comparabile da 120 euro include scheda Extreme4, RAM, GPU, PSU e case; questo lotto non include tali componenti. Escluso il vecchio vincolo dello scambio Air M1, superato dal MacBook M5 personale.",
+   "confidence": "medio-bassa",
+   "condition_assumed": "funzionante, completo degli accessori dichiarati; test non presunto già eseguito",
+   "unverified_condition_value": null
+  },
+  {
+   "inventory_ids": [
+    "INV-032",
+    "INV-072",
+    "INV-038"
+   ],
+   "item": "MSI H97M-ECO + i5-4570T + 16 GB HyperX DDR3 (4 x 4)",
+   "quantity_free": 1,
+   "assignment": "libero nella configurazione di riferimento",
+   "quantity_assigned_in_this_lot": 0,
+   "estimated_total_eur_low": 40,
+   "estimated_total_eur_high": 65,
+   "basis": "Stima di realizzo lordo fra privati, dopo test positivo; non prezzo osservato di vendita conclusa",
+   "sources": [
+    "market-gtx970-low",
+    "market-h97-untested"
+   ],
+   "assumptions": "Kit alternativo al riuso per self-hosting. La RAM HyperX viene contata soltanto qui, non in un secondo kit X79. Nessun PSU/case/disco incluso. Confronto per fascia: non trovato kit identico.",
+   "confidence": "bassa",
+   "condition_assumed": "funzionante, completo degli accessori dichiarati; test non presunto già eseguito",
+   "unverified_condition_value": null
+  },
+  {
+   "inventory_ids": [
+    "INV-075",
+    "INV-099"
+   ],
+   "item": "DDR3 RDIMM da 16 GB, residuo PC3",
+   "quantity_free": 5,
+   "assignment": "libero nella configurazione di riferimento",
+   "quantity_assigned_in_this_lot": 0,
+   "estimated_total_eur_low": 40,
+   "estimated_total_eur_high": 65,
+   "basis": "Stima di realizzo lordo fra privati, dopo test positivo; non prezzo osservato di vendita conclusa",
+   "sources": [
+    "market-rdimm16-hynix",
+    "market-rdimm16-samsung"
+   ],
+   "assumptions": "13 moduli censiti meno 8 assegnati a M3 = 5. Non include i dieci moduli PC3L destinati alle D1581. Valore lotto 80 GB, non somma dei prezzi più alti dei ricambi professionali.",
+   "confidence": "media",
+   "condition_assumed": "funzionante, completo degli accessori dichiarati; test non presunto già eseguito",
+   "unverified_condition_value": null
+  },
+  {
+   "inventory_ids": [
+    "INV-036",
+    "INV-037"
+   ],
+   "item": "DDR3 ECC RDIMM da 4 GB: 5 Elpida + 9 Hynix",
+   "quantity_free": 14,
+   "assignment": "libero nella configurazione di riferimento",
+   "quantity_assigned_in_this_lot": 0,
+   "estimated_total_eur_low": 14,
+   "estimated_total_eur_high": 28,
+   "basis": "Stima di realizzo lordo fra privati, dopo test positivo; non prezzo osservato di vendita conclusa",
+   "sources": [
+    "market-rdimm4"
+   ],
+   "assumptions": "56 GB venduti in lotto. Fascia prudente 1–2 euro/modulo a causa di tagli piccoli e lotto misto; non moltiplicare per prezzi professionali da 20–30 euro.",
+   "confidence": "media",
+   "condition_assumed": "funzionante, completo degli accessori dichiarati; test non presunto già eseguito",
+   "unverified_condition_value": null
+  },
+  {
+   "inventory_ids": [
+    "INV-057"
+   ],
+   "item": "Gigabyte GTX 970 G1 Gaming 4 GB",
+   "quantity_free": 1,
+   "assignment": "libero nella configurazione di riferimento",
+   "quantity_assigned_in_this_lot": 0,
+   "estimated_total_eur_low": 40,
+   "estimated_total_eur_high": 60,
+   "basis": "Stima di realizzo lordo fra privati, dopo test positivo; non prezzo osservato di vendita conclusa",
+   "sources": [
+    "market-gtx970-g1",
+    "market-gtx970-low"
+   ],
+   "assumptions": "Prezzi richiesti osservati 40 e 72 euro; realizzo prudente intermedio, con ventole e uscita video funzionanti e senza artefatti.",
+   "confidence": "media",
+   "condition_assumed": "funzionante, completo degli accessori dichiarati; test non presunto già eseguito",
+   "unverified_condition_value": null
+  },
+  {
+   "inventory_ids": [
+    "INV-065"
+   ],
+   "item": "Intel EXPI9301CTBLK Gigabit",
+   "quantity_free": 1,
+   "assignment": "libero nella configurazione di riferimento",
+   "quantity_assigned_in_this_lot": 0,
+   "estimated_total_eur_low": 5,
+   "estimated_total_eur_high": 10,
+   "basis": "Stima di realizzo lordo fra privati, dopo test positivo; non prezzo osservato di vendita conclusa",
+   "sources": [
+    "market-intel-ct"
+   ],
+   "assumptions": "Scheda singola con staffa adatta; collegamento Gigabit stabile.",
+   "confidence": "media",
+   "condition_assumed": "funzionante, completo degli accessori dichiarati; test non presunto già eseguito",
+   "unverified_condition_value": null
+  },
+  {
+   "inventory_ids": [
+    "INV-066"
+   ],
+   "item": "Intel EXPI9300PTBLK Gigabit",
+   "quantity_free": 1,
+   "assignment": "libero nella configurazione di riferimento",
+   "quantity_assigned_in_this_lot": 0,
+   "estimated_total_eur_low": 3,
+   "estimated_total_eur_high": 7,
+   "basis": "Stima di realizzo lordo fra privati, dopo test positivo; non prezzo osservato di vendita conclusa",
+   "sources": [
+    "market-intel-ct"
+   ],
+   "assumptions": "Stima per il modello precedente alla CT: comparabile diretto PT non acquisito. Vendita insieme alle NIC evita costi di spedizione sproporzionati.",
+   "confidence": "bassa",
+   "condition_assumed": "funzionante, completo degli accessori dichiarati; test non presunto già eseguito",
+   "unverified_condition_value": null
+  },
+  {
+   "inventory_ids": [
+    "INV-068"
+   ],
+   "item": "HP NC380T dual Gigabit",
+   "quantity_free": 1,
+   "assignment": "libero nella configurazione di riferimento",
+   "quantity_assigned_in_this_lot": 0,
+   "estimated_total_eur_low": 5,
+   "estimated_total_eur_high": 10,
+   "basis": "Stima di realizzo lordo fra privati, dopo test positivo; non prezzo osservato di vendita conclusa",
+   "sources": [
+    "market-nc380t-pair",
+    "market-nc380t-eu"
+   ],
+   "assumptions": "Una sola scheda. Fascia privata molto inferiore alla richiesta del ricambista UE; non trattare il prezzo USA come prezzo consegnato.",
+   "confidence": "media",
+   "condition_assumed": "funzionante, completo degli accessori dichiarati; test non presunto già eseguito",
+   "unverified_condition_value": null
+  }
+ ],
+ "totals": {
+  "nonoverlapping_priced_lots": 8,
+  "gross_tested_low_eur": 197,
+  "gross_tested_high_eur": 325,
+  "quick_bundle_planning_low_eur": 150,
+  "quick_bundle_planning_high_eur": 250,
+  "quick_bundle_is_heuristic": true,
+  "includes_all_inventory": false,
+  "includes_assigned_nodes": false
+ },
+ "unvalued": [
+  {
+   "ids": [
+    "INV-010",
+    "INV-011",
+    "INV-012",
+    "INV-014",
+    "INV-015",
+    "INV-016"
+   ],
+   "items": "HDD legacy da 160/320/500 GB",
+   "reason": "Salute e ore non disponibili. Il valore utile può essere soprattutto didattico; non usare richieste di ricambisti o PCB come prezzo di un HDD sano."
+  },
+  {
+   "ids": [
+    "INV-001"
+   ],
+   "items": "Due WD10EAVS 1 TB di riserva",
+   "reason": "Riserva del pool WD, fuori dal totale di vendita. Eventuale cessione soltanto se si rinuncia esplicitamente alla scorta."
+  },
+  {
+   "ids": [
+    "INV-058",
+    "INV-083"
+   ],
+   "items": "Radeon HD6570 e Quadro NVS290",
+   "reason": "Variante/capacità e assegnazione console da preservare; nessun prezzo diretto abbastanza aderente acquisito."
+  },
+  {
+   "ids": [
+    "INV-069",
+    "INV-070"
+   ],
+   "items": "Fenvi AC1200 / AXE3000",
+   "reason": "Nessun comparabile usato locale sufficientemente preciso acquisito; antenne, cablaggio Bluetooth e variante influenzano prezzo e riuso."
+  },
+  {
+   "ids": [
+    "INV-071"
+   ],
+   "items": "ASUS Hyper M.2 X4",
+   "reason": "Riuso come adattatore di banco; annuncio indicizzato a 10 euro ma pagina diretta non verificata, escluso dal totale."
+  },
+  {
+   "ids": [
+    "INV-045"
+   ],
+   "items": "Xeon E5-2630L v2",
+   "reason": "CPU libera; richieste online disperse, nessuna vendita conclusa aderente verificata. Evitare di acquistare una motherboard solo per assorbire questa CPU."
+  },
+  {
+   "ids": [
+    "INV-084",
+    "INV-085"
+   ],
+   "items": "Samsung NVMe da 256 GB",
+   "reason": "Saldo non ricostruito; non conteggiati liberi finché non associati uno a uno ai client."
+  },
+  {
+   "ids": [
+    "INV-040",
+    "INV-042"
+   ],
+   "items": "Kingston 4 GB e Nanya ECC UDIMM 2 GB",
+   "reason": "Moduli singoli e tipologia da etichetta: meglio componente di kit compatibile che annuncio separato."
+  },
+  {
+   "ids": [
+    "INV-018",
+    "INV-019",
+    "INV-020",
+    "INV-021",
+    "INV-022",
+    "INV-023",
+    "INV-024",
+    "INV-025",
+    "INV-026",
+    "INV-027",
+    "INV-028"
+   ],
+   "items": "USB e schede memoria legacy",
+   "reason": "Basso valore unitario, capacità/usura eterogenee; utili per supporti di installazione e collaudo, non valorizzati a forfait."
+  },
+  {
+   "ids": [
+    "INV-059",
+    "INV-060",
+    "INV-061",
+    "INV-062",
+    "INV-063",
+    "INV-064"
+   ],
+   "items": "Chassis rack, tray e frontale",
+   "reason": "Parte della struttura assegnata, non stock vendibile a priori."
+  },
+  {
+   "ids": [],
+   "items": "PSU e gruppo ridondante",
+   "reason": "Associazioni ai nodi e gruppi da mantenere; due moduli ridondanti non sono due PSU ATX vendibili indipendenti."
+  }
+ ],
+ "excluded_assigned_assets": [
+  "Nuove 6 PC3L: M5 32 GB e M6 64 GB; nessuna RAM di quel lotto libera",
+  "Quattro PC3L per M2: 64 GB",
+  "DDR4 M1: 32 GB",
+  "X99-T8 / RTX3060 / 128 GB M3",
+  "P9D / 32 GB M4",
+  "X99-DELUXE + i7-5930K + 32 GB + RTX2080 assegnati a MP4",
+  "LSI9207-8i conservata per evoluzione pool SSD",
+  "Wyse, HP t520, C1–C4 e MacBook M5 assegnati",
+  "SSD boot EVO250/V300120/V200120 e P3104TB",
+  "LGS352C-EU e NIC/cavi dei collegamenti attivi",
+  "T110 II / lettore RDX: risorsa di laboratorio e recupero, non libero per implicazione"
+ ],
+ "scenarios": [
+  {
+   "id": "sell",
+   "title": "Recuperare liquidità e spazio",
+   "proposal": "Cedere kit X79, GTX970 e RAM RDIMM non necessaria; raggruppare le NIC e la DDR3 da 4 GB in lotti. Tenere una scorta dichiarata, non tutto indistintamente.",
+   "why": "Sono i lotti con identità più chiara; evitare decine di annunci per piccoli componenti.",
+   "financial_view": "Sottoinsieme di 8 lotti: 197–325 euro lordi se testati. In blocco rapido, fascia di pianificazione 150–250 euro. Gli oggetti non valutati non sono inclusi.",
+   "tradeoff": "Liquidità immediata e meno materiale; rinuncia alla capacità di avviare uno o due collaboratori."
+  },
+  {
+   "id": "starter",
+   "title": "Un primo nodo di self-hosting per un amico",
+   "proposal": "Usare il kit H97M-ECO + i5-4570T + 16 GB unbuffered come base Linux con pochi container o VM, una NIC Gigabit e un SSD dedicato. Esempi: documenti personali, calendario, un piccolo servizio applicativo, laboratorio di backup.",
+   "materials": [
+    "INV-032",
+    "INV-072",
+    "INV-038",
+    "INV-065"
+   ],
+   "not_included": "Case, alimentatore e SSD non dichiarati automaticamente liberi; il kit non è un PC completo pronto. La sua memoria non si conta anche sul kit X79.",
+   "financial_view": "Costo opportunità del kit e NIC nella tabella: 45–75 euro; se viene donato o prestato, sottrarlo dalla vendita.",
+   "autonomy": "Account amministratore del destinatario, guida di ripristino, esportazione configurazione e backup indipendente. Non diventa membro Corosync di casa.",
+   "tradeoff": "Più valore relazionale e competenze, ma assistenza e consumi devono essere esplicitamente accettati."
+  },
+  {
+   "id": "workbench",
+   "title": "Banco condiviso di apprendimento",
+   "proposal": "X79+i7-3820 con memoria DDR3 unbuffered compatibile e GPU di console per prove a richiesta: virtualizzazione, reti isolate, ripristino, container. La GTX970 serve a grafica/retro-gaming o esperimenti compatibili, non viene spacciata per acceleratore LLM moderno.",
+   "materials": [
+    "INV-031",
+    "INV-044"
+   ],
+   "not_included": "Non abbinare automaticamente RDIMM ECC libere all’i7-3820. Se si usa la HyperX del kit H97, i due scenari sono alternativi.",
+   "financial_view": "La rinuncia alla cessione del solo kit vale 50–80 euro nel modello; non sommare valore della stessa RAM in due sistemi.",
+   "tradeoff": "Buona risorsa didattica a richiesta; per un servizio acceso 24/7 confrontare consumi reali e spazio con alternative compatte."
+  },
+  {
+   "id": "federate",
+   "title": "Collaboratori autonomi, servizi federati",
+   "proposal": "Ogni persona possiede il proprio nodo e può usare una copia isolata dei servizi su M6 oppure ospitare un servizio locale. Si scambiano servizi attraverso accessi privati mirati, non una LAN piatta comune.",
+   "contributions": [
+    "Spazio per una copia cifrata off-site con quota e conservazione concordate",
+    "Un mirror o una replica applicativa selezionata, con proprietario del dato chiaro",
+    "Lavori di calcolo in coda, con limiti CPU/RAM/GPU e priorità del proprietario",
+    "Documentazione, manutenzione o gestione di un servizio condiviso"
+   ],
+   "interfaces": [
+    "Identità individuali e ruoli per servizio",
+    "Istanze o tenant separati dai servizi personali",
+    "Quote e limiti di concorrenza",
+    "Monitoraggio del servizio con dati tecnici minimi",
+    "Esportazione dei dati e percorso di uscita della collaborazione"
+   ],
+   "failure_rule": "La disconnessione dell’amico non ferma casa, domotica o Vito. Nessun quorum attraverso Internet; copie remote non sostituiscono l’unico backup locale.",
+   "tradeoff": "La rete cresce per contributi verificabili, senza promettere alta disponibilità o capacità che il partner non offre."
+  }
+ ],
+ "roadmap_notes": [
+  "Registrare prova POST, memoria, porte e temperature dei lotti prima di utilizzare la fascia economica per funzionanti.",
+  "Per supporti di memoria: identificare per seriale, verificare salute, completare copie e cancellazione dati prima della cessione; nessuna cessione eseguita qui.",
+  "Il kit H97 e la HyperX da 16 GB diventano disponibili dopo la transizione M1; resta una dipendenza di roadmap, non un secondo M1 contemporaneo.",
+  "Associare PSU, staffe, dissipatori, SSD e accessori ai kit prima di dichiararli completi.",
+  "Confermare con l’utente l’eventuale annullamento dell’assegnazione X79 al secondo fratello: lo scambio Air è superato, ma non implica automaticamente una promessa revocata.",
+  "La disponibilità di stock non equivale al suo stato funzionale. Conservare foto e identità per esemplare."
+ ],
+ "sources": [
+  {
+   "id": "market-x79",
+   "title": "PC X79 Extreme4 + i7-3820 + 16 GB, GPU e alimentatore",
+   "url": "https://www.subito.it/informatica/pc-fisso-i7-16gb-ram-schedam-x79-no-hard-disk-bergamo-639790487.htm",
+   "asking_eur": 120,
+   "kind": "annuncio privato; prezzo richiesto, non vendita conclusa",
+   "accessed": "2026-11-01",
+   "comparison": "PC completo senza dischi; scheda Extreme4 diversa dalla Extreme3 posseduta. Ancora per stimare il solo kit sotto al prezzo del PC."
+  },
+  {
+   "id": "market-gtx970-g1",
+   "title": "Gigabyte GTX 970 G1 Gaming GV-N970G1 GAMING-4GD",
+   "url": "https://www.subito.it/informatica/gigabyte-gtx-970-g1-gaming-4gb-gddr5-varese-665059807.htm",
+   "asking_eur": 72,
+   "kind": "annuncio privato; prezzo richiesto, non vendita conclusa",
+   "accessed": "2026-11-01",
+   "comparison": "Modello esatto; venditore dichiara funzionamento, nessun artefatto e temperature normali."
+  },
+  {
+   "id": "market-gtx970-low",
+   "title": "Componenti H81 / i5-4590S / 8 GB e Gigabyte GTX970",
+   "url": "https://www.subito.it/informatica/cpu-scheda-madre-cpu-e-ram-genova-636478078.htm",
+   "asking_eur": 80,
+   "kind": "annuncio privato; componenti separabili",
+   "accessed": "2026-11-01",
+   "comparison": "Descrizione: GPU 40 euro; motherboard H81 30; CPU e 8 GB RAM 20. Non è H97M-ECO né i5-4570T: confronto di fascia, non identità."
+  },
+  {
+   "id": "market-h97-untested",
+   "title": "MSI H97 Guard Pro senza mascherina, non testata",
+   "url": "https://www.vinted.it/items/10561350327-scheda-madre-pc-msi-h97-guard-pro-msi",
+   "asking_eur": 20,
+   "kind": "annuncio privato; contenuto indicizzato, apertura diretta non disponibile",
+   "accessed": "2026-11-01",
+   "comparison": "Solo motherboard H97 diversa dalla H97M-ECO; utile come limite di confronto, non prova di valore del kit."
+  },
+  {
+   "id": "market-rdimm16-hynix",
+   "title": "Hynix HMT42GR7BFR4A-PB 16 GB DDR3 ECC",
+   "url": "https://www.ebay.it/itm/326746474219",
+   "asking_eur": 13.33,
+   "kind": "annuncio professionale usato; prezzo letto nella pagina categoria con collegamento al prodotto",
+   "accessed": "2026-11-01",
+   "comparison": "Confronto per taglio/tipo RDIMM; modello e velocità del lotto utente possono differire. Prezzo richiesto, non storico transazioni."
+  },
+  {
+   "id": "market-rdimm16-samsung",
+   "title": "Samsung M393B2G70DB0-YK0 16 GB DDR3 ECC REG",
+   "url": "https://www.ebay.it/p/1543159039?iid=327408199398",
+   "asking_eur": 16,
+   "kind": "annuncio usato; prezzo letto nella pagina categoria con collegamento al prodotto",
+   "accessed": "2026-11-01",
+   "comparison": "Confronto per taglio e tipologia; non si attribuisce questo part number ai moduli dell’utente."
+  },
+  {
+   "id": "market-rdimm4",
+   "title": "2 x Hynix 4 GB PC3-10600R-9-10-E1",
+   "url": "https://www.kleinanzeigen.de/s-anzeige/2x-ddr3-ram-4gb-ecc-pc3-10600r-9-10-e1-hynix-hmt151r7bfr4c-h9/3351206917-225-3826",
+   "asking_eur": 8,
+   "kind": "annuncio privato del 13 marzo 2026; due moduli insieme, trattabile",
+   "accessed": "2026-11-01",
+   "comparison": "Confronto diretto con moduli Hynix da 4 GB; la stima di lotto misto è inferiore al prezzo di coppia."
+  },
+  {
+   "id": "market-intel-ct",
+   "title": "Intel EXPI9301CTBLK Gigabit PCIe",
+   "url": "https://www.vinted.lu/items/10307561306-carte-reseau-interne-1000-mbits-intel-expi9301ctblk",
+   "asking_eur": 10,
+   "kind": "annuncio privato; prezzo richiesto, spedizione/commissioni escluse",
+   "accessed": "2026-11-01",
+   "comparison": "Modello esatto CT. Per PT più vecchia si applica una fascia inferiore, come stima e non osservazione diretta."
+  },
+  {
+   "id": "market-nc380t-pair",
+   "title": "Lotto di due HP NC380T dual Gigabit",
+   "url": "https://www.ebay.it/itm/327339689958",
+   "asking_eur": 14.72,
+   "kind": "annuncio professionale usato negli USA; prezzo di due schede senza costi di importazione",
+   "accessed": "2026-11-01",
+   "comparison": "Ancora di valore hardware, non costo consegnato in Italia."
+  },
+  {
+   "id": "market-nc380t-eu",
+   "title": "HP NC380T 374443-001 usata",
+   "url": "https://www.ebay.de/itm/186694210570",
+   "asking_eur": 28.9,
+   "kind": "annuncio professionale Germania; prezzo richiesto",
+   "accessed": "2026-11-01",
+   "comparison": "Il prezzo professionale alto non viene assunto come realizzo di vendita privata."
+  }
+ ],
+ "recommended_editorial_summary": "Il materiale fermo offre due forme di valore: un recupero economico prudente di poche centinaia di euro per il sottoinsieme identificato, oppure una base concreta per far partire altre persone. La scelta più equilibrata è trattenere un solo kit di ingresso e una scorta ragionata, cedendo GPU e lotti di memoria che non hanno un ruolo. I numeri sono fasce di pianificazione, non ricavi già realizzati."
+}

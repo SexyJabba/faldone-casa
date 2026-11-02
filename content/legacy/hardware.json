@@ -1,0 +1,1458 @@
+{
+ "revision": "4.4",
+ "prepared": "2026-11-01",
+ "scope": "Dati per schede definitive; verifiche/arrivi/acquisti mancanti esclusivamente roadmap_notes. CPU TDP non è consumo totale alla presa.",
+ "nodes": {
+  "M1": {
+   "platform": "MACHINIST X99 PR9-H",
+   "cpu": {
+    "model": "Intel Xeon E5-2630L v3",
+    "cores": 8,
+    "threads": 16,
+    "base_ghz": 1.8,
+    "turbo_ghz": 2.9,
+    "tdp_w": 55,
+    "evidence_level": "SKU confermato dall’utente; specifiche Intel",
+    "evidence_urls": [
+     "https://www.intel.com/content/www/us/en/products/sku/83357/intel-xeon-processor-e52630l-v3-20m-cache-1-80-ghz/specifications.html"
+    ]
+   },
+   "ram": {
+    "gb": 32,
+    "modules": 2,
+    "module_gb": 16,
+    "type": "DDR4 ECC RDIMM"
+   },
+   "disks": [
+    {
+     "inventory_code": "INV-007",
+     "model": "Kingston SSDNow V200 120 GB",
+     "quantity": 1,
+     "role": "Avvio Proxmox e OPNsense",
+     "layout": null
+    }
+   ],
+   "connected_devices": [
+    {
+     "model": "GLOTRENDS I226-T4",
+     "inventory_code": "INV-082",
+     "ports": "4 × 2,5 GbE RJ45",
+     "role": "WAN e reti LAN; uplink LGS352C a 1 GbE"
+    }
+   ],
+   "inventory_refs": [
+    "INV-105",
+    "INV-101",
+    "INV-007",
+    "INV-082"
+   ],
+   "role": "Firewall OPNsense e VM osservabilità, sempre acceso",
+   "photos": [
+    {
+     "inventory_code": "INV-101",
+     "kind": "lotto",
+     "path": "04_Sorgenti/Evidenze-hardware/2026-10-20-RAM/RAM-F02.webp",
+     "exists": true,
+     "source_page": null,
+     "caption": "DDR4 PC4 ECC RDIMM 16 GB / produttore, MPN e velocita da indicare"
+    },
+    {
+     "inventory_code": "INV-007",
+     "kind": "repertorio",
+     "path": "04_Sorgenti/Evidenze-hardware/Foto-inventario/repertorio/INV-007.jpg",
+     "exists": true,
+     "source_page": "https://esaitech.com/products/kingston-technology-svp200s37a-120g-ssdnow-v200-120gb-serial-ata-iii-6-0gbps-2-5-inch-internal-soild-state-drive-ssd",
+     "caption": "Kingston SSDNow V200 120 GB"
+    },
+    {
+     "inventory_code": "INV-082",
+     "kind": "repertorio",
+     "path": "04_Sorgenti/Evidenze-hardware/Foto-inventario/repertorio/INV-082.jpg",
+     "exists": true,
+     "source_page": "https://shop.zimaspace.com/products/pcie-x4-to-4-port-2-5-gigabit-ethernet-card-intel-i226-chipset",
+     "caption": "GLOTRENDS I226-T4"
+    }
+   ],
+   "local_evidence": [
+    "04_Sorgenti/configurazione-rev4.4.json",
+    "04_Sorgenti/inventario-rev4.4.json"
+   ]
+  },
+  "M2": {
+   "platform": "D1581-Q3A",
+   "cpu": {
+    "model": "Intel Xeon D-1581",
+    "cores": 16,
+    "threads": 32,
+    "base_ghz": 1.8,
+    "turbo_ghz": 2.4,
+    "tdp_w": 65,
+    "evidence_level": "produttore",
+    "evidence_urls": [
+     "https://www.intel.com/content/www/us/en/products/sku/93357/intel-xeon-processor-d1581-24m-cache-1-80-ghz/specifications.html"
+    ]
+   },
+   "ram": {
+    "gb": 64,
+    "modules": 4,
+    "module_gb": 16,
+    "type": "PC3L ECC RDIMM"
+   },
+   "disks": [
+    {
+     "inventory_code": "INV-009",
+     "model": "Sabrent Rocket 512 GB",
+     "quantity": 1,
+     "role": "Avvio Proxmox",
+     "layout": null
+    },
+    {
+     "inventory_code": "INV-005",
+     "model": "Crucial P310 4 TB",
+     "quantity": 1,
+     "role": "Dati e servizi; segnaposto in attesa del pool SSD",
+     "layout": "Singolo NVMe senza ridondanza"
+    }
+   ],
+   "connected_devices": [
+    {
+     "model": "Mellanox MCX312A-XCBT",
+     "inventory_code": "INV-081",
+     "ports": "2 × 10 GbE SFP+",
+     "role": "Una porta alla stella 10G, seconda libera"
+    }
+   ],
+   "inventory_refs": [
+    "INV-106",
+    "INV-100",
+    "INV-009",
+    "INV-005",
+    "INV-081"
+   ],
+   "role": "Applicazioni e dati personali, sempre acceso",
+   "photos": [
+    {
+     "inventory_code": "INV-100",
+     "kind": "lotto",
+     "path": "04_Sorgenti/Evidenze-hardware/2026-10-20-RAM/RAM-F03.webp",
+     "exists": true,
+     "source_page": null,
+     "caption": "DDR3L 16 GB RDIMM:Micron MT36KSF2G72PZ-1G6E1HF e Samsung M393B2G70DB0-YK0 da foto"
+    },
+    {
+     "inventory_code": "INV-100",
+     "kind": "lotto",
+     "path": "04_Sorgenti/Evidenze-hardware/2026-10-20-RAM/RAM-F05.webp",
+     "exists": true,
+     "source_page": null,
+     "caption": "DDR3L 16 GB RDIMM:Micron MT36KSF2G72PZ-1G6E1HF e Samsung M393B2G70DB0-YK0 da foto"
+    },
+    {
+     "inventory_code": "INV-009",
+     "kind": "repertorio",
+     "path": "04_Sorgenti/Evidenze-hardware/Foto-inventario/repertorio/INV-009.jpg",
+     "exists": true,
+     "source_page": "https://sabrent.com/products/sb-rocket-512",
+     "caption": "Sabrent Rocket 512 GB"
+    },
+    {
+     "inventory_code": "INV-005",
+     "kind": "repertorio",
+     "path": "04_Sorgenti/Evidenze-hardware/Foto-inventario/repertorio/INV-005.jpg",
+     "exists": true,
+     "source_page": "https://www.scan.co.uk/products/4tb-crucial-p310-m2-2280-pcie-40-x4-nvme-ssd-7100mb-s-read-6000mb-s-write-1000k-1000k-iops",
+     "caption": "Crucial P310 4 TB + Lexar E750"
+    },
+    {
+     "inventory_code": "INV-081",
+     "kind": "repertorio",
+     "path": "04_Sorgenti/Evidenze-hardware/Foto-inventario/repertorio/INV-081.jpg",
+     "exists": true,
+     "source_page": "https://www.newegg.com/p/2RC-00HZ-00083",
+     "caption": "Mellanox MCX312A-XCBT"
+    }
+   ],
+   "local_evidence": [
+    "04_Sorgenti/configurazione-rev4.4.json",
+    "04_Sorgenti/inventario-rev4.4.json"
+   ]
+  },
+  "M3": {
+   "platform": "HUANANZHI X99-T8",
+   "cpu": {
+    "model": "Intel Xeon E5-2678 v3",
+    "cores": 12,
+    "threads": 24,
+    "base_ghz": 2.5,
+    "turbo_ghz": null,
+    "tdp_w": 120,
+    "evidence_level": "inventario locale e dichiarazione utente",
+    "evidence_urls": []
+   },
+   "ram": {
+    "gb": 128,
+    "modules": 8,
+    "module_gb": 16,
+    "type": "DDR3 ECC RDIMM"
+   },
+   "disks": [
+    {
+     "inventory_code": "INV-006",
+     "model": "Western Digital PC SN530 512 GB",
+     "quantity": 1,
+     "role": "Avvio host e IA",
+     "layout": null
+    }
+   ],
+   "connected_devices": [
+    {
+     "model": "MSI GeForce RTX 3060 Ventus 2X",
+     "vram_gb": 12,
+     "inventory_code": "INV-077"
+    },
+    {
+     "model": "Mellanox MNPA19-XTR",
+     "inventory_code": "INV-080",
+     "ports": "1 × 10 GbE SFP+",
+     "role": "Stella 10G"
+    }
+   ],
+   "inventory_refs": [
+    "INV-030",
+    "INV-048",
+    "INV-075",
+    "INV-099",
+    "INV-006",
+    "INV-077",
+    "INV-080"
+   ],
+   "role": "IA, Proxmox autonomo acceso su richiesta",
+   "photos": [
+    {
+     "inventory_code": "INV-030",
+     "kind": "repertorio",
+     "path": "04_Sorgenti/Evidenze-hardware/2026-10-20-Schede-madri/m3-x99-t8.jpg",
+     "exists": true,
+     "source_page": null,
+     "caption": "HUANANZHI X99-T8"
+    },
+    {
+     "inventory_code": "INV-048",
+     "kind": "repertorio",
+     "path": "04_Sorgenti/Evidenze-hardware/Foto-inventario/repertorio/INV-048.jpg",
+     "exists": true,
+     "source_page": "https://esaitech.com/products/e5-2678-v3-2-50ghz-30m-12-core-spcl-sourcing-see-notes",
+     "caption": "Intel Xeon E5-2678 v3"
+    },
+    {
+     "inventory_code": "INV-075",
+     "kind": "lotto",
+     "path": "04_Sorgenti/Evidenze-hardware/2026-10-20-RAM/RAM-F02.webp",
+     "exists": true,
+     "source_page": null,
+     "caption": "Lotto Samsung DDR3 RDIMM16 GB PC3, MPN per esemplare da etichetta"
+    },
+    {
+     "inventory_code": "INV-099",
+     "kind": "lotto",
+     "path": "04_Sorgenti/Evidenze-hardware/2026-10-20-RAM/RAM-F04.webp",
+     "exists": true,
+     "source_page": null,
+     "caption": "Kingston KVR16R11D4/16, 16GB2Rx4 PC3-12800R 1.5V"
+    },
+    {
+     "inventory_code": "INV-099",
+     "kind": "repertorio",
+     "path": "04_Sorgenti/Evidenze-hardware/Foto-inventario/repertorio/INV-099.jpg",
+     "exists": true,
+     "source_page": "https://esaitech.com/products/kingston-valueram-kvr16r11d4-16-ddr3-1600-16gb-2gx72-ecc-reg-cl11-server-memory",
+     "caption": "Kingston KVR16R11D4/16, 16GB2Rx4 PC3-12800R 1.5V"
+    },
+    {
+     "inventory_code": "INV-006",
+     "kind": "repertorio",
+     "path": "04_Sorgenti/Evidenze-hardware/Foto-inventario/repertorio/INV-006.jpg",
+     "exists": true,
+     "source_page": "https://compridis.be/en/products/western-digital-wd-pc-sn530-m-2-80-mm-512-gb-ssd-sdbpnpz-512g-1006a",
+     "caption": "Western Digital PC SN530 512 GB"
+    },
+    {
+     "inventory_code": "INV-077",
+     "kind": "repertorio",
+     "path": "04_Sorgenti/Evidenze-hardware/Foto-inventario/repertorio/INV-077.jpg",
+     "exists": true,
+     "source_page": "https://www.msi.com/Graphics-Card/GeForce-RTX-3060-VENTUS-2X-12G-OC",
+     "caption": "MSI GeForce RTX3060 Ventus2X 12 GB"
+    }
+   ],
+   "local_evidence": [
+    "04_Sorgenti/configurazione-rev4.4.json",
+    "04_Sorgenti/inventario-rev4.4.json"
+   ]
+  },
+  "M4": {
+   "platform": "ASUS P9D-MH/SAS/10G-DUAL",
+   "cpu": {
+    "model": "Intel Xeon E3-1265L v3",
+    "cores": 4,
+    "threads": 8,
+    "base_ghz": 2.5,
+    "turbo_ghz": 3.7,
+    "tdp_w": 45,
+    "evidence_level": "produttore",
+    "evidence_urls": [
+     "https://www.intel.com/content/www/us/en/products/sku/75463/intel-xeon-processor-e31265l-v3-8m-cache-2-50-ghz/specifications.html"
+    ]
+   },
+   "ram": {
+    "gb": 32,
+    "modules": 4,
+    "module_gb": 8,
+    "type": "DDR3 ECC UDIMM"
+   },
+   "disks": [
+    {
+     "model": "Disco di avvio locale",
+     "capacity_gb": null,
+     "quantity": 1
+    },
+    {
+     "inventory_code": "INV-001",
+     "model": "Western Digital WD10EAVS 1 TB",
+     "quantity": 6,
+     "role": "Backup locali",
+     "layout": "RAIDZ2, circa 4 TB nominali"
+    },
+    {
+     "inventory_code": "INV-087",
+     "model": "Seagate ST2000DM008 2 TB",
+     "quantity": 4,
+     "role": "Media",
+     "layout": "RAIDZ1, circa 6 TB nominali; dischi SMR"
+    }
+   ],
+   "connected_devices": [
+    {
+     "model": "Controller SAS LSI 2308 integrato",
+     "role": "Pool media Seagate"
+    },
+    {
+     "model": "Due porte SFP+ 10 GbE integrate",
+     "role": "Una porta alla stella 10G; seconda libera"
+    }
+   ],
+   "inventory_refs": [
+    "INV-073",
+    "INV-047",
+    "INV-076",
+    "INV-001",
+    "INV-087"
+   ],
+   "role": "Backup e archivio media, Proxmox autonomo a richiesta/job",
+   "photos": [
+    {
+     "inventory_code": "INV-073",
+     "kind": "repertorio",
+     "path": "04_Sorgenti/Evidenze-hardware/2026-10-20-Schede-madri/m4-p9d-mh.jpg",
+     "exists": true,
+     "source_page": null,
+     "caption": "ASUS P9D-MH/SAS/10G-DUAL"
+    },
+    {
+     "inventory_code": "INV-047",
+     "kind": "repertorio",
+     "path": "04_Sorgenti/Evidenze-hardware/Foto-inventario/repertorio/INV-047.jpg",
+     "exists": true,
+     "source_page": "https://esaitech.com/products/intel-cm8064601467406-xeon-e3-1265l-v3-4-core-2-50ghz-8mb-45watt-processor",
+     "caption": "Intel Xeon E3-1265L v3"
+    },
+    {
+     "inventory_code": "INV-076",
+     "kind": "lotto",
+     "path": "04_Sorgenti/Evidenze-hardware/2026-10-20-RAM/RAM-F01.avif",
+     "exists": true,
+     "source_page": null,
+     "caption": "DDR3 ECC UDIMM 8 GB / codice modulo richiesto"
+    },
+    {
+     "inventory_code": "INV-001",
+     "kind": "repertorio",
+     "path": "04_Sorgenti/Evidenze-hardware/Foto-inventario/repertorio/INV-001.jpg",
+     "exists": true,
+     "source_page": "https://esaitech.com/products/western-digital-caviar-green-wd10eavs-1tb-5400rpm-8mb-sata-300-3-5-hard-drive",
+     "caption": "Western Digital WD10EAVS 1 TB"
+    },
+    {
+     "inventory_code": "INV-087",
+     "kind": "repertorio",
+     "path": "04_Sorgenti/Evidenze-hardware/Foto-inventario/repertorio/INV-087.jpg",
+     "exists": true,
+     "source_page": "https://store.qamba.com.au/products/seagate-barracuda-desktop-internal-3-5-inch-sata-drive-2tb-6gb-s-7200rpm-2yr-wty-1165846",
+     "caption": "Seagate ST2000DM008 2 TB"
+    }
+   ],
+   "local_evidence": [
+    "04_Sorgenti/configurazione-rev4.4.json",
+    "04_Sorgenti/inventario-rev4.4.json"
+   ]
+  },
+  "M5": {
+   "platform": "D1581-Q3",
+   "cpu": {
+    "model": "Intel Xeon D-1581",
+    "cores": 16,
+    "threads": 32,
+    "base_ghz": 1.8,
+    "turbo_ghz": 2.4,
+    "tdp_w": 65,
+    "evidence_level": "produttore",
+    "evidence_urls": [
+     "https://www.intel.com/content/www/us/en/products/sku/93357/intel-xeon-processor-d1581-24m-cache-1-80-ghz/specifications.html"
+    ]
+   },
+   "ram": {
+    "gb": 32,
+    "modules": 2,
+    "module_gb": 16,
+    "type": "PC3L ECC RDIMM",
+    "lot": "Sei HP/Hynix da 16 GB acquistati a 85 EUR, offerta accettata"
+   },
+   "disks": [
+    {
+     "inventory_code": "INV-003",
+     "model": "Samsung 850 EVO 250 GB",
+     "quantity": 1,
+     "role": "Avvio Proxmox e stato",
+     "layout": null
+    },
+    {
+     "inventory_code": "INV-013",
+     "model": "Seagate ST1000LM024 1 TB",
+     "quantity": 2,
+     "role": "Registrazioni Frigate",
+     "layout": "Mirror, circa 1 TB nominale"
+    }
+   ],
+   "connected_devices": [
+    {
+     "model": "Hailo-8 M.2 M-key",
+     "inventory_code": "INV-098",
+     "role": "Inferenza Frigate",
+     "bus": "PCIe 3.0 ×4 riferimento modulo M-key"
+    },
+    {
+     "model": "Interfacce Ethernet integrate",
+     "role": "LAN/IoT autorizzate e percorso notifiche router 5G"
+    }
+   ],
+   "inventory_refs": [
+    "INV-074",
+    "INV-003",
+    "INV-013",
+    "INV-098"
+   ],
+   "role": "Home Assistant, MQTT e Frigate, sempre acceso",
+   "photos": [
+    {
+     "inventory_code": "INV-074",
+     "kind": "repertorio",
+     "path": "04_Sorgenti/Evidenze-hardware/2026-10-20-Schede-madri/m2-xeon-d1581.jpg",
+     "exists": true,
+     "source_page": null,
+     "caption": "D1581-Q3 / Intel Xeon D-1581"
+    },
+    {
+     "inventory_code": "INV-003",
+     "kind": "repertorio",
+     "path": "04_Sorgenti/Evidenze-hardware/Foto-inventario/repertorio/INV-003.jpg",
+     "exists": true,
+     "source_page": "https://esaitech.com/products/samsung-mz-75e250b-am-850-evo-250gb-sata-6-0-gbps-2-5-ssd",
+     "caption": "Samsung 850 EVO 250 GB"
+    },
+    {
+     "inventory_code": "INV-013",
+     "kind": "repertorio",
+     "path": "04_Sorgenti/Evidenze-hardware/Foto-inventario/repertorio/INV-013.jpg",
+     "exists": true,
+     "source_page": "https://www.buildcores.com/products/Storage/i08qjn81v/Samsung-Spinpoint-M8-1TB-HDD-2.5%22-5400RPM-SATA",
+     "caption": "Seagate ST1000LM024 1 TB"
+    }
+   ],
+   "local_evidence": [
+    "04_Sorgenti/configurazione-rev4.4.json",
+    "04_Sorgenti/inventario-rev4.4.json"
+   ]
+  },
+  "M6": {
+   "platform": "D1581-Q3A",
+   "cpu": {
+    "model": "Intel Xeon D-1581",
+    "cores": 16,
+    "threads": 32,
+    "base_ghz": 1.8,
+    "turbo_ghz": 2.4,
+    "tdp_w": 65,
+    "evidence_level": "produttore",
+    "evidence_urls": [
+     "https://www.intel.com/content/www/us/en/products/sku/93357/intel-xeon-processor-d1581-24m-cache-1-80-ghz/specifications.html"
+    ]
+   },
+   "ram": {
+    "gb": 64,
+    "modules": 4,
+    "module_gb": 16,
+    "type": "PC3L ECC RDIMM",
+    "lot": "Sei HP/Hynix da 16 GB acquistati a 85 EUR, offerta accettata"
+   },
+   "disks": [
+    {
+     "inventory_code": "INV-004",
+     "model": "Kingston SSDNow V300 120 GB",
+     "quantity": 1,
+     "role": "Avvio Proxmox",
+     "layout": null
+    },
+    {
+     "inventory_code": "INV-008",
+     "model": "Samsung 850 EVO 500 GB",
+     "quantity": 1,
+     "role": "Download, staging e dati applicativi con quote",
+     "layout": null
+    },
+    {
+     "inventory_code": "INV-002",
+     "model": "Western Digital WD10EZRX 1 TB",
+     "quantity": 2,
+     "role": "Seafile e audio",
+     "layout": "Mirror, circa 1 TB nominale"
+    }
+   ],
+   "connected_devices": [
+    {
+     "model": "Intel Arc A310",
+     "inventory_code": "INV-097",
+     "role": "Accelerazione Jellyfin"
+    },
+    {
+     "model": "Mellanox MNPA19-XTR",
+     "inventory_code": "INV-080",
+     "ports": "1 × 10 GbE SFP+",
+     "role": "Stella 10G"
+    }
+   ],
+   "inventory_refs": [
+    "INV-106",
+    "INV-004",
+    "INV-008",
+    "INV-002",
+    "INV-097",
+    "INV-080"
+   ],
+   "role": "Multimedia, Seafile e download, Proxmox autonomo su richiesta",
+   "photos": [
+    {
+     "inventory_code": "INV-004",
+     "kind": "repertorio",
+     "path": "04_Sorgenti/Evidenze-hardware/Foto-inventario/repertorio/INV-004.jpg",
+     "exists": true,
+     "source_page": "https://www.scan.co.uk/products/120gb-kingston-ssdnow-v300-25-slim-7mm-ssd-sata-6gb-s-mlc-flash-read-450mb-s-write-450mb-s-85000-iop",
+     "caption": "Kingston SSDNow V300 120 GB"
+    },
+    {
+     "inventory_code": "INV-008",
+     "kind": "repertorio",
+     "path": "04_Sorgenti/Evidenze-hardware/Foto-inventario/repertorio/INV-008.jpg",
+     "exists": true,
+     "source_page": "https://esaitech.com/products/samsung-mz-75e250b-am-850-evo-250gb-sata-6-0-gbps-2-5-ssd",
+     "caption": "Samsung 850 EVO 500 GB"
+    },
+    {
+     "inventory_code": "INV-002",
+     "kind": "repertorio",
+     "path": "04_Sorgenti/Evidenze-hardware/Foto-inventario/repertorio/INV-002.jpg",
+     "exists": true,
+     "source_page": "https://serverdiskdrives.com/products/wd10ezrx-western-digital-1tb-5400rpm-6gbps-3-5-sata-hard-drive",
+     "caption": "Western Digital WD10EZRX 1 TB"
+    },
+    {
+     "inventory_code": "INV-097",
+     "kind": "repertorio",
+     "path": "04_Sorgenti/Evidenze-hardware/Foto-inventario/repertorio/INV-097.jpg",
+     "exists": true,
+     "source_page": "https://www.sparkle.com.tw/en/A310-ECO",
+     "caption": "Intel Arc A310 / produttore e SKU da indicare"
+    }
+   ],
+   "local_evidence": [
+    "04_Sorgenti/configurazione-rev4.4.json",
+    "04_Sorgenti/inventario-rev4.4.json"
+   ]
+  },
+  "C1": {
+   "platform": "Dell OptiPlex 7070 Ultra",
+   "cpu": {
+    "model": "Intel Core i5-8265U",
+    "cores": 4,
+    "threads": 8,
+    "base_ghz": 1.6,
+    "turbo_ghz": 3.9,
+    "tdp_w": 15,
+    "evidence_level": "produttore",
+    "evidence_urls": [
+     "https://www.intel.com/content/www/us/en/products/sku/149088/intel-core-i58265u-processor-6m-cache-up-to-3-90-ghz/specifications.html"
+    ],
+    "configurable_tdp_w": [
+     10,
+     25
+    ]
+   },
+   "ram": {
+    "gb": 8,
+    "type": "DDR4 SO-DIMM",
+    "modules": null
+   },
+   "disks": [
+    {
+     "model": "SSD locale",
+     "capacity_gb": null,
+     "quantity": 1
+    }
+   ],
+   "connected_devices": [
+    {
+     "model": "Intel UHD Graphics integrata",
+     "role": "Client e video"
+    },
+    {
+     "model": "Ethernet integrata",
+     "role": "LAN locale"
+    }
+   ],
+   "inventory_refs": [
+    "INV-079"
+   ],
+   "role": "Vito W639: nodo mobile autonomo lavoro/camper, fuori quorum",
+   "photos": [
+    {
+     "inventory_code": "INV-079",
+     "kind": "repertorio",
+     "path": "04_Sorgenti/Evidenze-hardware/2026-10-20-Schede-madri/c-optiplex-ultra.jpg",
+     "exists": true,
+     "source_page": null,
+     "caption": "Dell OptiPlex 7070 Ultra / Intel Core i5-8265U"
+    }
+   ],
+   "local_evidence": [
+    "04_Sorgenti/configurazione-rev4.4.json",
+    "04_Sorgenti/inventario-rev4.4.json"
+   ]
+  },
+  "C2": {
+   "platform": "Dell OptiPlex 7070 Ultra",
+   "cpu": {
+    "model": "Intel Core i5-8265U",
+    "cores": 4,
+    "threads": 8,
+    "base_ghz": 1.6,
+    "turbo_ghz": 3.9,
+    "tdp_w": 15,
+    "evidence_level": "produttore",
+    "evidence_urls": [
+     "https://www.intel.com/content/www/us/en/products/sku/149088/intel-core-i58265u-processor-6m-cache-up-to-3-90-ghz/specifications.html"
+    ],
+    "configurable_tdp_w": [
+     10,
+     25
+    ]
+   },
+   "ram": {
+    "gb": 8,
+    "type": "DDR4 SO-DIMM",
+    "modules": null
+   },
+   "disks": [
+    {
+     "model": "SSD locale",
+     "capacity_gb": null,
+     "quantity": 1
+    }
+   ],
+   "connected_devices": [
+    {
+     "model": "Intel UHD Graphics integrata",
+     "role": "Client e video"
+    },
+    {
+     "model": "Ethernet integrata",
+     "role": "LAN locale"
+    }
+   ],
+   "inventory_refs": [
+    "INV-079"
+   ],
+   "role": "Client cucina, streaming e pannello casa",
+   "photos": [
+    {
+     "inventory_code": "INV-079",
+     "kind": "repertorio",
+     "path": "04_Sorgenti/Evidenze-hardware/2026-10-20-Schede-madri/c-optiplex-ultra.jpg",
+     "exists": true,
+     "source_page": null,
+     "caption": "Dell OptiPlex 7070 Ultra / Intel Core i5-8265U"
+    }
+   ],
+   "local_evidence": [
+    "04_Sorgenti/configurazione-rev4.4.json",
+    "04_Sorgenti/inventario-rev4.4.json"
+   ]
+  },
+  "C3": {
+   "platform": "Dell OptiPlex 7070 Ultra",
+   "cpu": {
+    "model": "Intel Core i5-8265U",
+    "cores": 4,
+    "threads": 8,
+    "base_ghz": 1.6,
+    "turbo_ghz": 3.9,
+    "tdp_w": 15,
+    "evidence_level": "produttore",
+    "evidence_urls": [
+     "https://www.intel.com/content/www/us/en/products/sku/149088/intel-core-i58265u-processor-6m-cache-up-to-3-90-ghz/specifications.html"
+    ],
+    "configurable_tdp_w": [
+     10,
+     25
+    ]
+   },
+   "ram": {
+    "gb": 16,
+    "type": "DDR4 SO-DIMM",
+    "modules": null
+   },
+   "disks": [
+    {
+     "model": "SSD locale",
+     "capacity_gb": null,
+     "quantity": 1
+    }
+   ],
+   "connected_devices": [
+    {
+     "model": "Intel UHD Graphics integrata",
+     "role": "Client e video"
+    },
+    {
+     "model": "Ethernet integrata",
+     "role": "LAN locale"
+    }
+   ],
+   "inventory_refs": [
+    "INV-079"
+   ],
+   "role": "Proxmox sempre acceso, client e riserva HA domotica",
+   "photos": [
+    {
+     "inventory_code": "INV-079",
+     "kind": "repertorio",
+     "path": "04_Sorgenti/Evidenze-hardware/2026-10-20-Schede-madri/c-optiplex-ultra.jpg",
+     "exists": true,
+     "source_page": null,
+     "caption": "Dell OptiPlex 7070 Ultra / Intel Core i5-8265U"
+    }
+   ],
+   "local_evidence": [
+    "04_Sorgenti/configurazione-rev4.4.json",
+    "04_Sorgenti/inventario-rev4.4.json"
+   ]
+  },
+  "C4": {
+   "platform": "Dell OptiPlex 7070 Ultra",
+   "cpu": {
+    "model": "Intel Core i5-8265U",
+    "cores": 4,
+    "threads": 8,
+    "base_ghz": 1.6,
+    "turbo_ghz": 3.9,
+    "tdp_w": 15,
+    "evidence_level": "produttore",
+    "evidence_urls": [
+     "https://www.intel.com/content/www/us/en/products/sku/149088/intel-core-i58265u-processor-6m-cache-up-to-3-90-ghz/specifications.html"
+    ],
+    "configurable_tdp_w": [
+     10,
+     25
+    ]
+   },
+   "ram": {
+    "gb": 16,
+    "type": "DDR4 SO-DIMM",
+    "modules": null
+   },
+   "disks": [
+    {
+     "model": "SSD locale",
+     "capacity_gb": null,
+     "quantity": 1
+    }
+   ],
+   "connected_devices": [
+    {
+     "model": "Intel UHD Graphics integrata",
+     "role": "Client e video"
+    },
+    {
+     "model": "Ethernet integrata",
+     "role": "LAN locale"
+    }
+   ],
+   "inventory_refs": [
+    "INV-079"
+   ],
+   "role": "Proxmox sempre acceso, client e riserva HA applicazioni selezionate",
+   "photos": [
+    {
+     "inventory_code": "INV-079",
+     "kind": "repertorio",
+     "path": "04_Sorgenti/Evidenze-hardware/2026-10-20-Schede-madri/c-optiplex-ultra.jpg",
+     "exists": true,
+     "source_page": null,
+     "caption": "Dell OptiPlex 7070 Ultra / Intel Core i5-8265U"
+    }
+   ],
+   "local_evidence": [
+    "04_Sorgenti/configurazione-rev4.4.json",
+    "04_Sorgenti/inventario-rev4.4.json"
+   ]
+  },
+  "MP3": {
+   "platform": "Acer Aspire 7 A715-42G-R2VB",
+   "cpu": {
+    "model": "AMD Ryzen 7 5700U",
+    "cores": 8,
+    "threads": 16,
+    "base_ghz": 1.8,
+    "turbo_ghz": 4.3,
+    "tdp_w": 15,
+    "evidence_level": "produttore",
+    "evidence_urls": [
+     "https://www.amd.com/en/support/downloads/drivers.html/processors/ryzen/ryzen-5000-series/amd-ryzen-7-5700u.html"
+    ],
+    "configurable_tdp_w": [
+     10,
+     25
+    ]
+   },
+   "ram": {
+    "gb": 16,
+    "type": "DDR4 SO-DIMM",
+    "modules": null
+   },
+   "disks": [
+    {
+     "model": "Crucial P3 Plus",
+     "capacity_gb": 1000,
+     "quantity": 1,
+     "role": "Windows, lavoro, giochi e applicazioni"
+    }
+   ],
+   "connected_devices": [
+    {
+     "model": "NVIDIA GeForce RTX 3050 Ti Laptop",
+     "vram_gb": 4
+    },
+    {
+     "model": "AMD Radeon integrata nel Ryzen"
+    }
+   ],
+   "inventory_refs": [
+    "DA-ASSOCIARE-ACER"
+   ],
+   "role": "Postazione fissa laboratorio, Windows lavoro/gioco e Sunshine",
+   "photos": [],
+   "local_evidence": [
+    "04_Sorgenti/configurazione-rev4.4.json",
+    "04_Sorgenti/inventario-rev4.4.json"
+   ]
+  },
+  "MP1": {
+   "platform": "Apple MacBook M5",
+   "cpu": {
+    "model": "Apple M5",
+    "cores": null,
+    "threads": null,
+    "base_ghz": null,
+    "turbo_ghz": null,
+    "tdp_w": null,
+    "evidence_level": "inventario locale e dichiarazione utente",
+    "evidence_urls": []
+   },
+   "ram": {
+    "gb": null,
+    "type": "Memoria unificata"
+   },
+   "disks": [
+    {
+     "model": "SSD interno",
+     "capacity_gb": null,
+     "quantity": 1
+    }
+   ],
+   "connected_devices": [],
+   "inventory_refs": [
+    "INV-095"
+   ],
+   "role": "MacBook personale a casa; account utente separato per lavoro",
+   "photos": [],
+   "local_evidence": [
+    "04_Sorgenti/configurazione-rev4.4.json",
+    "04_Sorgenti/inventario-rev4.4.json"
+   ]
+  },
+  "M7": {
+   "platform": "ASUS H61M-K / E3-1220L v2",
+   "cpu": {
+    "model": "Intel Xeon E3-1220L v2",
+    "cores": 2,
+    "threads": 4,
+    "base_ghz": 2.3,
+    "turbo_ghz": 3.5,
+    "tdp_w": 17,
+    "evidence_urls": [
+     "https://www.intel.com.br/content/www/br/pt/products/sku/65735/intel-xeon-processor-e31220l-v2-3m-cache-2-30-ghz/specifications.html"
+    ],
+    "evidence_level": "specifiche produttore"
+   },
+   "ram": {
+    "gb": 16,
+    "type": "16 GB, 2 x 8 DDR3"
+   },
+   "disks": [],
+   "connected_devices": [],
+   "inventory_refs": [
+    "INV-033"
+   ],
+   "role": "Riserva manuale H61M-K; PowerEdge T110 II come riserva complementare",
+   "photos": []
+  },
+  "S1": {
+   "platform": "ASRock Q1900M / Celeron J1900",
+   "cpu": {
+    "model": "Intel Celeron J1900",
+    "cores": 4,
+    "threads": 4,
+    "base_ghz": 2,
+    "turbo_ghz": 2.42,
+    "tdp_w": 10,
+    "evidence_urls": [
+     "https://www.intel.com/content/www/us/en/products/sku/78867/intel-celeron-processor-j1900-2m-cache-up-to-2-42-ghz/specifications.html"
+    ],
+    "evidence_level": "specifiche produttore"
+   },
+   "ram": {
+    "gb": 8,
+    "type": "8 GB, 2 x 4 Hynix PC3-10600U"
+   },
+   "disks": [],
+   "connected_devices": [],
+   "inventory_refs": [
+    "INV-034"
+   ],
+   "role": "Linux: Caddy, Vaultwarden, notifiche e utilita; fuori cluster",
+   "photos": []
+  },
+  "S2": {
+   "platform": "Oracle Cloud Always Free, A1",
+   "cpu": {
+    "model": "Ampere A1 / CPU virtuale",
+    "cores": null,
+    "threads": null,
+    "base_ghz": null,
+    "turbo_ghz": null,
+    "tdp_w": null,
+    "evidence_urls": [],
+    "evidence_level": "specifiche produttore"
+   },
+   "ram": {
+    "gb": 4,
+    "type": "1 OCPU / 4 GB / boot 50 GB"
+   },
+   "disks": [],
+   "connected_devices": [],
+   "inventory_refs": [],
+   "role": "Osservazione esterna e relay; niente voto",
+   "photos": []
+  },
+  "S3": {
+   "platform": "Dell Wyse 3030 N03D",
+   "cpu": {
+    "model": "Intel Celeron N2807",
+    "cores": 2,
+    "threads": 2,
+    "base_ghz": 1.58,
+    "turbo_ghz": 2.16,
+    "tdp_w": 4.3,
+    "evidence_urls": [
+     "https://www.intel.com/content/www/us/en/products/sku/81072/intel-celeron-processor-n2807-1m-cache-up-to-2-16-ghz/specifications.html"
+    ],
+    "evidence_level": "specifiche produttore"
+   },
+   "ram": {
+    "gb": 4,
+    "type": "4 GB / 32 GB"
+   },
+   "disks": [
+    {
+     "model": "Storage Wyse 32 GB per esemplare",
+     "quantity": 1,
+     "role": "Linux, radio/testimone e stato"
+    }
+   ],
+   "connected_devices": [
+    {
+     "model": "Sonoff ZBDongle-P",
+     "ports": "USB / Zigbee",
+     "role": "Radio di ambiente e Zigbee2MQTT"
+    }
+   ],
+   "inventory_refs": [],
+   "role": "Linux: Sonoff ZBDongle-P, Zigbee2MQTT e dashboard leggera; fuori cluster",
+   "photos": []
+  },
+  "S4": {
+   "platform": "Dell Wyse 3030 N03D",
+   "cpu": {
+    "model": "Intel Celeron N2807",
+    "cores": 2,
+    "threads": 2,
+    "base_ghz": 1.58,
+    "turbo_ghz": 2.16,
+    "tdp_w": 4.3,
+    "evidence_urls": [
+     "https://www.intel.com/content/www/us/en/products/sku/81072/intel-celeron-processor-n2807-1m-cache-up-to-2-16-ghz/specifications.html"
+    ],
+    "evidence_level": "specifiche produttore"
+   },
+   "ram": {
+    "gb": 4,
+    "type": "4 GB / 32 GB"
+   },
+   "disks": [],
+   "connected_devices": [],
+   "inventory_refs": [],
+   "role": "Sentinella indipendente e primo mittente WoL; nessun voto nella base 4.4",
+   "photos": []
+  },
+  "MP4": {
+   "platform": "ASUS X99-DELUXE / i7-5930K / RTX2080",
+   "cpu": {
+    "model": "Intel Core i7-5930K",
+    "cores": 6,
+    "threads": 12,
+    "base_ghz": 3.5,
+    "turbo_ghz": 3.7,
+    "tdp_w": 140,
+    "evidence_urls": [
+     "https://www.intel.com/content/www/us/en/products/sku/82931/intel-core-i75930k-processor-15m-cache-up-to-3-70-ghz/specifications.html"
+    ],
+    "evidence_level": "specifiche produttore"
+   },
+   "ram": {
+    "gb": 32,
+    "type": "32 GB DDR4"
+   },
+   "disks": [],
+   "connected_devices": [
+    {
+     "model": "NVIDIA RTX2080",
+     "ports": "PCIe",
+     "role": "GPU della postazione esterna"
+    }
+   ],
+   "inventory_refs": [
+    "INV-029"
+   ],
+   "role": "PC primo fratello, esterno all’infrastruttura",
+   "photos": []
+  },
+  "Wyse laboratorio": {
+   "platform": "Dell Wyse 3030 N03D",
+   "cpu": {
+    "model": "Intel Celeron N2807",
+    "cores": 2,
+    "threads": 2,
+    "base_ghz": 1.58,
+    "turbo_ghz": 2.16,
+    "tdp_w": 4.3,
+    "evidence_urls": [
+     "https://www.intel.com/content/www/us/en/products/sku/81072/intel-celeron-processor-n2807-1m-cache-up-to-2-16-ghz/specifications.html"
+    ],
+    "evidence_level": "specifiche produttore"
+   },
+   "ram": {
+    "gb": 4,
+    "type": "4 GB / 32 GB"
+   },
+   "disks": [],
+   "connected_devices": [],
+   "inventory_refs": [],
+   "role": "Jellyfin, musica e pannello Home Assistant; affianca Acer",
+   "photos": []
+  },
+  "Wyse studio": {
+   "platform": "Dell Wyse 3030 N03D",
+   "cpu": {
+    "model": "Intel Celeron N2807",
+    "cores": 2,
+    "threads": 2,
+    "base_ghz": 1.58,
+    "turbo_ghz": 2.16,
+    "tdp_w": 4.3,
+    "evidence_urls": [
+     "https://www.intel.com/content/www/us/en/products/sku/81072/intel-celeron-processor-n2807-1m-cache-up-to-2-16-ghz/specifications.html"
+    ],
+    "evidence_level": "specifiche produttore"
+   },
+   "ram": {
+    "gb": 4,
+    "type": "4 GB / 32 GB"
+   },
+   "disks": [],
+   "connected_devices": [
+    {
+     "model": "Behringer CONTROL2USB",
+     "ports": "USB audio",
+     "role": "Ascolto e controllo audio"
+    }
+   ],
+   "inventory_refs": [],
+   "role": "Monitor e client audio verso Behringer CONTROL2USB",
+   "photos": []
+  },
+  "Wyse Hi-Fi salone": {
+   "platform": "Dell Wyse 3030 N03D",
+   "cpu": {
+    "model": "Intel Celeron N2807",
+    "cores": 2,
+    "threads": 2,
+    "base_ghz": 1.58,
+    "turbo_ghz": 2.16,
+    "tdp_w": 4.3,
+    "evidence_urls": [
+     "https://www.intel.com/content/www/us/en/products/sku/81072/intel-celeron-processor-n2807-1m-cache-up-to-2-16-ghz/specifications.html"
+    ],
+    "evidence_level": "specifiche produttore"
+   },
+   "ram": {
+    "gb": 4,
+    "type": "4 GB / 32 GB"
+   },
+   "disks": [],
+   "connected_devices": [
+    {
+     "model": "DAC ES9038Q2M",
+     "ports": "USB audio",
+     "role": "Hi-Fi salone"
+    }
+   ],
+   "inventory_refs": [],
+   "role": "Client Hi-Fi verso DAC ES9038Q2M USB",
+   "photos": []
+  },
+  "HP amico 1": {
+   "platform": "HP t520",
+   "cpu": {
+    "model": "AMD GX-212JC",
+    "cores": 2,
+    "threads": 2,
+    "base_ghz": 1.2,
+    "turbo_ghz": null,
+    "tdp_w": null,
+    "evidence_urls": [
+     "https://media.zones.com/images/pdf/T520%20Datasheet.pdf"
+    ],
+    "evidence_level": "specifiche produttore"
+   },
+   "ram": {
+    "gb": 4,
+    "type": "4 GB / Apacer M.2 8 GB"
+   },
+   "disks": [],
+   "connected_devices": [],
+   "inventory_refs": [
+    "INV-078"
+   ],
+   "role": "Client esterno Ethernet: LibreELEC, Jellyfin e offline USB",
+   "photos": []
+  },
+  "HP amico 2": {
+   "platform": "HP t520",
+   "cpu": {
+    "model": "AMD GX-212JC",
+    "cores": 2,
+    "threads": 2,
+    "base_ghz": 1.2,
+    "turbo_ghz": null,
+    "tdp_w": null,
+    "evidence_urls": [
+     "https://media.zones.com/images/pdf/T520%20Datasheet.pdf"
+    ],
+    "evidence_level": "specifiche produttore"
+   },
+   "ram": {
+    "gb": 4,
+    "type": "4 GB / Apacer M.2 8 GB"
+   },
+   "disks": [],
+   "connected_devices": [],
+   "inventory_refs": [
+    "INV-078"
+   ],
+   "role": "Client esterno Ethernet: LibreELEC, Jellyfin e offline USB",
+   "photos": []
+  },
+  "Microtech ingresso": {
+   "platform": "Microtech EBL14B",
+   "cpu": {
+    "model": "Non censito",
+    "cores": null,
+    "threads": null,
+    "base_ghz": null,
+    "turbo_ghz": null,
+    "tdp_w": null,
+    "evidence_urls": [],
+    "evidence_level": "specifiche produttore"
+   },
+   "ram": {
+    "gb": 4,
+    "type": "Dotazione n.d.; modello 4 GB/64 GB eMMC"
+   },
+   "disks": [],
+   "connected_devices": [],
+   "inventory_refs": [],
+   "role": "Pannello citofono/allarme, display e batteria integrati; fuori cluster",
+   "photos": []
+  },
+  "T110 II": {
+   "platform": "Dell PowerEdge T110 II / E3-1220 v2",
+   "cpu": {
+    "model": "Intel Xeon E3-1220 v2",
+    "cores": 4,
+    "threads": 4,
+    "base_ghz": 3.1,
+    "turbo_ghz": 3.5,
+    "tdp_w": 69,
+    "evidence_urls": [
+     "https://www.intel.com/content/www/us/en/products/sku/65734/intel-xeon-processor-e31220-v2-8m-cache-3-10-ghz/specifications.html"
+    ],
+    "evidence_level": "specifiche produttore"
+   },
+   "ram": {
+    "gb": 8,
+    "type": "8 GB"
+   },
+   "disks": [],
+   "connected_devices": [
+    {
+     "model": "RDX SATA",
+     "ports": "SATA",
+     "role": "Supporti rimovibili di backup"
+    }
+   ],
+   "inventory_refs": [],
+   "role": "Riserva complementare e unità RDX SATA",
+   "photos": []
+  },
+  "Kindle recuperato": {
+   "platform": "Kindle 11a generazione USB-C",
+   "cpu": {
+    "model": "Non censito",
+    "cores": null,
+    "threads": null,
+    "base_ghz": null,
+    "turbo_ghz": null,
+    "tdp_w": null,
+    "evidence_urls": [],
+    "evidence_level": "specifiche produttore"
+   },
+   "ram": {
+    "gb": null,
+    "type": "Modello base/Paperwhite n.d."
+   },
+   "disks": [],
+   "connected_devices": [],
+   "inventory_refs": [],
+   "role": "Biblioteca tecnica e plancia compatta; dispositivo personale",
+   "photos": []
+  }
+ },
+ "switch": {
+  "model": "Linksys LGS352C-EU",
+  "status": "Ordinato, definitivo",
+  "verified_family": "LGS352C",
+  "rj45_ports": 48,
+  "rj45_speeds_mbps": [
+   10,
+   100,
+   1000
+  ],
+  "rj45_labels": "1–48",
+  "sfp_plus_ports": 4,
+  "sfp_plus_speed_gbps": 10,
+  "sfp_plus_labels": [
+   "49",
+   "50",
+   "51",
+   "52"
+  ],
+  "poe": false,
+  "switching_capacity_gbps": 176,
+  "forwarding_mpps": 130.95,
+  "dram_mb": 512,
+  "mac_entries": 32000,
+  "max_power_w": 43.87,
+  "idle_power_w": null,
+  "fans": 1,
+  "fan_max_rpm": 8200,
+  "dimensions_mm": {
+   "width": 440,
+   "depth": 260,
+   "height": 44
+  },
+  "weight_kg": 3.468,
+  "vlan_802_1q": true,
+  "features": [
+   "VLAN802.1Q",
+   "SNMP",
+   "Port mirroring",
+   "LACP",
+   "ACL",
+   "Static routing",
+   "Backup configurazione"
+  ],
+  "topology": "Stella 10G: M2, M3, M4, M6, una porta per nodo; non richiede M4 acceso per collegare M2/M3",
+  "port_assignment_proposal": {
+   "49": "M2",
+   "50": "M3",
+   "51": "M4",
+   "52": "M6"
+  },
+  "evidence_urls": [
+   "https://support.linksys.com/kb/article/5130-en/?section_id=188",
+   "https://downloads.linksys.com/downloads/datasheet/en/Linksys_Managed_Gigabit_Switches_Datasheet_LGS310C_LGS328C_LGS352C.pdf",
+   "https://downloads.linksys.com/downloads/datasheet/en/LNK-SMB_Managed_Gigabit_Switches_PoE%2Bnon-PoE_Datasheet_FN2_uk.pdf",
+   "https://downloads.linksys.com/support/assets/dofc/CE%20DoC_LGS352C_30JULY2021.pdf"
+  ]
+ },
+ "ram_summary": {
+  "pc3l_owned_gb": 64,
+  "pc3l_newly_purchased_gb": 96,
+  "pc3l_total_gb": 160,
+  "new_modules": 6,
+  "new_module_gb": 16,
+  "accepted_offer_eur": 85,
+  "allocation_gb": {
+   "M2": 64,
+   "M5": 32,
+   "M6": 64
+  }
+ },
+ "roadmap_notes": {
+  "M1": [
+   "Identificare SKU esatto del Xeon E5-2630L v3: core/thread/clock/TDP non determinabili dalla sola generazione. Non sostituire con la CPU v3 della miniatura commerciale.",
+   "Verificare avvio senza GPU, IOMMU e passthrough I226; firewall con NIC locale non automaticamente migrabile."
+  ],
+  "M2": [
+   "Verificare simultaneità dei due M.2 e della MCX312 sul PCB Q3A ricevuto. La prova Q3A esterna non certifica ogni variante commerciale.",
+   "Nessun HBA LSI necessario per la configurazione P310; non inserirlo come scheda attiva.",
+   "Trasferire P310 da Arca solo a copie e ripristino verificati."
+  ],
+  "M3": [
+   "E5-2678 v3 OEM: valori 12/24, 2,5 GHz,120 W dal registro storico; nessuna scheda Intel primaria reperita. Turbo secondario discordante3,1/3,3 GHz: lasciare vuoto finché BIOS/CPU identifica limite effettivo."
+  ],
+  "M4": [
+   "Censire SSD di avvio.",
+   "ST2000DM008 è SMR confermato Seagate; collaudare carico sostenuto e ricostruzione prima del pool media. Non classificarlo CMR."
+  ],
+  "M5": [
+   "Hailo-8 ancora da acquistare nel registro: M-key è la scelta progettuale, verificare SKU prima ordine e compatibilità elettrica del M.2 Q3.",
+   "Censire porte Ethernet effettive e percorso avvisi 5G; non ereditare porte dalla BKHD cancellata."
+  ],
+  "M6": [
+   "Arc A310 ancora da acquistare nel registro: verificare SKU, raffreddamento e ingombro con MNPA19-XTR.",
+   "ReBAR raccomandato da Intel per prestazioni ottimali, non presupporre che senza ReBAR ogni transcodifica sia impossibile.",
+   "Se GPU e NIC non convivono, provare rete integrata o assegnazione schede alternativa prima produzione."
+  ],
+  "C1": [
+   "Censire SSD e adattatori LTE/alimentazione/monitor effettivi. Nessun voto Corosync sul Vito mobile."
+  ],
+  "C2": [
+   "Censire SSD e disposizione moduli RAM."
+  ],
+  "C3": [
+   "Censire SSD locale e spazio utile per replica HA.16 GB non sostituiscono l’intera dotazione M2."
+  ],
+  "C4": [
+   "Censire SSD locale e spazio utile per replica HA.16 GB non sostituiscono l’intera dotazione M2."
+  ],
+  "MP3": [
+   "CPU/GPU e SKU portatile sono dotazione dichiarata utente. Scheda AMD certifica CPU, non associa automaticamente GPU o SKU Acer."
+  ],
+  "MP1": [
+   "Confermare mapping con INV-095 già principale. Non confondere col MacBook Air M1 MP2. Modello completo, RAM e SSD del MacBook M5 non comunicati."
+  ],
+  "switch": [
+   "Verificare esemplare LGS352C-EU, firmware e codifica DAC/AOC a 10G; due AOC3m e due DAC1m coprono quattro link solo se lunghezze adeguate.",
+   "Quattro SFP+ tutte occupate: nessuna porta10G libera; secondaMCX312 e secondaM4 rimangono libere.",
+   "Porte rame switch1GbE: uplink M1 con I226 negozia1GbE. Routing interVLAN via firewall non eredita10GbE solo perché i server hanno uplink10G.",
+   "Dati dimensioni discordanti lievemente fra schedaUK2021 e supporto attuale: usare440×260×44mm da supporto, verificare spazio reale in rack.",
+   "43,87W è consumo massimo dichiarato, non idle e non TDPCPU. Misurare idle e rumore nel rack."
+  ],
+  "photos": [
+   "Le immagini repertorio illustrano il modello, non provano identità o stato del componente ricevuto. Alcuni vecchi registri riusano una foto250GB per il500GB: evitare didascalie di prova su tagli non leggibili.",
+   "Nessuna foto reale inventata per Q3A/MACHINIST/nuovo MacBook/nuovo lottoRAM/switch se non presente nel registro."
+  ]
+ },
+ "references": {
+  "d1581": "https://www.intel.com/content/www/us/en/products/sku/93357/intel-xeon-processor-d1581-24m-cache-1-80-ghz/specifications.html",
+  "e3": "https://www.intel.com/content/www/us/en/products/sku/75463/intel-xeon-processor-e31265l-v3-8m-cache-2-50-ghz/specifications.html",
+  "i5": "https://www.intel.com/content/www/us/en/products/sku/149088/intel-core-i58265u-processor-6m-cache-up-to-3-90-ghz/specifications.html",
+  "ryzen": "https://www.amd.com/en/support/downloads/drivers.html/processors/ryzen/ryzen-5000-series/amd-ryzen-7-5700u.html",
+  "switch": "https://support.linksys.com/kb/article/5130-en/?section_id=188",
+  "switch_ds": "https://downloads.linksys.com/downloads/datasheet/en/Linksys_Managed_Gigabit_Switches_Datasheet_LGS310C_LGS328C_LGS352C.pdf",
+  "switch_uk": "https://downloads.linksys.com/downloads/datasheet/en/LNK-SMB_Managed_Gigabit_Switches_PoE%2Bnon-PoE_Datasheet_FN2_uk.pdf",
+  "switch_eu": "https://downloads.linksys.com/support/assets/dofc/CE%20DoC_LGS352C_30JULY2021.pdf",
+  "q3a": "https://habr.com/ru/companies/ruvds/articles/1096730/",
+  "arc": "https://www.intel.com/content/www/us/en/support/articles/000092416/graphics.html",
+  "hailo": "https://hailo.ai/products/ai-accelerators/hailo-8-m2-ai-acceleration-module/",
+  "smr": "https://www.seagate.com/www-content/datasheets/pdfs/3-5-barracudaDS1900-14-2007US-en_US.pdf"
+ },
+ "cluster": {
+  "members": [
+   "M1",
+   "M2",
+   "M5",
+   "C3",
+   "C4"
+  ],
+  "votes": 5,
+  "quorum": 3,
+  "qdevice": false,
+  "standalone": [
+   "M3",
+   "M4",
+   "M6"
+  ],
+  "sentinel": "S4",
+  "mobile_outside_quorum": "C1/Vito",
+  "evidence_urls": [
+   "https://github.com/proxmox/pve-docs/blob/master/pvecm.adoc",
+   "https://github.com/proxmox/pve-docs/blob/master/ha-manager.adoc"
+  ],
+  "limits": [
+   "Almeno3voti raggiungibili per quorum; cinque membri non garantiscono capacità sufficiente a subentrare.",
+   "HA richiede storage disponibile o repliche, risorse, fencing e collaudo; replica asincrona implica possibile perdita degli ultimi dati non replicati.",
+   "C3/C4 ospitano servizi selezionati, non intere dotazioni M2/M5; vincoli CPU, passthrough e dischi locali limitano migrazione.",
+   "Nodi autonomi fuori cluster non partecipano alla normale migrazione intra-cluster o HA automatica."
+  ]
+ }
+}

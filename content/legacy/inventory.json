@@ -1,0 +1,1152 @@
+[
+ {
+  "code": "INV-001",
+  "category": "hdd",
+  "model": "Western Digital WD10EAVS 1 TB",
+  "quantity": "8",
+  "assignment": "6WD10EAVS a M4 RAIDZ2; 2riserva",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1; decisioni confermate20 ottobre2026",
+  "notes": ""
+ },
+ {
+  "code": "INV-002",
+  "category": "hdd",
+  "model": "Western Digital WD10EZRX 1 TB",
+  "quantity": "2",
+  "assignment": "2WD10EZRX mirror M6 Seafile/audio",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1; decisioni confermate20 ottobre2026",
+  "notes": "Seafile senza backup aggiuntivo per scelta utente."
+ },
+ {
+  "code": "INV-003",
+  "category": "ssd",
+  "model": "Samsung 850 EVO 250 GB",
+  "quantity": "1",
+  "assignment": "M5 boot",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1; decisioni confermate20 ottobre2026",
+  "notes": ""
+ },
+ {
+  "code": "INV-004",
+  "category": "ssd",
+  "model": "Kingston SSDNow V300 120 GB",
+  "quantity": "1",
+  "assignment": "M6 boot",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1; decisioni confermate20 ottobre2026",
+  "notes": ""
+ },
+ {
+  "code": "INV-005",
+  "category": "nvme",
+  "model": "Crucial P310 4 TB + Lexar E750",
+  "quantity": "1",
+  "assignment": "P310 nel secondo M.2 di M2; box Lexar E750 libero",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": "Un solo NVMe; il box è accessorio separato, non collegato a M2."
+ },
+ {
+  "code": "INV-006",
+  "category": "nvme",
+  "model": "Western Digital PC SN530 512 GB",
+  "quantity": "1",
+  "assignment": "M3 / Proxmox e IA",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": "Rettifica del modello e taglio: stesso supporto precedentemente descritto genericamente WD Green M.2 500 GB. Box ORICO separato in INV-089, non un secondo SSD."
+ },
+ {
+  "code": "INV-007",
+  "category": "ssd",
+  "model": "Kingston SSDNow V200 120 GB",
+  "quantity": "1",
+  "assignment": "M1 boot",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1; decisioni confermate20 ottobre2026",
+  "notes": ""
+ },
+ {
+  "code": "INV-008",
+  "category": "ssd",
+  "model": "Samsung 850 EVO 500 GB",
+  "quantity": "1",
+  "assignment": "M6 download/staging",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1; decisioni confermate20 ottobre2026",
+  "notes": ""
+ },
+ {
+  "code": "INV-009",
+  "category": "nvme",
+  "model": "Sabrent Rocket 512 GB",
+  "quantity": "1",
+  "assignment": "M2 / boot",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-010",
+  "category": "hdd",
+  "model": "Western Digital WD3200AAJS 320 GB",
+  "quantity": "1",
+  "assignment": "Non assegnato / magazzino",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-011",
+  "category": "hdd",
+  "model": "Western Digital WD1601ABYS 160 GB",
+  "quantity": "1",
+  "assignment": "Non assegnato / magazzino",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-012",
+  "category": "hdd",
+  "model": "Western Digital WD1600AAJS 160 GB",
+  "quantity": "1",
+  "assignment": "Non assegnato / magazzino",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-013",
+  "category": "hdd",
+  "model": "Seagate ST1000LM024 1 TB",
+  "quantity": "2",
+  "assignment": "M5 / registrazioni Frigate",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-014",
+  "category": "hdd",
+  "model": "HGST Z7K500-500",
+  "quantity": "1",
+  "assignment": "Non assegnato / magazzino",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-015",
+  "category": "hdd",
+  "model": "Hitachi Z5K500-500",
+  "quantity": "1",
+  "assignment": "Non assegnato / magazzino",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-016",
+  "category": "hdd",
+  "model": "HGST Z5K500-500",
+  "quantity": "1",
+  "assignment": "Non assegnato / magazzino",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-018",
+  "category": "usb",
+  "model": "corsair flash voyager slider",
+  "quantity": "1",
+  "assignment": "Non assegnato / magazzino",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-019",
+  "category": "usb",
+  "model": "lexar ljds73-16g",
+  "quantity": "1",
+  "assignment": "Non assegnato / magazzino",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-020",
+  "category": "usb",
+  "model": "verbatim usb 2.0",
+  "quantity": "2",
+  "assignment": "Non assegnato / magazzino",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-021",
+  "category": "usb",
+  "model": "kingston data traveler 100g3",
+  "quantity": "1",
+  "assignment": "Non assegnato / magazzino",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-022",
+  "category": "usb",
+  "model": "tdk 16gb",
+  "quantity": "1",
+  "assignment": "Non assegnato / magazzino",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-023",
+  "category": "card",
+  "model": "tohaoll u1 v10 hc",
+  "quantity": "1",
+  "assignment": "Non assegnato / magazzino",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-024",
+  "category": "card",
+  "model": "kingston sdc10g2/64gb",
+  "quantity": "1",
+  "assignment": "Non assegnato / magazzino",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-025",
+  "category": "card",
+  "model": "lexar 800x pro",
+  "quantity": "1",
+  "assignment": "Non assegnato / magazzino",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-026",
+  "category": "card",
+  "model": "generic",
+  "quantity": "1",
+  "assignment": "Non assegnato / magazzino",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-027",
+  "category": "card",
+  "model": "generic class 6",
+  "quantity": "1",
+  "assignment": "Non assegnato / magazzino",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-028",
+  "category": "card",
+  "model": "generic class 4",
+  "quantity": "1",
+  "assignment": "Non assegnato / magazzino",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-029",
+  "category": "mobo",
+  "model": "ASUS X99-DELUXE",
+  "quantity": "1",
+  "assignment": "MP4, PC primo fratello nella configurazione 4.2",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1; decisioni confermate20 ottobre2026",
+  "notes": "Assegnazione di configurazione; trasferimento effettivo non attestato."
+ },
+ {
+  "code": "INV-030",
+  "category": "mobo",
+  "model": "HUANANZHI X99-T8",
+  "quantity": "1",
+  "assignment": "M3",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-031",
+  "category": "mobo",
+  "model": "ASRock X79 Extreme3",
+  "quantity": "1",
+  "assignment": "Magazzino libero / riuso o cessione",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": "Kit di riferimento; nessuna attestazione di funzionamento o consegna."
+ },
+ {
+  "code": "INV-032",
+  "category": "mobo",
+  "model": "MSI H97M-ECO",
+  "quantity": "1",
+  "assignment": "Magazzino libero / riserva o riuso",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-033",
+  "category": "mobo",
+  "model": "ASUS H61M-K",
+  "quantity": "1",
+  "assignment": "M7 / router di riserva manuale",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-034",
+  "category": "mobo",
+  "model": "ASRock Q1900M",
+  "quantity": "1",
+  "assignment": "S1 / utilita locali",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-035",
+  "category": "ram",
+  "model": "G.Skill F4-2666C15Q-32GVR / moduli 8 GB",
+  "quantity": "4",
+  "assignment": "MP4, PC primo fratello nella configurazione 4.2",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1; decisioni confermate20 ottobre2026",
+  "notes": "Assegnazione di configurazione; trasferimento effettivo non attestato."
+ },
+ {
+  "code": "INV-036",
+  "category": "ram",
+  "model": "ELPIDA 4 GB 2Rx4 PC3-10600R-9-10-E1",
+  "quantity": "5",
+  "assignment": "Non assegnato / magazzino",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-037",
+  "category": "ram",
+  "model": "hynix 4 GB 2Rx4 PC3-10600R-9-10-E1",
+  "quantity": "9",
+  "assignment": "Non assegnato / magazzino",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-038",
+  "category": "ram",
+  "model": "Kingston HyperX DDR3 4 GB",
+  "quantity": "8",
+  "assignment": "4 moduli liberi per kit H97; altri 4 non attribuiti a un nodo, fuori stima",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-039",
+  "category": "ram",
+  "model": "Kingston HyperX DDR3 8 GB",
+  "quantity": "2",
+  "assignment": "M7 / 2 moduli",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-040",
+  "category": "ram",
+  "model": "99u5474-038.a00lf",
+  "quantity": "1",
+  "assignment": "Non assegnato / magazzino",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-041",
+  "category": "ram",
+  "model": "hynix 4gb 2rx8 pc3-10600u-9-11-b1",
+  "quantity": "1",
+  "assignment": "S1 / un modulo censito da 4 GB; secondo esemplare n.d.",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-042",
+  "category": "ram",
+  "model": "nanya nt2gc72b8pa0nf-cg",
+  "quantity": "1",
+  "assignment": "Non assegnato / magazzino",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-043",
+  "category": "cpu",
+  "model": "Intel Core i7-5930K",
+  "quantity": "1",
+  "assignment": "MP4, PC primo fratello nella configurazione 4.2",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1; decisioni confermate20 ottobre2026",
+  "notes": "Assegnazione di configurazione; trasferimento effettivo non attestato."
+ },
+ {
+  "code": "INV-044",
+  "category": "cpu",
+  "model": "Intel Core i7-3820",
+  "quantity": "1",
+  "assignment": "Magazzino libero / riuso o cessione",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": "Kit di riferimento; nessuna attestazione di funzionamento o consegna."
+ },
+ {
+  "code": "INV-045",
+  "category": "cpu",
+  "model": "Intel Xeon E5-2630L v2",
+  "quantity": "1",
+  "assignment": "Magazzino libero; nessuna assegnazione a M6 Q3A",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-046",
+  "category": "cpu",
+  "model": "Intel Xeon E3-1220L v2",
+  "quantity": "1",
+  "assignment": "M7 / router di riserva manuale",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-047",
+  "category": "cpu",
+  "model": "Intel Xeon E3-1265L v3",
+  "quantity": "1",
+  "assignment": "M4",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-048",
+  "category": "cpu",
+  "model": "Intel Xeon E5-2678 v3",
+  "quantity": "1",
+  "assignment": "M3",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-049",
+  "category": "cpu",
+  "model": "Intel Celeron J1900",
+  "quantity": "1",
+  "assignment": "S1 / CPU saldata alla Q1900M",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-050",
+  "category": "psu",
+  "model": "be quiet! Dark Power Pro 850 W",
+  "quantity": "1",
+  "assignment": "M3",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-051",
+  "category": "psu",
+  "model": "Cooler Master RS-700-ASAB-L3",
+  "quantity": "1",
+  "assignment": "M4",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-052",
+  "category": "psu",
+  "model": "Thermaltake Smart SE SPS-730M",
+  "quantity": "1",
+  "assignment": "Allocazione individuale n.d.; escluso dai lotti valutati per cessione",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-053",
+  "category": "psu",
+  "model": "Corsair CX500 CP-9020047",
+  "quantity": "1",
+  "assignment": "M2",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-054",
+  "category": "psu",
+  "model": "FSP ATX-350PNF",
+  "quantity": "2",
+  "assignment": "Allocazione individuale n.d.; escluso dai lotti valutati per cessione",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-055",
+  "category": "gpu",
+  "model": "ZOTAC GeForce RTX2080 Blower 8 GB",
+  "quantity": "1",
+  "assignment": "MP4, PC primo fratello nella configurazione 4.2",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1; decisioni confermate20 ottobre2026",
+  "notes": "Assegnazione di configurazione; trasferimento effettivo non attestato."
+ },
+ {
+  "code": "INV-057",
+  "category": "gpu",
+  "model": "Gigabyte GV-N970G1 GAMING-4GD",
+  "quantity": "1",
+  "assignment": "Non assegnato / magazzino",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-058",
+  "category": "gpu",
+  "model": "Sapphire Radeon HD6570 4 GB",
+  "quantity": "1",
+  "assignment": "Non assegnato / magazzino",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-059",
+  "category": "case",
+  "model": "Case rack 4U / telaio INV-059",
+  "quantity": "1",
+  "assignment": "Allocazione individuale n.d.; escluso dai lotti valutati per cessione",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-060",
+  "category": "case",
+  "model": "Case rack 4U / telaio INV-060",
+  "quantity": "1",
+  "assignment": "M3 / telaio",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-061",
+  "category": "case",
+  "model": "Case rack 4U / telaio INV-061",
+  "quantity": "1",
+  "assignment": "M1 / telaio",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-062",
+  "category": "case",
+  "model": "Case rack 4U / telaio INV-062",
+  "quantity": "1",
+  "assignment": "Allocazione individuale n.d.; escluso dai lotti valutati per cessione",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-063",
+  "category": "case",
+  "model": "Case rack 4U / telaio INV-063",
+  "quantity": "1",
+  "assignment": "Allocazione individuale n.d.; escluso dai lotti valutati per cessione",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-064",
+  "category": "case",
+  "model": "HP ProLiant DL180 G6 / frontale e 10 tray",
+  "quantity": "1",
+  "assignment": "M4 / riuso del frontale e dei tray; restante chassis non assegnato",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-065",
+  "category": "pcie",
+  "model": "Intel EXPI9301CTBLK",
+  "quantity": "1",
+  "assignment": "Non assegnato / magazzino",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-066",
+  "category": "pcie",
+  "model": "Intel EXPI9300PTBLK",
+  "quantity": "1",
+  "assignment": "Non assegnato / magazzino",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-067",
+  "category": "pcie",
+  "model": "LSI SAS9207-8i",
+  "quantity": "1",
+  "assignment": "Riserva futuro pool SSD M2",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": "Non richiesta nella fase P310 NVMe."
+ },
+ {
+  "code": "INV-068",
+  "category": "pcie",
+  "model": "HP NC380T",
+  "quantity": "1",
+  "assignment": "Non assegnato / magazzino",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-069",
+  "category": "pcie",
+  "model": "Fenvi FV-AC1200",
+  "quantity": "1",
+  "assignment": "Non assegnato / magazzino",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-070",
+  "category": "pcie",
+  "model": "Fenvi FV-AXE3000",
+  "quantity": "1",
+  "assignment": "Non assegnato / magazzino",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-071",
+  "category": "pcie",
+  "model": "ASUS Hyper M.2 X4",
+  "quantity": "1",
+  "assignment": "Magazzino",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "CSV 2026-10-01 + configurazione3.1.1",
+  "notes": ""
+ },
+ {
+  "code": "INV-072",
+  "category": "cpu",
+  "model": "Intel Core i5-4570T",
+  "quantity": "1",
+  "assignment": "Magazzino libero / riserva o riuso",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Aggiornamenti successivi al CSV 2026-10-01",
+  "notes": ""
+ },
+ {
+  "code": "INV-073",
+  "category": "mobo",
+  "model": "ASUS P9D-MH/SAS/10G-DUAL",
+  "quantity": "1",
+  "assignment": "M4",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Aggiornamenti successivi al CSV 2026-10-01",
+  "notes": " Installazione e test non attestati."
+ },
+ {
+  "code": "INV-074",
+  "category": "mobo",
+  "model": "D1581-Q3 / Intel Xeon D-1581",
+  "quantity": "1",
+  "assignment": "M5 / D1581-Q3",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Aggiornamenti successivi al CSV 2026-10-01",
+  "notes": ""
+ },
+ {
+  "code": "INV-075",
+  "category": "ram",
+  "model": "Lotto Samsung DDR3 RDIMM16 GB PC3, MPN per esemplare da etichetta",
+  "quantity": "7",
+  "assignment": "Lotto con INV-099: 13 moduli totali, 8 su M3 e 5 liberi; PC3 non PC3L",
+  "inventory_state": "IDENTITÀ PARZIALE",
+  "source": "Aggiornamento utente 2026-10-19; decisioni confermate20 ottobre2026",
+  "notes": "Foto lotto misto PC3/PC3L/PC4:non attribuire2133MT/s a tutte le DDR3.7DDR3da riconciliare; rank/seriali non inventati."
+ },
+ {
+  "code": "INV-076",
+  "category": "ram",
+  "model": "DDR3 ECC UDIMM 8 GB / codice modulo richiesto",
+  "quantity": "4",
+  "assignment": "M4",
+  "inventory_state": "IDENTITÀ PARZIALE",
+  "source": "Aggiornamenti successivi al CSV 2026-10-01",
+  "notes": ""
+ },
+ {
+  "code": "INV-077",
+  "category": "gpu",
+  "model": "MSI GeForce RTX3060 Ventus2X 12 GB",
+  "quantity": "1",
+  "assignment": "M3 IA",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Aggiornamenti successivi al CSV 2026-10-01; decisioni confermate20 ottobre2026",
+  "notes": " Pop!_OS attuale; nessun benchmark attestato."
+ },
+ {
+  "code": "INV-078",
+  "category": "client",
+  "model": "HP t520",
+  "quantity": "2",
+  "assignment": "Due client esterni per amici; LibreELEC/Jellyfin/offline USB",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Aggiornamenti successivi al CSV 2026-10-01; decisioni confermate20 ottobre2026",
+  "notes": "Due esemplari:4 GB PC3L-12800S e Apacer M.2 8 GB ciascuno. Non piu client audio C5/C6. S3/S4 passano ai Wyse. Prova H.265 1080p positiva dichiarata."
+ },
+ {
+  "code": "INV-079",
+  "category": "client",
+  "model": "Dell OptiPlex 7070 Ultra / Intel Core i5-8265U",
+  "quantity": "4",
+  "assignment": "Quattro 7070: Vito, cucina, camera, salone",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Aggiornamenti successivi al CSV 2026-10-01; decisioni confermate20 ottobre2026",
+  "notes": "C1/C2 client senza agenti; C3/C4 votanti e riserve HA, base 16 GB. Nessun kit32 GB imposto. C3/C4 riserve HA; C2 estensione cluster solo scenario."
+ },
+ {
+  "code": "INV-080",
+  "category": "nic",
+  "model": "Mellanox MNPA19-XTR",
+  "quantity": "2 kit NIC + AOC",
+  "assignment": "Due MNPA19-XTR a M3/M6; due AOC 3 m per la stella 10G LGS352C",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Aggiornamenti successivi al CSV 2026-10-01",
+  "notes": "Quattro uplink: M2 49, M3 50, M4 51, M6 52; due DAC 1 m completano il cablaggio."
+ },
+ {
+  "code": "INV-081",
+  "category": "nic",
+  "model": "Mellanox MCX312A-XCBT",
+  "quantity": "1",
+  "assignment": "M2",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Aggiornamenti successivi al CSV 2026-10-01",
+  "notes": ""
+ },
+ {
+  "code": "INV-082",
+  "category": "nic",
+  "model": "GLOTRENDS I226-T4",
+  "quantity": "1",
+  "assignment": "M1",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Aggiornamenti successivi al CSV 2026-10-01",
+  "notes": ""
+ },
+ {
+  "code": "INV-083",
+  "category": "gpu",
+  "model": "NVIDIA Quadro NVS290 / variante bus da identificare",
+  "quantity": "2",
+  "assignment": "Magazzino / console",
+  "inventory_state": "IDENTITÀ PARZIALE",
+  "source": "Aggiornamenti successivi al CSV 2026-10-01",
+  "notes": ""
+ },
+ {
+  "code": "INV-084",
+  "category": "nvme",
+  "model": "Samsung PM991a 256 GB",
+  "quantity": "2",
+  "assignment": "NVMe non assegnati alla base M3; identità dei singoli supporti n.d.",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Aggiornamenti successivi al CSV 2026-10-01",
+  "notes": ""
+ },
+ {
+  "code": "INV-085",
+  "category": "nvme",
+  "model": "Samsung PM991 256 GB",
+  "quantity": "1",
+  "assignment": "NVMe non assegnato alla base M3; identità del supporto n.d.",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Aggiornamenti successivi al CSV 2026-10-01",
+  "notes": ""
+ },
+ {
+  "code": "INV-086",
+  "category": "nvme",
+  "model": "Intenso 3835440 PCIe Premium 250 GB",
+  "quantity": "1",
+  "assignment": "SH3",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Aggiornamenti successivi al CSV 2026-10-01",
+  "notes": ""
+ },
+ {
+  "code": "INV-087",
+  "category": "hdd",
+  "model": "Seagate ST2000DM008 2 TB",
+  "quantity": "4",
+  "assignment": "M4 / media",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Aggiornamenti successivi al CSV 2026-10-01",
+  "notes": ""
+ },
+ {
+  "code": "INV-088",
+  "category": "ssd",
+  "model": "SSD enterprise480/500 GB di riferimento per M2; SKU da scegliere",
+  "quantity": "8",
+  "assignment": "Futuro pool M2; P310 4 TB nella base corrente",
+  "inventory_state": "EVOLUZIONE / POOL SSD",
+  "source": "Aggiornamenti successivi al CSV 2026-10-01; decisioni confermate20 ottobre2026",
+  "notes": "Otto unità in quattro mirror come evoluzione; SKU e scelta SATA/SAS nella roadmap."
+ },
+ {
+  "code": "INV-089",
+  "category": "enclosure",
+  "model": "ORICO USB 10Gb/s / bridge RTL9210B-CG",
+  "quantity": "1",
+  "assignment": "SH3 / box",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Aggiornamenti successivi al CSV 2026-10-01",
+  "notes": ""
+ },
+ {
+  "code": "INV-090",
+  "category": "network",
+  "model": "NETGEAR GS305E",
+  "quantity": "1",
+  "assignment": "Rete / ruolo di switch nel registro",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Aggiornamenti successivi al CSV 2026-10-01",
+  "notes": ""
+ },
+ {
+  "code": "INV-091",
+  "category": "mobile",
+  "model": "Google Pixel 7",
+  "quantity": "1",
+  "assignment": "MD1",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Aggiornamenti successivi al CSV 2026-10-01",
+  "notes": ""
+ },
+ {
+  "code": "INV-092",
+  "category": "mobile",
+  "model": "Google Pixel 10 Pro",
+  "quantity": "1",
+  "assignment": "MD2",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Aggiornamenti successivi al CSV 2026-10-01",
+  "notes": ""
+ },
+ {
+  "code": "INV-093",
+  "category": "mobile",
+  "model": "Apple iPhone 11",
+  "quantity": "1",
+  "assignment": "MD3",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Aggiornamenti successivi al CSV 2026-10-01",
+  "notes": ""
+ },
+ {
+  "code": "INV-094",
+  "category": "mobile",
+  "model": "Apple iPad / modello richiesto",
+  "quantity": "1",
+  "assignment": "MD4",
+  "inventory_state": "IDENTITÀ PARZIALE",
+  "source": "Aggiornamenti successivi al CSV 2026-10-01",
+  "notes": ""
+ },
+ {
+  "code": "INV-095",
+  "category": "pc",
+  "model": "Apple MacBook M5 personale",
+  "quantity": "1",
+  "assignment": "MP1 / a casa, utente dedicato al lavoro",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Aggiornamenti successivi al CSV 2026-10-01",
+  "notes": ""
+ },
+ {
+  "code": "INV-096",
+  "category": "pc",
+  "model": "Apple MacBook Air M1 / 8 GB / 256 GB",
+  "quantity": "1",
+  "assignment": "Scenario Air M1 archiviato, escluso dalla configurazione di riferimento",
+  "inventory_state": "ARCHIVIO / ESCLUSO DALL’ASSETTO",
+  "source": "Aggiornamenti successivi al CSV 2026-10-01",
+  "notes": "Ultima conferma utente 2026-10-29; nessuna ricezione attestata."
+ },
+ {
+  "code": "INV-097",
+  "category": "gpu",
+  "model": "Intel Arc A310 / produttore e SKU da indicare",
+  "quantity": "1",
+  "assignment": "M6 / Jellyfin",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Aggiornamento IA e visione utente 2026-10-18; decisioni confermate20 ottobre2026",
+  "notes": "Acceleratore multimediale M6; variante e produttore n.d."
+ },
+ {
+  "code": "INV-098",
+  "category": "npu",
+  "model": "Hailo-8 / SKU e key da indicare",
+  "quantity": "1",
+  "assignment": "M5 / Frigate e vision-gateway",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Aggiornamento IA e visione utente 2026-10-18",
+  "notes": "Hailo-8 M-key su M5; percorso detector distinto dalla decodifica video e dall’OCR Paperless."
+ },
+ {
+  "code": "INV-099",
+  "category": "ram",
+  "model": "Kingston KVR16R11D4/16, 16GB2Rx4 PC3-12800R 1.5V",
+  "quantity": "6",
+  "assignment": "Lotto con INV-075: 13 moduli totali, 8 su M3 e 5 liberi; PC3 non PC3L",
+  "inventory_state": "IDENTITÀ PARZIALE",
+  "source": "Aggiornamento utente 2026-10-19; decisioni confermate20 ottobre2026",
+  "notes": "Sei moduli da foto:DDR3-1600, non1866 dichiarati inizialmente; seriali da arrivi."
+ },
+ {
+  "code": "INV-100",
+  "category": "ram",
+  "model": "DDR3L 16 GB RDIMM:Micron MT36KSF2G72PZ-1G6E1HF e Samsung M393B2G70DB0-YK0 da foto",
+  "quantity": "4",
+  "assignment": "M2 4 x16 GB PC3L",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Aggiornamento utente 2026-10-19; decisioni confermate20 ottobre2026",
+  "notes": "Gruppo4moduli, composizione per seriale da associare. PC3L-12800R1600, non tutti Samsung come primo racconto."
+ },
+ {
+  "code": "INV-101",
+  "category": "ram",
+  "model": "DDR4 PC4 ECC RDIMM 16 GB / produttore, MPN e velocita da indicare",
+  "quantity": "2",
+  "assignment": "M1 32 GB DDR4 ECC RDIMM",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Aggiornamento utente 2026-10-19; decisioni confermate20 ottobre2026",
+  "notes": "Due DDR4Registered dal lotto iniziale; foto ed etichette da associare. Non contare come DDR3."
+ },
+ {
+  "code": "INV-102",
+  "category": "mobo",
+  "model": "BKHD C612NP-21 VER1.1",
+  "quantity": "1",
+  "assignment": "Escluso dall’assetto di riferimento",
+  "inventory_state": "ARCHIVIO / ESCLUSO DALL’ASSETTO",
+  "source": "Decisioni utente 2026-10-19; decisioni confermate20 ottobre2026",
+  "notes": "Rettifica 1 novembre: ordine annullato; nessuna consegna o disponibilita."
+ },
+ {
+  "code": "INV-103",
+  "category": "cpu",
+  "model": "Intel Xeon E5-2630L v3",
+  "quantity": "1",
+  "assignment": "Escluso dall’assetto di riferimento",
+  "inventory_state": "ARCHIVIO / ESCLUSO DALL’ASSETTO",
+  "source": "Decisioni utente 2026-10-19; decisioni confermate20 ottobre2026",
+  "notes": "Rettifica 1 novembre: ordine annullato; nessuna consegna o disponibilita."
+ },
+ {
+  "code": "INV-104",
+  "category": "mobo",
+  "model": "ASUS Z9PR-D12",
+  "quantity": "1",
+  "assignment": "Candidata storica scartata; non riutilizzare il codice",
+  "inventory_state": "ARCHIVIO / ESCLUSO DALL’ASSETTO",
+  "source": "Decisioni utente 2026-10-19; decisioni confermate20 ottobre2026",
+  "notes": "Z9PA-U8 a sua volta esclusa dalla base 4.4."
+ },
+ {
+  "code": "DA-ASSOCIARE-T110-II",
+  "category": "server",
+  "model": "Dell PowerEdge T110 II / E3-1220 v2 / 8 GB",
+  "quantity": "1",
+  "assignment": "Riserva complementare e unità RDX SATA; M7 resta H61M-K",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Lotto 150 EUR 2026-10-29",
+  "notes": "Modello PSU, seriali e stato da riscontro"
+ },
+ {
+  "code": "DA-ASSOCIARE-RDX",
+  "category": "backup",
+  "model": "RDX QuikStor SATA / generazione da associare",
+  "quantity": "1",
+  "assignment": "RDX per copie offline tematiche",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Lotto T110/Wyse",
+  "notes": "Cartucce dati rimovibili; non è nastro. Generazione lettore n.d."
+ },
+ {
+  "code": "DA-ASSOCIARE-WYSE3030",
+  "category": "client",
+  "model": "Dell Wyse 3030 N03D / 4 GB / 32 GB dichiarati",
+  "quantity": "5",
+  "assignment": "Laboratorio; S3; S4; studio; Hi-Fi salone",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Lotto 150 EUR 2026-10-29",
+  "notes": "Cinque alimentatori inclusi; 32 GB da riscontrare"
+ },
+ {
+  "code": "DA-ASSOCIARE-ACER",
+  "category": "pc",
+  "model": "Acer Aspire 7 A715-42G-R2VB / dotazione dichiarata",
+  "quantity": "1",
+  "assignment": "MP3 fisso laboratorio",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Conferma utente 2026-10-23",
+  "notes": "16 GB, 5700U, RTX3050 Ti 4 GB, P3 Plus 1 TB"
+ },
+ {
+  "code": "DA-ASSOCIARE-EBL14B",
+  "category": "pc",
+  "model": "Microtech EBL14B",
+  "quantity": "1",
+  "assignment": "Ingresso: pannello citofono/allarme",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Conferme utente 2026-10-23/30",
+  "notes": "Batteria, audio/video e dotazione da riscontro"
+ },
+ {
+  "code": "DA-ASSOCIARE-KINDLE",
+  "category": "reader",
+  "model": "Kindle 11a generazione USB-C, modello da associare",
+  "quantity": "1",
+  "assignment": "Biblioteca/plancia personale",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Conferma utente 2026-10-23",
+  "notes": "Un solo dispositivo; vecchio non trovato"
+ },
+ {
+  "code": "DA-ASSOCIARE-K19S",
+  "category": "dock",
+  "model": "Dock regolamentare K19S, variante da associare",
+  "quantity": "1",
+  "assignment": "Postazioni casa",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Conferma utente 2026-10-29",
+  "notes": "Non dedurre WD19/TB da sola sigla"
+ },
+ {
+  "code": "INV-105",
+  "category": "motherboard",
+  "model": "MACHINIST X99 PR9-H + Xeon E5-2630L v3",
+  "quantity": "1",
+  "assignment": "M1",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Conversazione utente 1 novembre 2026",
+  "notes": ""
+ },
+ {
+  "code": "INV-106",
+  "category": "motherboard",
+  "model": "D1581-Q3A / Xeon D-1581",
+  "quantity": "2",
+  "assignment": "M2 e M6",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Conversazione utente 1 novembre 2026",
+  "notes": ""
+ },
+ {
+  "code": "INV-107",
+  "category": "nic",
+  "model": "Mellanox MCX312A-XCBT dual 10GbE",
+  "quantity": "0 aggiuntivi",
+  "assignment": "Alias dell’esemplare INV-081 su M2",
+  "inventory_state": "ALIAS / NON SOMMARE",
+  "source": "Conversazione utente 1 novembre 2026",
+  "notes": "Il nuovo ordine conferma la MCX312A già censita come INV-081; non è una seconda scheda."
+ },
+ {
+  "code": "INV-108",
+  "category": "cavo",
+  "model": "DAC passivo SFP+ 10G 1 m",
+  "quantity": "2",
+  "assignment": "Dorsale a stella LGS352C",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Conversazione utente 1 novembre 2026",
+  "notes": ""
+ },
+ {
+  "code": "INV-109",
+  "category": "ram",
+  "model": "HP/Hynix PC3L-10600R ECC RDIMM 16 GB",
+  "quantity": "6",
+  "assignment": "M5: 2 moduli; M6: 4 moduli",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Conversazione utente 1 novembre 2026",
+  "notes": ""
+ },
+ {
+  "code": "INV-110",
+  "category": "switch",
+  "model": "Linksys LGS352C-EU",
+  "quantity": "1",
+  "assignment": "Switch fidato / 48x1G +4x10G",
+  "inventory_state": "CENSITO / ASSEGNAZIONE DI RIFERIMENTO",
+  "source": "Conversazione utente 1 novembre 2026",
+  "notes": ""
+ }
+]

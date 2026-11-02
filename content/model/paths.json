@@ -1,0 +1,40 @@
+[
+ {"id": "documento", "title": "Dove passa un mio documento?", "question": "Dal telefono all'archivio, fino al recupero.", "steps": [
+   {"label": "Dispositivo", "text": "Telefono o PC con l'app Nextcloud (o scansione per Paperless).", "entity": null, "ev": "documented", "cards": ["INF-12.04"]},
+   {"label": "Accesso in casa", "text": "Sulla rete fidata il dispositivo raggiunge M2 attraverso lo switch; tra reti diverse passa da M1.", "entity": "SW", "ev": "documented", "cards": ["INF-02.07"]},
+   {"label": "Accesso da fuori", "text": "Linea Internet → firewall M1 → Caddy su S1 → accesso remoto personale. Il meccanismo dell'accesso personale non è documentato.", "entity": "ACCESSO-PRIVATO", "ev": "unknown", "gap": "Q-ACCESSO", "cards": ["INF-03.18", "INF-03.14"]},
+   {"label": "Applicazione", "text": "Nextcloud su M2 salva file e database nello stesso punto coerente.", "entity": "NEXTCLOUD", "ev": "documented", "cards": ["INF-03.14"]},
+   {"label": "Archivio principale", "text": "Il disco P310 di M2: singolo, senza ridondanza locale.", "entity": "ST-P310", "ev": "documented", "cards": ["INF-03.03"]},
+   {"label": "Punti nel tempo", "text": "Snapshot sullo stesso disco: errori di ieri sì, guasto del disco no.", "entity": "CP-SNAP", "ev": "documented", "cards": ["INF-04.04"]},
+   {"label": "Replica", "text": "Replica verso C4 per il subentro: un errore si replica, non è un backup. Perimetro da misurare.", "entity": "CP-REPL-C4", "ev": "documented", "cards": ["INF-08.08"]},
+   {"label": "Backup locale", "text": "Ogni giorno dalle 18:00 su M4, versionato (proposta da attivare).", "entity": "CP-BCK-M4", "ev": "documented", "cards": ["REV3-BCK"]},
+   {"label": "Fuori casa", "text": "Copia su Drive dopo una copia coerente; cifratura da decidere.", "entity": "CP-DRIVE", "ev": "documented", "cards": ["REV3-CLOUD"]},
+   {"label": "Offline", "text": "Cartuccia RDX «documenti» (proposta, non acquistata).", "entity": "CP-RDX", "ev": "documented", "cards": ["INF-04.07"]},
+   {"label": "Recupero", "text": "Da un client indipendente, in una cartella nuova, con verifica di apertura e permessi.", "entity": "PR-RESTORE", "ev": "documented", "cards": ["INF-04.10"]}
+  ]},
+ {"id": "foto", "title": "Dove finiscono le mie foto?", "question": "«Non vedo le foto»: che cosa c'è in mezzo.", "steps": [
+   {"label": "Telefono", "text": "L'app Immich carica le foto dal telefono.", "entity": null, "ev": "documented", "cards": ["INF-03.15"]},
+   {"label": "Accesso", "text": "In casa via rete fidata; da fuori con l'accesso remoto personale (meccanismo non documentato).", "entity": "ACCESSO-PRIVATO", "ev": "unknown", "gap": "Q-ACCESSO", "cards": ["INF-03.18"]},
+   {"label": "Applicazione", "text": "Immich su M2: originali, metadati e database. Nessun subentro: con M2 fermo le foto aspettano.", "entity": "IMMICH", "ev": "documented", "cards": ["INF-03.15", "INF-08.08"]},
+   {"label": "Dati", "text": "Disco P310 di M2.", "entity": "ST-P310", "ev": "documented", "cards": ["INF-03.03"]},
+   {"label": "Copie", "text": "Backup su M4, Drive e cartuccia RDX «foto/video» (proposta).", "entity": "D-FOTO", "ev": "documented", "cards": ["REV3-BCK"]}
+  ]},
+ {"id": "multimedia", "title": "Come vedo un film?", "question": "Dal televisore ai dischi, con i server che si svegliano.", "steps": [
+   {"label": "Client", "text": "Un client di casa (C2, TV, telefono) o un HP t520 degli amici.", "entity": "C2", "ev": "documented", "cards": ["REV4-CLIENT", "REV3-EXT"]},
+   {"label": "Accesso", "text": "In casa sulla rete locale; gli amici via HTTPS attraverso Caddy su S1 e il filtro di M1.", "entity": "CADDY", "ev": "documented", "cards": ["INF-12.03", "INF-03.18"]},
+   {"label": "Risveglio di M6", "text": "M6 è acceso su richiesta. Chi lo sveglia quando un client chiede un film non è documentato.", "entity": "M6", "ev": "unknown", "gap": "Q-M6-WAKE", "cards": ["INF-03.32"]},
+   {"label": "Servizio", "text": "Jellyfin su M6, transcodifica con Arc A310 solo dopo test (Arc non acquistata).", "entity": "JELLYFIN", "ev": "documented", "cards": ["INF-03.05"]},
+   {"label": "Risveglio di M4", "text": "Se il file è sul pool media di M4, la richiesta di visione sveglia M4 (S4 primo mittente, C4 secondo).", "entity": "WOL", "ev": "documented", "cards": ["INF-03.32"]},
+   {"label": "Dati", "text": "Pool media di M4, in sola lettura per Jellyfin. Topologia RAIDZ1 non ratificata.", "entity": "ST-M4-MEDIA", "ev": "documented", "cards": ["REV3-MAP", "REV3-OPEN"]},
+   {"label": "Offline", "text": "Gli HP degli amici usano i titoli già sulla chiavetta USB, senza svegliare nulla.", "entity": "JF-OFFLINE", "ev": "documented", "cards": ["INF-05.30"]}
+  ]},
+ {"id": "domotica", "title": "Come arriva un comando domotico?", "question": "Dall'interruttore alla luce, con e senza server.", "steps": [
+   {"label": "Dispositivo", "text": "Sensore o interruttore Zigbee.", "entity": null, "ev": "documented", "cards": ["INF-03.28"]},
+   {"label": "Radio", "text": "Rete Zigbee verso il coordinatore Sonoff su S3.", "entity": "NET-ZIGBEE", "ev": "documented", "cards": ["INF-03.28"]},
+   {"label": "Percorso diretto", "text": "Dove è configurato un binding, l'interruttore comanda la luce direttamente. Quali dispositivi lo abbiano non è documentato.", "entity": "ZB-BINDING", "ev": "unknown", "gap": "Q-BINDING", "cards": ["INF-03.28"]},
+   {"label": "Ponte", "text": "Zigbee2MQTT su S3 traduce la radio in messaggi.", "entity": "Z2M", "ev": "documented", "cards": ["INF-03.28"]},
+   {"label": "Messaggi", "text": "Broker MQTT su M5 (subentro previsto su C3 dopo collaudo).", "entity": "MQTT", "ev": "documented", "cards": ["INF-08.08"]},
+   {"label": "Automazione", "text": "Home Assistant su M5 decide l'azione.", "entity": "HAOS", "ev": "documented", "cards": ["INF-03.28"]},
+   {"label": "Azione", "text": "Il comando torna via MQTT e radio al dispositivo. Gli avvisi possono uscire anche dal router 5G con M1 fermo.", "entity": "NET-ZIGBEE", "ev": "documented", "cards": ["INF-02.01"]}
+  ]}
+]

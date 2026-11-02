@@ -1,0 +1,539 @@
+{
+ "phases": [
+  {
+   "id": "p0",
+   "title": "Inventario e prove da banco",
+   "goal": "Sapere che cosa funziona prima di cambiare la casa.",
+   "target": {
+    "from": "2026-12-23",
+    "to": "2026-12-27",
+    "kind": "data obiettivo"
+   },
+   "gate": "Inventario riconciliato, dischi identificati e prove annotate. Nessuna cancellazione.",
+   "rollback": "Tutto il sistema precedente resta disponibile.",
+   "gateTests": [
+    "T-RAM",
+    "T-NVME"
+   ],
+   "cards": [
+    "REV4-ROAD",
+    "REV3-OPEN"
+   ]
+  },
+  {
+   "id": "p1",
+   "title": "Arca di transizione su Drive",
+   "goal": "Conservare tutti i dati prima di liberare i dischi.",
+   "target": {
+    "from": "2026-12-27",
+    "kind": "durata vincolata alla banda di upload"
+   },
+   "after": [
+    "p0"
+   ],
+   "gate": "Ogni sorgente da ricostruire ha una copia completa verificata e recuperabile.",
+   "rollback": "Sorgenti originali conservate; ripresa dei lotti falliti senza spostamenti.",
+   "gateTests": [
+    "T-COPIE"
+   ],
+   "cards": [
+    "REV4-ROAD",
+    "REV4-MIG",
+    "REV3-CLOUD"
+   ]
+  },
+  {
+   "id": "p2",
+   "title": "Rete e nucleo stabile",
+   "goal": "Costruire il nuovo nucleo senza dipendere dai server a richiesta.",
+   "target": {
+    "from": "2026-12-28",
+    "to": "2027-01-06",
+    "kind": "condizionata: «se pronti»"
+   },
+   "after": [
+    "p0"
+   ],
+   "gate": "Rete ripristinabile, quorum controllato e accesso di gestione disponibile anche a router fermo.",
+   "rollback": "Vecchio firewall o avvio bare metal; importare la configurazione verificata.",
+   "gateTests": [
+    "T-M1",
+    "T-CLUSTER"
+   ],
+   "cards": [
+    "REV4-ROAD"
+   ]
+  },
+  {
+   "id": "p3",
+   "title": "Dati e applicazioni",
+   "goal": "Liberare il P310 e spostare i dati sulle destinazioni definitive.",
+   "target": {
+    "from": "2027-01",
+    "kind": "condizionata al completamento delle copie"
+   },
+   "after": [
+    "p1",
+    "p2"
+   ],
+   "gate": "Dati confrontati, applicazioni provate e almeno un recupero eseguito.",
+   "rollback": "Ripristino da Arca/Drive/RDX secondo la copia verificata; mai cancellare l'unico originale.",
+   "gateTests": [
+    "T-COPIE",
+    "T-M4SMR"
+   ],
+   "cards": [
+    "REV4-ROAD",
+    "REV4-MIG"
+   ]
+  },
+  {
+   "id": "p4",
+   "title": "Vito: primo viaggio operativo",
+   "goal": "Lavorare e consultare documenti anche senza casa e LTE.",
+   "target": {
+    "from": "2027-01",
+    "kind": "in parallelo alle copie"
+   },
+   "after": [
+    "p0"
+   ],
+   "gate": "Rapporto offline recuperato e registrato una sola volta; documenti consultabili senza rete.",
+   "rollback": "Kit documenti locale e procedura manuale.",
+   "gateTests": [
+    "T-VITO"
+   ],
+   "cards": [
+    "REV4-ROAD",
+    "REV4-VTEST"
+   ]
+  },
+  {
+   "id": "p5",
+   "title": "Domotica, media e telemetria",
+   "goal": "Attivare gli acceleratori soltanto dove servono.",
+   "target": {
+    "from": "2027-01",
+    "to": "2027-02",
+    "kind": "dopo i collaudi hardware"
+   },
+   "after": [
+    "p2",
+    "p3"
+   ],
+   "gate": "Carichi reali stabili; failover e recuperi documentati; nessuna capacità presunta.",
+   "rollback": "Direct play, Frigate ridotto, gestione manuale e copie precedenti.",
+   "gateTests": [
+    "T-HA-APP",
+    "T-HA-DOM",
+    "T-FRIGATE",
+    "T-JELLYFIN"
+   ],
+   "cards": [
+    "REV4-ROAD"
+   ]
+  },
+  {
+   "id": "p6",
+   "title": "Ottimizzazione e chiusura",
+   "goal": "Consolidare soltanto ciò che è stato misurato.",
+   "target": {
+    "from": "2027-02",
+    "to": "2027-03",
+    "kind": "finestra adattabile"
+   },
+   "after": [
+    "p5"
+   ],
+   "gate": "Registro collaudi completo e nessuna sorgente unica dimenticata.",
+   "rollback": "Mantenere la configurazione precedente e le copie di migrazione finché necessario.",
+   "gateTests": [
+    "T-ENERGIA"
+   ],
+   "cards": [
+    "REV4-ROAD"
+   ]
+  }
+ ],
+ "tasks": [
+  {
+   "id": "A-0.1",
+   "phase": "p0",
+   "title": "Registrare consegne e collaudi delle D1581, della RAM acquistata e del LGS352C",
+   "entities": [
+    "M2",
+    "M6",
+    "M5",
+    "SW"
+   ],
+   "needs": [
+    {
+     "acq": "A44-01"
+    },
+    {
+     "acq": "A44-05"
+    },
+    {
+     "acq": "A44-09"
+    }
+   ],
+   "evidence": "Registro arrivi con data, esemplare e foto.",
+   "audience": "proprietario"
+  },
+  {
+   "id": "A-0.2",
+   "phase": "p0",
+   "title": "Provare RAM, NVMe simultanei, NIC, temperature e avvio senza GPU",
+   "entities": [
+    "M1",
+    "M2",
+    "M5",
+    "M6"
+   ],
+   "after": [
+    "A-0.1"
+   ],
+   "tests": [
+    "T-RAM",
+    "T-NVME"
+   ],
+   "evidence": "Esito dei test memoria e del carico NIC + NVMe.",
+   "audience": "tecnico"
+  },
+  {
+   "id": "A-0.3",
+   "phase": "p0",
+   "title": "Misurare tutti i dati, inclusi i media sui WD e i contenuti unici di Arca",
+   "entities": [
+    "D-DOC",
+    "D-FOTO",
+    "D-MEDIA",
+    "ARCA"
+   ],
+   "evidence": "Volumi per insieme, con data della misura.",
+   "audience": "proprietario"
+  },
+  {
+   "id": "A-0.4",
+   "phase": "p0",
+   "title": "Preparare C1 del Vito al banco: SSD, alimentazione, display e kit offline",
+   "entities": [
+    "C1",
+    "VITO-KIT"
+   ],
+   "evidence": "Elenco dotazione verificata.",
+   "audience": "proprietario"
+  },
+  {
+   "id": "A-1.1",
+   "phase": "p1",
+   "title": "Decidere cifratura e perimetro delle cartelle su Drive (lavoro separato)",
+   "entities": [
+    "CP-ARCA",
+    "ST-DRIVE"
+   ],
+   "evidence": "Decisione registrata.",
+   "audience": "proprietario",
+   "decides": [
+    "DEC-CRYPT"
+   ]
+  },
+  {
+   "id": "A-1.2",
+   "phase": "p1",
+   "title": "Caricare per lotti con registro esiti e controllo di integrità",
+   "entities": [
+    "CP-ARCA",
+    "WAN1"
+   ],
+   "after": [
+    "A-1.1",
+    "A-0.3"
+   ],
+   "evidence": "Registro lotti con hash/confronto.",
+   "audience": "tecnico"
+  },
+  {
+   "id": "A-1.3",
+   "phase": "p1",
+   "title": "Mantenere una copia locale indipendente del nucleo irrinunciabile",
+   "entities": [
+    "D-DOC",
+    "D-FOTO"
+   ],
+   "after": [
+    "A-0.3"
+   ],
+   "evidence": "Supporto e contenuto della copia.",
+   "audience": "proprietario"
+  },
+  {
+   "id": "A-1.4",
+   "phase": "p1",
+   "title": "Provare il ripristino di file e applicazioni; completare l'ultimo incremento",
+   "entities": [
+    "CP-ARCA"
+   ],
+   "after": [
+    "A-1.2"
+   ],
+   "tests": [
+    "T-COPIE"
+   ],
+   "procedures": [
+    "PR-RESTORE"
+   ],
+   "evidence": "Recupero riuscito registrato (non solo job completato).",
+   "audience": "tecnico"
+  },
+  {
+   "id": "A-2.1",
+   "phase": "p2",
+   "title": "Allestire M1 e provare OPNsense, NIC e recupero locale",
+   "entities": [
+    "M1",
+    "OPNSENSE"
+   ],
+   "after": [
+    "A-0.2"
+   ],
+   "tests": [
+    "T-M1"
+   ],
+   "evidence": "Esito routing, riavvio e recupero.",
+   "audience": "tecnico"
+  },
+  {
+   "id": "A-2.2",
+   "phase": "p2",
+   "title": "Creare il nucleo Proxmox M1/M2/M5/C3/C4 a cinque voti",
+   "entities": [
+    "CLUSTER"
+   ],
+   "after": [
+    "A-2.1"
+   ],
+   "tests": [
+    "T-CLUSTER"
+   ],
+   "evidence": "Stato membri e voti; nessuna modifica di expected_votes.",
+   "audience": "tecnico"
+  },
+  {
+   "id": "A-2.3",
+   "phase": "p2",
+   "title": "Installare il monitoraggio separato su M1 e la sentinella S4",
+   "entities": [
+    "ZABBIX",
+    "S4",
+    "WOL"
+   ],
+   "after": [
+    "A-2.1"
+   ],
+   "evidence": "Avvisi ricevuti in una prova.",
+   "audience": "tecnico"
+  },
+  {
+   "id": "A-2.4",
+   "phase": "p2",
+   "title": "Collegare M2/M3/M4/M6 alla stella 10G del LGS352C",
+   "entities": [
+    "SW",
+    "M2",
+    "M3",
+    "M4",
+    "M6"
+   ],
+   "after": [
+    "A-0.1"
+   ],
+   "evidence": "Registro di posa e test dei link.",
+   "audience": "tecnico"
+  },
+  {
+   "id": "A-3.1",
+   "phase": "p3",
+   "title": "Trasferire il P310 da Arca a M2 soltanto dopo il gate delle copie",
+   "entities": [
+    "ST-P310",
+    "ARCA",
+    "M2"
+   ],
+   "after": [
+    "A-1.4",
+    "A-2.2"
+   ],
+   "gate": "p1",
+   "evidence": "Data del trasferimento e verifica del contenuto.",
+   "audience": "proprietario"
+  },
+  {
+   "id": "A-3.2",
+   "phase": "p3",
+   "title": "Ripristinare app e database; misurare latenza, RAM e spazio",
+   "entities": [
+    "NEXTCLOUD",
+    "IMMICH",
+    "PAPERLESS",
+    "D-APPDB"
+   ],
+   "after": [
+    "A-3.1"
+   ],
+   "procedures": [
+    "PR-RESTORE"
+   ],
+   "evidence": "Login, allegati, ricerca e ruoli verificati.",
+   "audience": "tecnico"
+  },
+  {
+   "id": "A-3.3",
+   "phase": "p3",
+   "title": "Spostare i media WD sul pool media collaudato; ricostruire i WD per il backup",
+   "entities": [
+    "D-MEDIA",
+    "ST-M4-MEDIA",
+    "ST-M4-BCK"
+   ],
+   "after": [
+    "A-1.4"
+   ],
+   "tests": [
+    "T-M4SMR"
+   ],
+   "decisions": [
+    "DEC-M4-MEDIA"
+   ],
+   "evidence": "Confronto prima del riuso dei WD.",
+   "audience": "tecnico"
+  },
+  {
+   "id": "A-3.4",
+   "phase": "p3",
+   "title": "Provare backup locale e recupero selettivo; introdurre RDX se acquistati",
+   "entities": [
+    "CP-BCK-M4",
+    "CP-RDX"
+   ],
+   "after": [
+    "A-3.3"
+   ],
+   "tests": [
+    "T-COPIE"
+   ],
+   "needs": [
+    {
+     "acq": "A44-06",
+     "optional": true
+    }
+   ],
+   "evidence": "Recupero selettivo registrato.",
+   "audience": "tecnico"
+  },
+  {
+   "id": "A-4.1",
+   "phase": "p4",
+   "title": "Verificare monitor/touch e alimentazione con C1 reale",
+   "entities": [
+    "C1"
+   ],
+   "after": [
+    "A-0.4"
+   ],
+   "audience": "proprietario"
+  },
+  {
+   "id": "A-4.2",
+   "phase": "p4",
+   "title": "Preparare il rapportino offline con invio e conferma senza duplicati",
+   "entities": [
+    "VITO-KIT",
+    "D-VITO"
+   ],
+   "after": [
+    "A-4.1"
+   ],
+   "tests": [
+    "T-VITO"
+   ],
+   "audience": "proprietario"
+  },
+  {
+   "id": "A-5.1",
+   "phase": "p5",
+   "title": "Collaudare HAOS/MQTT su C3 e le app selezionate su C4",
+   "entities": [
+    "CP-REPL-C3",
+    "CP-REPL-C4"
+   ],
+   "after": [
+    "A-2.2",
+    "A-3.2"
+   ],
+   "tests": [
+    "T-HA-DOM",
+    "T-HA-APP"
+   ],
+   "evidence": "Tempo e perdita di dati misurati per ogni subentro.",
+   "audience": "tecnico"
+  },
+  {
+   "id": "A-5.2",
+   "phase": "p5",
+   "title": "Installare Hailo e camere se acquistati; misurare decodifica e detector",
+   "entities": [
+    "FRIGATE",
+    "VISIONGW"
+   ],
+   "tests": [
+    "T-FRIGATE"
+   ],
+   "after": [
+    "A-2.2"
+   ],
+   "audience": "tecnico"
+  },
+  {
+   "id": "A-5.3",
+   "phase": "p5",
+   "title": "Provare Arc e rete su M6; abilitare la transcodifica soltanto dopo test",
+   "entities": [
+    "M6",
+    "JELLYFIN"
+   ],
+   "tests": [
+    "T-JELLYFIN"
+   ],
+   "after": [
+    "A-2.4"
+   ],
+   "audience": "tecnico"
+  },
+  {
+   "id": "A-6.1",
+   "phase": "p6",
+   "title": "Misurare consumi a riposo e di picco; regolare RAM e ARC sulle metriche",
+   "entities": [
+    "PS-RACK",
+    "ZABBIX"
+   ],
+   "after": [
+    "A-2.3"
+   ],
+   "tests": [
+    "T-ENERGIA"
+   ],
+   "audience": "tecnico"
+  },
+  {
+   "id": "A-6.2",
+   "phase": "p6",
+   "title": "Aggiornare registro installato, schede e lista acquisti residui",
+   "after": [
+    "A-5.1"
+   ],
+   "audience": "proprietario"
+  }
+ ]
+}

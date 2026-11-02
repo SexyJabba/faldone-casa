@@ -1,0 +1,95 @@
+[
+ {"id": "PR-NOACCESSO", "emergency": true, "symptom": "Non accedo ai servizi", "title": "Non riesco ad aprire un servizio di casa", "audience": "chiunque in casa; passaggio al tecnico indicato", "skills": "Nessuna per i controlli iniziali; tecnico per la diagnosi dei nodi.", "cards": ["INF-08.04", "INF-12.13", "INF-03.18"], "entities": ["S1", "CADDY", "M1", "OPNSENSE", "M2"],
+  "stopIf": ["Un disco fa rumori anomali o una macchina è calda o fuma: spegnere solo l'alimentazione generale se c'è pericolo e chiamare il tecnico.", "Non riavviare M2 o M4 per «provare»: la manutenzione contiene prima il servizio interessato."],
+  "checks": [
+   {"text": "Sei in casa o fuori? Da fuori servono la linea Internet, M1 e S1. Prova dall'interno di casa.", "expect": "Da casa funziona: il problema è sul percorso esterno (vai a «Manca Internet»)."},
+   {"text": "Il problema riguarda un solo servizio o tutti?", "expect": "Uno solo: annota il nome e cercalo nel Faldone per vedere su quale macchina gira."},
+   {"text": "Il servizio è su una macchina a richiesta (M3, M4, M6)? Aspetta qualche minuto: potrebbe essere in accensione.", "expect": "Dopo l'attesa risponde: era spento, non guasto. Il tempo di risveglio non è ancora misurato."}
+  ],
+  "steps": [
+   {"text": "Controlla le notifiche sul telefono (ntfy) per un avviso su apparato e funzione.", "expect": "L'avviso indica la macchina coinvolta.", "else": "Se non arrivano avvisi, anche S1 potrebbe essere fermo: annotalo."},
+   {"text": "Apri nel Faldone la scheda della macchina indicata e leggi «Se manca».", "expect": "Sai che cosa resta disponibile."},
+   {"text": "Tecnico: contenere il guest o il servizio coinvolto prima di riavviare l'host; raccogliere log, stato dei pool ed errori nel registro incidente.", "expect": "Il servizio riparte o la causa è isolata.", "tech": true}
+  ],
+  "rollback": "Nessuna modifica è richiesta nei controlli iniziali.",
+  "evidence": "Evento, nodo, ora, contenimento e risultato nel modulo incidente (INF-08.04).",
+  "verifiedAt": null},
+ {"id": "PR-INTERNET", "emergency": true, "symptom": "Manca Internet", "title": "La connessione a Internet non funziona", "audience": "chiunque in casa", "skills": "Nessuna", "cards": ["INF-02.07", "INF-08.04", "REV3-RET"], "entities": ["WAN1", "WAN2", "M1", "NET-FAMIGLIA"],
+  "stopIf": ["Non usare la SIM di casa da 500 GB per trasferire grandi quantità di dati."],
+  "checks": [
+   {"text": "La rete della famiglia (mesh) esce su Internet senza passare da M1. Funziona lì?", "expect": "Sì: il guasto riguarda M1 o le reti private, non la linea."},
+   {"text": "Le spie del modem FTTC e del router 5G sono regolari?", "expect": "Se entrambe le linee sono giù, è un guasto del gestore: attendere."}
+  ],
+  "steps": [
+   {"text": "Se manca solo la rete privata: in casa i servizi sulla stessa rete continuano; il DNS e l'instradamento di M1 sono assenti.", "expect": "Domotica e file locali restano disponibili."},
+   {"text": "Tecnico: verificare M1/OPNsense; se non si recupera, avvio dal secondo boot o da M7 (manuale).", "expect": "Instradamento ripristinato.", "tech": true}
+  ],
+  "rollback": "Il passaggio a M7 è manuale e reversibile riavviando M1 recuperato.",
+  "evidence": "Ora dell'interruzione, linee coinvolte, ripristino.",
+  "verifiedAt": null},
+ {"id": "PR-DOMOTICA", "emergency": true, "symptom": "La domotica è ferma", "title": "Luci e automazioni non rispondono", "audience": "famiglia; tecnico per il subentro", "skills": "Nessuna per i controlli; tecnico per C3", "cards": ["INF-03.28", "INF-08.08", "REV4-DOM"], "entities": ["HAOS", "MQTT", "Z2M", "S3", "M5", "C3"],
+  "stopIf": ["Non spostare la chiavetta radio da S3: non esiste un secondo coordinatore."],
+  "checks": [
+   {"text": "Gli interruttori fisici funzionano? Dove c'è un binding Zigbee diretto la luce risponde anche senza server.", "expect": "Alcune luci rispondono: la radio S3 è viva, il problema è Home Assistant o MQTT."},
+   {"text": "L'app di Home Assistant si apre?", "expect": "Se no, M5 o il guest HA sono fermi."}
+  ],
+  "steps": [
+   {"text": "Usa i comandi fisici: le funzioni essenziali non devono dipendere dall'app.", "expect": "Casa governabile a mano."},
+   {"text": "Tecnico: verificare M5; se è guasto, il subentro su C3 è previsto solo dopo collaudo (T-HA-DOM). Senza collaudo, recupero manuale.", "expect": "HAOS e MQTT di nuovo attivi.", "tech": true},
+   {"text": "Tecnico: se S3 è guasto, ripristinare configurazione e chiavi radio dalla copia di recupero.", "expect": "Coordinatore di nuovo attivo.", "tech": true}
+  ],
+  "rollback": "Il rientro su M5 è controllato dopo verifiche, mai immediato.",
+  "evidence": "Componente fermo, modalità di recupero, tempi effettivi.",
+  "verifiedAt": null},
+ {"id": "PR-DATI", "emergency": true, "symptom": "Non trovo i dati", "title": "Un file o una foto è sparito", "audience": "proprietario; tecnico per il ripristino", "skills": "Tecnico per il ripristino da backup", "cards": ["INF-04.10", "INF-12.07", "INF-04.04"], "entities": ["D-DOC", "D-FOTO", "CP-SNAP", "CP-BCK-M4", "CP-DRIVE", "CP-RDX"],
+  "stopIf": ["Non cancellare né sovrascrivere nulla per «fare spazio» o «riprovare».", "Sospendere la potatura delle copie (pruning) finché l'incidente non è risolto."],
+  "checks": [
+   {"text": "Il file è nel cestino del servizio (Nextcloud, Immich)?", "expect": "Trovato: ripristino immediato."},
+   {"text": "Il servizio risponde? Se no, il dato non è perso: è il servizio a essere fermo (vedi «Non accedo ai servizi»).", "expect": "Servizio fermo ≠ dato perso."}
+  ],
+  "steps": [
+   {"text": "Tecnico: cercare il file negli snapshot di M2 (tornare indietro di giorni).", "expect": "Versione recuperata in una cartella nuova.", "tech": true},
+   {"text": "Tecnico: altrimenti seguire il recupero da backup (PR-RESTORE), da un client indipendente.", "expect": "File confrontato e aperto correttamente.", "tech": true}
+  ],
+  "rollback": "Il ripristino avviene sempre in una cartella nuova: l'originale non viene toccato.",
+  "evidence": "Sorgente, copia usata, snapshot, tempi e anomalie.",
+  "verifiedAt": null},
+ {"id": "PR-BLACKOUT", "emergency": true, "symptom": "Blackout", "title": "Manca la corrente", "audience": "chiunque; tecnico per la riaccensione", "skills": "Nessuna per la sicurezza; tecnico per l'arresto ordinato", "cards": ["REV3-ENE", "REV4-ENER", "REV3-TRN"], "entities": ["GRID", "PS-RACK", "CLUSTER"],
+  "stopIf": ["L'autonomia della power station non è dichiarata: non contare su un tempo preciso.", "Le prove di mancanza di alimentazione si fanno solo con backup disponibili."],
+  "checks": [{"text": "È un blackout di tutta la casa o di una sola linea?", "expect": "Annota l'ora d'inizio."}],
+  "steps": [
+   {"text": "Se il blackout si prolunga, il nucleo va arrestato in modo ordinato prima di perdere la maggioranza dei voti.", "expect": "Macchine spente senza perdita di dati.", "tech": true},
+   {"text": "Rete e percorsi di gestione si spengono per ultimi.", "expect": "La gestione resta raggiungibile durante l'arresto.", "tech": true},
+   {"text": "Al ritorno della corrente: riaccensione ordinata, prima la rete, poi il nucleo; controllare quorum e servizi.", "expect": "Cinque voti presenti, servizi pronti.", "tech": true}
+  ],
+  "rollback": "Nessuna.",
+  "evidence": "Durata, sequenza eseguita, eventuali anomalie dei pool.",
+  "verifiedAt": null},
+ {"id": "PR-M2", "emergency": false, "symptom": "M2 non risponde", "title": "M2 indisponibile: triage e recupero", "audience": "tecnico", "skills": "Proxmox, ZFS, ripristino applicativo", "cards": ["INF-08.04", "INF-03.03", "INF-08.08", "INF-04.10"], "entities": ["M2", "ST-P310", "C4", "CP-REPL-C4", "CP-BCK-M4"],
+  "stopIf": ["Non avviare il subentro su C4 se la replica non è stata collaudata o se il disco di C4 non contiene la replica completa.", "Mai due istanze attive degli stessi job DB."],
+  "checks": [
+   {"text": "Il nucleo ha ancora il quorum (almeno 3 voti nella stessa partizione)?", "expect": "Sì: si può valutare il subentro."},
+   {"text": "Il problema è il disco P310, la scheda o un servizio? Un pool ONLINE non spiega un errore PCIe.", "expect": "Causa isolata fra scheda madre, cavo, supporto."}
+  ],
+  "steps": [
+   {"text": "Contenere il guest coinvolto prima di riavviare l'host.", "expect": "Il resto dei servizi di M2 non viene toccato.", "tech": true},
+   {"text": "Se il subentro è collaudato (T-HA-APP), Nextcloud, Vikunja e n8n ripartono su C4. Gli altri servizi aspettano M2.", "expect": "Servizi selezionati attivi su C4, perdita entro l'ultima replica.", "tech": true},
+   {"text": "Se il P310 è guasto: ripristino dal backup di M4 (PR-RESTORE) su un nuovo supporto.", "expect": "Dati e applicazioni coerenti, provati con login e ricerca.", "tech": true}
+  ],
+  "rollback": "Rientro su M2 controllato dopo verifiche; la replica su C4 non viene cancellata.",
+  "evidence": "Tempo effettivo di fermo e perdita di dati misurati: diventano il primo risultato reale di RTO/RPO.",
+  "verifiedAt": null},
+ {"id": "PR-RESTORE", "emergency": false, "symptom": "Recuperare dati da un backup", "title": "Recupero di file e applicazioni (restic)", "audience": "tecnico", "skills": "restic, database delle applicazioni", "cards": ["INF-04.10", "INF-12.07"], "entities": ["CP-BCK-M4", "CP-DRIVE", "D-DOC", "D-APPDB"],
+  "stopIf": ["Mai ripristinare sopra l'unico originale.", "Password e chiavi restano fuori dalla cronologia dei comandi e dagli esempi."],
+  "checks": [{"text": "Hai un client indipendente con chiavi e credenziali disponibili offline?", "expect": "Sì, senza dipendere da Vaultwarden."}],
+  "steps": [
+   {"text": "Elencare gli snapshot del repository.", "cmd": "restic -r REPOSITORY snapshots", "where": "client indipendente", "does": "Mostra i punti nel tempo disponibili, senza modificare nulla.", "expect": "Elenco con data e ID degli snapshot.", "tech": true},
+   {"text": "Controllare la struttura del repository.", "cmd": "restic -r REPOSITORY check", "where": "client indipendente", "does": "Verifica la struttura; non legge tutto il contenuto.", "expect": "Nessun errore.", "tech": true},
+   {"text": "Ripristinare in una directory nuova.", "cmd": "restic -r REPOSITORY restore ID_SNAPSHOT --target DIRECTORY_NUOVA", "where": "client indipendente, con spazio sufficiente", "does": "Scrive i file dello snapshot nella cartella indicata.", "expect": "File presenti nella nuova cartella.", "tech": true},
+   {"text": "File: confrontare manifest/hash, apertura, quantità e permessi. Applicazioni: DB e file dello stesso punto, ambiente isolato con notifiche e job esterni disattivati, poi login, allegati, ricerca e ruoli.", "expect": "Recupero riuscito, non solo «job completato».", "tech": true}
+  ],
+  "rollback": "La cartella di ripristino si elimina senza toccare l'originale.",
+  "evidence": "Sorgente, repository, snapshot, coerenza DB/file, tempi e anomalie nel registro.",
+  "params": ["REPOSITORY", "ID_SNAPSHOT", "DIRECTORY_NUOVA"],
+  "verifiedAt": null}
+]

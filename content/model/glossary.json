@@ -1,0 +1,29 @@
+{
+ "note": "Le voci della 4.4 sono in content/legacy/glossary-44.json; qui si aggiungono voci nuove e le parole con cui riconoscere un termine nel testo.",
+ "add": [
+  {"term": "Snapshot", "text": "Un punto nel tempo salvato sullo stesso disco. Serve per tornare indietro di giorni dopo un errore; se il disco si rompe, si perde anche lo snapshot."},
+  {"term": "Replica", "text": "Una copia tenuta aggiornata su un'altra macchina per poter ripartire in fretta. Anche un errore o una cancellazione vengono replicati: non è un backup."},
+  {"term": "Sincronizzazione", "text": "Tiene uguali due cartelle su dispositivi diversi. Una cancellazione si propaga: non è un backup."},
+  {"term": "Copia offline", "text": "Una copia su un supporto scollegato dalla rete (qui le cartucce RDX). Protegge da errori e attacchi che colpiscono tutto ciò che è collegato."},
+  {"term": "Subentro (failover)", "text": "Un servizio riparte su un'altra macchina quando la sua si ferma. Richiede repliche complete, risorse sufficienti e un collaudo: senza prova è solo un obiettivo."},
+  {"term": "Partizione di rete", "text": "Quando la rete si spezza, le macchine si dividono in gruppi che non si vedono. Il quorum si conta dentro ciascun gruppo, non sommando tutti i voti."},
+  {"term": "Fencing", "text": "L'isolamento forzato di una macchina che potrebbe essere in uno stato incoerente, per evitare che due copie dello stesso servizio scrivano insieme."},
+  {"term": "Gate", "text": "La condizione che deve essere verificata prima di passare alla fase successiva della roadmap."},
+  {"term": "Arca", "text": "L'archivio storico attuale. Contiene il disco P310, che passerà a M2 solo dopo che tutte le copie su Drive sono verificate."},
+  {"term": "Caddy", "text": "Il programma su S1 che fa da porta d'ingresso: riceve le richieste da fuori e le inoltra ai soli servizi autorizzati."},
+  {"term": "DMZ", "text": "Una rete separata per i servizi raggiungibili da fuori, così un problema lì non arriva alla rete fidata di casa."},
+  {"term": "Binding Zigbee", "text": "Un collegamento diretto tra due dispositivi Zigbee: l'interruttore comanda la luce senza passare dal server."},
+  {"term": "Mirror", "text": "Due dischi con lo stesso contenuto: se uno si guasta, l'altro continua. È ridondanza, non backup."},
+  {"term": "Ridondanza", "text": "Componenti doppi che evitano il fermo quando uno si guasta. Non protegge da cancellazioni o errori: per quelli serve il backup."},
+  {"term": "Proxmox autonomo", "text": "Un server con Proxmox installato ma fuori dal cluster: si accende e si spegne senza cambiare il quorum."},
+  {"term": "Collaudo", "text": "Una prova registrata con data, esemplare, condizioni, esito ed evidenza. Una spunta personale nel sito non è un collaudo."}
+ ],
+ "match": {
+  "Quorum": ["quorum"], "Cluster": ["cluster"], "Proxmox VE": ["proxmox"], "VM (macchina virtuale)": ["VM", "macchina virtuale", "guest"],
+  "Alta disponibilità (HA)": ["HA", "alta disponibilità"], "RPO e RTO": ["RPO", "RTO"], "OPNsense": ["OPNsense"], "VLAN": ["VLAN"],
+  "Wake-on-LAN (WoL)": ["WoL", "Wake-on-LAN"], "ZFS, RAIDZ1, RAIDZ2": ["ZFS", "RAIDZ1", "RAIDZ2"], "RDX": ["RDX"], "TDP": ["TDP"],
+  "Snapshot": ["snapshot"], "Replica": ["replica", "repliche"], "Subentro (failover)": ["subentro", "failover"], "Fencing": ["fencing"],
+  "Mirror": ["mirror"], "Caddy": ["Caddy"], "DMZ": ["DMZ"], "Arca": ["Arca"], "Gate": ["gate"], "Binding Zigbee": ["binding"],
+  "WAN e FTTC": ["FTTC", "WAN"], "Home Assistant, MQTT, Zigbee": ["MQTT", "Zigbee"], "Partizione di rete": ["partizione", "partizioni"]
+ }
+}
