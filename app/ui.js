@@ -47,7 +47,7 @@ export function factValue(f) {
 export const srcLinks = (ids = []) => ids.map((s) => `<a class="code" href="${href(s)}">${esc(s)}</a>`).join(' ');
 
 export function table(headers, rows, { caption = '' } = {}) {
-  return `<div class="tablewrap"><table>${caption ? `<caption class="vh">${esc(caption)}</caption>` : ''}<thead><tr>${headers.map((h) => `<th scope="col">${esc(h)}</th>`).join('')}</tr></thead><tbody>${rows.map((r) => `<tr>${r.map((c, i) => (i === 0 ? `<th scope="row">${c}</th>` : `<td>${c}</td>`)).join('')}</tr>`).join('')}</tbody></table></div>`;
+  return `<div class="tablewrap" tabindex="0" role="region" aria-label="${esc(caption || headers.join(', '))}"><table>${caption ? `<caption class="vh">${esc(caption)}</caption>` : ''}<thead><tr>${headers.map((h) => `<th scope="col">${esc(h)}</th>`).join('')}</tr></thead><tbody>${rows.map((r) => `<tr>${r.map((c, i) => (i === 0 ? `<th scope="row">${c}</th>` : `<td>${c}</td>`)).join('')}</tr>`).join('')}</tbody></table></div>`;
 }
 export const segments = (segs) => segs.map((s) => (s.hit ? `<mark>${esc(s.t)}</mark>` : esc(s.t))).join('');
 export const fmt = (n, d = 0) => (n === null || n === undefined || Number.isNaN(n) ? 'n.d.' : Number(n).toLocaleString('it-IT', { minimumFractionDigits: d, maximumFractionDigits: d }));

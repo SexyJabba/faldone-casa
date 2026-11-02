@@ -108,7 +108,7 @@ function rack(app) {
 <div class="callout warn"><strong>Vista logica, non fisica</strong>${esc(idx.get('P-SALA').facts.coordinate.note)} Fonte: <a href="${href('REV4-RACK')}">REV4-RACK</a>.</div>
 <h2>Switch ${esc(sw.name)}</h2>
 <p>${factValue(sw.facts.rj45)} · ${factValue(sw.facts.sfp)} · PoE: ${factValue(sw.facts.poe)} · ${dims(sw.status, { compact: true })}</p>
-<div class="tablewrap"><table><caption class="vh">Porte SFP+ dello switch</caption><thead><tr><th scope="col">Porta</th><th scope="col">Velocità</th><th scope="col">Destinazione</th><th scope="col">Interfaccia</th><th scope="col">Natura</th></tr></thead><tbody>
+<div class="tablewrap" tabindex="0" role="region" aria-label="Tabella"><table><caption class="vh">Porte SFP+ dello switch</caption><thead><tr><th scope="col">Porta</th><th scope="col">Velocità</th><th scope="col">Destinazione</th><th scope="col">Interfaccia</th><th scope="col">Natura</th></tr></thead><tbody>
 ${[49, 50, 51, 52].map((n) => { const r = port(n); return `<tr><th scope="row">SFP+ ${n}</th><td>10 GbE</td><td>${r ? `<a href="${href('e/' + r.fromId)}">${esc(r.fromId)}</a>` : '<span class="muted">libera</span>'}</td><td>${esc(r?.label || '—')}</td><td>${r ? ev(r.evidenceKind) : '—'}</td></tr>`; }).join('')}
 <tr><th scope="row">RJ45 1–48</th><td>1 GbE</td><td colspan="2">${esc(sw.facts.rj45Assignment.note)}</td><td>${ev('unknown')}</td></tr></tbody></table></div>
 <h2>Elementi nella sala server</h2>

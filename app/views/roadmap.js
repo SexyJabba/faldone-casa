@@ -2,7 +2,7 @@ import { badge, esc, href, phead, ctxbar, st, table, fmt } from '../ui.js';
 import { roadmapState, TASK_LABEL } from '../lib/roadmap.js';
 
 const TS = { completato: 'available', da_verificare: 'degraded', pronto: 'available', pronto_incerto: 'on_demand', bloccato: 'blocked' };
-const tabs = (cur) => `<nav class="chips" aria-label="Sezioni di Realizza" style="margin-bottom:12px">${[['realizza', 'Roadmap'], ['realizza/decisioni', 'Decisioni'], ['realizza/collaudi', 'Collaudi'], ['realizza/acquisti', 'Acquisti'], ['costi', 'Costi ed energia'], ['contribuisci', 'Contribuisci'], ['connettori', 'Connettori']].map(([r, l]) => `<a class="chip" href="${href(r)}" ${r === cur ? 'aria-current="page" aria-pressed="true"' : ''}>${l}</a>`).join('')}</nav>`;
+const tabs = (cur) => `<nav class="chips" aria-label="Sezioni di Realizza" style="margin-bottom:12px">${[['realizza', 'Roadmap'], ['realizza/decisioni', 'Decisioni'], ['realizza/collaudi', 'Collaudi'], ['realizza/acquisti', 'Acquisti'], ['costi', 'Costi ed energia'], ['contribuisci', 'Contribuisci'], ['connettori', 'Connettori']].map(([r, l]) => `<a class="chip" href="${href(r)}" ${r === cur ? 'aria-current="page"' : ''}>${l}</a>`).join('')}</nav>`;
 
 export function roadmap(app) {
   const { core } = app;

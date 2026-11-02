@@ -1,6 +1,6 @@
 // Service worker del Faldone: solo contenuti pubblici, nessuna risposta autenticata.
 // Generato da tools/build.mjs: non modificare sw.js nella radice.
-const VERSION = 'ed9a8c32b345';
+const VERSION = 'ca79727fe5d2';
 const CORE = `faldone-core-${VERSION}`;
 const DOCS = `faldone-docs-${VERSION}`;
 const PRECACHE = ["./","index.html","app/lib/energy.js","app/lib/model.js","app/lib/qr.js","app/lib/roadmap.js","app/lib/search.js","app/lib/sim.js","app/lib/store.js","app/main.js","app/static.css","app/style.css","app/ui.js","app/views/contribute.js","app/views/costs.js","app/views/docs.js","app/views/emergency.js","app/views/entity.js","app/views/explore.js","app/views/home.js","app/views/index.js","app/views/map.js","app/views/paths.js","app/views/roadmap.js","app/views/search.js","app/views/settings.js","app/views/sim.js","data/core.json","data/search.json","kit/emergenza.html","schede/index.html","assets/favicon.svg"];

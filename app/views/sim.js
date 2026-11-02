@@ -33,7 +33,7 @@ ${phead({ eyebrow: '<span class="simtag">Simulazione</span>', title: 'Che cosa s
       const has = (type, id) => scen.events.some((e) => e.type === type && e.id === id);
       const set = (type, id, on) => { scen = { events: scen.events.filter((e) => !(e.type === type && e.id === id)).concat(on ? [{ type, id }] : []) }; };
       const nodeState = (e) => (has('fail', e.id) ? 'fail' : has('off', e.id) ? 'off' : has('on', e.id) ? 'on' : 'base');
-      const update = () => { app.setQuery(queryFromScenario(scen)); renderCtl(); renderRes(); };
+      const update = () => { app.setQuery(queryFromScenario(scen)); setTimeout(() => { const f = document.activeElement?.dataset?.id; const a = document.activeElement?.dataset?.action; renderCtl(); renderRes(); if (f && a) root.querySelector(`[data-action="${a}"][data-id="${CSS.escape(f)}"]`)?.focus(); }, 0); };
 
       function toggleRow(e) {
         const s = nodeState(e);
@@ -83,7 +83,7 @@ ${facts.map((f) => `<button type="button" class="toggle off" data-action="assume
         const procs = core.procedures.filter((p) => p.entities.some((id) => scen.events.some((e) => e.id === id) || changed.has(id)));
         const datasets = core.entities.filter((e) => e.kind === 'dataset' && sim.status(e.id).status !== ST.AVAILABLE && sim.status(e.id).status !== ST.ON_DEMAND);
         const vote = (m) => `<span class="vote ${({ hub: '', maybe: 'maybe', isolated: 'iso', down: 'down' })[q.members[m]]}" title="${esc(m)}: ${({ hub: 'collegato', maybe: 'incerto', isolated: 'isolato', down: 'fermo' })[q.members[m]]}"></span>`;
-        res.innerHTML = `<div class="callout sim"><strong><span class="simtag">Simulazione</span> ${scen.events.length ? `${scen.events.filter((e) => !e.type.startsWith('assume')).length} eventi${hyp.length ? `, ${hyp.length} ipotesi` : ''}` : 'Situazione di riferimento'}</strong>Calcolo sul modello del progetto: non è telemetria e non dimostra il funzionamento reale. ${changed.size ? `${changed.size} elementi cambiano rispetto al riferimento (bordo viola).` : ''}</div>
+        res.innerHTML = `<div class="callout sim"><strong><span class="simtag">Simulazione</span> ${scen.events.length ? (() => { const n = scen.events.filter((e) => !e.type.startsWith('assume') && e.type !== 'haActive').length; return `${n} ${n === 1 ? 'evento' : 'eventi'}${hyp.length ? `, ${hyp.length} ${hyp.length === 1 ? 'ipotesi' : 'ipotesi'}` : ''}`; })() : 'Situazione di riferimento'}</strong>Calcolo sul modello del progetto: non è telemetria e non dimostra il funzionamento reale. ${changed.size ? `${changed.size} elementi cambiano rispetto al riferimento (bordo viola).` : ''}</div>
 <div class="card"><h2 style="margin-top:0;font-size:1.05rem">Quorum del nucleo</h2>
 <div class="quorum" aria-hidden="true">${Object.keys(q.members).map(vote).join('')}</div>
 <p>${q.hubQuorum === true ? badge('available', 'Quorum presente') : q.hubQuorum === null ? badge('unknown', 'Quorum incerto') : badge('blocked', 'Quorum assente')} Partizione principale: <strong>${q.min}${q.max > q.min ? `–${q.max}` : ''} voti</strong> su ${q.total}; ne servono ${q.need}.${q.isolated.length ? ` Isolati: ${q.isolated.map(esc).join(', ')} (1 voto ciascuno, senza quorum).` : ''}${q.hubMaybe.length ? ` Incerti: ${q.hubMaybe.map(esc).join(', ')}.` : ''}</p>
@@ -112,7 +112,6 @@ ${procs.length ? `<h2 style="font-size:1.1rem">Procedure pertinenti</h2><ul>${pr
         const next = onDemand ? { base: 'on', on: 'fail', fail: 'base' }[s] : { base: 'fail', fail: 'off', off: 'base' }[s];
         if (next !== 'base') scen.events.push({ type: next, id: e.id });
         update();
-        root.querySelector(`[data-action=cycle][data-id="${CSS.escape(e.id)}"]`)?.focus();
       });
       app.on('preset', (el) => { scen = { events: structuredClone(core.scenarios.find((s) => s.id === el.dataset.id).events) }; update(); app.toast(core.scenarios.find((s) => s.id === el.dataset.id).title); });
       app.on('reset', () => { scen = { events: [] }; update(); app.toast('Situazione di riferimento'); });

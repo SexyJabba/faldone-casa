@@ -103,6 +103,7 @@ async function render() {
   const { view, params, area } = resolveRoute(app, path);
   app.handlers.clear();
   markNav(area);
+  app.renderCount = (app.renderCount || 0) + 1;
   const main = $('#main');
   main.setAttribute('aria-busy', 'true');
   let out;

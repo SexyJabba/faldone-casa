@@ -49,7 +49,10 @@ const core = {
   acquisitions: src.legacy.config.acquisitions, profiles: src.legacy.profiles,
 };
 const coreJson = JSON.stringify(core);
-const build = createHash('sha256').update(coreJson).digest('hex').slice(0, 12);
+const hasher = createHash('sha256').update(coreJson);
+for (const f of walk(join(ROOT, 'app'))) hasher.update(f.slice(ROOT.length)).update(readFileSync(f));
+hasher.update(readFileSync(join(ROOT, 'tools/templates/sw.js')));
+const build = hasher.digest('hex').slice(0, 12);
 core.meta.build = build;
 core.meta.builtAt = new Date().toISOString().slice(0, 10);
 write('data/core.json', core);

@@ -1,6 +1,6 @@
 import { esc, href, phead, ctxbar, table } from '../ui.js';
 
-const dtabs = (cur) => `<nav class="chips" aria-label="Sezioni di Documentazione" style="margin-bottom:12px">${[['documenti', 'Schede'], ['glossario', 'Glossario'], ['inventario', 'Inventario'], ['documenti/revisioni', 'Revisioni e fonti'], ['documenti/download', 'Download'], ['guida', 'Come si usa']].map(([r, l]) => `<a class="chip" href="${href(r)}" ${r === cur ? 'aria-current="page" aria-pressed="true"' : ''}>${l}</a>`).join('')}</nav>`;
+const dtabs = (cur) => `<nav class="chips" aria-label="Sezioni di Documentazione" style="margin-bottom:12px">${[['documenti', 'Schede'], ['glossario', 'Glossario'], ['inventario', 'Inventario'], ['documenti/revisioni', 'Revisioni e fonti'], ['documenti/download', 'Download'], ['guida', 'Come si usa']].map(([r, l]) => `<a class="chip" href="${href(r)}" ${r === cur ? 'aria-current="page"' : ''}>${l}</a>`).join('')}</nav>`;
 
 export function library(app) {
   const { core } = app;
