@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { esc, sanitizeHtml } from './html.mjs';
+import { renderScene } from '../../app/lib/scenes.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..');
 const STATIC_CSS = () => readFileSync(join(ROOT, 'app/static.css'), 'utf8');
@@ -96,7 +97,7 @@ export function renderShell({ meta, scopes, procedures, build }) {
 <meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#11181d" media="(prefers-color-scheme: dark)">
 <meta name="description" content="Atlante operativo dell'infrastruttura di casa, laboratorio e Vito. Revisione ${esc(meta.revision)}.">
 <title>Il Faldone · revisione ${esc(meta.revision)}</title>
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="app/style.css?v=${build}">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="app/style.css?v=${build}"><link rel="stylesheet" href="app/scenes.css?v=${build}">
 <link rel="modulepreload" href="app/main.js?v=${build}"></head>
 <body><a class="skip" href="#main">Vai al contenuto</a>
 <div class="app" id="app">
@@ -104,14 +105,25 @@ export function renderShell({ meta, scopes, procedures, build }) {
 <nav class="primary" aria-label="Navigazione principale"><a href="#" data-nav="">Panoramica</a><a href="#esplora" data-nav="esplora">Esplora</a><a href="#emergenza" data-nav="emergenza">Usa e risolvi</a><a href="#realizza" data-nav="realizza">Realizza</a><a href="#documenti" data-nav="documenti">Documentazione</a></nav>
 <div class="tools" id="tools"></div></header>
 <main id="main" tabindex="-1">
-<section class="hero"><p class="eyebrow">Revisione ${esc(meta.revision)} · ${esc(meta.documentDate)}</p><h1>Casa, sala server, laboratorio e Vito: che cosa c'è, come funziona, che cosa succede se qualcosa si ferma.</h1>
+<section class="hero"><p class="eyebrow">Il Faldone · revisione ${esc(meta.revision)}</p><h1>Atlante dell'infrastruttura</h1><p><a class="btn primary" href="presentazione.html">Scopri il progetto in 5 minuti</a></p>
 <p>${esc(meta.statement)}</p>
 <ul class="intents">${intents.map(([k, t, r]) => `<li><a href="#${r}">${esc(t)}</a></li>`).join('')}</ul>
-<noscript><p class="warn">La versione interattiva richiede JavaScript. Senza JavaScript puoi consultare <a href="schede/index.html">tutte le schede</a>, il <a href="kit/emergenza.html">kit di emergenza</a> e il <a href="INF_Faldone-completo-navigabile.pdf">PDF completo</a>.</p>
+<noscript><p class="warn">La versione interattiva richiede JavaScript. Senza JavaScript puoi leggere <a href="presentazione.html">il progetto in cinque minuti</a>, consultare <a href="schede/index.html">tutte le schede</a>, il <a href="kit/emergenza.html">kit di emergenza</a> e il <a href="INF_Faldone-completo-navigabile.pdf">PDF completo</a>.</p>
 <h2>Ambiti</h2><ul>${scopes.map((s) => `<li><strong>${esc(s.name)}</strong>: ${esc(s.simple)}</li>`).join('')}</ul>
 <h2>In caso di problemi</h2><ul>${procedures.filter((p) => p.emergency).map((p) => `<li><a href="kit/emergenza.html#${p.id}">${esc(p.symptom)}</a></li>`).join('')}</ul></noscript></section>
 </main>
 <footer class="foot"><span>Il Faldone · revisione ${esc(meta.revision)} del ${esc(meta.documentDate)}</span><span>Documentazione di progetto · nessuna telemetria collegata</span><span><a href="schede/index.html">Versione senza JavaScript</a> · <a href="kit/emergenza.html">Kit offline</a></span></footer>
 </div>
 <script type="module" src="app/main.js?v=${build}"></script></body></html>`;
+}
+
+// Lettura lineare del percorso «Il progetto in cinque minuti» senza JavaScript (stessa sorgente).
+export function renderPresentation({ meta, pres, tests }) {
+  const body = `<p class="eyebrow">Il Faldone · revisione ${esc(meta.revision)}</p><h1>${esc(pres.title)}</h1><p class="muted">${esc(pres.statusText)}</p>
+<nav aria-label="Indice"><ol>${pres.scenes.map((s) => `<li><a href="#r-${s.id}">${esc(s.short)}</a></li>`).join('')}</ol></nav>
+${pres.scenes.map((s, i) => `<section class="pres-sec" id="r-${s.id}-sec">${renderScene(s, i, pres.scenes.length, { prefix: 'r', level: 2, tests })}
+${s.deep ? `<details><summary>${esc(s.deep.label)}</summary><p>${esc(s.deep.text)}</p><p class="muted">Fonti: ${s.deep.cards.map((c) => `<a href="schede/${c}.html">${esc(c)}</a>`).join(' · ')}</p></details>` : ''}
+${s.exits ? `<ul>${s.exits.map((x) => `<li><a href="index.html#${esc(x.route)}">${esc(x.label)}</a> — ${esc(x.sub)}</li>`).join('')}</ul>` : ''}</section>`).join('')}
+<p class="links"><a href="index.html#presenta">Apri la presentazione interattiva</a></p>`;
+  return page({ title: pres.title, depth: 0, body: body.replace(/href="#r-([a-z-]+)"/g, 'href="#r-$1-sec"'), desc: 'Il progetto del Faldone in dieci scene' }).replace('</head>', '<link rel="stylesheet" href="app/scenes.css"></head>');
 }

@@ -52,10 +52,10 @@ const wait = (p) => p.waitForFunction(() => !document.querySelector('main[aria-b
   // profondità: stessa entità, stessi fatti
   await p.evaluate(() => { location.hash = 'e/M2'; }); await wait(p);
   const factsC = await p.evaluate(() => document.querySelector('main').innerText.includes('Disco dati P310 singolo'));
-  await p.click('.top [data-action=depth][data-v=intervenire]'); await wait(p);
+  await p.click('#depthbar [data-action=depth][data-v=intervenire]'); await wait(p);
   ok(await p.evaluate(() => location.hash === '#e/M2' && document.querySelector('main').innerText.includes('Disco dati P310 singolo')) && factsC, 'A02 cambio di profondità: stessa entità e limite di perdita dati visibile');
   ok(await p.evaluate(() => document.querySelectorAll('main details[open]').length >= 2), 'A02 in «Intervenire» il dettaglio tecnico è aperto');
-  await p.click('.top [data-action=depth][data-v=capire]'); await wait(p);
+  await p.click('#depthbar [data-action=depth][data-v=capire]'); await wait(p);
   // mappa da tastiera
   await p.evaluate(() => { location.hash = 'mappa'; }); await wait(p);
   await p.focus('[data-node="M5"]'); await p.keyboard.press('Enter'); await p.waitForTimeout(200);

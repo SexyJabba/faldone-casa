@@ -61,3 +61,28 @@ Casi di test aggiuntivi richiesti: dipendenza indiretta (Caddy ← OPNsense ← 
 | Registro connettori e adapter read-only | parziale | contratto, adapter, test con fixture; nessuna connessione |
 | Area privata | non fatto | richiede backend e autenticazione lato server: decisione del proprietario |
 | Prestazioni misurate | fatto | `docs/rilascio.md` |
+
+## Secondo passaggio: identità enterprise e presentazione (2 novembre 2026)
+
+| Area | Esito | Evidenza |
+|---|---|---|
+| Comprensione iniziale | fatto · richiede persone | Scene 1–2 senza codici né prodotti (T: `presentation.test.mjs`). Revisione editoriale interna, nessun test con utenti. |
+| Racconto | fatto | 10 scene in sequenza, ognuna con domanda, messaggio, schema e passaggio alla successiva (`content/presentazione/scene.json`). |
+| Durata | fatto (stima) | 638 parole più 379 negli schemi; circa 5 minuti calcolati, non cronometrati da una persona (`docs/presentazione.md`). |
+| Utilità concreta | fatto | Scena 3, flusso del Vito documentato come previsto, con la prova ancora da fare. |
+| Luoghi e categorie | fatto | Scena 4: quattro luoghi; destinatari e inventario indicati come dimensioni trasversali. |
+| Visual | fatto | Schemi HTML/SVG con descrizione testuale, leggibili senza hover né animazione; elenco equivalente su telefono. |
+| Stato del progetto | fatto | Nota di stato in apertura; scene 7–9 distinguono proposto, da acquistare, da provare, registrato. |
+| Navigazione | fatto | Precedente e successiva con destinazione, «3 di 10 — …», indice, uscita, ritorno dagli approfondimenti (E: `presentation.cjs`). |
+| URL | fatto | Link diretti, ricaricamento, Indietro/Avanti, vecchi `?c=1…5` ricondotti per significato, scena inesistente gestita (E). |
+| Modalità | fatto | Presentazione e lettura dalla stessa sorgente; la scena si conserva nel cambio (E). |
+| Riunione | fatto | Cornice senza testata, ricerca, preferiti e livello di dettaglio; verificata a 1280×720 e 1920×1080 (E). |
+| Conclusione | fatto | Scena 10: schema iniziale ricomposto e tre destinazioni. |
+| Tecnici | fatto | Approfondimento per scena con entità, codici, fonti e collegamenti; Indietro torna alla scena (E). |
+| Identità | fatto | Token condivisi, IBM Plex locale, testata, home, schede, documenti, catalogo, mappa. |
+| Correzioni visive | fatto | Titolo della home; testata alleggerita; M2 con 1+2 azioni e menu; tabelle di INF-03.03 a larghezza naturale; codici del catalogo in linea; mappa con comandi in barra e più spazio. |
+| Responsive e accessibilità | fatto | axe WCAG 2.2 A/AA su presentazione e sito, tastiera, 360/390/768/1280×720/1440/1920 senza scorrimento orizzontale (E). Nessuna prova con lettori di schermo reali. |
+| Stampa | fatto | PDF dal browser: copertina e una scena per pagina, nessun controllo stampato, sempre chiara (E). |
+| Regressioni | fatto | 60 test unitari, 51 rotte, verifiche di accessibilità e tastiera del sito. |
+
+Difetti preesistenti trovati e corretti in questo passaggio: la regola CSS della navigazione `.primary` nascondeva su mobile tutti i pulsanti primari (anche «Genera la bozza» in Contribuisci e «Vai ai risultati» nel simulatore) e spostava di 16 px quelli su desktop; il focus dopo un cambio pagina non arrivava al titolo; i pulsanti di zoom della mappa erano sovrapposti ai nodi.

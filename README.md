@@ -11,6 +11,7 @@ python3 -m http.server 8811 --bind 127.0.0.1  # anteprima
 | Cartella | Contenuto |
 |---|---|
 | `content/corpus/` | testo leggibile delle 303 schede (181 gruppi) e loro anagrafica — **fonte editoriale** |
+| `content/presentazione/` | le 10 scene di «Il progetto in cinque minuti» — **fonte** di presentazione, lettura, stampa |
 | `content/model/` | modello strutturato: entità, relazioni, collaudi, roadmap, decisioni, procedure, percorsi — **fonte** |
 | `content/legacy/` | dati 4.4 migrati (hardware, inventario, tabelle) |
 | `app/` | interfaccia (moduli ES senza dipendenze) e motori puri in `app/lib/` |
@@ -18,5 +19,7 @@ python3 -m http.server 8811 --bind 127.0.0.1  # anteprima
 | `data/`, `schede/`, `e/`, `kit/`, `index.html`, `sw.js` | **generati** dalla build: non modificare a mano |
 | `01_Vault_MD/`, `02_PDF_correnti/`, `04_Sorgenti/`, `07_Piani_di_attivazione/` | Markdown, PDF, evidenze e piani della revisione 4.4 |
 | `docs/` | audit, modello dati, migrazione, manutenzione, rilascio, integrazioni, requisiti, screenshot |
+
+Presentazione del progetto: `#presenta` (vedi [docs/presentazione.md](docs/presentazione.md)).
 
 Documentazione: [audit](docs/audit.md) · [modello dati](docs/modello-dati.md) · [manutenzione editoriale](docs/manutenzione-editoriale.md) · [rilascio e rollback](docs/rilascio.md) · [integrazioni](docs/integrazioni.md) · [design system](docs/design-system.md) · [requisiti e verifiche](docs/requisiti.md) · [checkpoint](docs/CHECKPOINT.md).

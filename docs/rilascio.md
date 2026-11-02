@@ -10,10 +10,11 @@
 
 ```sh
 node tools/build.mjs                         # valida il modello e genera il sito
-node --test tools/test/*.test.mjs            # 49 test: simulazione, corpus, ricerca, energia, persistenza, privacy, QR, adapter
+node --test tools/test/*.test.mjs            # 60 test: simulazione, corpus, presentazione, ricerca, energia, persistenza, privacy, QR, adapter
 python3 -m http.server 8811 --bind 127.0.0.1 # anteprima su http://127.0.0.1:8811/
 node tools/e2e/smoke.cjs                     # tutte le rotte, compresi gli URL storici
 AXE=/percorso/axe.min.js node tools/e2e/a11y.cjs   # axe WCAG 2.2 A/AA, tastiera, indietro/avanti, 360 px
+AXE=/percorso/axe.min.js node tools/e2e/presentation.cjs   # percorso in 10 scene
 node tools/e2e/perf.cjs http://127.0.0.1:8811/     # misura di laboratorio
 node tools/e2e/screens.cjs docs/screenshot   # screenshot
 ```
@@ -45,11 +46,13 @@ Note di cache: i moduli sono serviti con la cache di Pages (circa 10 minuti); il
 
 Verificato in laboratorio (Chromium headless, 390×844, 10 Mbit/s, RTT 40 ms, CPU 4× più lenta, cache vuota, mediana di 3; server senza compressione, gzip stimato):
 
-| | 4.4 (`f43ecf0`) | Nuova versione | Budget |
-|---|---|---|---|
-| Byte per aprire la home | 2.692.615 | 399.922 | — |
-| Gzip stimato | 491.665 | 90.107 | ≤ 150 KB |
-| LCP | 2.728 ms | 800 ms | ≤ 2.500 ms |
-| CLS | 0 | 0,053 | ≤ 0,1 |
+| | 4.4 (`f43ecf0`) | Primo passaggio | Identità enterprise | Budget |
+|---|---|---|---|---|
+| Byte per aprire la home | 2.692.615 | 399.922 | 499.742 | — |
+| Gzip stimato | 491.665 | 90.107 | 176.853 | ≤ 200 KB |
+| LCP | 2.728 ms | 800 ms | 848 ms | ≤ 2.500 ms |
+| CLS | 0 | 0,053 | 0 | ≤ 0,1 |
+
+La differenza dell'ultimo passaggio sono i caratteri IBM Plex (circa 88 KB di file WOFF2 già compressi, sottoinsieme Latin1), caricati con `font-display: swap`: il testo appare subito con il carattere di sistema. Il budget è stato portato da 150 a 200 KB per includerli.
 
 Sono misure di laboratorio, non metriche sul campo. Dopo il primo caricamento il service worker scarica in background l'indice di ricerca (412 KB, ~124 KB compressi) per l'uso offline.

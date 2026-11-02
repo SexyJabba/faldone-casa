@@ -15,7 +15,7 @@ const SIZES = (process.env.SIZES || '1280x900,390x844').split(',').map((s) => s.
       await p.evaluate((r) => { location.hash = r; }, r);
       await p.waitForFunction(() => !document.querySelector('main[aria-busy]'), null, { timeout: 5000 }).catch(() => {});
       await p.waitForTimeout(350);
-      const name = `${w}-${(r.split('?')[0] || 'home').replace(/[^a-z0-9]+/gi, '_')}${process.env.DARK ? '-scuro' : ''}.png`;
+      const name = `${w}-${(r || 'home').replace(/[^a-z0-9]+/gi, '_')}${process.env.DARK ? '-scuro' : ''}.png`;
       const overflow = await p.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
       await p.screenshot({ path: `${OUT}/${name}`, fullPage: !!process.env.FULL });
       console.log(name, overflow > 0 ? `OVERFLOW ${overflow}px` : '');

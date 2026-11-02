@@ -119,14 +119,15 @@ ${h.devices.length ? table(['Dispositivo', 'Porte', 'Funzione'], h.devices.map((
 ${phead({ eyebrow: `${kind(e.kind)} · <span class="code">${esc(e.id)}</span>`, title: `${e.name}${e.title && e.title !== e.name ? ' · ' + e.title : ''}`, lead: esc(e.oneLine) })}
 ${dims(e.status)}</div></div>
 ${(e.limits || []).map((l) => `<div class="limit">${esc(l)}</div>`).join('')}
-<div class="phead"><div class="actions">
-<a class="btn" href="${href('mappa?s=' + id)}">Vedi in mappa</a>
-${['node', 'service', 'device', 'network', 'storage', 'copy'].includes(e.kind) ? `<a class="btn" href="${href('simula?f=' + id)}">Simula indisponibilità</a>` : ''}
+<div class="actionbar">
+${['node', 'service', 'device', 'network', 'storage', 'copy'].includes(e.kind) ? `<a class="btn primary" href="${href('simula?f=' + id)}">Simula indisponibilità</a>` : `<a class="btn primary" href="${href('mappa?s=' + id)}">Vedi in mappa</a>`}
+${['node', 'service', 'device', 'network', 'storage', 'copy'].includes(e.kind) ? `<a class="btn" href="${href('mappa?s=' + id)}">Vedi in mappa</a>` : ''}
 ${procs[0] ? `<a class="btn" href="${href('procedura/' + procs[0].id)}">Procedura: ${esc(procs[0].symptom)}</a>` : ''}
-${e.kind === 'node' ? `<a class="btn ghost" href="${href('esplora/macchine?cmp=' + id)}">Confronta</a>` : ''}
-<button class="btn ghost" type="button" data-action="fav" data-id="${esc(id)}" aria-pressed="${app.isFav(id)}"><span class="lbl">${app.isFav(id) ? 'Nei preferiti' : 'Aggiungi ai preferiti'}</span></button>
-<button class="btn ghost" type="button" data-action="copy" data-text="${esc(`${e.id} · ${e.name} — ${location.origin}${location.pathname}#e/${e.id}`)}">Copia riferimento</button>
-<a class="btn ghost" href="${href('contribuisci?e=' + id)}">Prepara una segnalazione</a></div></div>
+<details class="menu"><summary class="btn ghost">Altre azioni</summary><div class="menu-list" role="group" aria-label="Altre azioni">
+${e.kind === 'node' ? `<a href="${href('esplora/macchine?cmp=' + id)}">Confronta con altre macchine</a>` : ''}
+<button type="button" data-action="fav" data-id="${esc(id)}" aria-pressed="${app.isFav(id)}"><span class="lbl">${app.isFav(id) ? 'Nei preferiti' : 'Aggiungi ai preferiti'}</span></button>
+<button type="button" data-action="copy" data-text="${esc(`${e.id} · ${e.name} — ${location.origin}${location.pathname}#e/${e.id}`)}">Copia riferimento</button>
+<a href="${href('contribuisci?e=' + id)}">Prepara una segnalazione</a></div></details></div>
 
 ${impacts.length || e.kind !== 'place' ? `<section aria-labelledby="h-miss"><h2 id="h-miss">Se manca</h2><p class="small"><span class="simtag">Simulazione</span> Calcolato dal modello con ${esc(e.name)} indisponibile; non è un'osservazione.</p>
 ${impacts.length ? `<ul>${impacts.slice(0, depth === 'capire' ? 6 : 30).map((i) => `<li>${st(i.status)} ${esc(i.text)}${i.svc ? ` <span class="small muted">(${esc(name(i.svc))})</span>` : ''}</li>`).join('')}</ul>${impacts.length > 6 && depth === 'capire' ? `<p class="small"><a href="${href('simula?f=' + id)}">Tutti gli effetti (${impacts.length}) nel simulatore</a></p>` : ''}` : '<p>Nessun servizio d\'uso cambia stato nel modello.</p>'}</section>` : ''}

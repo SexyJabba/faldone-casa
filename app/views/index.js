@@ -8,6 +8,8 @@ export const routes = [
   [/^ambito\/([a-z-]+)$/, 'ambito', lazy('./explore.js', 'scope'), 'esplora'],
   [/^e\/([A-Za-z0-9._-]+)$/, 'entità', lazy('./entity.js', 'entity'), 'esplora'],
   [/^mappa$/, 'mappa', lazy('./map.js', 'map'), 'esplora'],
+  [/^presenta$/, 'presentazione', lazy('./presentation.js', 'presentation'), ''],
+  [/^percorsi\/cinque-minuti$/, 'presentazione', lazy('./presentation.js', 'legacy'), ''],
   [/^percorsi$/, 'percorsi', lazy('./paths.js', 'paths'), 'esplora'],
   [/^percorsi\/([a-z-]+)$/, 'percorso', lazy('./paths.js', 'path'), 'esplora'],
   [/^simula$/, 'simula', lazy('./sim.js', 'simView'), 'emergenza'],

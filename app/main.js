@@ -63,15 +63,14 @@ app.setQuery = (q) => {
 
 function tools() {
   const depthBtns = [['capire', 'Capire'], ['approfondire', 'Approfondire'], ['intervenire', 'Intervenire']];
-  $('#tools').innerHTML = `<button class="iconbtn searchbtn" type="button" data-action="palette" aria-label="Cerca (scorciatoia / o Ctrl+K)">${icon('search')}<span class="lbl">Cerca nel Faldone</span><kbd class="lbl">/</kbd></button>
-<div class="depthwrap"><span class="vh" id="depthlbl">Profondità di lettura</span><div class="seg" role="group" aria-labelledby="depthlbl">${depthBtns.map(([k, l]) => `<button type="button" data-action="depth" data-v="${k}" aria-pressed="${app.depth === k}">${l}</button>`).join('')}</div></div>
+  $('#tools').innerHTML = `<button class="iconbtn searchbtn" type="button" data-action="palette" aria-label="Cerca (scorciatoia / o Ctrl+K)">${icon('search')}<span class="lbl">Cerca</span><kbd class="lbl">/</kbd></button>
 <a class="iconbtn" href="#preferiti" aria-label="Preferiti e dati locali">${icon('star')}</a>
 <button class="iconbtn" type="button" data-action="theme" aria-label="Tema: ${esc(app.data.prefs.theme)}">${icon('theme')}</button>`;
 }
 function depthbar() {
   let bar = document.getElementById('depthbar');
   if (!bar) { bar = document.createElement('div'); bar.id = 'depthbar'; bar.className = 'depthbar'; document.querySelector('.top').after(bar); }
-  bar.innerHTML = `<span id="depthlbl2">Lettura</span><div class="seg" role="group" aria-labelledby="depthlbl2">${[['capire', 'Capire'], ['approfondire', 'Approfondire'], ['intervenire', 'Intervenire']].map(([k, l]) => `<button type="button" data-action="depth" data-v="${k}" aria-pressed="${app.depth === k}">${l}</button>`).join('')}</div>`;
+  bar.innerHTML = `<span id="depthlbl2">Livello di dettaglio</span><div class="seg" role="group" aria-labelledby="depthlbl2">${[['capire', 'Capire'], ['approfondire', 'Approfondire'], ['intervenire', 'Intervenire']].map(([k, l]) => `<button type="button" data-action="depth" data-v="${k}" aria-pressed="${app.depth === k}">${l}</button>`).join('')}</div>`;
 }
 function applyTheme() {
   const t = app.data.prefs.theme;
@@ -101,7 +100,11 @@ async function render() {
   if (alias !== undefined && path !== alias) { history.replaceState(null, '', '#' + encodeURI(alias) + (qs ? '?' + qs : '')); return render(); }
   app.route = path; app.query = Object.fromEntries(new URLSearchParams(qs));
   const { view, params, area } = resolveRoute(app, path);
+  const db = document.getElementById('depthbar'); if (db) db.hidden = !/^(e\/|procedura\/|percorsi\/)/.test(path);
+  app.cleanup?.(); app.cleanup = null;
   app.handlers.clear();
+  app.onKey = null;
+  document.body.classList.remove('presenting');
   markNav(area);
   app.renderCount = (app.renderCount || 0) + 1;
   const main = $('#main');
@@ -119,8 +122,9 @@ async function render() {
   // posizione: ripristino tornando indietro, altrimenti inizio pagina e focus sul titolo
   const saved = sessionStorage.getItem(scrollKey(location.hash));
   if (app.navType === 'pop' && saved !== null) window.scrollTo(0, Number(saved));
-  else if (!out.keepScroll) { window.scrollTo(0, 0); if (app.prev !== null) (main.querySelector('h1') || main).focus({ preventScroll: true }); }
-  if (main.querySelector('h1') && !main.querySelector('h1').hasAttribute('tabindex')) main.querySelector('h1').setAttribute('tabindex', '-1');
+  const h1 = main.querySelector('h1');
+  if (h1 && !h1.hasAttribute('tabindex')) h1.setAttribute('tabindex', '-1');
+  if (app.navType === 'pop' && saved !== null) { /* posizione già ripristinata */ } else if (!out.keepScroll) { window.scrollTo(0, 0); if (app.prev !== null) (h1 || main).focus({ preventScroll: true }); }
   app.prev = location.hash; app.navType = 'push';
 }
 window.addEventListener('scroll', () => { sessionStorage.setItem(scrollKey(location.hash), String(window.scrollY)); }, { passive: true });
@@ -169,7 +173,8 @@ document.addEventListener('keydown', (e) => {
   const t = e.target;
   const typing = t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName);
   if ((e.key === 'k' || e.key === 'K') && (e.ctrlKey || e.metaKey)) { e.preventDefault(); openPalette(); return; }
-  if (e.key === '/' && !typing && !e.ctrlKey && !e.metaKey && !e.altKey) { e.preventDefault(); openPalette(); }
+  if (e.key === '/' && !typing && !e.ctrlKey && !e.metaKey && !e.altKey && !document.body.classList.contains('presenting')) { e.preventDefault(); openPalette(); return; }
+  app.onKey?.(e);
 });
 
 async function openPalette() {
@@ -195,7 +200,14 @@ function glossaryClick(e) {
   p.style.top = `${window.scrollY + r.bottom + 6}px`;
   g.setAttribute('aria-expanded', 'true');
 }
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') document.querySelectorAll('.pop').forEach((p) => p.remove()); });
+document.addEventListener('keydown', (e) => {
+  if (e.key !== 'Escape') return;
+  const pops = document.querySelectorAll('.pop');
+  if (pops.length) { pops.forEach((p) => p.remove()); return; }
+  const m = document.querySelector('details.menu[open]');
+  if (m) { m.open = false; m.querySelector('summary').focus(); }
+});
+document.addEventListener('click', (e) => { for (const m of document.querySelectorAll('details.menu[open]')) if (!m.contains(e.target)) m.open = false; });
 
 // ---------- avvio ----------
 (async function boot() {

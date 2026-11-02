@@ -1,10 +1,26 @@
 # Design system
 
-File: `app/style.css` (sito), `app/static.css` (pagine statiche e kit). Nessun font remoto: pila di sistema.
+File: `app/style.css` (sito), `app/static.css` (pagine statiche e kit). Nessun font remoto: IBM Plex è servito in locale.
 
 ## Identità
 
-Archivio tecnico contemporaneo: carta calda (`--bg #f4f1ea`), inchiostro (`--fg #1a2227`), petrolio come struttura (`--accent #14505c`). Il marchio è una costola di faldone con la «F». Tema scuro completo, rispetto di `prefers-color-scheme` e scelta manuale (auto → chiaro → scuro). `prefers-reduced-motion` disattiva le transizioni.
+Linguaggio unico ispirato a IBM Carbon (disciplina tipografica, griglia a multipli di 4/8 px, superfici sobrie), con soluzioni puntuali da AWS Cloudscape (pagina di risorsa come «hub»: sintesi, una azione primaria, dettagli e relazioni), Microsoft Learn (colonna di lettura e indice contestuale) e PatternFly (tabelle, filtri, menu di azioni). Nessuna libreria di componenti installata, nessun marchio o asset proprietario.
+
+| Token | Chiaro | Uso |
+|---|---|---|
+| `--color-canvas` | `#f4f6f8` | fondo della pagina |
+| `--color-surface` | `#ffffff` | superfici, tabelle, schede |
+| `--color-surface-subtle` | `#edf1f4` | intestazioni di tabella, barre |
+| `--color-text` / `--color-text-secondary` | `#18212b` / `#526171` | testo |
+| `--color-border` / `--color-border-strong` | `#d6dde5` / `#b9c4cf` | bordi |
+| `--color-accent` (+ hover, subtle) | `#14505c` | azioni primarie, selezione |
+| `--color-focus` | `#0f62fe` | anello di focus |
+
+Ogni token ha il valore scuro corrispondente (`prefers-color-scheme` e scelta manuale). I nomi brevi usati dai componenti (`--bg`, `--card`, `--fg`, `--muted`, `--line`, `--accent`) sono alias dei token.
+
+Tipografia: **IBM Plex Sans** e **IBM Plex Mono**, file locali in `assets/fonts/` (sottoinsieme Latin1, licenza OFL in `assets/fonts/OFL.txt`), `font-display: swap`, con pila di riserva di sistema. Mono solo per codici e identificativi. Titoli di pagina 26–32 px a peso 400; presentazione 28–44 px con testo 17–22 px; testo documentale 16 px con interlinea 1,6; controlli 14 px; metadati 13 px.
+
+Superfici: angoli da 4 px, bordi sottili, nessuna ombra sulle superfici in pagina; ombre solo su menu, dialoghi e pannelli sovrapposti.
 
 ## Colori con significato fisso (sempre con testo e forma)
 
@@ -21,6 +37,9 @@ Ambiti: `--s-sala`, `--s-casa`, `--s-lab`, `--s-vito`, `--s-terzi`, `--s-inv` (b
 
 ## Componenti
 
+- **Testata globale**: marchio, cinque aree principali, poi gli strumenti (ricerca, preferiti, tema). Il livello di dettaglio compare in una barra propria solo dove ha effetto (schede, procedure, percorsi).
+- **Barra delle azioni di una risorsa** `.actionbar`: una azione primaria, al massimo due secondarie, il resto nel menu «Altre azioni» (chiudibile con Esc).
+- **Cornice della presentazione** `.pres-*` e **schemi** `.pv-*` (`app/scenes.css`): vedi `docs/presentazione.md`.
 - **Testata di pagina** `phead()`: occhiello, titolo, sintesi, azioni.
 - **Barra di contesto** `ctxbar()`: dove sei, da dove vieni, ritorno.
 - **Dimensioni di stato** `dims()`: decisione, realizzazione, osservazione, separate.

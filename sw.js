@@ -1,9 +1,9 @@
 // Service worker del Faldone: solo contenuti pubblici, nessuna risposta autenticata.
 // Generato da tools/build.mjs: non modificare sw.js nella radice.
-const VERSION = 'ca79727fe5d2';
+const VERSION = '6917dfadd1f8';
 const CORE = `faldone-core-${VERSION}`;
 const DOCS = `faldone-docs-${VERSION}`;
-const PRECACHE = ["./","index.html","app/lib/energy.js","app/lib/model.js","app/lib/qr.js","app/lib/roadmap.js","app/lib/search.js","app/lib/sim.js","app/lib/store.js","app/main.js","app/static.css","app/style.css","app/ui.js","app/views/contribute.js","app/views/costs.js","app/views/docs.js","app/views/emergency.js","app/views/entity.js","app/views/explore.js","app/views/home.js","app/views/index.js","app/views/map.js","app/views/paths.js","app/views/roadmap.js","app/views/search.js","app/views/settings.js","app/views/sim.js","data/core.json","data/search.json","kit/emergenza.html","schede/index.html","assets/favicon.svg"];
+const PRECACHE = ["./","index.html","app/lib/energy.js","app/lib/model.js","app/lib/qr.js","app/lib/roadmap.js","app/lib/scenes.js","app/lib/search.js","app/lib/sim.js","app/lib/store.js","app/main.js","app/scenes.css","app/static.css","app/style.css","app/ui.js","app/views/contribute.js","app/views/costs.js","app/views/docs.js","app/views/emergency.js","app/views/entity.js","app/views/explore.js","app/views/home.js","app/views/index.js","app/views/map.js","app/views/paths.js","app/views/presentation.js","app/views/roadmap.js","app/views/search.js","app/views/settings.js","app/views/sim.js","data/core.json","data/search.json","data/presentazione.json","presentazione.html","assets/fonts/IBMPlexMono-Medium-Latin1.woff2","assets/fonts/IBMPlexMono-Regular-Latin1.woff2","assets/fonts/IBMPlexSans-Italic-Latin1.woff2","assets/fonts/IBMPlexSans-Medium-Latin1.woff2","assets/fonts/IBMPlexSans-Regular-Latin1.woff2","assets/fonts/IBMPlexSans-SemiBold-Latin1.woff2","kit/emergenza.html","schede/index.html","assets/favicon.svg"];
 
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(CORE).then((c) => c.addAll(PRECACHE)).then(() => self.skipWaiting()));

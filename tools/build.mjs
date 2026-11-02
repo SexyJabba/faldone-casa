@@ -9,7 +9,8 @@ import { createHash } from 'node:crypto';
 import { loadSources, normalize } from './lib/load.mjs';
 import { validate } from './lib/validate.mjs';
 import { sanitizeHtml, htmlToText, esc } from './lib/html.mjs';
-import { renderCardPage, renderEntityPage, renderIndexPage, renderKit, renderShell } from './lib/static.mjs';
+import { renderCardPage, renderEntityPage, renderIndexPage, renderKit, renderShell, renderPresentation } from './lib/static.mjs';
+import { wordCount, statusLine } from '../app/lib/scenes.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CHECK = process.argv.includes('--check');
@@ -51,7 +52,7 @@ const core = {
 const coreJson = JSON.stringify(core);
 const hasher = createHash('sha256').update(coreJson);
 for (const f of walk(join(ROOT, 'app'))) hasher.update(f.slice(ROOT.length)).update(readFileSync(f));
-hasher.update(readFileSync(join(ROOT, 'tools/templates/sw.js')));
+hasher.update(readFileSync(join(ROOT, 'tools/templates/sw.js'))).update(readFileSync(join(ROOT, 'content/presentazione/scene.json')));
 const build = hasher.digest('hex').slice(0, 12);
 core.meta.build = build;
 core.meta.builtAt = new Date().toISOString().slice(0, 10);
@@ -86,11 +87,33 @@ write('schede/index.html', renderIndexPage(ctx));
 for (const e of norm.entities) write(`e/${e.id}.html`, renderEntityPage(ctx, e));
 write('kit/emergenza.html', renderKit({ ...ctx, procedures: src.procedures, scopes: src.scopes, issues: src.issues }));
 
+// ---------- presentazione «Il progetto in cinque minuti» ----------
+const pres = JSON.parse(readFileSync(join(ROOT, 'content/presentazione/scene.json'), 'utf8'));
+{
+  const perr = [];
+  const ids = new Set(); const cardSet = new Set(src.cards.map((c) => c.code)); const entSet = new Set(norm.entities.map((e) => e.id));
+  for (const sc of pres.scenes) {
+    if (ids.has(sc.id) || !/^[a-z-]+$/.test(sc.id)) perr.push(`scena ${sc.id}: identificativo duplicato o non valido`); ids.add(sc.id);
+    for (const k of ['title', 'short', 'question', 'caption', 'alt']) if (!sc[k]) perr.push(`scena ${sc.id}: manca ${k}`);
+    for (const e of sc.deep?.entities || []) if (!entSet.has(e)) perr.push(`scena ${sc.id}: entità inesistente ${e}`);
+    for (const c of sc.deep?.cards || []) if (!cardSet.has(c)) perr.push(`scena ${sc.id}: scheda inesistente ${c}`);
+  }
+  for (const v of Object.values(pres.legacyChapters)) if (!ids.has(v)) perr.push(`capitolo storico verso scena inesistente ${v}`);
+  const wc = wordCount(pres, src.meta);
+  if (wc.main < 550 || wc.main > 650) perr.push(`testo principale di ${wc.main} parole: fuori dal budget 550–650`);
+  if (perr.length) { perr.forEach((e) => console.error('errore presentazione:', e)); process.exit(1); }
+  pres.statusText = statusLine(pres, src.meta);
+  pres.words = wc;
+  write('data/presentazione.json', pres);
+  write('presentazione.html', renderPresentation({ meta: core.meta, pres, tests: src.testResults.filter((r) => r.outcome === 'superato').length }));
+  console.log(`Presentazione: ${pres.scenes.length} scene, ${wc.main} parole di testo principale (+${wc.visual} nei visual).`);
+}
+
 // ---------- shell e service worker ----------
 const appFiles = walk(join(ROOT, 'app')).map((f) => f.slice(ROOT.length + 1));
 const indexHtml = renderShell({ meta: core.meta, scopes: src.scopes, procedures: src.procedures, build });
 write('index.html', indexHtml);
-const precache = ['./', 'index.html', ...appFiles, 'data/core.json', 'data/search.json', 'kit/emergenza.html', 'schede/index.html', 'assets/favicon.svg'];
+const precache = ['./', 'index.html', ...appFiles, 'data/core.json', 'data/search.json', 'data/presentazione.json', 'presentazione.html', ...walk(join(ROOT, 'assets/fonts')).filter((f) => f.endsWith('.woff2')).map((f) => f.slice(ROOT.length + 1)), 'kit/emergenza.html', 'schede/index.html', 'assets/favicon.svg'];
 const sw = readFileSync(join(ROOT, 'tools/templates/sw.js'), 'utf8').replace('__VERSION__', build).replace('__PRECACHE__', JSON.stringify(precache));
 write('sw.js', sw);
 write('data/offline-manifest.json', { build, revision: core.meta.revision, groups: src.groups.map((g) => `data/schede/${g.id}.json`), pages: src.cards.map((c) => `schede/${c.code}.html`) });
@@ -104,7 +127,7 @@ write('docs/migrazione/mappa-rotte.csv', routes.map((r) => r.join(',')).join('\n
 
 // ---------- controllo privacy sugli output pubblici ----------
 const PRIVATE = [/\/Users\//, /[A-Za-z0-9._%+-]+@(gmail|icloud|outlook|yahoo)\.[a-z]+/i, /\bjabba\b/i, /(password|token|apikey)\s*[:=]\s*\S{6,}/i];
-const outFiles = ['data', 'schede', 'e', 'kit'].flatMap((d) => walk(join(ROOT, d))).concat([join(ROOT, 'index.html'), join(ROOT, 'sw.js')]);
+const outFiles = ['data', 'schede', 'e', 'kit'].flatMap((d) => walk(join(ROOT, d))).concat([join(ROOT, 'index.html'), join(ROOT, 'sw.js'), join(ROOT, 'presentazione.html')]);
 const leaks = [];
 for (const f of outFiles) { const s = readFileSync(f, 'utf8'); for (const re of PRIVATE) if (re.test(s)) leaks.push(`${f.slice(ROOT.length + 1)}: ${re}`); }
 if (leaks.length) { console.error('Dati privati negli output pubblici:\n' + leaks.join('\n')); process.exit(1); }

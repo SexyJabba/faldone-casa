@@ -16,23 +16,23 @@ export function home(app) {
   const count = (s) => svc.filter((e) => base.status(e.id).status === s).length;
 
   const intents = [
-    ['percorsi/cinque-minuti', 'Voglio capire il progetto', 'Cosa permette, dove, con quali limiti. Cinque minuti.'],
-    ['esplora', 'Voglio trovare un servizio o una macchina', 'Per ambito, per luogo, per nome o per bisogno.'],
-    ['emergenza', 'Qualcosa non funziona', 'Percorsi semplici, poi i controlli da tecnico.'],
-    ['realizza', 'Voglio realizzare il prossimo passo', 'Cosa si può fare adesso e cosa lo blocca.'],
-    ['contribuisci', 'Voglio aiutare o verificare una scelta', 'Questioni aperte, prove mancanti, proposte.'],
+    ['esplora', 'Trovare una parte del sistema', 'Per luogo, servizio, macchina o bisogno.'],
+    ['emergenza', 'Risolvere un problema', 'Controlli semplici, poi le procedure tecniche.'],
+    ['realizza', 'Seguire la realizzazione', 'Tappe, decisioni aperte e collaudi.'],
+    ['documenti', 'Consultare le fonti', `${m.counts.cards} schede con codice, glossario, download.`],
+    ['contribuisci', 'Verificare o contribuire', 'Questioni aperte e prove da fare.'],
   ];
-  const depth = app.depth;
+  const resume = app.data.progress?.presenta?.scene;
+  const fd = (iso, y = true) => new Date(iso + 'T12:00:00Z').toLocaleDateString('it-IT', { day: 'numeric', month: 'long', ...(y ? { year: 'numeric' } : {}), timeZone: 'UTC' });
   const html = `
 <section class="hero" aria-labelledby="ptitle">
-  <p class="eyebrow">Il Faldone · infrastruttura informatica di Alessandro Rinaldi</p>
-  <h1 id="ptitle">Casa, sala server, laboratorio e Vito: che cosa c'è, come funziona, che cosa succede se qualcosa si ferma.</h1>
-  <p class="lead">Documenti, foto, film, domotica e lavoro girano su computer di casa, non su abbonamenti. Qui trovi a cosa serve ogni parte, da che cosa dipende e come si recupera.</p>
-  <div class="statusline"><span class="dim d-approvata"><b>Contenuto</b>Revisione ${esc(m.revision)} · ${esc(new Date(m.documentDate).toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' }))}</span>
-  <span class="dim"><b>Natura</b>Progetto di riferimento, attuazione dal ${esc(new Date(m.implementationStart).toLocaleDateString('it-IT', { day: 'numeric', month: 'long' }))}</span>
-  <span class="dim"><b>Collaudi registrati</b>${passed}</span><span class="dim"><b>Stato osservato</b>non rilevato · nessuna telemetria</span></div>
-  <ul class="intents">${intents.map(([r, t, s]) => `<li><a href="${href(r)}">${esc(t)}<small>${esc(s)}</small></a></li>`).join('')}</ul>
+  <p class="eyebrow">Il Faldone</p>
+  <h1 id="ptitle">Atlante dell'infrastruttura</h1>
+  <p class="lead">Il progetto che collega dati, servizi e strumenti di casa, sala server, laboratorio e furgone di lavoro: a che cosa serve ogni parte, da che cosa dipende, come si recupera.</p>
+  <div class="hero-cta"><a class="btn primary btn-lg" href="${href('presenta')}">Scopri il progetto in 5 minuti</a><span class="small muted">10 scene · circa 5 minuti</span>${resume && resume !== 'visione' ? `<a class="small" href="${href('presenta?s=' + resume)}">Riprendi dalla scena interrotta</a>` : ''}</div>
+  <p class="hero-meta">Revisione ${esc(m.revision)} del ${esc(fd(m.documentDate))} · progetto di riferimento, attuazione dal ${esc(fd(m.implementationStart, false))} · collaudi registrati nel Faldone: ${passed || 'nessuno finora'} · nessun monitoraggio collegato</p>
 </section>
+<ul class="intents" aria-label="Che cosa vuoi fare">${intents.map(([r, t, s]) => `<li><a href="${href(r)}">${esc(t)}<small>${esc(s)}</small></a></li>`).join('')}</ul>
 
 <h2>L'insieme in un colpo d'occhio</h2>
 <div class="overview">
@@ -43,8 +43,8 @@ export function home(app) {
 </div>
 <p class="small muted">Nella situazione di riferimento (simulata dal modello, non osservata): ${count('available')} servizi d'uso disponibili, ${count('on_demand')} su richiesta, ${count('unknown')} non determinabili per informazioni mancanti. <a href="${href('simula')}">Prova a spegnere una macchina</a>.</p>
 
-<h2>Sei ambiti</h2>
-<div class="grid">${core.scopes.map((s) => `<a class="tile scope-bar" data-scope="${s.id}" href="${href('ambito/' + s.id)}"><span class="t">${esc(s.name)}</span><p>${esc(depth === 'capire' ? s.simple : s.tagline)}</p></a>`).join('')}</div>
+<h2>Le aree del Faldone</h2><p class="small muted">Quattro luoghi (sala server, casa, laboratorio, Vito) e due aree trasversali: i servizi offerti ad altre persone e l'inventario del materiale.</p>
+<div class="grid">${core.scopes.map((s) => `<a class="tile scope-bar" data-scope="${s.id}" href="${href('ambito/' + s.id)}"><span class="t">${esc(s.name)}</span><p>${esc(s.tagline)}</p></a>`).join('')}</div>
 
 <div class="overview" style="margin-top:24px">
   <section class="card" aria-labelledby="h-now"><h2 id="h-now" style="margin-top:0">Si può fare adesso</h2>
@@ -63,7 +63,6 @@ export function home(app) {
    <li><a href="${href('esplora/rack')}">Rack e porte</a> · <a href="${href('inventario')}">inventario (${m.counts.inventory} voci)</a></li>
   </ul></section>
 </div>
-${depth === 'intervenire' ? `<div class="callout"><strong>Riferimenti di progetto 4.4</strong>Nucleo Proxmox M1, M2, M5, C3, C4: ${core.entities.find((e) => e.id === 'CLUSTER').facts.expectedVotes.value} voti, quorum ${core.entities.find((e) => e.id === 'CLUSTER').facts.quorum.value}, senza QDevice; M3/M4/M6 autonomi; S4 sentinella senza voto. HA non attiva finché i collaudi non sono registrati. ${badge('unknown', 'nessun collaudo registrato')}</div>` : ''}
 <p class="small muted">Numeri con fonte: ${m.counts.cards} codici di scheda (fonte: anagrafica 4.4), ${m.counts.groups} testi leggibili, ${m.counts.entities} elementi del modello con ${m.counts.relations} relazioni, ${m.counts.inventory} voci d'inventario. Build ${esc(m.build)}.</p>`;
   return { title: 'Panoramica', html };
 }

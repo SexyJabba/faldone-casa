@@ -1,0 +1,642 @@
+{
+ "note": "Sorgente unica del percorso «Il progetto in cinque minuti». Presentazione, lettura, stampa e pagina statica derivano da qui. Testi curati a mano: non generare concatenando le schede. Il conteggio delle parole (titolo + testo + didascalia) è verificato dai test: 550–650.",
+ "title": "Il progetto in cinque minuti",
+ "status": "Si presenta un progetto: revisione {revision} del {documentDate}, attuazione dal {implementationStart}.",
+ "legacyChapters": {
+  "1": "visione",
+  "2": "luoghi",
+  "3": "funzionamento",
+  "4": "dati",
+  "5": "continuita"
+ },
+ "scenes": [
+  {
+   "id": "visione",
+   "short": "La visione",
+   "question": "Che cos'è?",
+   "title": "Un'infrastruttura comune per casa e lavoro",
+   "body": [
+    "Il progetto mette in relazione dati, servizi e strumenti usati in casa, in laboratorio e sul furgone di lavoro. L'obiettivo è un sistema ordinato, comprensibile e gestibile nel tempo.",
+    "Il Faldone descrive questo progetto e conserva le scelte fatte per realizzarlo."
+   ],
+   "caption": "Tre gruppi di attività che si appoggiano a una base comune.",
+   "visual": {
+    "type": "hub",
+    "center": "Servizi e dati comuni",
+    "spokes": [
+     {
+      "label": "Casa e famiglia",
+      "sub": "foto, documenti, domotica"
+     },
+     {
+      "label": "Lavoro",
+      "sub": "progetti, cantieri, attività"
+     },
+     {
+      "label": "Persone autorizzate",
+      "sub": "film e file condivisi"
+     }
+    ]
+   },
+   "alt": "Schema: al centro i servizi e i dati comuni; attorno tre gruppi che li usano: casa e famiglia, lavoro, persone autorizzate.",
+   "deep": {
+    "label": "Perimetro e documenti di riferimento",
+    "text": "Il perimetro comprende la sala server, le stanze di casa, il laboratorio, il furgone Vito, i servizi offerti a poche persone autorizzate e l'inventario del materiale. Le schede con codice sono la fonte: sito, PDF e questa presentazione derivano dalla stessa revisione.",
+    "entities": [
+     "P-SALA",
+     "P-CASA",
+     "P-LAB",
+     "P-VITO"
+    ],
+    "cards": [
+     "INF-00.01",
+     "REV4-ECO",
+     "REV3-SRC"
+    ],
+    "links": [
+     {
+      "label": "Come si legge il Faldone",
+      "route": "guida"
+     }
+    ]
+   }
+  },
+  {
+   "id": "valore",
+   "short": "Il valore",
+   "question": "Perché costruirla?",
+   "title": "Dati ordinati, accessi controllati, strumenti coerenti",
+   "body": [
+    "Foto, documenti, automazioni di casa e attività di lavoro hanno esigenze diverse. Il progetto stabilisce dove conservarli, chi può usarli e come recuperarli se qualcosa va storto.",
+    "Ogni parte ha un compito preciso e collegamenti dichiarati con le altre."
+   ],
+   "caption": "Tre benefici, ciascuno legato a un'attività quotidiana.",
+   "visual": {
+    "type": "columns",
+    "items": [
+     {
+      "label": "Dati ordinati",
+      "sub": "Ogni insieme di dati ha un posto principale e copie definite."
+     },
+     {
+      "label": "Accessi controllati",
+      "sub": "Ogni persona raggiunge solo i servizi che le sono concessi."
+     },
+     {
+      "label": "Strumenti coerenti",
+      "sub": "Gli stessi servizi in casa, in laboratorio e, dove previsto, in viaggio."
+     }
+    ]
+   },
+   "alt": "Tre colonne: dati ordinati, accessi controllati, strumenti coerenti, ciascuna con un esempio.",
+   "deep": {
+    "label": "Obiettivi, compromessi e requisiti",
+    "text": "I servizi principali girano su computer di proprietà; alcuni servizi esterni restano parte del sistema, come la copia remota su Google Drive e l'account di lavoro Google. Il progetto non promette risparmio garantito né indipendenza totale dal cloud. Il compromesso principale è la gestione: aggiornamenti, copie e prove richiedono tempo.",
+    "entities": [
+     "ST-DRIVE",
+     "GEMINI",
+     "NEXTCLOUD"
+    ],
+    "cards": [
+     "REV4-ECO",
+     "REV3-CLOUD",
+     "REV4-SIN"
+    ],
+    "links": [
+     {
+      "label": "Costi ed energia, con stime dichiarate",
+      "route": "costi"
+     }
+    ]
+   }
+  },
+  {
+   "id": "giornata",
+   "short": "Una giornata concreta",
+   "question": "Come mi aiuta?",
+   "title": "Il lavoro continua anche quando cambi luogo",
+   "body": [
+    "Un'attività inizia in laboratorio e prosegue in cantiere. Prima di partire si preparano i documenti necessari; sul furgone si consultano e si compila il rapporto della giornata, anche senza rete.",
+    "Al rientro il rapporto arriva una sola volta all'archivio di casa ed entra nelle copie."
+   ],
+   "caption": "Flusso previsto dal progetto: la prova sul primo viaggio operativo è in programma.",
+   "visual": {
+    "type": "sequence",
+    "steps": [
+     {
+      "label": "Preparare",
+      "sub": "In laboratorio: documenti e agenda selezionati"
+     },
+     {
+      "label": "Lavorare fuori",
+      "sub": "Sul Vito: consultazione e rapporto, anche senza rete"
+     },
+     {
+      "label": "Rientrare",
+      "sub": "Consegna senza duplicati, poi le copie"
+     }
+    ],
+    "links": [
+     "si parte con i materiali",
+     "al rientro"
+    ]
+   },
+   "alt": "Sequenza in tre passi: preparare in laboratorio, lavorare fuori sul Vito anche senza rete, rientrare e consegnare il rapporto senza duplicati.",
+   "deep": {
+    "label": "Flusso documentato, condizioni e limiti",
+    "text": "Senza copertura restano disponibili i documenti selezionati e le bozze locali; i servizi cloud e le diagnosi che richiedono Internet no. I dati non ancora consegnati restano sul furgone, marcati come tali. Il collaudo previsto deve dimostrare un rapporto registrato una sola volta e il kit leggibile senza rete. Il furgone non partecipa alle decisioni del sistema di casa.",
+    "entities": [
+     "C1",
+     "VITO-KIT",
+     "D-VITO",
+     "NET-VITO"
+    ],
+    "cards": [
+     "REV4-VLAV",
+     "REV4-VSYNC",
+     "REV4-VTEST"
+    ],
+    "links": [
+     {
+      "label": "Attività: rapportino offline senza duplicati",
+      "route": "realizza/attivita/A-4.2"
+     }
+    ]
+   }
+  },
+  {
+   "id": "luoghi",
+   "short": "I luoghi",
+   "question": "Dove succede?",
+   "title": "Quattro luoghi, ciascuno con un compito",
+   "body": [
+    "La sala server ospita i computer che conservano i dati e offrono i servizi. Le stanze di casa li usano con schermi, sensori e comandi. Dal laboratorio si lavora e si gestisce l'impianto. Il Vito porta con sé ciò che serve fuori casa."
+   ],
+   "caption": "La rete di casa collega tre luoghi; il Vito si collega da fuori, quando c'è copertura.",
+   "visual": {
+    "type": "places",
+    "items": [
+     {
+      "id": "sala",
+      "label": "Sala server",
+      "sub": "conserva i dati, offre i servizi"
+     },
+     {
+      "id": "casa",
+      "label": "Casa",
+      "sub": "schermi, sensori, comandi"
+     },
+     {
+      "id": "lab",
+      "label": "Laboratorio",
+      "sub": "lavoro e gestione"
+     },
+     {
+      "id": "vito",
+      "label": "Vito",
+      "sub": "ufficio mobile e camper"
+     }
+    ],
+    "edges": [
+     [
+      "sala",
+      "casa",
+      "rete di casa"
+     ],
+     [
+      "sala",
+      "lab",
+      "rete di casa"
+     ],
+     [
+      "sala",
+      "vito",
+      "da fuori, se c'è rete"
+     ]
+    ],
+    "note": "Trasversali ai luoghi: chi può usare i servizi (famiglia, lavoro, poche persone autorizzate) e il materiale posseduto, censito nell'inventario."
+   },
+   "alt": "Quattro luoghi: sala server al centro, collegata dalla rete di casa a casa e laboratorio, e al Vito da fuori quando c'è rete.",
+   "deep": {
+    "label": "Mappa completa di luoghi e relazioni",
+    "text": "Le persone autorizzate, come due amici con un client dedicato o gli utenti dei file condivisi, raggiungono solo i servizi concessi, mai le copie o la gestione. L'inventario elenca il materiale con la sua assegnazione. Il furgone ha una rete propria, senza collegamento libero con la rete di casa.",
+    "entities": [
+     "P-SALA",
+     "P-CASA",
+     "P-LAB",
+     "P-VITO",
+     "HP-AMICI",
+     "NET-VITO"
+    ],
+    "cards": [
+     "REV4-ECO",
+     "REV4-TERZI",
+     "REV4-VNET"
+    ],
+    "links": [
+     {
+      "label": "Mappa relazionale",
+      "route": "mappa"
+     },
+     {
+      "label": "Inventario",
+      "route": "inventario"
+     }
+    ]
+   }
+  },
+  {
+   "id": "servizi",
+   "short": "I servizi",
+   "question": "Che cosa posso usare?",
+   "title": "I computer offrono funzioni che si usano ogni giorno",
+   "body": [
+    "Per chi usa il sistema contano le funzioni: tenere in ordine documenti e foto, governare la casa, guardare e ascoltare i propri contenuti, lavorare e far elaborare dati all'intelligenza artificiale. Ogni funzione ha un programma dedicato e un pubblico definito."
+   ],
+   "caption": "Quattro famiglie di servizi, con esempi tratti dal progetto.",
+   "visual": {
+    "type": "grid",
+    "items": [
+     {
+      "label": "Dati personali",
+      "list": [
+       "documenti condivisi (Nextcloud)",
+       "archivio delle foto (Immich)"
+      ]
+     },
+     {
+      "label": "Casa",
+      "list": [
+       "automazioni e comandi (Home Assistant)",
+       "eventi delle telecamere (Frigate)"
+      ]
+     },
+     {
+      "label": "Contenuti",
+      "list": [
+       "film e serie (Jellyfin)",
+       "musica e audiolibri"
+      ]
+     },
+     {
+      "label": "Lavoro e calcolo",
+      "list": [
+       "attività e roadmap (Vikunja)",
+       "assistenti di IA su richiesta"
+      ]
+     }
+    ]
+   },
+   "alt": "Quattro famiglie di servizi: dati personali, casa, contenuti, lavoro e calcolo, con due esempi ciascuna.",
+   "deep": {
+    "label": "Vedi i servizi previsti",
+    "text": "Ogni servizio indica la macchina che lo ospita, chi può usarlo e da dove. I servizi personali richiedono un accesso remoto personale il cui meccanismo non è ancora documentato; film e file condivisi con altre persone passano da un ingresso filtrato.",
+    "entities": [
+     "NEXTCLOUD",
+     "IMMICH",
+     "HAOS",
+     "FRIGATE",
+     "JELLYFIN",
+     "VIKUNJA",
+     "LLM"
+    ],
+    "cards": [
+     "REV3-SRV",
+     "INF-12.03"
+    ],
+    "links": [
+     {
+      "label": "Catalogo dei servizi",
+      "route": "esplora/servizi"
+     }
+    ]
+   }
+  },
+  {
+   "id": "funzionamento",
+   "short": "Il funzionamento",
+   "question": "Come lavora il sistema?",
+   "title": "Una base sempre attiva, il resto si accende quando serve",
+   "body": [
+    "Cinque computer restano accesi e sostengono le funzioni continue: rete, applicazioni, domotica e due postazioni che fanno anche da riserva. Tre server più pesanti, per intelligenza artificiale, copie e film, si accendono su richiesta.",
+    "Spenti non sono guasti: un piccolo dispositivo li risveglia quando serve."
+   ],
+   "caption": "I ruoli dei gruppi; le regole di decisione sono nell'approfondimento.",
+   "visual": {
+    "type": "layers",
+    "groups": [
+     {
+      "label": "Base sempre attiva",
+      "items": [
+       "Rete e sicurezza",
+       "Applicazioni e dati",
+       "Domotica",
+       "Postazione camera, riserva domotica",
+       "Postazione salone, riserva applicazioni"
+      ]
+     },
+     {
+      "label": "Su richiesta",
+      "items": [
+       "Calcolo IA",
+       "Copie e archivio",
+       "Film e file condivisi"
+      ]
+     },
+     {
+      "label": "Supporto",
+      "items": [
+       "Ingresso e password",
+       "Radio dei sensori",
+       "Sentinella che accende i server"
+      ]
+     }
+    ],
+    "link": "la sentinella accende i server su richiesta"
+   },
+   "alt": "Tre gruppi: base sempre attiva con cinque ruoli, server su richiesta con tre ruoli, dispositivi di supporto tra cui la sentinella che accende i server su richiesta.",
+   "deep": {
+    "label": "Quali macchine restano attive",
+    "text": "La base è il nucleo M1, M2, M5, C3, C4: un cluster Proxmox a cinque voti, dove servono tre voti perché il gruppo continui a decidere; non c'è un voto esterno di spareggio. M3, M4 e M6 sono host autonomi, fuori dal voto. S4 invia il comando di accensione, C4 è il secondo mittente. Avere il voto non garantisce che un servizio possa ripartire altrove.",
+    "entities": [
+     "CLUSTER",
+     "M1",
+     "M2",
+     "M5",
+     "C3",
+     "C4",
+     "M3",
+     "M4",
+     "M6",
+     "S4"
+    ],
+    "cards": [
+     "INF-03.01",
+     "REV3-ENE",
+     "INF-03.32"
+    ],
+    "links": [
+     {
+      "label": "Simulatore di guasti",
+      "route": "simula"
+     },
+     {
+      "label": "Mappa: quorum e accensione",
+      "route": "mappa?l=quorum,accensione"
+     }
+    ]
+   }
+  },
+  {
+   "id": "dati",
+   "short": "I dati",
+   "question": "Dove stanno e come si proteggono?",
+   "title": "Le foto hanno un posto principale e copie con compiti diversi",
+   "body": [
+    "Prendiamo le foto di famiglia. Ogni giorno stanno sul server delle applicazioni, su un solo disco. Una copia con le versioni dei giorni precedenti, chiamata backup, va su un secondo server in casa; un'altra fuori casa; una selezione su cartucce scollegate.",
+    "Conservare, copiare e autorizzare l'accesso sono compiti distinti."
+   ],
+   "caption": "Percorso previsto per le foto; altri dati hanno coperture diverse.",
+   "visual": {
+    "type": "flow",
+    "steps": [
+     {
+      "label": "Uso quotidiano",
+      "sub": "server delle applicazioni, disco singolo",
+      "tag": "previsto"
+     },
+     {
+      "label": "Copia in casa",
+      "sub": "backup giornaliero con versioni",
+      "tag": "proposta da attivare"
+     },
+     {
+      "label": "Copia fuori casa",
+      "sub": "Google Drive",
+      "tag": "prevista, cifratura da decidere"
+     },
+     {
+      "label": "Copia scollegata",
+      "sub": "cartuccia «foto e video»",
+      "tag": "da acquistare"
+     },
+     {
+      "label": "Recupero",
+      "sub": "da un computer indipendente, in una cartella nuova",
+      "tag": "da provare"
+     }
+    ]
+   },
+   "alt": "Percorso delle foto: uso quotidiano sul server delle applicazioni; copia in casa con versioni; copia fuori casa su Google Drive; copia scollegata su cartuccia; recupero da un computer indipendente. Ogni passo riporta il suo stato.",
+   "deep": {
+    "label": "Come sono organizzate le copie",
+    "text": "Il disco P310 di M2 non ha ridondanza: un suo guasto ferma i servizi finché non si recupera. Il backup locale su M4 è proposto ogni giorno dalle 18:00; Drive riceve copie dopo una copia coerente; le tre cartucce RDX contengono selezioni diverse, non la stessa copia. Una copia vale come recupero solo dopo una prova di ripristino registrata.",
+    "entities": [
+     "D-FOTO",
+     "ST-P310",
+     "CP-BCK-M4",
+     "CP-DRIVE",
+     "CP-RDX"
+    ],
+    "cards": [
+     "REV3-BCK",
+     "INF-04.10",
+     "REV4-MIG"
+    ],
+    "links": [
+     {
+      "label": "Procedura di recupero",
+      "route": "procedura/PR-RESTORE"
+     },
+     {
+      "label": "Tutti i dati e le loro copie",
+      "route": "esplora/dati"
+     }
+    ]
+   }
+  },
+  {
+   "id": "continuita",
+   "short": "La continuità",
+   "question": "Che cosa succede se qualcosa si ferma?",
+   "title": "Se il server delle applicazioni si ferma, non tutto si ferma con lui",
+   "body": [
+    "La domotica continua, perché vive su un altro computer. Documenti e attività possono ripartire sulla postazione del salone, ma solo dopo una prova riuscita. Le foto aspettano il server; se il guasto è del disco, tornano dalle copie.",
+    "Restare operativi e recuperare i dati sono obiettivi distinti."
+   ],
+   "caption": "Esiti previsti dal modello del progetto, non osservati.",
+   "visual": {
+    "type": "scenario",
+    "event": "Il server delle applicazioni si ferma",
+    "outcomes": [
+     {
+      "tone": "ok",
+      "label": "Continua",
+      "sub": "domotica, telecamere, ingresso e password"
+     },
+     {
+      "tone": "wait",
+      "label": "Riparte altrove, a condizioni",
+      "sub": "documenti, attività, automazioni: sulla postazione del salone, dopo collaudo"
+     },
+     {
+      "tone": "stop",
+      "label": "Attende o va recuperato",
+      "sub": "foto e altre app: aspettano il server o tornano dalle copie"
+     }
+    ]
+   },
+   "alt": "Scenario: il server delle applicazioni si ferma. Continua: domotica, telecamere, ingresso e password. Riparte altrove a condizioni: documenti, attività e automazioni. Attende o va recuperato: foto e altre app.",
+   "deep": {
+    "label": "Leggi condizioni e limiti del recupero",
+    "text": "Il subentro di Nextcloud, Vikunja e n8n su C4 richiede il collaudo T-HA-APP superato, il quorum nella partizione di C4 e spazio sufficiente sul disco di C4, la cui capacità non è ancora misurata. Gli obiettivi sono al massimo 5 minuti di dati persi e 15 minuti per ripartire: valori di progetto, non misure. Immich non ha subentro.",
+    "entities": [
+     "M2",
+     "NEXTCLOUD",
+     "C4",
+     "CP-REPL-C4",
+     "IMMICH",
+     "HAOS"
+    ],
+    "cards": [
+     "INF-03.09",
+     "INF-08.08",
+     "INF-08.04"
+    ],
+    "links": [
+     {
+      "label": "Simula questo scenario",
+      "route": "simula?f=M2"
+     },
+     {
+      "label": "Procedura: M2 non risponde",
+      "route": "procedura/PR-M2"
+     }
+    ]
+   }
+  },
+  {
+   "id": "realizzazione",
+   "short": "La realizzazione",
+   "question": "A che punto siamo?",
+   "title": "Il progetto è definito; la realizzazione procede per tappe verificate",
+   "body": [
+    "La revisione attuale descrive l'impianto di riferimento. L'attuazione parte dal 23 dicembre 2026: prima inventario e copie di sicurezza, poi rete e spostamento dei dati, infine i servizi avanzati.",
+    "Ogni tappa si chiude con prove registrate, distinte dall'acquisto e dall'installazione."
+   ],
+   "caption": "Tappe ricavate dalla roadmap; le date dipendono da consegne e tempi di copia.",
+   "visual": {
+    "type": "timeline",
+    "steps": [
+     {
+      "label": "Dicembre 2026",
+      "sub": "inventario, prove al banco, copie di transizione su Drive",
+      "phases": [
+       "p0",
+       "p1"
+      ]
+     },
+     {
+      "label": "Dicembre 2026 – gennaio 2027",
+      "sub": "nuova rete e base sempre attiva, dati sulle destinazioni finali, primo viaggio del Vito",
+      "phases": [
+       "p2",
+       "p3",
+       "p4"
+      ]
+     },
+     {
+      "label": "Gennaio – marzo 2027",
+      "sub": "domotica e media, misure dei consumi, chiusura",
+      "phases": [
+       "p5",
+       "p6"
+      ]
+     }
+    ],
+    "footer": "tests"
+   },
+   "alt": "Tre tappe: dicembre 2026 inventario e copie; dicembre 2026–gennaio 2027 rete, base sempre attiva, dati e Vito; gennaio–marzo 2027 domotica, media e chiusura.",
+   "deep": {
+    "label": "Decisioni, attività aperte e collaudi",
+    "text": "Restano aperte la cifratura del deposito su Drive e la disposizione dei dischi dei film. Il Faldone registra un collaudo solo con data, esemplare ed evidenza. L'assenza di registrazioni non dice che nulla funzioni: dice che nessuna prova è ancora documentata qui.",
+    "entities": [],
+    "cards": [
+     "REV4-ROAD",
+     "REV4-TEST",
+     "REV3-OPEN"
+    ],
+    "links": [
+     {
+      "label": "Roadmap: cosa si può fare adesso",
+      "route": "realizza"
+     },
+     {
+      "label": "Registro delle decisioni",
+      "route": "realizza/decisioni"
+     },
+     {
+      "label": "Collaudi",
+      "route": "realizza/collaudi"
+     }
+    ]
+   }
+  },
+  {
+   "id": "quadro",
+   "short": "Il quadro completo",
+   "question": "Che cosa devo ricordare?",
+   "title": "Un sistema comune, spiegato e verificabile",
+   "body": [
+    "Quattro luoghi con compiti chiari, servizi che seguono casa e lavoro, una base sempre attiva e risorse su richiesta, dati con copie distinte, una realizzazione che avanza per prove.",
+    "Da qui puoi esplorare il sistema, consultare le fonti o contribuire con la tua competenza."
+   ],
+   "caption": "Lo schema iniziale, completato con i concetti del racconto.",
+   "visual": {
+    "type": "hub",
+    "center": "Servizi e dati comuni",
+    "recap": true,
+    "spokes": [
+     {
+      "label": "Luoghi",
+      "sub": "compiti distinti"
+     },
+     {
+      "label": "Servizi",
+      "sub": "per funzione e pubblico"
+     },
+     {
+      "label": "Risorse",
+      "sub": "base e su richiesta"
+     },
+     {
+      "label": "Dati",
+      "sub": "posto principale e copie"
+     },
+     {
+      "label": "Realizzazione",
+      "sub": "tappe con prove"
+     }
+    ]
+   },
+   "alt": "Schema riassuntivo: al centro i servizi e i dati comuni; attorno luoghi, servizi, risorse, dati e realizzazione.",
+   "exits": [
+    {
+     "label": "Esplora il sistema",
+     "sub": "macchine, servizi, mappa, simulatore",
+     "route": "esplora"
+    },
+    {
+     "label": "Consulta la documentazione",
+     "sub": "303 schede con codice e fonti",
+     "route": "documenti"
+    },
+    {
+     "label": "Contribuisci",
+     "sub": "questioni aperte e prove da fare",
+     "route": "contribuisci"
+    }
+   ]
+  }
+ ]
+}

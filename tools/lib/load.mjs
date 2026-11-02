@@ -92,7 +92,7 @@ export function normalize(src) {
     services: 'esplora/servizi', power: 'costi', acquisitions: 'realizza/acquisti', library: 'documenti', changes: 'documenti/revisioni',
     downloads: 'documenti/download', guide: 'guida', atlas: 'esplora', clients: 'ambito/casa', field: 'ambito/casa', inventory: 'ambito/inventario',
     rack: 'esplora/rack', reuse: 'ambito/inventario', synergy: 'esplora', worlds: 'esplora', map: 'mappa', savings: 'costi', glossary: 'glossario',
-    sim: 'simula', tour: 'percorsi',
+    sim: 'simula', tour: 'presenta',
   });
   for (const id of entities.filter((e) => e.kind === 'node').map((e) => e.id)) aliases[`node/${id}`] = `e/${id}`;
   return { entities, relations, aliases };
