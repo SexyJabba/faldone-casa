@@ -33,7 +33,7 @@ export function search(index, query, { type = null, scope = null, includeRoadmap
   const boostIds = new Map();
   for (const g of index.syn) {
     const hit = g.wordsN.find((w) => (w.includes(' ') ? q.includes(w) : qt.includes(w) || qs.includes(stem(w))));
-    if (hit) { expansions.push({ word: hit, means: g.means, entities: g.entities, terms: g.terms }); g.entities.forEach((id) => boostIds.set(id, `«${hit}» → ${g.means}`)); }
+    if (hit) { expansions.push({ word: hit, means: g.means, entities: g.entities, terms: g.terms }); [...g.entities, ...(g.docs || [])].forEach((id) => boostIds.set(id, `«${hit}» → ${g.means}`)); }
   }
   const extraStems = expansions.flatMap((e) => e.terms.flatMap((t) => tokens(t).map(stem)));
   const scored = [];

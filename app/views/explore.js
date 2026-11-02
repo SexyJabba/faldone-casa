@@ -14,6 +14,7 @@ export function explore(app) {
 <a class="tile" href="${href('esplora/dati')}"><span class="t">Dati e copie</span><p>${n('dataset')} insiemi di dati, ${n('storage')} archivi, ${n('copy')} protezioni.</p></a>
 <a class="tile" href="${href('esplora/rete')}"><span class="t">Rete</span><p>${n('network')} reti e collegamenti, WAN, VLAN, radio.</p></a>
 <a class="tile" href="${href('esplora/rack')}"><span class="t">Rack e porte</span><p>Vista logica del rack e dello switch.</p></a>
+<a class="tile" href="${href('impianti')}"><span class="t">Impianti di casa</span><p>VMC compilata come ipotesi; corrente, acqua, sensori, allarme, telecamere, LAN, fotovoltaico, planimetria da compilare.</p></a>
 <a class="tile" href="${href('inventario')}"><span class="t">Inventario</span><p>${core.meta.counts.inventory} voci con assegnazione e foto.</p></a></div>
 <h2>Viste collegate</h2><div class="grid">
 <a class="tile" href="${href('mappa')}"><span class="t">Mappa relazionale</span><p>Livelli selezionabili: rete, hosting, dati, copie, quorum, alimentazione, accensione, accesso, radio.</p></a>
@@ -33,7 +34,7 @@ export function scope(app, [id]) {
   const world = null;
   void world;
   const html = `${ctxbar([['Esplora', 'esplora'], [s.name]])}<div data-scope="${s.id}" class="scope-bar" style="padding-top:8px">${phead({ eyebrow: 'Ambito', title: s.name, lead: esc(app.depth === 'capire' ? s.simple : s.tagline + ' ' + s.simple) })}</div>
-<p class="small">Schede di riferimento: ${s.cards.map((c) => `<a class="code" href="${href(c)}">${esc(c)}</a>`).join(' · ')}</p>
+<p class="small">Schede di riferimento: ${s.cards.map((c) => `<a class="code" href="${href(c)}">${esc(c)}</a>`).join(' · ')}</p>${id === 'casa' ? `<div class="callout"><strong>Impianti di casa</strong>Ventilazione, corrente, acqua, sensori, allarme e altri impianti che la domotica dovrà governare. <a href="${href('impianti')}">Vai agli impianti</a></div>` : ''}
 ${sect('Servizi', by('service'))}${sect('Macchine e apparati', [...by('node'), ...by('device')])}${sect('Dati, archivi e copie', [...by('dataset'), ...by('storage'), ...by('copy')])}${sect('Reti', by('network'))}${sect('Luoghi', by('place'))}`;
   return { title: s.name, html };
 }

@@ -1,7 +1,7 @@
 import { esc, href, phead, segments } from '../ui.js';
 import { buildSearch, search } from '../lib/search.js';
 
-const TYPES = ['scheda', 'servizio', 'macchina', 'dati', 'infrastruttura', 'procedura', 'decisione', 'attività', 'glossario', 'inventario', 'questione'];
+const TYPES = ['scheda', 'servizio', 'macchina', 'dati', 'infrastruttura', 'procedura', 'decisione', 'attività', 'glossario', 'inventario', 'questione', 'impianto'];
 let indexPromise = null;
 function getIndex(app) {
   if (!indexPromise) indexPromise = app.search().then((docs) => buildSearch(docs, app.core.synonyms)).catch((e) => { indexPromise = null; throw e; });
