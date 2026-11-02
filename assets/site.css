@@ -134,3 +134,30 @@ main[data-area] .eyebrow{color:var(--ai)}
 .brief strong{display:block;font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:var(--ai,var(--teal));margin-bottom:3px}
 .dupnote{font-size:12px;color:var(--muted);border-top:1px dashed var(--line);padding-top:10px;margin-top:26px}
 .doc ul,.doc ol{padding-left:22px}.doc li{margin:5px 0}
+
+/* ===== Rev 4.4b — registro enterprise sobrio: colore d'area solo come segnale discreto ===== */
+main[data-area] .pagehead{border-left:0;padding-left:0}
+main[data-area] .stats{border-top:1px solid var(--line)}
+main[data-area] .eyebrow{color:var(--muted)}
+.areatag{background:none;color:var(--ink);padding:0;margin-right:10px;border-radius:0;font-weight:600;letter-spacing:1.2px;display:inline-flex;align-items:center;gap:7px}
+.areatag:before{content:'';width:9px;height:9px;background:var(--a);display:inline-block}
+[data-area=vito] .areatag,.areatag[data-area=vito]{color:var(--ink)}
+.eyebrow{display:flex;align-items:center;flex-wrap:wrap;gap:2px}
+.tile[data-area],.world-card[data-area],.result[data-area],.inventory-tile[data-area]{border-top:2px solid var(--a)}
+.tile[data-area] .num{color:var(--teal)}
+.level.simple{border-top:2px solid var(--teal);background:var(--paper)}
+.level.tech{border-top:2px solid var(--navy);background:#f7f9fb}
+.levelname{color:var(--navy)}
+.brief{background:#f7f9fb;border-left:3px solid var(--teal)}
+.brief strong{color:var(--navy)}
+.statebox{border-left:3px solid var(--amber)}
+.navlink[data-area]:before{width:7px;height:7px;border-radius:0}
+.navlink.active[data-area]{border-left-color:var(--teal)}
+.chapter{display:grid;grid-template-columns:44px 1fr;gap:4px 18px;align-items:start;border-top:1px solid var(--line);padding:18px 0}
+.chapter b.n{font-size:20px;font-weight:300;color:var(--teal);line-height:1.2}
+.chapter h3{margin:0 0 4px;font-size:16px;font-weight:600}
+.chapter p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.6}
+.chapter a.go{display:inline-block;margin-top:6px;font-size:13px;color:var(--teal);font-weight:600}
+.partlabel{display:flex;align-items:baseline;gap:12px;margin:34px 0 4px;border-bottom:2px solid var(--navy);padding-bottom:8px}
+.partlabel b{font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--navy)}
+.partlabel span{font-size:13px;color:var(--muted)}
