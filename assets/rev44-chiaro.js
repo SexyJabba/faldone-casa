@@ -22,7 +22,7 @@ const AREAS={
  piano:{label:'Attuazione',desc:'Calendario, acquisti, prove'},
  sinergie:{label:'Sinergie',desc:'Come collaborano i rami'}
 };
-const ROUTE_AREA={home:'orient',guide:'orient',glossary:'orient',library:'orient',downloads:'orient',changes:'piano',
+const ROUTE_AREA={tour:'orient',home:'orient',guide:'orient',glossary:'orient',library:'orient',downloads:'orient',changes:'piano',
  atlas:'infra',nodes:'infra',network:'infra',clients:'infra',rack:'server',field:'casa',
  storage:'dati',sim:'sim',synergy:'sinergie',worlds:'sinergie',
  'world-vito':'vito',vito:'vito','world-home':'casa','world-server':'server','world-lab':'lab','world-guests':'terzi','world-reuse':'inv',
