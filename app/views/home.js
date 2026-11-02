@@ -16,6 +16,7 @@ export function home(app) {
   const count = (s) => svc.filter((e) => base.status(e.id).status === s).length;
 
   const intents = [
+    ['atlante', 'Esplorare funzioni e possibilità', 'Self hosting, privacy, domotica, lavoro, Vito e servizi agli altri.'],
     ['esplora', 'Trovare una parte del sistema', 'Per luogo, servizio, macchina o bisogno.'],
     ['emergenza', 'Risolvere un problema', 'Controlli semplici, poi le procedure tecniche.'],
     ['realizza', 'Seguire la realizzazione', 'Tappe, decisioni aperte e collaudi.'],
