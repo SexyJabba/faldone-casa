@@ -78,6 +78,22 @@ for (const t of src.roadmap.tasks) docs.push({ id: t.id, type: 'attività', titl
 for (const g of glossary) docs.push({ id: `G:${g.term}`, type: 'glossario', title: g.term, codes: [], text: g.text, route: `glossario/${encodeURIComponent(g.term)}` });
 for (const i of src.legacy.inventory) docs.push({ id: i.code, type: 'inventario', title: `${i.code} · ${i.model}`, codes: [i.code], text: [i.assignment, i.inventory_state, i.notes].join(' '), route: `inventario/${i.code}` });
 for (const q of src.issues) docs.push({ id: q.id, type: 'questione', title: q.title, codes: [q.id], text: [q.question, q.impact, q.resolution].filter(Boolean).join(' '), route: `contribuisci/${q.id}` });
+// impianti di casa (fuori dalla baseline approvata: ogni impianto ha il proprio stato)
+const imp = JSON.parse(readFileSync(join(ROOT, 'content/impianti/impianti.json'), 'utf8'));
+{
+  const ierr = []; const entSet = new Set(norm.entities.map((e) => e.id)); const cardSet = new Set(src.cards.map((c) => c.code)); const qSet = new Set(src.issues.map((q) => q.id));
+  for (const i of imp.impianti) {
+    if (!/^[a-z]+$/.test(i.id)) ierr.push(`impianto ${i.id}: identificativo non valido`);
+    const l = i.links || i.related || {};
+    for (const e of l.entities || []) if (!entSet.has(e)) ierr.push(`impianto ${i.id}: entità inesistente ${e}`);
+    for (const c of l.cards || []) if (!cardSet.has(c)) ierr.push(`impianto ${i.id}: scheda inesistente ${c}`);
+    for (const q of i.questions || []) if (!qSet.has(q)) ierr.push(`impianto ${i.id}: domanda inesistente ${q}`);
+    if (i.status.decision === 'approvata') ierr.push(`impianto ${i.id}: un impianto non può risultare approvato senza decisione registrata`);
+  }
+  if (ierr.length) { ierr.forEach((e) => console.error('errore impianti:', e)); process.exit(1); }
+  write('data/impianti.json', imp);
+  for (const i of imp.impianti) docs.push({ id: `IMP:${i.id}`, type: 'impianto', title: i.title, codes: [], text: [i.summary, i.goal, ...(i.components || []).map((c) => `${c.name} ${c.role} ${c.build || ''}`), ...(i.places || []).map((x) => `${x.label} ${x.role}`)].filter(Boolean).join(' '), route: `impianti/${i.id}` });
+}
 write('data/search.json', docs);
 
 // ---------- pagine statiche (senza JavaScript, stampabili, offline) ----------
@@ -113,7 +129,7 @@ const pres = JSON.parse(readFileSync(join(ROOT, 'content/presentazione/scene.jso
 const appFiles = walk(join(ROOT, 'app')).map((f) => f.slice(ROOT.length + 1));
 const indexHtml = renderShell({ meta: core.meta, scopes: src.scopes, procedures: src.procedures, build });
 write('index.html', indexHtml);
-const precache = ['./', 'index.html', ...appFiles, 'data/core.json', 'data/search.json', 'data/presentazione.json', 'presentazione.html', ...walk(join(ROOT, 'assets/fonts')).filter((f) => f.endsWith('.woff2')).map((f) => f.slice(ROOT.length + 1)), 'kit/emergenza.html', 'schede/index.html', 'assets/favicon.svg'];
+const precache = ['./', 'index.html', ...appFiles, 'data/core.json', 'data/search.json', 'data/presentazione.json', 'data/impianti.json', 'presentazione.html', ...walk(join(ROOT, 'assets/fonts')).filter((f) => f.endsWith('.woff2')).map((f) => f.slice(ROOT.length + 1)), 'kit/emergenza.html', 'schede/index.html', 'assets/favicon.svg'];
 const sw = readFileSync(join(ROOT, 'tools/templates/sw.js'), 'utf8').replace('__VERSION__', build).replace('__PRECACHE__', JSON.stringify(precache));
 write('sw.js', sw);
 write('data/offline-manifest.json', { build, revision: core.meta.revision, groups: src.groups.map((g) => `data/schede/${g.id}.json`), pages: src.cards.map((c) => `schede/${c.code}.html`) });

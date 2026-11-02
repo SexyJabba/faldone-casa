@@ -1,21 +1,320 @@
 {
  "note": "Espressioni comuni → termini e entità. Usate dalla ricerca per spiegare il motivo del risultato.",
  "groups": [
-  {"words": ["foto", "fotografie", "immagini", "video del telefono", "non vedo le foto", "album"], "means": "foto e video personali", "entities": ["IMMICH", "D-FOTO"], "terms": ["Immich"]},
-  {"words": ["documenti", "file", "cartelle", "pdf", "scansioni"], "means": "documenti personali", "entities": ["NEXTCLOUD", "PAPERLESS", "SMB", "D-DOC"], "terms": ["Nextcloud", "Paperless"]},
-  {"words": ["luci", "luce", "interruttore", "sensori", "domotica", "automazioni", "casa smart"], "means": "domotica", "entities": ["HAOS", "MQTT", "Z2M", "ZB-BINDING"], "terms": ["Home Assistant", "Zigbee", "MQTT"]},
-  {"words": ["copia", "copie", "backup", "salvataggio", "salvataggi", "recuperare", "ripristino", "ripristinare"], "means": "copie e recupero", "entities": ["CP-BCK-M4", "CP-DRIVE", "CP-RDX", "PR-RESTORE"], "terms": ["backup", "restic"]},
-  {"words": ["furgone", "camper", "van", "macchina di lavoro", "cantiere", "vito"], "means": "Vito", "entities": ["C1", "VITO-KIT", "NET-VITO"], "terms": ["Vito", "W639"]},
-  {"words": ["film", "serie", "tv", "televisione", "cinema"], "means": "film e serie", "entities": ["JELLYFIN", "D-MEDIA", "JF-OFFLINE"], "terms": ["Jellyfin"]},
-  {"words": ["musica", "canzoni", "audiolibri", "podcast"], "means": "musica e audiolibri", "entities": ["AUDIO"], "terms": ["Navidrome", "Audiobookshelf"]},
-  {"words": ["password", "credenziali", "chiavi"], "means": "password", "entities": ["VAULTWARDEN", "D-VAULT"], "terms": ["Vaultwarden"]},
-  {"words": ["internet", "connessione", "linea", "wifi", "rete"], "means": "rete e Internet", "entities": ["WAN1", "WAN2", "OPNSENSE", "NET-FAMIGLIA"], "terms": ["FTTC", "OPNsense"]},
-  {"words": ["telecamere", "videosorveglianza", "allarme", "camere"], "means": "videosorveglianza", "entities": ["FRIGATE", "DASH-INGRESSO"], "terms": ["Frigate"]},
-  {"words": ["corrente", "blackout", "energia", "consumi", "bolletta", "elettricità"], "means": "energia", "entities": ["GRID", "PS-RACK"], "terms": ["UPS", "consumi"]},
-  {"words": ["intelligenza artificiale", "ia", "ai", "assistente", "chatbot", "llm"], "means": "intelligenza artificiale", "entities": ["LLM", "OPENWEBUI", "HERMES", "M3"], "terms": ["Open WebUI", "Hermes"]},
-  {"words": ["accendere", "acceso", "spento", "si sveglia", "risveglio"], "means": "accensione a richiesta", "entities": ["WOL", "S4"], "terms": ["Wake-on-LAN"]},
-  {"words": ["amici", "ospiti", "esterni", "condividere"], "means": "servizi a terzi", "entities": ["SEAFILE", "JELLYFIN", "HP-AMICI"], "terms": ["Seafile"]},
-  {"words": ["attività", "cose da fare", "todo", "lavori"], "means": "attività e roadmap", "entities": ["VIKUNJA"], "terms": ["Vikunja", "roadmap"]},
-  {"words": ["guasto", "rotto", "non funziona", "fermo", "down"], "means": "guasti e recupero", "entities": ["PR-NOACCESSO"], "terms": ["guasti"]}
+  {
+   "words": [
+    "foto",
+    "fotografie",
+    "immagini",
+    "video del telefono",
+    "non vedo le foto",
+    "album"
+   ],
+   "means": "foto e video personali",
+   "entities": [
+    "IMMICH",
+    "D-FOTO"
+   ],
+   "terms": [
+    "Immich"
+   ]
+  },
+  {
+   "words": [
+    "documenti",
+    "file",
+    "cartelle",
+    "pdf",
+    "scansioni"
+   ],
+   "means": "documenti personali",
+   "entities": [
+    "NEXTCLOUD",
+    "PAPERLESS",
+    "SMB",
+    "D-DOC"
+   ],
+   "terms": [
+    "Nextcloud",
+    "Paperless"
+   ]
+  },
+  {
+   "words": [
+    "luci",
+    "luce",
+    "interruttore",
+    "sensori",
+    "domotica",
+    "automazioni",
+    "casa smart"
+   ],
+   "means": "domotica",
+   "entities": [
+    "HAOS",
+    "MQTT",
+    "Z2M",
+    "ZB-BINDING"
+   ],
+   "terms": [
+    "Home Assistant",
+    "Zigbee",
+    "MQTT"
+   ]
+  },
+  {
+   "words": [
+    "copia",
+    "copie",
+    "backup",
+    "salvataggio",
+    "salvataggi",
+    "recuperare",
+    "ripristino",
+    "ripristinare"
+   ],
+   "means": "copie e recupero",
+   "entities": [
+    "CP-BCK-M4",
+    "CP-DRIVE",
+    "CP-RDX",
+    "PR-RESTORE"
+   ],
+   "terms": [
+    "backup",
+    "restic"
+   ]
+  },
+  {
+   "words": [
+    "furgone",
+    "camper",
+    "van",
+    "macchina di lavoro",
+    "cantiere",
+    "vito"
+   ],
+   "means": "Vito",
+   "entities": [
+    "C1",
+    "VITO-KIT",
+    "NET-VITO"
+   ],
+   "terms": [
+    "Vito",
+    "W639"
+   ]
+  },
+  {
+   "words": [
+    "film",
+    "serie",
+    "tv",
+    "televisione",
+    "cinema"
+   ],
+   "means": "film e serie",
+   "entities": [
+    "JELLYFIN",
+    "D-MEDIA",
+    "JF-OFFLINE"
+   ],
+   "terms": [
+    "Jellyfin"
+   ]
+  },
+  {
+   "words": [
+    "musica",
+    "canzoni",
+    "audiolibri",
+    "podcast"
+   ],
+   "means": "musica e audiolibri",
+   "entities": [
+    "AUDIO"
+   ],
+   "terms": [
+    "Navidrome",
+    "Audiobookshelf"
+   ]
+  },
+  {
+   "words": [
+    "password",
+    "credenziali",
+    "chiavi"
+   ],
+   "means": "password",
+   "entities": [
+    "VAULTWARDEN",
+    "D-VAULT"
+   ],
+   "terms": [
+    "Vaultwarden"
+   ]
+  },
+  {
+   "words": [
+    "internet",
+    "connessione",
+    "linea",
+    "wifi",
+    "rete"
+   ],
+   "means": "rete e Internet",
+   "entities": [
+    "WAN1",
+    "WAN2",
+    "OPNSENSE",
+    "NET-FAMIGLIA"
+   ],
+   "terms": [
+    "FTTC",
+    "OPNsense"
+   ]
+  },
+  {
+   "words": [
+    "telecamere",
+    "videosorveglianza",
+    "allarme",
+    "camere"
+   ],
+   "means": "videosorveglianza",
+   "entities": [
+    "FRIGATE",
+    "DASH-INGRESSO"
+   ],
+   "terms": [
+    "Frigate"
+   ]
+  },
+  {
+   "words": [
+    "corrente",
+    "blackout",
+    "energia",
+    "consumi",
+    "bolletta",
+    "elettricità"
+   ],
+   "means": "energia",
+   "entities": [
+    "GRID",
+    "PS-RACK"
+   ],
+   "terms": [
+    "UPS",
+    "consumi"
+   ]
+  },
+  {
+   "words": [
+    "intelligenza artificiale",
+    "ia",
+    "ai",
+    "assistente",
+    "chatbot",
+    "llm"
+   ],
+   "means": "intelligenza artificiale",
+   "entities": [
+    "LLM",
+    "OPENWEBUI",
+    "HERMES",
+    "M3"
+   ],
+   "terms": [
+    "Open WebUI",
+    "Hermes"
+   ]
+  },
+  {
+   "words": [
+    "accendere",
+    "acceso",
+    "spento",
+    "si sveglia",
+    "risveglio"
+   ],
+   "means": "accensione a richiesta",
+   "entities": [
+    "WOL",
+    "S4"
+   ],
+   "terms": [
+    "Wake-on-LAN"
+   ]
+  },
+  {
+   "words": [
+    "amici",
+    "ospiti",
+    "esterni",
+    "condividere"
+   ],
+   "means": "servizi a terzi",
+   "entities": [
+    "SEAFILE",
+    "JELLYFIN",
+    "HP-AMICI"
+   ],
+   "terms": [
+    "Seafile"
+   ]
+  },
+  {
+   "words": [
+    "attività",
+    "cose da fare",
+    "todo",
+    "lavori"
+   ],
+   "means": "attività e roadmap",
+   "entities": [
+    "VIKUNJA"
+   ],
+   "terms": [
+    "Vikunja",
+    "roadmap"
+   ]
+  },
+  {
+   "words": [
+    "guasto",
+    "rotto",
+    "non funziona",
+    "fermo",
+    "down"
+   ],
+   "means": "guasti e recupero",
+   "entities": [
+    "PR-NOACCESSO"
+   ],
+   "terms": [
+    "guasti"
+   ]
+  },
+  {
+   "words": [
+    "vmc",
+    "ventilazione",
+    "ricambio d'aria",
+    "aria calda",
+    "camera calda",
+    "pannello solare ad aria",
+    "deumidificare"
+   ],
+   "means": "ventilazione meccanica controllata",
+   "entities": [],
+   "terms": [
+    "VMC",
+    "ventilazione"
+   ],
+   "docs": [
+    "IMP:vmc"
+   ]
+  }
  ]
 }

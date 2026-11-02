@@ -10,11 +10,15 @@ Fasi A–E completate per il nucleo pubblico: migrazione, modello, build, interf
 
 **Push del primo tentativo non riuscito**: il remoto ha risposto 403 (l'app GitHub di Claude non ha accesso a `SexyJabba/faldone-casa`). I commit sono nel ramo locale della sessione; vanno spinti quando l'accesso è ripristinato.
 
+## Impianti di casa
+
+Nuova sezione `#impianti` (fonte: `content/impianti/impianti.json`). La VMC è compilata come «ipotesi avanzata da rifinire» (decisione DEC-VMC, domande Q-VMC-*). Da compilare: impianto elettrico, idrico, rete dei sensori, allarme, telecamere, rete LAN cablata, fotovoltaico, planimetria e suddivisione.
+
 ## Comandi per riprendere
 
 ```sh
 git checkout claude/new-session-itt67j
-node tools/build.mjs && node --test tools/test/*.test.mjs     # 60 test
+node tools/build.mjs && node --test tools/test/*.test.mjs     # 64 test
 python3 -m http.server 8811 --bind 127.0.0.1 &
 node tools/e2e/smoke.cjs                                      # 51 rotte
 AXE=…/axe-core/axe.min.js node tools/e2e/a11y.cjs              # axe + tastiera

@@ -1,19 +1,322 @@
 [
- {"id": "I-OPENCLAW", "kind": "incongruenza", "title": "OpenClaw: MP3 o MP1?", "sources": [{"card": "REV3-SRV", "says": "OpenClaw su «MP3 Acer fisso laboratorio»"}, {"card": "INF-02.07", "says": "«Hermes su MP3 e OpenClaw su MP1 sono personali»"}, {"card": "INF-08.04", "says": "«MP3 sospeso: resta OpenClaw MP1»"}], "impact": "Cambia che cosa si ferma quando l'Acer MP3 è spento.", "resolution": null, "status": "da_chiarire", "entities": ["OPENCLAW", "MP3", "MP1"]},
- {"id": "I-HERMES-M2", "kind": "incongruenza", "title": "Hermes «su M2»", "sources": [{"card": "REV3-SRV", "says": "Hermes su MP3"}, {"card": "INF-03.18", "says": "«Nextcloud e Hermes su M2 richiedono l'accesso remoto personale»"}, {"card": "INF-08.04", "says": "«M2 fermo: Hermes assente»"}], "impact": "Determina se Hermes si ferma con M2.", "resolution": "Il modello segue REV3-SRV (tabella dei servizi): Hermes ospitato su MP3, con uso facoltativo di M3. Da confermare.", "status": "da_chiarire", "entities": ["HERMES", "M2", "MP3"]},
- {"id": "I-P310-SH1", "kind": "incongruenza", "title": "P310 come disco dati e come copia SH1", "sources": [{"card": "INF-03.03", "says": "P310 4 TB disco dati di M2"}, {"card": "INF-03.14", "says": "«Altre copie fuori dal nodo: SH1 / INV-005 (Crucial P310 4 TB + Lexar E750)»"}], "impact": "La stessa unità fisica non può essere originale e copia indipendente: la protezione dei dati sarebbe sovrastimata.", "resolution": "Il modello considera il P310 solo come disco dati (fonte REV4-MIG, approvata). La copia SH1 non è modellata finché non si chiarisce il supporto.", "status": "da_chiarire", "entities": ["ST-P310", "D-DOC"]},
- {"id": "I-MAP-LINKS", "kind": "difetto del sito 4.4", "title": "Collegamenti errati nella mappa interattiva 4.4", "sources": [{"card": "REV3-SRV", "says": "La mappa collegava S1 a INF-03.07 (scheda di M3) e lo switch a «REV4-RETE», codice inesistente."}], "impact": "Link rotti o fuorvianti.", "resolution": "Risolto: la nuova mappa deriva dal modello e ogni nodo apre la propria scheda.", "status": "risolta"},
- {"id": "I-SIM-QUORUM", "kind": "difetto del sito 4.4", "title": "Il simulatore 4.4 inventava il comportamento dei guest", "sources": [{"card": "INF-03.01", "says": "Fencing e HA vanno collaudati prima dell'attivazione"}], "impact": "Il vecchio simulatore diceva «quorum perso: le VM del nucleo si fermano per sicurezza», comportamento non documentato; contava i voti senza partizioni.", "resolution": "Risolto: il nuovo motore valuta i voti per partizione e dichiara indeterminato ciò che non è documentato.", "status": "risolta"},
- {"id": "I-G81", "kind": "difetto del corpus", "title": "Gruppo di schede senza titolo", "sources": [{"card": "INF-06.05", "says": "Il gruppo che riunisce INF-06.05 e INF-07.02…12 ha titolo nullo nel testo leggibile."}], "impact": "Il gruppo appariva senza intestazione.", "resolution": "Il sito usa il titolo della prima scheda del gruppo; il testo resta da titolare.", "status": "mitigata"},
- {"id": "I-SAVINGS-ACQ", "kind": "difetto del sito 4.4", "title": "Il calcolo del risparmio sommava acquisti proposti", "sources": [{"card": "REV3-ACQ", "says": "RDX 150 € è «proposta da acquistare»"}], "impact": "Il costo hardware includeva voci non acquistate.", "resolution": "Risolto: il calcolatore distingue acquistato, ordinato, dichiarato e proposto.", "status": "risolta"},
- {"id": "I-PRIVACY-PATHS", "kind": "privacy", "title": "Percorsi locali nel file dati pubblico", "sources": [{"card": "REV3-SRC", "says": "data.js 4.4 conteneva percorsi assoluti della cartella utente del computer di lavoro, con l'indirizzo dell'account Google."}], "impact": "Esposizione di nome utente e indirizzo email nel bundle pubblico.", "resolution": "Risolto nel nuovo bundle (percorsi ripuliti, test automatico). Restano nella cronologia Git: rimuoverli richiederebbe riscrivere la storia, decisione del proprietario.", "status": "mitigata"},
-
- {"id": "Q-ACCESSO", "kind": "domanda", "title": "Come si accede da fuori ai servizi personali?", "question": "Quale tecnologia e quale nodo realizzano l'«accesso remoto personale» per Nextcloud, Immich e gli altri servizi privati?", "impact": "Senza questa informazione il simulatore non può dire se i servizi personali sono raggiungibili da fuori.", "status": "aperta", "entities": ["ACCESSO-PRIVATO"], "cards": ["INF-03.18"]},
- {"id": "Q-M4-SMR", "kind": "domanda", "title": "Pool media: RAIDZ1 o mirror?", "question": "Dopo la prova di ricostruzione, quale topologia per i quattro ST2000DM008?", "impact": "Spazio utile dei media (6 o 4 TB nominali) e tempi di ricostruzione.", "status": "aperta", "entities": ["ST-M4-MEDIA"], "cards": ["REV3-OPEN"]},
- {"id": "Q-M5-NET", "kind": "domanda", "title": "Interfacce di rete di M5", "question": "Come è collegato M5 alla rete di gestione e Corosync?", "impact": "Il simulatore non può calcolare con certezza le partizioni che coinvolgono M5.", "status": "aperta", "entities": ["M5"], "cards": ["INF-02.01"]},
- {"id": "Q-C3C4-DISK", "kind": "domanda", "title": "Capacità dei dischi di C3 e C4", "question": "Quanto spazio utile hanno gli SSD di C3 e C4 per le repliche?", "impact": "Determina quali guest possono subentrare.", "status": "aperta", "entities": ["C3", "C4", "ST-C3", "ST-C4"], "cards": ["REV3-OPEN"]},
- {"id": "Q-ENERGIA", "kind": "domanda", "title": "Consumi misurati", "question": "Consumo a riposo e di picco di ciascun nodo, misurato con wattmetro.", "impact": "Senza misure i costi energetici sono solo stime.", "status": "aperta", "entities": ["PS-RACK"], "cards": ["REV4-ENER"]},
- {"id": "Q-M6-WAKE", "kind": "domanda", "title": "Chi accende M6 quando un client chiede un film?", "question": "Il risveglio di M4 per la visione è documentato; quello di M6 su richiesta di un client no.", "impact": "Il percorso multimediale ha un passaggio non documentato.", "status": "aperta", "entities": ["M6", "JELLYFIN"], "cards": ["INF-03.32"]},
- {"id": "Q-BINDING", "kind": "domanda", "title": "Quali dispositivi hanno binding Zigbee diretti?", "question": "Elenco dei binding configurati.", "impact": "Senza elenco non si sa quali comandi funzionano con M5 fermo.", "status": "aperta", "entities": ["ZB-BINDING"], "cards": ["INF-03.28"]},
- {"id": "Q-RDX-LUOGO", "kind": "domanda", "title": "Dove si conservano le cartucce RDX?", "question": "Luogo di conservazione delle cartucce rispetto alla sala server.", "impact": "Una copia offline nella stessa stanza non protegge da incendio.", "status": "aperta", "entities": ["ST-RDX"], "cards": ["REV3-BCK"]}
+ {
+  "id": "I-OPENCLAW",
+  "kind": "incongruenza",
+  "title": "OpenClaw: MP3 o MP1?",
+  "sources": [
+   {
+    "card": "REV3-SRV",
+    "says": "OpenClaw su «MP3 Acer fisso laboratorio»"
+   },
+   {
+    "card": "INF-02.07",
+    "says": "«Hermes su MP3 e OpenClaw su MP1 sono personali»"
+   },
+   {
+    "card": "INF-08.04",
+    "says": "«MP3 sospeso: resta OpenClaw MP1»"
+   }
+  ],
+  "impact": "Cambia che cosa si ferma quando l'Acer MP3 è spento.",
+  "resolution": null,
+  "status": "da_chiarire",
+  "entities": [
+   "OPENCLAW",
+   "MP3",
+   "MP1"
+  ]
+ },
+ {
+  "id": "I-HERMES-M2",
+  "kind": "incongruenza",
+  "title": "Hermes «su M2»",
+  "sources": [
+   {
+    "card": "REV3-SRV",
+    "says": "Hermes su MP3"
+   },
+   {
+    "card": "INF-03.18",
+    "says": "«Nextcloud e Hermes su M2 richiedono l'accesso remoto personale»"
+   },
+   {
+    "card": "INF-08.04",
+    "says": "«M2 fermo: Hermes assente»"
+   }
+  ],
+  "impact": "Determina se Hermes si ferma con M2.",
+  "resolution": "Il modello segue REV3-SRV (tabella dei servizi): Hermes ospitato su MP3, con uso facoltativo di M3. Da confermare.",
+  "status": "da_chiarire",
+  "entities": [
+   "HERMES",
+   "M2",
+   "MP3"
+  ]
+ },
+ {
+  "id": "I-P310-SH1",
+  "kind": "incongruenza",
+  "title": "P310 come disco dati e come copia SH1",
+  "sources": [
+   {
+    "card": "INF-03.03",
+    "says": "P310 4 TB disco dati di M2"
+   },
+   {
+    "card": "INF-03.14",
+    "says": "«Altre copie fuori dal nodo: SH1 / INV-005 (Crucial P310 4 TB + Lexar E750)»"
+   }
+  ],
+  "impact": "La stessa unità fisica non può essere originale e copia indipendente: la protezione dei dati sarebbe sovrastimata.",
+  "resolution": "Il modello considera il P310 solo come disco dati (fonte REV4-MIG, approvata). La copia SH1 non è modellata finché non si chiarisce il supporto.",
+  "status": "da_chiarire",
+  "entities": [
+   "ST-P310",
+   "D-DOC"
+  ]
+ },
+ {
+  "id": "I-MAP-LINKS",
+  "kind": "difetto del sito 4.4",
+  "title": "Collegamenti errati nella mappa interattiva 4.4",
+  "sources": [
+   {
+    "card": "REV3-SRV",
+    "says": "La mappa collegava S1 a INF-03.07 (scheda di M3) e lo switch a «REV4-RETE», codice inesistente."
+   }
+  ],
+  "impact": "Link rotti o fuorvianti.",
+  "resolution": "Risolto: la nuova mappa deriva dal modello e ogni nodo apre la propria scheda.",
+  "status": "risolta"
+ },
+ {
+  "id": "I-SIM-QUORUM",
+  "kind": "difetto del sito 4.4",
+  "title": "Il simulatore 4.4 inventava il comportamento dei guest",
+  "sources": [
+   {
+    "card": "INF-03.01",
+    "says": "Fencing e HA vanno collaudati prima dell'attivazione"
+   }
+  ],
+  "impact": "Il vecchio simulatore diceva «quorum perso: le VM del nucleo si fermano per sicurezza», comportamento non documentato; contava i voti senza partizioni.",
+  "resolution": "Risolto: il nuovo motore valuta i voti per partizione e dichiara indeterminato ciò che non è documentato.",
+  "status": "risolta"
+ },
+ {
+  "id": "I-G81",
+  "kind": "difetto del corpus",
+  "title": "Gruppo di schede senza titolo",
+  "sources": [
+   {
+    "card": "INF-06.05",
+    "says": "Il gruppo che riunisce INF-06.05 e INF-07.02…12 ha titolo nullo nel testo leggibile."
+   }
+  ],
+  "impact": "Il gruppo appariva senza intestazione.",
+  "resolution": "Il sito usa il titolo della prima scheda del gruppo; il testo resta da titolare.",
+  "status": "mitigata"
+ },
+ {
+  "id": "I-SAVINGS-ACQ",
+  "kind": "difetto del sito 4.4",
+  "title": "Il calcolo del risparmio sommava acquisti proposti",
+  "sources": [
+   {
+    "card": "REV3-ACQ",
+    "says": "RDX 150 € è «proposta da acquistare»"
+   }
+  ],
+  "impact": "Il costo hardware includeva voci non acquistate.",
+  "resolution": "Risolto: il calcolatore distingue acquistato, ordinato, dichiarato e proposto.",
+  "status": "risolta"
+ },
+ {
+  "id": "I-PRIVACY-PATHS",
+  "kind": "privacy",
+  "title": "Percorsi locali nel file dati pubblico",
+  "sources": [
+   {
+    "card": "REV3-SRC",
+    "says": "data.js 4.4 conteneva percorsi assoluti della cartella utente del computer di lavoro, con l'indirizzo dell'account Google."
+   }
+  ],
+  "impact": "Esposizione di nome utente e indirizzo email nel bundle pubblico.",
+  "resolution": "Risolto nel nuovo bundle (percorsi ripuliti, test automatico). Restano nella cronologia Git: rimuoverli richiederebbe riscrivere la storia, decisione del proprietario.",
+  "status": "mitigata"
+ },
+ {
+  "id": "Q-ACCESSO",
+  "kind": "domanda",
+  "title": "Come si accede da fuori ai servizi personali?",
+  "question": "Quale tecnologia e quale nodo realizzano l'«accesso remoto personale» per Nextcloud, Immich e gli altri servizi privati?",
+  "impact": "Senza questa informazione il simulatore non può dire se i servizi personali sono raggiungibili da fuori.",
+  "status": "aperta",
+  "entities": [
+   "ACCESSO-PRIVATO"
+  ],
+  "cards": [
+   "INF-03.18"
+  ]
+ },
+ {
+  "id": "Q-M4-SMR",
+  "kind": "domanda",
+  "title": "Pool media: RAIDZ1 o mirror?",
+  "question": "Dopo la prova di ricostruzione, quale topologia per i quattro ST2000DM008?",
+  "impact": "Spazio utile dei media (6 o 4 TB nominali) e tempi di ricostruzione.",
+  "status": "aperta",
+  "entities": [
+   "ST-M4-MEDIA"
+  ],
+  "cards": [
+   "REV3-OPEN"
+  ]
+ },
+ {
+  "id": "Q-M5-NET",
+  "kind": "domanda",
+  "title": "Interfacce di rete di M5",
+  "question": "Come è collegato M5 alla rete di gestione e Corosync?",
+  "impact": "Il simulatore non può calcolare con certezza le partizioni che coinvolgono M5.",
+  "status": "aperta",
+  "entities": [
+   "M5"
+  ],
+  "cards": [
+   "INF-02.01"
+  ]
+ },
+ {
+  "id": "Q-C3C4-DISK",
+  "kind": "domanda",
+  "title": "Capacità dei dischi di C3 e C4",
+  "question": "Quanto spazio utile hanno gli SSD di C3 e C4 per le repliche?",
+  "impact": "Determina quali guest possono subentrare.",
+  "status": "aperta",
+  "entities": [
+   "C3",
+   "C4",
+   "ST-C3",
+   "ST-C4"
+  ],
+  "cards": [
+   "REV3-OPEN"
+  ]
+ },
+ {
+  "id": "Q-ENERGIA",
+  "kind": "domanda",
+  "title": "Consumi misurati",
+  "question": "Consumo a riposo e di picco di ciascun nodo, misurato con wattmetro.",
+  "impact": "Senza misure i costi energetici sono solo stime.",
+  "status": "aperta",
+  "entities": [
+   "PS-RACK"
+  ],
+  "cards": [
+   "REV4-ENER"
+  ]
+ },
+ {
+  "id": "Q-M6-WAKE",
+  "kind": "domanda",
+  "title": "Chi accende M6 quando un client chiede un film?",
+  "question": "Il risveglio di M4 per la visione è documentato; quello di M6 su richiesta di un client no.",
+  "impact": "Il percorso multimediale ha un passaggio non documentato.",
+  "status": "aperta",
+  "entities": [
+   "M6",
+   "JELLYFIN"
+  ],
+  "cards": [
+   "INF-03.32"
+  ]
+ },
+ {
+  "id": "Q-BINDING",
+  "kind": "domanda",
+  "title": "Quali dispositivi hanno binding Zigbee diretti?",
+  "question": "Elenco dei binding configurati.",
+  "impact": "Senza elenco non si sa quali comandi funzionano con M5 fermo.",
+  "status": "aperta",
+  "entities": [
+   "ZB-BINDING"
+  ],
+  "cards": [
+   "INF-03.28"
+  ]
+ },
+ {
+  "id": "Q-RDX-LUOGO",
+  "kind": "domanda",
+  "title": "Dove si conservano le cartucce RDX?",
+  "question": "Luogo di conservazione delle cartucce rispetto alla sala server.",
+  "impact": "Una copia offline nella stessa stanza non protegge da incendio.",
+  "status": "aperta",
+  "entities": [
+   "ST-RDX"
+  ],
+  "cards": [
+   "REV3-BCK"
+  ]
+ },
+ {
+  "id": "Q-VMC-FINESTRA",
+  "kind": "domanda",
+  "title": "VMC: da quale finestrina entra l'aria della sala server?",
+  "question": "Nella stessa dettatura l'ingresso filtrato per i server è indicato prima nella finestrina dello studio, poi in quella della camera. Quale è corretta?",
+  "impact": "Cambia il percorso del condotto verso il rack e la posizione del primo filtro.",
+  "status": "risolta",
+  "entities": [
+   "P-SALA"
+  ],
+  "cards": [],
+  "resolution": "Confermato dal proprietario il 2 novembre 2026: l'aria per la sala server entra dalla finestrina dello studio."
+ },
+ {
+  "id": "Q-VMC-ACQUA",
+  "kind": "domanda",
+  "title": "VMC: servono ancora gli scambiatori acqua-acqua sui tubi della caldaia?",
+  "question": "La prima descrizione prevedeva scambiatori acqua-acqua; la seconda una camera d'aria isolata attorno a canna fumaria e tubi. Si usano entrambi o solo la camera?",
+  "impact": "Componenti, costi e manutenzione del recupero di calore.",
+  "status": "aperta",
+  "entities": [],
+  "cards": []
+ },
+ {
+  "id": "Q-VMC-CAMERA-FREDDA",
+  "kind": "domanda",
+  "title": "VMC: con che cosa deumidificare o raffrescare la camera fredda?",
+  "question": "Deumidificatore, condizionatore portatile o compressore da frigorifero con scambiatore autocostruito: quale conviene, considerando consumi, rumore e scarico della condensa?",
+  "impact": "Efficacia estiva della VMC e consumi elettrici.",
+  "status": "aperta",
+  "entities": [],
+  "cards": []
+ },
+ {
+  "id": "Q-VMC-RACK",
+  "kind": "domanda",
+  "title": "VMC: la sala server dipenderà dalla ventilazione?",
+  "question": "Se il raffreddamento del rack passa dalla VMC, che cosa succede quando un ventilatore o una serranda si ferma? Serve uno scarico di emergenza indipendente?",
+  "impact": "Diventerebbe una dipendenza della sala server da aggiungere al modello e al simulatore.",
+  "status": "aperta",
+  "entities": [
+   "P-SALA",
+   "SW"
+  ],
+  "cards": [
+   "REV4-RACK"
+  ]
+ },
+ {
+  "id": "Q-VMC-PORTATE",
+  "kind": "domanda",
+  "title": "VMC: portate e dimensionamento",
+  "question": "Portate d'aria per stanza, sezioni dei condotti nelle finte travi, quantità di sabbia e carico sul solaio del sottotetto.",
+  "impact": "Senza dimensionamento non si possono stimare comfort, rumore e risparmio.",
+  "status": "aperta",
+  "entities": [],
+  "cards": []
+ }
 ]

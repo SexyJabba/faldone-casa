@@ -1,11 +1,214 @@
 [
- {"id": "DEC-NUCLEO", "title": "Nucleo stabile a cinque voti senza QDevice", "problem": "Nella 4.3 il quorum dipendeva da macchine che non restano sempre accese; serviva un dominio di continuità semplice.", "alternatives": ["Cluster esteso con M3/M4/M6 votanti (4.3)", "Quattro voti più QDevice esterno", "Cinque membri sempre accesi, quorum tre"], "choice": "M1, M2, M5, C3, C4 votano; M3, M4, M6 autonomi a richiesta; S4 sentinella senza voto.", "rationale": "Cinque è dispari: nessun voto di spareggio. Spegnere i server pesanti non tocca il quorum.", "tradeoffs": "C3 e C4 hanno 16 GB e dischi da misurare: il quorum non garantisce capacità di subentro.", "status": "approvata", "date": "2026-10-20", "entities": ["CLUSTER", "M1", "M2", "M5", "C3", "C4", "M3", "M4", "M6", "S4"], "cards": ["INF-03.01", "REV3-DIFF"], "supersedes": "DEC-CLUSTER-43"},
- {"id": "DEC-CLUSTER-43", "title": "Cluster esteso della revisione 4.3", "problem": "Assetto precedente del cluster.", "choice": "Estensione del cluster oltre il nucleo stabile.", "status": "superata", "date": null, "supersededBy": "DEC-NUCLEO", "entities": ["CLUSTER"], "cards": ["REV3-DIFF"], "note": "Il dettaglio dell'assetto 4.3 è nella cartella della revisione precedente, non in questo sito."},
- {"id": "DEC-P310", "title": "P310 4 TB come disco dati di M2, pool SSD rinviato", "problem": "Il pool di 8 SSD enterprise per M2 ha un costo non verificato.", "alternatives": ["Pool 8 SSD enterprise subito", "P310 singolo come segnaposto"], "choice": "Il P310 passa da Arca a M2 dopo la migrazione; il pool SSD è rinviato.", "rationale": "Disco già posseduto; uscita futura pianificata con un nuovo pool distinto.", "tradeoffs": "Nessuna ridondanza locale: guasto del disco significa fermo e ripristino dalle copie.", "status": "approvata", "date": "2026-10-20", "entities": ["ST-P310", "M2"], "cards": ["REV4-MIG", "REV3-DIFF"]},
- {"id": "DEC-RAM", "title": "Distribuzione RAM M2/M5/M6: 64/32/64 GB", "problem": "Assegnare i moduli PC3L posseduti e il lotto acquistato.", "choice": "Quattro PC3L posseduti su M2; sei acquistati: due a M5, quattro a M6.", "status": "approvata", "date": "2026-11-01", "entities": ["M2", "M5", "M6"], "cards": ["REV4-RAM", "REV3-DIFF"]},
- {"id": "DEC-SWITCH", "title": "Switch LGS352C-EU con stella 10 GbE", "problem": "Collegare i quattro server di dati e calcolo a 10 GbE senza far dipendere M2/M3 da M4.", "choice": "LGS352C-EU ordinato e definitivo; SFP+ 49–52 a M2, M3, M4, M6.", "tradeoffs": "Il routing tra VLAN passa da M1 a 1 GbE: non eredita i 10 GbE. Assegnazione delle porte RJ45 ancora da completare.", "status": "approvata", "date": "2026-11-01", "entities": ["SW", "M2", "M3", "M4", "M6", "M1"], "cards": ["INF-02.07", "REV3-RET"]},
- {"id": "DEC-RDX", "title": "Tre selezioni offline su cartucce RDX", "problem": "Serve una copia scollegata dalla rete contro errori e ransomware.", "choice": "Tre cartucce HP RDX 2 TB: foto/video, documenti, lavoro.", "status": "proposta", "date": null, "entities": ["CP-RDX", "ST-RDX"], "cards": ["INF-04.07", "REV3-ACQ"], "note": "Non acquistate: 150 € offerta riferita."},
- {"id": "DEC-CRYPT", "title": "Cifratura del deposito di transizione su Drive", "problem": "Durante la migrazione Drive conterrà tutti i dati da preservare.", "alternatives": ["Cifrare tutto il deposito", "Cifrare dati privati, lavoro, configurazioni e chiavi; media leggibili", "Nessuna cifratura"], "choice": null, "recommendation": "Cifrare almeno dati privati, lavoro, configurazioni e chiavi applicative.", "status": "da_chiarire", "date": null, "entities": ["CP-ARCA", "CP-DRIVE", "ST-DRIVE"], "cards": ["REV3-CLOUD", "REV4-MIG"], "blocks": ["A-1.1"]},
- {"id": "DEC-M4-MEDIA", "title": "Topologia del pool media SMR su M4", "problem": "Quattro dischi SMR: RAIDZ1 ha ricostruzioni lente.", "alternatives": ["RAIDZ1, circa 6 TB nominali", "Mirror a coppie, circa 4 TB nominali"], "choice": null, "status": "da_chiarire", "date": null, "entities": ["ST-M4-MEDIA"], "cards": ["REV3-OPEN"], "blocks": ["A-3.3"], "note": "Decisione dopo la prova T-M4SMR."},
- {"id": "DEC-BKHD", "title": "Annullamento BKHD + E5-2630L v3", "problem": "Correzione esplicita dell'utente rispetto alla 4.3.", "choice": "Ordine annullato; escluso dalla configurazione.", "status": "approvata", "date": "2026-11-01", "entities": ["M1"], "cards": ["REV3-ACQ", "REV3-DIFF"]}
+ {
+  "id": "DEC-NUCLEO",
+  "title": "Nucleo stabile a cinque voti senza QDevice",
+  "problem": "Nella 4.3 il quorum dipendeva da macchine che non restano sempre accese; serviva un dominio di continuità semplice.",
+  "alternatives": [
+   "Cluster esteso con M3/M4/M6 votanti (4.3)",
+   "Quattro voti più QDevice esterno",
+   "Cinque membri sempre accesi, quorum tre"
+  ],
+  "choice": "M1, M2, M5, C3, C4 votano; M3, M4, M6 autonomi a richiesta; S4 sentinella senza voto.",
+  "rationale": "Cinque è dispari: nessun voto di spareggio. Spegnere i server pesanti non tocca il quorum.",
+  "tradeoffs": "C3 e C4 hanno 16 GB e dischi da misurare: il quorum non garantisce capacità di subentro.",
+  "status": "approvata",
+  "date": "2026-10-20",
+  "entities": [
+   "CLUSTER",
+   "M1",
+   "M2",
+   "M5",
+   "C3",
+   "C4",
+   "M3",
+   "M4",
+   "M6",
+   "S4"
+  ],
+  "cards": [
+   "INF-03.01",
+   "REV3-DIFF"
+  ],
+  "supersedes": "DEC-CLUSTER-43"
+ },
+ {
+  "id": "DEC-CLUSTER-43",
+  "title": "Cluster esteso della revisione 4.3",
+  "problem": "Assetto precedente del cluster.",
+  "choice": "Estensione del cluster oltre il nucleo stabile.",
+  "status": "superata",
+  "date": null,
+  "supersededBy": "DEC-NUCLEO",
+  "entities": [
+   "CLUSTER"
+  ],
+  "cards": [
+   "REV3-DIFF"
+  ],
+  "note": "Il dettaglio dell'assetto 4.3 è nella cartella della revisione precedente, non in questo sito."
+ },
+ {
+  "id": "DEC-P310",
+  "title": "P310 4 TB come disco dati di M2, pool SSD rinviato",
+  "problem": "Il pool di 8 SSD enterprise per M2 ha un costo non verificato.",
+  "alternatives": [
+   "Pool 8 SSD enterprise subito",
+   "P310 singolo come segnaposto"
+  ],
+  "choice": "Il P310 passa da Arca a M2 dopo la migrazione; il pool SSD è rinviato.",
+  "rationale": "Disco già posseduto; uscita futura pianificata con un nuovo pool distinto.",
+  "tradeoffs": "Nessuna ridondanza locale: guasto del disco significa fermo e ripristino dalle copie.",
+  "status": "approvata",
+  "date": "2026-10-20",
+  "entities": [
+   "ST-P310",
+   "M2"
+  ],
+  "cards": [
+   "REV4-MIG",
+   "REV3-DIFF"
+  ]
+ },
+ {
+  "id": "DEC-RAM",
+  "title": "Distribuzione RAM M2/M5/M6: 64/32/64 GB",
+  "problem": "Assegnare i moduli PC3L posseduti e il lotto acquistato.",
+  "choice": "Quattro PC3L posseduti su M2; sei acquistati: due a M5, quattro a M6.",
+  "status": "approvata",
+  "date": "2026-11-01",
+  "entities": [
+   "M2",
+   "M5",
+   "M6"
+  ],
+  "cards": [
+   "REV4-RAM",
+   "REV3-DIFF"
+  ]
+ },
+ {
+  "id": "DEC-SWITCH",
+  "title": "Switch LGS352C-EU con stella 10 GbE",
+  "problem": "Collegare i quattro server di dati e calcolo a 10 GbE senza far dipendere M2/M3 da M4.",
+  "choice": "LGS352C-EU ordinato e definitivo; SFP+ 49–52 a M2, M3, M4, M6.",
+  "tradeoffs": "Il routing tra VLAN passa da M1 a 1 GbE: non eredita i 10 GbE. Assegnazione delle porte RJ45 ancora da completare.",
+  "status": "approvata",
+  "date": "2026-11-01",
+  "entities": [
+   "SW",
+   "M2",
+   "M3",
+   "M4",
+   "M6",
+   "M1"
+  ],
+  "cards": [
+   "INF-02.07",
+   "REV3-RET"
+  ]
+ },
+ {
+  "id": "DEC-RDX",
+  "title": "Tre selezioni offline su cartucce RDX",
+  "problem": "Serve una copia scollegata dalla rete contro errori e ransomware.",
+  "choice": "Tre cartucce HP RDX 2 TB: foto/video, documenti, lavoro.",
+  "status": "proposta",
+  "date": null,
+  "entities": [
+   "CP-RDX",
+   "ST-RDX"
+  ],
+  "cards": [
+   "INF-04.07",
+   "REV3-ACQ"
+  ],
+  "note": "Non acquistate: 150 € offerta riferita."
+ },
+ {
+  "id": "DEC-CRYPT",
+  "title": "Cifratura del deposito di transizione su Drive",
+  "problem": "Durante la migrazione Drive conterrà tutti i dati da preservare.",
+  "alternatives": [
+   "Cifrare tutto il deposito",
+   "Cifrare dati privati, lavoro, configurazioni e chiavi; media leggibili",
+   "Nessuna cifratura"
+  ],
+  "choice": null,
+  "recommendation": "Cifrare almeno dati privati, lavoro, configurazioni e chiavi applicative.",
+  "status": "da_chiarire",
+  "date": null,
+  "entities": [
+   "CP-ARCA",
+   "CP-DRIVE",
+   "ST-DRIVE"
+  ],
+  "cards": [
+   "REV3-CLOUD",
+   "REV4-MIG"
+  ],
+  "blocks": [
+   "A-1.1"
+  ]
+ },
+ {
+  "id": "DEC-M4-MEDIA",
+  "title": "Topologia del pool media SMR su M4",
+  "problem": "Quattro dischi SMR: RAIDZ1 ha ricostruzioni lente.",
+  "alternatives": [
+   "RAIDZ1, circa 6 TB nominali",
+   "Mirror a coppie, circa 4 TB nominali"
+  ],
+  "choice": null,
+  "status": "da_chiarire",
+  "date": null,
+  "entities": [
+   "ST-M4-MEDIA"
+  ],
+  "cards": [
+   "REV3-OPEN"
+  ],
+  "blocks": [
+   "A-3.3"
+  ],
+  "note": "Decisione dopo la prova T-M4SMR."
+ },
+ {
+  "id": "DEC-BKHD",
+  "title": "Annullamento BKHD + E5-2630L v3",
+  "problem": "Correzione esplicita dell'utente rispetto alla 4.3.",
+  "choice": "Ordine annullato; escluso dalla configurazione.",
+  "status": "approvata",
+  "date": "2026-11-01",
+  "entities": [
+   "M1"
+  ],
+  "cards": [
+   "REV3-ACQ",
+   "REV3-DIFF"
+  ]
+ },
+ {
+  "id": "DEC-VMC",
+  "title": "Ventilazione meccanica con recupero di calore da server, canne fumarie e sole",
+  "problem": "Ridurre il carico dei riscaldatori elettrici d'inverno e il carico termico d'estate, controllando l'umidità, usando calore oggi disperso.",
+  "alternatives": [
+   "VMC commerciale con solo recuperatore aria-aria",
+   "VMC autocostruita con camera calda, camera fredda, recupero dalla canna fumaria e pannello solare ad aria"
+  ],
+  "choice": null,
+  "recommendation": "Ipotesi avanzata da rifinire: piano in gran parte preesistente, completato il 2 novembre 2026. Dettaglio nella sezione Impianti di casa.",
+  "rationale": "Recuperare calore da sala server, canne fumarie in muratura dei camini a legna dei piani sotto, tubi della caldaia e sole sulla facciata.",
+  "tradeoffs": "Costruzione e manutenzione a carico del proprietario; dimensionamento, sicurezza del rack e convenienza della camera fredda ancora da verificare.",
+  "status": "ipotesi",
+  "date": "2026-11-02",
+  "entities": [
+   "HAOS",
+   "P-SALA",
+   "P-CASA"
+  ],
+  "cards": [
+   "REV4-DOM",
+   "REV4-RACK"
+  ]
+ }
 ]

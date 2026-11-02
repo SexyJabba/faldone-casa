@@ -8,6 +8,8 @@ export const routes = [
   [/^esplora\/(macchine|servizi|dati|rete|rack)$/, 'lista', lazy('./explore.js', 'list'), 'esplora'],
   [/^ambito\/([a-z-]+)$/, 'ambito', lazy('./explore.js', 'scope'), 'esplora'],
   [/^e\/([A-Za-z0-9._-]+)$/, 'entità', lazy('./entity.js', 'entity'), 'esplora'],
+  [/^impianti$/, 'impianti', lazy('./impianti.js', 'impianti'), 'esplora'],
+  [/^impianti\/([a-z]+)$/, 'impianto', lazy('./impianti.js', 'impianto'), 'esplora'],
   [/^mappa$/, 'mappa', lazy('./map.js', 'map'), 'esplora'],
   [/^presenta$/, 'presentazione', lazy('./presentation.js', 'presentation'), ''],
   [/^percorsi\/cinque-minuti$/, 'presentazione', lazy('./presentation.js', 'legacy'), ''],
