@@ -1,3 +1,4 @@
+import { bars } from '../lib/charts.js';
 import { esc, href, phead, ctxbar, table } from '../ui.js';
 
 const dtabs = (cur) => `<nav class="chips" aria-label="Sezioni di Documentazione" style="margin-bottom:12px">${[['documenti', 'Schede'], ['glossario', 'Glossario'], ['inventario', 'Inventario'], ['documenti/revisioni', 'Revisioni e fonti'], ['documenti/download', 'Download'], ['guida', 'Come si usa']].map(([r, l]) => `<a class="chip" href="${href(r)}" ${r === cur ? 'aria-current="page"' : ''}>${l}</a>`).join('')}</nav>`;
@@ -127,10 +128,20 @@ export async function inventory(app, [code] = [], scopeInfo = null) {
 ${ph.length ? `<h2>Fotografie</h2><div class="grid tight">${ph.map((p) => `<figure class="card" style="margin:0"><img src="${esc(p.path)}" alt="${esc(i.model)} (${esc(p.kind)})" loading="lazy" style="max-width:100%;height:auto"><figcaption class="small muted">${esc(p.kind === 'repertorio' ? 'Foto di repertorio, non dell\'esemplare' : 'Foto dell\'esemplare')}${p.caption ? ' · ' + esc(p.caption) : ''}${p.source ? ` · <a href="${esc(p.source)}" rel="noopener noreferrer">fonte</a>` : ''}</figcaption></figure>`).join('')}</div>` : ''}`;
     return { title: code, html };
   }
-  const html = `${scopeInfo ? ctxbar([['Esplora', 'esplora'], [scopeInfo.name]]) : dtabs('inventario')}${phead({ eyebrow: scopeInfo ? 'Ambito' : 'Documentazione', title: scopeInfo ? scopeInfo.name : 'Inventario', lead: scopeInfo ? esc(scopeInfo.simple) : `${inv.items.length} voci con assegnazione di riferimento. Un alias non si somma all'esemplare principale.` })}
-${table(['Codice', 'Modello', 'Q.tà', 'Assegnazione', 'Stato'], inv.items.map((i) => [`<a href="${href('inventario/' + i.code)}" class="code">${esc(i.code)}</a>`, esc(i.model), esc(i.quantity), esc(i.assignment), esc(i.inventory_state)]), { caption: 'Inventario' })}
-${inv.opportunities ? `<h2>Riuso e cessione</h2><p>${esc(inv.opportunities.scope || '')}</p><p class="small muted">${esc(inv.opportunities.methodology?.statement || '')}</p>` : ''}`;
-  return { title: 'Inventario', html };
+  const categories = [...new Set(inv.items.map(i => i.category))].sort();
+  const q = app.query.q || '', category = app.query.cat || '', photos = app.query.photo === '1', linked = app.query.linked === '1';
+  const filtered = () => inv.items.filter(i => (!category || i.category === category) && (!photos || inv.photos[i.code]?.length) && (!linked || usedBy.has(i.code)) && JSON.stringify(i).toLocaleLowerCase('it').includes(q.toLocaleLowerCase('it')));
+  const rows = list => table(['Codice', 'Modello', 'Q.tà', 'Categoria', 'Assegnazione', 'Collegamenti e foto', 'Stato'], list.map(i => [`<a href="${href('inventario/' + i.code)}" class="code">${esc(i.code)}</a>`, esc(i.model), esc(i.quantity), esc(i.category), esc(i.assignment), (usedBy.get(i.code) || []).map(id => `<a href="${href('e/'+id)}">${esc(id)}</a>`).join(', ') + (inv.photos[i.code]?.length ? ` · ${inv.photos[i.code].length} foto` : ''), esc(i.inventory_state)]), {caption: 'Inventario filtrato'});
+  app.on('inv-filter', () => {
+    const root = document.getElementById('main');
+    app.setQuery({q:root.querySelector('#inv-q').value, cat:root.querySelector('#inv-cat').value, photo:root.querySelector('#inv-photo').checked ? '1':'', linked:root.querySelector('#inv-linked').checked ? '1':''});
+    app.go(app.route + location.hash.slice(1).slice(app.route.length), {replace:true});
+  });
+  return {title:'Inventario', html: `${scopeInfo ? ctxbar([['Esplora','esplora'],[scopeInfo.name]]) : dtabs('inventario')}${phead({eyebrow:'Patrimonio e riuso',title:'Inventario',lead:`${inv.items.length} voci: dal componente alla funzione nel sistema. Le quantità restano quelle della fonte; alias e assegnazioni non provano la disponibilità fisica.`})}
+${bars('Distribuzione delle voci per categoria',categories.map(c => ({label:c,value:inv.items.filter(i=>i.category===c).length})),'voci')}
+<form class="card" data-submit="inv-filter"><div class="formgrid"><label class="f">Cerca modello, codice, assegnazione o note<input id="inv-q" type="search" value="${esc(q)}"></label><label class="f">Categoria<select id="inv-cat"><option value="">Tutte</option>${categories.map(c=>`<option value="${esc(c)}" ${c===category?'selected':''}>${esc(c)}</option>`).join('')}</select></label></div><p><label><input id="inv-photo" type="checkbox" ${photos?'checked':''}> Con fotografie</label> · <label><input id="inv-linked" type="checkbox" ${linked?'checked':''}> Collegati al modello</label></p><button class="btn primary" type="submit">Applica filtri</button> <a class="btn" href="#inventario">Azzera filtri</a></form>
+<p role="status">${filtered().length} voci su ${inv.items.length}</p>${filtered().length ? rows(filtered()) : '<div class="callout">Nessuna voce corrisponde. Modifica i filtri o cerca un codice inventario.</div>'}
+${inv.opportunities ? `<h2>Riuso e cessione</h2><p>${esc(inv.opportunities.scope || '')}</p><p class="small muted">${esc(inv.opportunities.methodology?.statement || '')}</p>`:''}`};
 }
 
 export function notFound(app, [path]) {

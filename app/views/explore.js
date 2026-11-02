@@ -7,7 +7,7 @@ export function explore(app) {
   const { core } = app;
   const n = (k) => core.entities.filter((e) => e.kind === k).length;
   const html = `${phead({ eyebrow: 'Esplora', title: 'Esplorare l\'infrastruttura', lead: 'Per ambito, per luogo, per elemento o seguendo il percorso dei dati. Ogni elemento apre la sua scheda con relazioni, stato e fonti.' })}
-<h2>Per ambito</h2><div class="grid">${core.scopes.map((s) => `<a class="tile scope-bar" data-scope="${s.id}" href="${href('ambito/' + s.id)}"><span class="t">${esc(s.name)}</span><p>${esc(s.tagline)}</p><span class="meta small muted">${core.entities.filter((e) => e.scopes?.includes(s.id)).length} elementi</span></a>`).join('')}</div>
+<p><a class="btn primary" href="#atlante">Apri l’atlante delle funzioni →</a></p><h2>Per ambito</h2><div class="grid">${core.scopes.map((s) => `<a class="tile scope-bar" data-scope="${s.id}" href="${href('ambito/' + s.id)}"><span class="t">${esc(s.name)}</span><p>${esc(s.tagline)}</p><span class="meta small muted">${core.entities.filter((e) => e.scopes?.includes(s.id)).length} elementi</span></a>`).join('')}</div>
 <h2>Per tipo di elemento</h2><div class="grid tight">
 <a class="tile" href="${href('esplora/macchine')}"><span class="t">Macchine</span><p>${n('node')} nodi: server, supporti, client, mobile.</p></a>
 <a class="tile" href="${href('esplora/servizi')}"><span class="t">Servizi</span><p>${n('service')} servizi con ciò che permettono di fare.</p></a>

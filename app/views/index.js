@@ -2,6 +2,7 @@
 const lazy = (mod, name) => async (app, p) => (await import(mod))[name](app, p);
 
 export const routes = [
+  [/^atlante$/, 'atlante', lazy('./atlas.js', 'atlas'), 'esplora'],
   [/^$/, 'home', lazy('./home.js', 'home'), ''],
   [/^esplora$/, 'esplora', lazy('./explore.js', 'explore'), 'esplora'],
   [/^esplora\/(macchine|servizi|dati|rete|rack)$/, 'lista', lazy('./explore.js', 'list'), 'esplora'],

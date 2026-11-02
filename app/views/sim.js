@@ -1,3 +1,4 @@
+import { bars } from '../lib/charts.js';
 import { badge, esc, href, phead, ctxbar, st } from '../ui.js';
 import { simulate, ST, ST_LABEL, diff } from '../lib/sim.js';
 
@@ -23,7 +24,7 @@ export function simView(app) {
   const sc = scenarioFromQuery(app.query);
   const html = `${ctxbar([['Usa e risolvi', 'emergenza'], ['Simulatore']])}
 ${phead({ eyebrow: '<span class="simtag">Simulazione</span>', title: 'Che cosa succede se qualcosa manca', lead: 'Scegli che cosa si guasta o si spegne. Il calcolo usa le regole e le relazioni del modello 4.4 e spiega ogni esito. Non esegue comandi, non legge l\'impianto e non modifica il progetto.' })}
-<div class="simgrid"><div id="simctl"></div><div id="simres" aria-live="polite"></div></div>`;
+<ol class="steps"><li>Scegli uno scenario o un componente</li><li>Confronta gli effetti con il riferimento</li><li>Apri le cause e le procedure</li></ol><p><a href="#costi">Simula invece consumi e costi →</a></p><div class="simgrid"><div id="simctl"></div><div id="simres" aria-live="polite"></div></div>`;
   return {
     title: 'Simulatore', html, keepScroll: true,
     mount: (root) => {
@@ -39,7 +40,7 @@ ${phead({ eyebrow: '<span class="simtag">Simulazione</span>', title: 'Che cosa s
         const s = nodeState(e);
         const onDemand = e.power === 'on_demand' || e.power === 'manual';
         const label = { fail: 'Guasto', off: 'Spento per manutenzione', on: 'Acceso', base: onDemand ? 'Spento in attesa' : 'In funzione' }[s];
-        return `<button type="button" class="toggle ${s === 'off' || s === 'on' ? 'off' : ''}" data-action="cycle" data-id="${esc(e.id)}" aria-pressed="${s !== 'base'}"><span><strong>${esc(e.name)}</strong><small>${esc(e.title || e.oneLine.slice(0, 60))}</small></span><span class="small">${esc(label)}</span></button>`;
+        return `<button type="button" class="toggle ${s === 'off' || s === 'on' ? 'off' : ''}" data-action="cycle" data-id="${esc(e.id)}" aria-pressed="${s !== 'base'}"><span><strong>${esc(e.name)}</strong><small>${esc(e.title || e.oneLine.slice(0, 60))}</small></span><span class="small">${esc(label)}<br><small>Poi: ${esc(onDemand ? ({base:'Acceso',on:'Guasto',fail:'Spento in attesa'})[s] : ({base:'Guasto',fail:'Spento per manutenzione',off:'In funzione'})[s])}</small></span></button>`;
       }
       function renderCtl() {
         const nodes = core.entities.filter((e) => e.kind === 'node');
@@ -89,6 +90,8 @@ ${facts.map((f) => `<button type="button" class="toggle off" data-action="assume
 <p>${q.hubQuorum === true ? badge('available', 'Quorum presente') : q.hubQuorum === null ? badge('unknown', 'Quorum incerto') : badge('blocked', 'Quorum assente')} Partizione principale: <strong>${q.min}${q.max > q.min ? `–${q.max}` : ''} voti</strong> su ${q.total}; ne servono ${q.need}.${q.isolated.length ? ` Isolati: ${q.isolated.map(esc).join(', ')} (1 voto ciascuno, senza quorum).` : ''}${q.hubMaybe.length ? ` Incerti: ${q.hubMaybe.map(esc).join(', ')}.` : ''}</p>
 <p class="small muted">I voti si contano per partizione connessa, non sommando le macchine accese. Il quorum dice se il gruppo può decidere; non prova che i servizi possano ripartire. Senza quorum, i guest già avviati non HA continuano secondo la documentazione Proxmox, ma non si possono avviare né spostare; il comportamento con HA attiva dipende dal fencing, non documentato.</p></div>
 <div class="statusline" style="margin:14px 0">${counts.map(([k, n]) => `${st(k)} <strong>${n}</strong>`).join(' ')}</div>
+${bars('Servizi per stato · riferimento e scenario', counts.flatMap(([k,n]) => [{label: ST_LABEL[k] + ' · riferimento',value:svcs.filter(e=>base.status(e.id).status===k).length},{label: ST_LABEL[k] + ' · scenario',value:n}]), 'servizi')}
+${scen.events.length ? `<details open><summary>Modifiche applicate (${scen.events.length})</summary><ul>${scen.events.map(e=>`<li>${esc(idx.get(e.id)?.name || e.id)} · ${esc(({fail:'guasto',off:'spento',on:'acceso',assumeTest:'collaudo ipotizzato',assumeFact:'dato ipotizzato',haActive:'HA ipotizzata',copy:'copia: '+(e.state || '')})[e.type] || e.type)}</li>`).join('')}</ul></details>`:''}
 <h2 style="font-size:1.1rem">Che cosa puoi fare</h2>
 ${sorted.map(({ e, s }) => {
           const imp = sim.impact(e.id);
