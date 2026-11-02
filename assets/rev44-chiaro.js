@@ -26,7 +26,7 @@ const ROUTE_AREA={home:'orient',guide:'orient',glossary:'orient',library:'orient
  atlas:'infra',nodes:'infra',network:'infra',clients:'infra',rack:'server',field:'casa',
  storage:'dati',sim:'sim',synergy:'sinergie',worlds:'sinergie',
  'world-vito':'vito',vito:'vito','world-home':'casa','world-server':'server','world-lab':'lab','world-guests':'terzi','world-reuse':'inv',
- inventory:'inv',reuse:'inv',roadmap:'piano',acquisitions:'piano',services:'infra',power:'infra'};
+ inventory:'inv',reuse:'inv',roadmap:'piano',acquisitions:'piano',services:'infra',power:'infra',map:'infra',savings:'dati'};
 function areaOf(route){
   if(ROUTE_AREA[route])return ROUTE_AREA[route];
   if(route.startsWith('node/'))return 'infra';
@@ -169,11 +169,36 @@ function simView(){
 pages.sim=()=>hd('sim','Simulatore di guasti','Spegni una macchina e guarda che cosa resta in funzione.','Il simulatore applica le regole del progetto 4.4 (cluster a 5 voti, quorum 3, servizi con il loro nodo principale e di subentro). Non misura un impianto acceso: mostra che cosa il progetto prevede.')+
 callout('Come si legge','Il nucleo ha 5 voti e ne servono 3. Le macchine a richiesta, i supporti e le postazioni non votano. Un servizio «può ripartire» su un’altra macchina solo se la copia dei suoi dati è stata collaudata: il simulatore non lo presume.')+`<div id="sim-root">${simView()}</div>`+section('Casi descritti nel progetto')+table(['Evento','Che cosa resta','Limite'],C.availability)+cardtiles(['REV3-HA','REV4-MON']);
 
+/* ---------- AMBITI: correzioni di testo e corpo riscritto ---------- */
+(function(){
+  const fixT=t=>typeof t!=='string'?t:t
+    .replace(/P310Arca\/M2/g,'P310 (da Arca a M2)').replace(/chassisHP eINV/g,'chassis HP e INV')
+    .replace(/([a-zà-ù])(M[1-9]\b)/g,'$1 $2').replace(/\b(M\d)([a-z]{4,})/g,'$1 $2')
+    .replace(/(\d)(cm|U)\b/g,'$1 $2').replace(/ e(\d)/g,' e $1').replace(/\bdi([A-Z][a-z])/g,'di $1').replace(/schede(\d)/g,'schede $1')
+    .replace(/MacBook ?AirM1|MacBook Air ?M1/g,'MacBook Air M1');
+  const walk=o=>{if(Array.isArray(o)){o.forEach((v,i)=>{o[i]=typeof v==='string'?fixT(v):(walk(v),v)})}else if(o&&typeof o==='object'){for(const k in o){const v=o[k];if(typeof v==='string'){if(k!=='id'&&k!=='code'&&k!=='path')o[k]=fixT(v)}else walk(v)}}};
+  walk(D.ecosystem);walk(D.opportunities);
+  const PEER={'sala-server':'Sala server',vito:'Vito',domotica:'Domotica',laboratorio:'Laboratorio',terzi:'Servizi a terzi',inventario:'Inventario'};
+  D.ecosystem.worlds.forEach(w=>w.interfaces.forEach(x=>{x.peer=PEER[x.peer]||x.peer}));
+  const tidy=h=>h.replace(/<div class="brief">[\s\S]*?<\/div>/,'')
+    .replace(/<div class="tablewrap"><table><thead><tr><th scope="col">Ramo<\/th>[\s\S]*?<\/table><\/div>/,'')
+    .replace(/<h2[^>]*>(Interfacce con gli altri mondi|Scambi con gli altri rami)<\/h2>/,'')
+    .replace(/<h2[^>]*>Autonomia e confini<\/h2><ul>[\s\S]*?<\/ul>/,'').replace(/<h2[^>]*>Valore di recupero[\s\S]*$/,'');
+  Object.entries(worldRoutes).forEach(([id,route])=>{
+    const old=pages[route];if(!old)return;
+    pages[route]=function(){
+      let h=old.apply(this,arguments);
+      const w=D.ecosystem.worlds.find(x=>x.id===id),g=(window.SCHEDE_G||[]).find(x=>w&&x.codes.includes(w.code));
+      if(g){const body=tidy(g.html);h=h.replace(/<article class="doc world-narrative">[\s\S]*?<\/article>/,()=>'<article class="doc world-narrative">'+body+'</article>')}
+      return h};
+  });
+  pages.vito=pages['world-vito'];
+})();
 /* ---------- NAV A COLORI ---------- */
 const NAV=[
  ['Parte 1 · Sintesi',[['home','Panoramica','⌂','orient'],['glossary','Glossario','Aa','orient'],['sim','Simula guasti','⚡','sim'],['worlds','I sei ambiti','◫','piano']]],
  ['Ambiti',[['world-server','Sala server','▤','server'],['world-home','Casa e ambienti','◉','casa'],['world-lab','Laboratorio','⊞','lab'],['world-vito','Vito','↗','vito'],['world-guests','Servizi a terzi','◎','terzi'],['world-reuse','Inventario e riuso','◇','inv']]],
- ['Parte 2 · Tecnica',[['atlas','Atlante tecnico','▦','infra'],['nodes','Anagrafica nodi','▤','infra'],['network','Rete e quorum','⌘','infra'],['storage','Dati e copie','◫','dati'],['library','Biblioteca schede','≡','orient'],['inventory','Foto e inventario','▧','inv'],['synergy','Sinergie','⇄','sinergie'],['roadmap','Roadmap','◷','piano'],['downloads','Formati e download','↓','orient']]]];
+ ['Parte 2 · Tecnica',[['atlas','Atlante tecnico','▦','infra'],['nodes','Anagrafica nodi','▤','infra'],['network','Rete e quorum','⌘','infra'],['storage','Dati e copie','◫','dati'],['map','Mappa interattiva','◈','infra'],['power','Consumi e costi','⚡','infra'],['savings','Risparmio self-hosting','€','dati'],['library','Biblioteca schede','≡','orient'],['inventory','Foto e inventario','▧','inv'],['synergy','Sinergie','⇄','sinergie'],['roadmap','Roadmap','◷','piano'],['downloads','Formati e download','↓','orient']]]];
 $('#nav').innerHTML=NAV.map(([t,items])=>'<div class="navgroup">'+E(t)+'</div>'+items.map(([id,l,ic,a])=>`<a class="navlink" data-area="${a}" href="#${id}" data-nav="${id}"><span class="navicon" aria-hidden="true">${ic}</span>${E(l)}</a>`).join('')).join('');
 const brand=document.querySelector('.brand');if(brand)brand.innerHTML='<span class="brand-mark">F</span><span><strong>Il Faldone</strong><small>Infrastruttura informatica · Rev 4.4</small></span>';
 const sb=document.querySelector('.side-bottom');if(sb)sb.innerHTML='<div class="edition">Revisione 4.4 · 1 novembre 2026</div><p>Casa, laboratorio e Vito. Progetto di riferimento: nulla di «previsto» è dichiarato già installato.</p><a href="#library">Cerca una scheda</a>';
