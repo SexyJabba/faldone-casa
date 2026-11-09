@@ -13,12 +13,19 @@ export function library(app) {
   const groups = new Map();
   for (const c of cards) groups.set(c.group, [...(groups.get(c.group) || []), c]);
   app.on('libfilter', (el) => { const qv = document.getElementById('libq').value; const bv = document.getElementById('libb').value; const rv = document.getElementById('libr').checked; app.go(`documenti?${new URLSearchParams({ ...(qv ? { q: qv } : {}), ...(bv ? { b: bv } : {}), ...(rv ? { r: '1' } : {}) })}`, { replace: true }); });
+  const item = ([g, cs]) => { const gi = core.groups.find((x) => x.id === g); return `<li><a href="${href(cs[0].code)}"><strong>${esc(gi.title)}</strong></a><br><span class="small muted">Codici: </span>${cs.map((c) => `<a class="code" href="${href(c.code)}">${esc(c.code)}</a>`).join('<span class="muted"> · </span>')}${gi.codes.length > cs.length ? `<span class="small muted"> (+${gi.codes.length - cs.length} fuori filtro)</span>` : ''}</li>`; };
+  // un testo compare nel blocco della sua prima scheda visibile
+  const byBlock = new Map();
+  for (const e of groups) { const k = e[1][0].block; byBlock.set(k, [...(byBlock.get(k) || []), e]); }
+  const blocks = [...byBlock];
+  app.on('blockjump', (el) => { const t = document.getElementById(el.dataset.id); t?.scrollIntoView({ block: 'start' }); t?.focus({ preventScroll: true }); });
   const html = `${dtabs('documenti')}${phead({ eyebrow: 'Documentazione', title: 'Le schede del Faldone', lead: `${core.meta.counts.cards} codici stabili (INF, ATL, REV), raccolti in ${core.meta.counts.groups} testi leggibili. Più codici possono condividere un testo: ognuno conserva la propria parte specifica, il PDF e il Markdown.` })}
 <form class="formgrid" data-submit="libfilter"><label class="f">Filtra per codice o titolo<input type="text" id="libq" value="${esc(app.query.q || '')}" data-change="libfilter"></label>
 <label class="f">Blocco<select id="libb" data-change="libfilter"><option value="">Tutti</option>${Object.entries(core.blocks).map(([k, v]) => `<option value="${esc(k)}"${k === b ? ' selected' : ''}>${esc(k)} · ${esc(v)}</option>`).join('')}</select></label>
 <label class="f" style="align-self:end;display:flex;gap:8px;align-items:center"><input type="checkbox" id="libr" ${showRoad ? 'checked' : ''} data-change="libfilter" style="width:20px;height:20px"> Includi roadmap e attuazione</label></form>
 <p class="small" aria-live="polite">${cards.length} schede in ${groups.size} testi${hiddenRoad && !showRoad ? ` · ${hiddenRoad} schede di roadmap escluse dal filtro predefinito` : ''}. <a href="schede/index.html">Indice stampabile senza JavaScript</a></p>
-<ul class="list">${[...groups].map(([g, cs]) => { const gi = core.groups.find((x) => x.id === g); return `<li><a href="${href(cs[0].code)}"><strong>${esc(gi.title)}</strong></a><br><span class="small muted">Codici: </span>${cs.map((c) => `<a class="code" href="${href(c.code)}">${esc(c.code)}</a>`).join('<span class="muted"> · </span>')}${gi.codes.length > cs.length ? `<span class="small muted"> (+${gi.codes.length - cs.length} fuori filtro)</span>` : ''}</li>`; }).join('') || '<li class="empty">Nessuna scheda con questi filtri. Prova la <a href="#cerca">ricerca completa</a>, che include servizi, macchine e glossario.</li>'}</ul>`;
+${blocks.length > 1 ? `<nav class="blockjump" aria-label="Vai al blocco">${blocks.map(([k]) => `<a class="chip" href="${href('documenti')}" data-action="blockjump" data-id="blk-${esc(k)}" title="${esc(core.blocks[k] || '')}"><span class="code">${esc(k)}</span> ${esc(core.blocks[k] || '')}</a>`).join('')}</nav>` : ''}
+${blocks.map(([k, gs]) => `<section aria-labelledby="blk-${esc(k)}"><h2 class="blockhead" id="blk-${esc(k)}" tabindex="-1"><span class="code">${esc(k)}</span>${esc(core.blocks[k] || 'Altre schede')}<small>${gs.length} ${gs.length === 1 ? 'testo' : 'testi'}</small></h2><ul class="list">${gs.map(item).join('')}</ul></section>`).join('') || '<p class="empty">Nessuna scheda con questi filtri. Prova la <a href="#cerca">ricerca completa</a>, che include servizi, macchine e glossario.</p>'}`;
   return { title: 'Schede', html, keepScroll: !!(app.query.q || app.query.b) };
 }
 

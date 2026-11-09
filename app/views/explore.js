@@ -1,4 +1,4 @@
-import { badge, esc, href, phead, ctxbar, dims, st, table, factValue, mech, ev } from '../ui.js';
+import { badge, esc, href, phead, ctxbar, dims, st, table, factValue, mech, ev, ic, icon, go, SCOPE_ICON } from '../ui.js';
 import { simulate } from '../lib/sim.js';
 
 const POWER = { always: 'sempre acceso', on_demand: 'a richiesta', manual: 'manuale', external: 'esterno' };
@@ -7,19 +7,21 @@ export function explore(app) {
   const { core } = app;
   const n = (k) => core.entities.filter((e) => e.kind === k).length;
   const html = `${phead({ eyebrow: 'Esplora', title: 'Esplorare l\'infrastruttura', lead: 'Per ambito, per luogo, per elemento o seguendo il percorso dei dati. Ogni elemento apre la sua scheda con relazioni, stato e fonti.' })}
-<p><a class="btn primary" href="#atlante">Apri l’atlante delle funzioni →</a></p><h2>Per ambito</h2><div class="grid">${core.scopes.map((s) => `<a class="tile scope-bar" data-scope="${s.id}" href="${href('ambito/' + s.id)}"><span class="t">${esc(s.name)}</span><p>${esc(s.tagline)}</p><span class="meta small muted">${core.entities.filter((e) => e.scopes?.includes(s.id)).length} elementi</span></a>`).join('')}</div>
-<h2>Per tipo di elemento</h2><div class="grid tight">
-<a class="tile" href="${href('esplora/macchine')}"><span class="t">Macchine</span><p>${n('node')} nodi: server, supporti, client, mobile.</p></a>
-<a class="tile" href="${href('esplora/servizi')}"><span class="t">Servizi</span><p>${n('service')} servizi con ciò che permettono di fare.</p></a>
-<a class="tile" href="${href('esplora/dati')}"><span class="t">Dati e copie</span><p>${n('dataset')} insiemi di dati, ${n('storage')} archivi, ${n('copy')} protezioni.</p></a>
-<a class="tile" href="${href('esplora/rete')}"><span class="t">Rete</span><p>${n('network')} reti e collegamenti, WAN, VLAN, radio.</p></a>
-<a class="tile" href="${href('esplora/rack')}"><span class="t">Rack e porte</span><p>Vista logica del rack e dello switch.</p></a>
-<a class="tile" href="${href('impianti')}"><span class="t">Impianti di casa</span><p>VMC compilata come ipotesi; corrente, acqua, sensori, allarme, telecamere, LAN, fotovoltaico, planimetria da compilare.</p></a>
-<a class="tile" href="${href('inventario')}"><span class="t">Inventario</span><p>${core.meta.counts.inventory} voci con assegnazione e foto.</p></a></div>
-<h2>Viste collegate</h2><div class="grid">
-<a class="tile" href="${href('mappa')}"><span class="t">Mappa relazionale</span><p>Livelli selezionabili: rete, hosting, dati, copie, quorum, alimentazione, accensione, accesso, radio.</p></a>
-<a class="tile" href="${href('percorsi')}"><span class="t">Percorsi leggibili</span><p>${core.paths.map((p) => esc(p.title)).join(' · ')}</p></a>
-<a class="tile" href="${href('simula')}"><span class="t">Simulatore</span><p>Che cosa succede se un elemento manca, e perché.</p></a></div>`;
+<p><a class="btn primary" href="#atlante">Apri l’atlante delle funzioni ${icon('arrow')}</a></p><h2>Per ambito</h2><div class="grid cols3">${core.scopes.map((s) => `<a class="tile scope-bar" data-scope="${s.id}" href="${href('ambito/' + s.id)}">${ic(SCOPE_ICON[s.id] || 'explore')}<span class="t">${esc(s.name)}${go}</span><p>${esc(s.tagline)}</p><span class="meta small muted">${core.entities.filter((e) => e.scopes?.includes(s.id)).length} elementi</span></a>`).join('')}</div>
+<h2>Per tipo di elemento</h2><div class="grid cols4">${[
+    ['esplora/macchine', 'server', 'Macchine', `${n('node')} nodi: server, supporti, client, mobile.`],
+    ['esplora/servizi', 'service', 'Servizi', `${n('service')} servizi con ciò che permettono di fare.`],
+    ['esplora/dati', 'data', 'Dati e copie', `${n('dataset')} insiemi di dati, ${n('storage')} archivi, ${n('copy')} protezioni.`],
+    ['esplora/rete', 'network', 'Rete', `${n('network')} reti e collegamenti, WAN, VLAN, radio.`],
+    ['esplora/rack', 'rack', 'Rack e porte', 'Vista logica del rack e dello switch.'],
+    ['impianti', 'plug', 'Impianti di casa', 'VMC compilata come ipotesi; corrente, acqua, sensori, allarme, telecamere, LAN, fotovoltaico, planimetria da compilare.'],
+    ['inventario', 'box', 'Inventario', `${core.meta.counts.inventory} voci con assegnazione e foto.`],
+  ].map(([r, i, t, d]) => `<a class="tile" href="${href(r)}">${ic(i)}<span class="t">${t}${go}</span><p>${esc(d)}</p></a>`).join('')}</div>
+<h2>Viste collegate</h2><div class="grid cols3">${[
+    ['mappa', 'map', 'Mappa relazionale', 'Livelli selezionabili: rete, hosting, dati, copie, quorum, alimentazione, accensione, accesso, radio.'],
+    ['percorsi', 'path', 'Percorsi leggibili', core.paths.map((p) => p.title).join(' · ')],
+    ['simula', 'sim', 'Simulatore', 'Che cosa succede se un elemento manca, e perché.'],
+  ].map(([r, i, t, d]) => `<a class="tile" href="${href(r)}">${ic(i)}<span class="t">${t}${go}</span><p>${esc(d)}</p></a>`).join('')}</div>`;
   return { title: 'Esplora', html };
 }
 
