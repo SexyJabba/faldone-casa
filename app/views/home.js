@@ -1,6 +1,7 @@
 import { esc, href, ic, icon, go, SCOPE_ICON } from '../ui.js';
 import { roadmapState, TASK_LABEL } from '../lib/roadmap.js';
 import { simulate } from '../lib/sim.js';
+import { quorumRing } from '../lib/viz.js';
 
 export function home(app) {
   const { core, idx } = app;
@@ -47,7 +48,7 @@ export function home(app) {
 
 <div class="sechead"><h2>L'insieme in un colpo d'occhio</h2><a class="more" href="${href('mappa')}">Apri la mappa relazionale →</a></div>
 <div class="overview">
-  <div class="card"><h3>Sempre accese · decidono a maggioranza</h3><p class="small muted">Cinque macchine formano il nucleo: servono 3 voti su 5 perché il gruppo continui a decidere.</p><div class="chips">${group((n) => n.vote)}</div></div>
+  <div class="card qcard"><div><h3>Sempre accese · decidono a maggioranza</h3><p class="small muted">Cinque macchine formano il nucleo: servono 3 voti su 5 perché il gruppo continui a decidere.</p><div class="chips">${group((n) => n.vote)}</div></div>${quorumRing(nodes.filter((n) => n.vote))}</div>
   <div class="card"><h3>Accese quando servono</h3><p class="small muted">IA, backup e film. Spente non sono guaste e non tolgono voti.</p><div class="chips">${group((n) => n.power === 'on_demand' && /^M/.test(n.id))}</div></div>
   <div class="card"><h3>Supporto e confini</h3><p class="small muted">Ingresso e password, radio dei sensori, sentinella, osservatore esterno.</p><div class="chips">${group((n) => /^S\d/.test(n.id))}</div></div>
   <div class="card"><h3>Postazioni e mobilità</h3><p class="small muted">Client nelle stanze, laboratorio, Vito e amici: fuori dal quorum.</p><div class="chips">${group((n) => !n.vote && /^(C|MP|HP|MICRO)/.test(n.id))}</div></div>

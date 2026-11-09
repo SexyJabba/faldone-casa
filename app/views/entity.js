@@ -1,5 +1,6 @@
 import { badge, esc, href, phead, ctxbar, dims, st, ev, kind, mech, factValue, srcLinks, table } from '../ui.js';
 import { REL_LABEL, walk } from '../lib/model.js';
+import { egoGraph } from '../lib/viz.js';
 import { simulate, ST, ST_LABEL, sharesDomain, copyReadiness, diff } from '../lib/sim.js';
 
 const FACT_LABEL = {
@@ -113,6 +114,7 @@ ${h.devices.length ? table(['Dispositivo', 'Porte', 'Funzione'], h.devices.map((
   }
 
   const facts = Object.entries(e.facts || {});
+  const ego = egoGraph(idx, id);
   const html = `${ctxbar([['Esplora', 'esplora'], [kind(e.kind), e.kind === 'node' ? 'esplora/macchine' : e.kind === 'service' ? 'esplora/servizi' : ['dataset', 'storage', 'copy'].includes(e.kind) ? 'esplora/dati' : 'esplora'], [e.name]], app.prev && !app.prev.endsWith(`e/${id}`) ? { route: decodeURI(app.prev.slice(1)), label: 'Indietro' } : null)}
 <div class="pagecols"><div>
 <div class="ehead"><div class="ebadge k-${e.kind}" aria-hidden="true">${esc(e.id.length <= 4 ? e.id : ({ dataset: 'DATI', storage: 'DISCO', copy: 'COPIA', service: 'APP', network: 'RETE', device: 'HW', place: 'LUOGO', cluster: 'PVE', node: e.id.slice(0, 4) })[e.kind])}</div><div>
@@ -132,6 +134,7 @@ ${e.kind === 'node' ? `<a href="${href('esplora/macchine?cmp=' + id)}">Confronta
 ${impacts.length || e.kind !== 'place' ? `<section aria-labelledby="h-miss"><h2 id="h-miss">Se manca</h2><p class="small"><span class="simtag">Simulazione</span> Calcolato dal modello con ${esc(e.name)} indisponibile; non è un'osservazione.</p>
 ${impacts.length ? `<ul>${impacts.slice(0, depth === 'capire' ? 6 : 30).map((i) => `<li>${st(i.status)} ${esc(i.text)}${i.svc ? ` <span class="small muted">(${esc(name(i.svc))})</span>` : ''}</li>`).join('')}</ul>${impacts.length > 6 && depth === 'capire' ? `<p class="small"><a href="${href('simula?f=' + id)}">Tutti gli effetti (${impacts.length}) nel simulatore</a></p>` : ''}` : '<p>Nessun servizio d\'uso cambia stato nel modello.</p>'}</section>` : ''}
 
+${ego ? `<section aria-labelledby="h-ego"><h2 id="h-ego">Relazioni a colpo d'occhio</h2>${ego}</section>` : ''}
 ${specific}
 
 <details${open('approfondire')}><summary>Relazioni (${relOut.length + relIn.length})</summary>
