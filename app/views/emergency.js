@@ -1,16 +1,18 @@
-import { esc, href, phead, ctxbar } from '../ui.js';
+import { esc, href, phead, ctxbar, ic, go } from '../ui.js';
+
+const PR_ICON = { 'PR-NOACCESSO': 'lock', 'PR-INTERNET': 'wifi', 'PR-DOMOTICA': 'bulb', 'PR-DATI': 'file', 'PR-BLACKOUT': 'bolt' };
 
 export function emergency(app) {
   const { core } = app;
   const em = core.procedures.filter((p) => p.emergency);
   const html = `${phead({ eyebrow: 'Usa e risolvi', title: 'Qualcosa non funziona?', lead: 'Scegli che cosa succede. Prima i controlli che chiunque può fare senza toccare nulla, poi il passaggio al tecnico.' })}
-<div class="emerg">${em.map((p) => `<a href="${href('procedura/' + p.id)}">${esc(p.symptom)}<small>${esc(p.title)}</small></a>`).join('')}</div>
+<div class="emerg">${em.map((p) => `<a href="${href('procedura/' + p.id)}">${ic(PR_ICON[p.id] || 'fix')}${esc(p.symptom)}<small>${esc(p.title)}</small></a>`).join('')}</div>
 <div class="callout warn"><strong>Prima regola</strong>Non riavviare M2 o M4 «per provare» e non cancellare nulla per fare spazio. Un servizio fermo non significa dati persi; una macchina a richiesta spenta non è guasta.</div>
 <h2>Altri strumenti</h2><div class="grid">
-<a class="tile" href="${href('simula')}"><span class="t">Simulatore</span><p>Capire che cosa dipende da che cosa, prima di intervenire.</p></a>
-${core.procedures.filter((p) => !p.emergency).map((p) => `<a class="tile" href="${href('procedura/' + p.id)}"><span class="t">${esc(p.symptom)}</span><p>${esc(p.title)} · per tecnici</p></a>`).join('')}
-<a class="tile" href="kit/emergenza.html"><span class="t">Kit di emergenza offline</span><p>Un file autonomo, stampabile, con la revisione ${esc(core.meta.revision)}. Funziona senza Internet e senza i server di casa.</p></a>
-<a class="tile" href="${href('preferiti')}"><span class="t">Consultazione offline</span><p>Scarica tutte le schede pubbliche su questo dispositivo.</p></a></div>
+<a class="tile" href="${href('simula')}">${ic('sim')}<span class="t">Simulatore${go}</span><p>Capire che cosa dipende da che cosa, prima di intervenire.</p></a>
+${core.procedures.filter((p) => !p.emergency).map((p) => `<a class="tile" href="${href('procedura/' + p.id)}">${ic('fix')}<span class="t">${esc(p.symptom)}${go}</span><p>${esc(p.title)} · per tecnici</p></a>`).join('')}
+<a class="tile" href="kit/emergenza.html">${ic('kit')}<span class="t">Kit di emergenza offline${go}</span><p>Un file autonomo, stampabile, con la revisione ${esc(core.meta.revision)}. Funziona senza Internet e senza i server di casa.</p></a>
+<a class="tile" href="${href('preferiti')}">${ic('offline')}<span class="t">Consultazione offline${go}</span><p>Scarica tutte le schede pubbliche su questo dispositivo.</p></a></div>
 <p class="small muted">Le checklist che spunti qui restano su questo dispositivo e non sono collaudi ufficiali. Le procedure non sono ancora state provate sul campo: l'impianto 4.4 è in attuazione.</p>`;
   return { title: 'Usa e risolvi', html };
 }

@@ -20,7 +20,9 @@ Ogni token ha il valore scuro corrispondente (`prefers-color-scheme` e scelta ma
 
 Tipografia: **IBM Plex Sans** e **IBM Plex Mono**, file locali in `assets/fonts/` (sottoinsieme Latin1, licenza OFL in `assets/fonts/OFL.txt`), `font-display: swap`, con pila di riserva di sistema. Mono solo per codici e identificativi. Titoli di pagina 26–32 px a peso 400; presentazione 28–44 px con testo 17–22 px; testo documentale 16 px con interlinea 1,6; controlli 14 px; metadati 13 px.
 
-Superfici: angoli da 4 px, bordi sottili, nessuna ombra sulle superfici in pagina; ombre solo su menu, dialoghi e pannelli sovrapposti.
+Superfici (revisione grafica del 9 novembre 2026): angoli da 10 px per schede e tessere (`--r`), 6 px per controlli (`--r2`), 16 px per il riquadro di apertura della home; bordi sottili e un'ombra appena percettibile (`--shadow`), che cresce solo al passaggio su un elemento cliccabile (`--shadow-hover`); ombre piene solo su menu, dialoghi e pannelli sovrapposti. Testata e barra inferiore traslucide. Le animazioni (ingresso della pagina, sollevamento delle tessere) sono brevi e spente con `prefers-reduced-motion`.
+
+Icone: tratto da 1,8 px su griglia 24, in linea nel codice (`ICON` in `app/ui.js`), nessuna libreria. Sono sempre decorative (`aria-hidden`): il testo accanto porta il significato. `ic(nome)` le mette in un riquadro tinto; negli ambiti il riquadro prende il colore dell'ambito.
 
 ## Colori con significato fisso (sempre con testo e forma)
 
@@ -45,6 +47,12 @@ Ambiti: `--s-sala`, `--s-casa`, `--s-lab`, `--s-vito`, `--s-terzi`, `--s-inv` (b
 - **Dimensioni di stato** `dims()`: decisione, realizzazione, osservazione, separate.
 - **Natura del valore** `ev()`: documentato, dichiarato, misurato, stimato, simulato, sconosciuto.
 - **Limite** `.limit`: rischio di perdita dati o fermo, sempre visibile a ogni profondità.
+- **Apertura della home** `.hero`: titolo, azione primaria, ricerca, stato del progetto in etichette (`.hero-facts`) e quattro numeri cliccabili (`.stats`), tutti calcolati dai dati del modello.
+- **Intenti** `.intents`: sei ingressi con icona, griglia 3/2/1 colonne senza tessere orfane.
+- **Griglie a colonne fisse** `.grid.cols3`, `.grid.cols4`: quando il numero di tessere è noto, per evitare l'ultima riga con un solo elemento.
+- **Intestazione di sezione** `.sechead`: titolo, nota e collegamento «vedi tutto» sulla stessa riga.
+- **Indice dei blocchi** `.blockjump` e `.blockhead`: in Documentazione le schede sono raggruppate per blocco, con salto diretto.
+- **Torna su** `.totop`: compare dopo 700 px di scorrimento, sopra la barra inferiore su schermi stretti.
 - **Tessera** `.tile`, **scheda** `.card`, **chip** `.chip` (filtri con `aria-pressed`, sezioni con `aria-current`).
 - **Tabella** `table()`: regione scorrevole raggiungibile da tastiera, intestazioni di riga e colonna.
 - **Passi** `.steps`: percorsi e capitoli; passo tratteggiato = vuoto informativo.

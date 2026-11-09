@@ -94,7 +94,7 @@ export function renderShell({ meta, scopes, procedures, build }) {
   const intents = [['capire', 'Voglio capire il progetto', 'percorsi/cinque-minuti'], ['trovare', 'Voglio trovare un servizio o una macchina', 'esplora'], ['guasto', 'Qualcosa non funziona', 'emergenza'], ['realizza', 'Voglio realizzare il prossimo passo', 'realizza'], ['aiuto', 'Voglio aiutare o verificare una scelta', 'contribuisci']];
   return `<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
-<meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#11181d" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f4f6f8" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#121820" media="(prefers-color-scheme: dark)">
 <meta name="description" content="Atlante operativo dell'infrastruttura di casa, laboratorio e Vito. Revisione ${esc(meta.revision)}.">
 <title>Il Faldone · revisione ${esc(meta.revision)}</title>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="app/style.css?v=${build}"><link rel="stylesheet" href="app/scenes.css?v=${build}">

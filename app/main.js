@@ -61,11 +61,12 @@ app.setQuery = (q) => {
   app.query = Object.fromEntries(new URLSearchParams(qs));
 };
 
+const THEME_LABEL = { auto: 'come il sistema', light: 'chiaro', dark: 'scuro' };
 function tools() {
   const depthBtns = [['capire', 'Capire'], ['approfondire', 'Approfondire'], ['intervenire', 'Intervenire']];
   $('#tools').innerHTML = `<button class="iconbtn searchbtn" type="button" data-action="palette" aria-label="Cerca (scorciatoia / o Ctrl+K)">${icon('search')}<span class="lbl">Cerca</span><kbd class="lbl">/</kbd></button>
 <a class="iconbtn" href="#preferiti" aria-label="Preferiti e dati locali">${icon('star')}</a>
-<button class="iconbtn" type="button" data-action="theme" aria-label="Tema: ${esc(app.data.prefs.theme)}">${icon('theme')}</button>`;
+<button class="iconbtn" type="button" data-action="theme" aria-label="Tema: ${THEME_LABEL[app.data.prefs.theme]}. Cambia tema" title="Tema: ${THEME_LABEL[app.data.prefs.theme]}">${icon(({ auto: 'auto', light: 'sun', dark: 'theme' })[app.data.prefs.theme] || 'auto')}</button>`;
 }
 function depthbar() {
   let bar = document.getElementById('depthbar');
@@ -82,6 +83,13 @@ function bottomnav() {
   nav.className = 'bottomnav'; nav.setAttribute('aria-label', 'Navigazione principale (mobile)');
   nav.innerHTML = items.map(([r, l, i]) => `<a href="#${r}" data-nav="${r}">${icon(i)}<span>${l}</span></a>`).join('');
   $('#app').append(nav);
+}
+function totop() {
+  const b = document.createElement('button');
+  b.type = 'button'; b.className = 'totop'; b.hidden = true; b.dataset.action = 'totop'; b.setAttribute('aria-label', 'Torna all\'inizio della pagina'); b.innerHTML = icon('up');
+  $('#app').append(b);
+  let ticking = false;
+  window.addEventListener('scroll', () => { if (ticking) return; ticking = true; requestAnimationFrame(() => { b.hidden = window.scrollY < 700; ticking = false; }); }, { passive: true });
 }
 function markNav(area) {
   document.querySelectorAll('[data-nav]').forEach((a) => { if (a.dataset.nav === area) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
@@ -116,6 +124,7 @@ async function render() {
   }
   if (seq !== renderSeq) return; // una navigazione più recente ha già preso il posto
   main.innerHTML = out.html;
+  if (app.prev !== location.hash) { main.classList.remove('enter'); void main.offsetWidth; main.classList.add('enter'); }
   main.removeAttribute('aria-busy');
   document.title = `${out.title} · Il Faldone ${app.core.meta.revision}`;
   out.mount?.(main);
@@ -141,9 +150,10 @@ document.addEventListener('click', (e) => {
   if (a === 'theme') {
     const order = ['auto', 'light', 'dark'];
     app.data.prefs.theme = order[(order.indexOf(app.data.prefs.theme) + 1) % 3];
-    app.persist(); applyTheme(); tools(); app.toast(`Tema: ${({ auto: 'come il sistema', light: 'chiaro', dark: 'scuro' })[app.data.prefs.theme]}`); return;
+    app.persist(); applyTheme(); tools(); document.querySelector('[data-action=theme]')?.focus(); app.toast(`Tema: ${THEME_LABEL[app.data.prefs.theme]}`); return;
   }
   if (a === 'depth') { setDepth(el.dataset.v); return; }
+  if (a === 'totop') { window.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion:reduce)').matches ? 'auto' : 'smooth' }); ($('#main h1') || $('#main')).focus({ preventScroll: true }); return; }
   if (a === 'print') { window.print(); return; }
   if (a === 'fav') { const on = app.toggleFav(el.dataset.id); el.setAttribute('aria-pressed', on); el.querySelector('.lbl') && (el.querySelector('.lbl').textContent = on ? 'Nei preferiti' : 'Aggiungi ai preferiti'); app.toast(on ? 'Aggiunto ai preferiti (su questo dispositivo)' : 'Rimosso dai preferiti'); return; }
   if (a === 'copy') { navigator.clipboard?.writeText(el.dataset.text).then(() => app.toast('Copiato'), () => app.toast('Copia non consentita dal browser')); return; }
@@ -223,7 +233,7 @@ document.addEventListener('click', (e) => { for (const m of document.querySelect
   if (loaded.status === 'migrato') { app.persist(); setTimeout(() => app.toast('Preferiti e impostazioni della 4.4 recuperati su questo dispositivo.'), 600); }
   if (loaded.status === 'corrotto') setTimeout(() => app.toast('I dati locali non erano leggibili: ripartiti da zero. Il contenuto originale non è stato cancellato.'), 600);
   app.depth = app.data.prefs.depth || 'capire';
-  applyTheme(); tools(); depthbar(); bottomnav();
+  applyTheme(); tools(); depthbar(); bottomnav(); totop();
   void routes;
   await render();
   if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
