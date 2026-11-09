@@ -1,5 +1,6 @@
 import { badge, esc, href, phead, ctxbar, dims, st, table, factValue, mech, ev, ic, icon, go, SCOPE_ICON } from '../ui.js';
 import { simulate } from '../lib/sim.js';
+import { protectionMatrix, switchFace } from '../lib/viz.js';
 
 const POWER = { always: 'sempre acceso', on_demand: 'a richiesta', manual: 'manuale', external: 'esterno' };
 
@@ -80,7 +81,8 @@ ${table(['Servizio', 'Permette di', 'Gira su', 'Per chi', 'Di riferimento'], svc
     const ds = core.entities.filter((e) => e.kind === 'dataset');
     const html = `${ctxbar([['Esplora', 'esplora'], ['Dati e copie']])}${phead({ eyebrow: 'Esplora', title: 'Dati e copie', lead: 'Dove sta ogni insieme di dati, quali copie lo proteggono e se un recupero è stato provato.' })}
 <div class="callout"><strong>Sei cose diverse</strong>Ridondanza (mirror, RAIDZ) evita il fermo per un disco guasto. Snapshot permette di tornare indietro, sullo stesso disco. Sincronizzazione e replica copiano anche gli errori. Backup versionato e copia offline permettono di recuperare dopo un errore o un disastro, ma solo se il recupero è provato.</div>
-${table(['Dati', 'Criticità', 'Originale', 'Protezioni', 'Recupero provato'], ds.map((d) => {
+<h2>Protezioni a colpo d'occhio</h2><p class="small"><span class="simtag">Modello</span> Stato delle copie calcolato dal modello nella situazione di riferimento: non è un'osservazione dell'impianto.</p>${protectionMatrix(ds.map((d) => ({ dataset: d, copies: base.protection(d.id).copies })))}
+<h2>Dettaglio per insieme di dati</h2>${table(['Dati', 'Criticità', 'Originale', 'Protezioni', 'Recupero provato'], ds.map((d) => {
       const pr = base.protection(d.id);
       const where = idx.out(d.id, 'stores_on')[0]?.toId;
       return [`<a href="${href('e/' + d.id)}">${esc(d.name)}</a>`, esc(d.criticality || '—'), where ? `<a href="${href('e/' + where)}">${esc(idx.get(where).name)}</a>` : '—', pr.copies.map((c) => `<a href="${href('e/' + c.id)}">${esc(mech(c.mechanism))}</a>`).join(', ') || (d.excludedFromBackup ? 'escluso dai backup' : '—'), pr.copies.some((c) => c.readiness.level === 'collaudata') ? badge('available', 'sì') : badge('unknown', 'no')];
@@ -111,6 +113,7 @@ function rack(app) {
 <div class="callout warn"><strong>Vista logica, non fisica</strong>${esc(idx.get('P-SALA').facts.coordinate.note)} Fonte: <a href="${href('REV4-RACK')}">REV4-RACK</a>.</div>
 <h2>Switch ${esc(sw.name)}</h2>
 <p>${factValue(sw.facts.rj45)} · ${factValue(sw.facts.sfp)} · PoE: ${factValue(sw.facts.poe)} · ${dims(sw.status, { compact: true })}</p>
+${switchFace({ name: sw.name, rj45: sw.facts.rj45?.value, sfp: sw.facts.sfp?.value, rj45Note: sw.facts.rj45Assignment?.note, assigned: new Map(sfp.map((r) => [Number(r.label.match(/SFP\+ (\d+)/)[1]), { id: r.fromId, label: r.label }])) })}
 <div class="tablewrap" tabindex="0" role="region" aria-label="Tabella"><table><caption class="vh">Porte SFP+ dello switch</caption><thead><tr><th scope="col">Porta</th><th scope="col">Velocità</th><th scope="col">Destinazione</th><th scope="col">Interfaccia</th><th scope="col">Natura</th></tr></thead><tbody>
 ${[49, 50, 51, 52].map((n) => { const r = port(n); return `<tr><th scope="row">SFP+ ${n}</th><td>10 GbE</td><td>${r ? `<a href="${href('e/' + r.fromId)}">${esc(r.fromId)}</a>` : '<span class="muted">libera</span>'}</td><td>${esc(r?.label || '—')}</td><td>${r ? ev(r.evidenceKind) : '—'}</td></tr>`; }).join('')}
 <tr><th scope="row">RJ45 1–48</th><td>1 GbE</td><td colspan="2">${esc(sw.facts.rj45Assignment.note)}</td><td>${ev('unknown')}</td></tr></tbody></table></div>

@@ -62,6 +62,18 @@ Ambiti: `--s-sala`, `--s-casa`, `--s-lab`, `--s-vito`, `--s-terzi`, `--s-inv` (b
 
 Esempi dal vivo: ogni componente compare nelle viste di `app/views/`; gli screenshot in `docs/screenshot/` mostrano home, schede, mappa, simulatore, roadmap, emergenza a 1280 e 390 px.
 
+## Rappresentazioni grafiche
+
+Modulo `app/lib/viz.js`: funzioni pure che restituiscono HTML o SVG a partire dal modello (provate in `tools/test/viz.test.mjs`). Regole comuni: si disegna solo ciò che il modello contiene; un dato mancante resta visibile come mancante (tratteggio, «libera», «non definita»); accanto a ogni grafico c'è la stessa informazione in testo o tabella; il colore non è mai l'unico segnale; gli schemi larghi scorrono dentro il proprio riquadro, non la pagina.
+
+| Grafico | Funzione | Dove | Che cosa mostra |
+|---|---|---|---|
+| Schema delle relazioni | `egoGraph(idx, id)` | scheda di ogni elemento | chi si appoggia all'elemento (sinistra) e a che cosa si appoggia (destra); nodi cliccabili, bordo colorato per tipo; oltre 7 per lato rimanda all'elenco |
+| Binario delle fasi | `phaseRail(rs)` | Roadmap | le fasi in sequenza con date, stato del gate e attività per stato; nessuna percentuale di avanzamento |
+| Matrice delle protezioni | `protectionMatrix(rows)` | Dati e copie | dati × meccanismo; il segno distingue provata, prevista, non attiva, «non è una copia indipendente» |
+| Frontale dello switch | `switchFace(…)` | Rack e porte | numero di porte documentato e destinazioni note; disegno logico, non fisico |
+| Anello del quorum | `quorumRing(voters)` | home | le macchine con voto e la maggioranza necessaria |
+
 ## Larghezze verificate
 
 360, 390, 768, 1280, 1600 px. Sotto 900 px la navigazione principale passa in basso (uso con una mano), la profondità di lettura in una barra propria; nessuna funzione richiede hover o trascinamento preciso (la mappa ha pulsanti di zoom, vista centrata sull'elemento e alternativa a elenco).

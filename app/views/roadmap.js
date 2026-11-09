@@ -1,5 +1,6 @@
 import { badge, esc, href, phead, ctxbar, st, table, fmt } from '../ui.js';
 import { roadmapState, TASK_LABEL } from '../lib/roadmap.js';
+import { phaseRail } from '../lib/viz.js';
 
 const TS = { completato: 'available', da_verificare: 'degraded', pronto: 'available', pronto_incerto: 'on_demand', bloccato: 'blocked' };
 const tabs = (cur) => `<nav class="chips" aria-label="Sezioni di Realizza" style="margin-bottom:12px">${[['realizza', 'Roadmap'], ['realizza/decisioni', 'Decisioni'], ['realizza/collaudi', 'Collaudi'], ['realizza/acquisti', 'Acquisti'], ['costi', 'Costi ed energia'], ['contribuisci', 'Contribuisci'], ['connettori', 'Connettori']].map(([r, l]) => `<a class="chip" href="${href(r)}" ${r === cur ? 'aria-current="page"' : ''}>${l}</a>`).join('')}</nav>`;
@@ -15,17 +16,20 @@ ${t.blockers?.length ? `<br><span class="small muted">${esc(t.blockers.map((b) =
   if (view === 'adesso') {
     body = `<p>Attività i cui prerequisiti noti sono soddisfatti. Quelle «con prerequisiti non verificati» dipendono da consegne dichiarate ma non registrate.</p><ul class="list">${rs.now.map(taskLi).join('')}</ul>`;
   } else if (view === 'sequenza') {
-    body = rs.phases.map((p) => `<section class="card" style="margin-bottom:12px"><p class="eyebrow">${esc(p.id)} · ${esc(p.target.kind)}${p.target.from ? ` · da ${esc(p.target.from)}` : ''}${p.target.to ? ` a ${esc(p.target.to)}` : ''}</p><h2 style="margin-top:4px">${esc(p.title)}</h2><p>${esc(p.goal)}</p>
+    body = rs.phases.map((p) => `<section class="card" id="ph-${esc(p.id)}" tabindex="-1" style="margin-bottom:12px;scroll-margin-top:84px"><p class="eyebrow">${esc(p.id)} · ${esc(p.target.kind)}${p.target.from ? ` · da ${esc(p.target.from)}` : ''}${p.target.to ? ` a ${esc(p.target.to)}` : ''}</p><h2 style="margin-top:4px">${esc(p.title)}</h2><p>${esc(p.goal)}</p>
 <p><strong>Gate:</strong> ${esc(p.gate)} ${p.gateOpen ? badge('available', 'gate superato') : badge('blocked', `gate chiuso: ${p.missingTests.length} collaudi da registrare`)}</p>
 ${p.after ? `<p class="small muted">Dopo: ${p.after.map(esc).join(', ')}</p>` : ''}<p class="small"><strong>Ritorno indietro:</strong> ${esc(p.rollback)}</p><ul class="list">${p.tasks.map(taskLi).join('')}</ul></section>`).join('');
   } else {
     body = table(['Attività', 'Fase', 'Stato', 'Prova richiesta', 'Per'], core.roadmap.tasks.map((t) => { const s = rs.taskState.get(t.id); return [`<a href="${href('realizza/attivita/' + t.id)}"><span class="code">${esc(t.id)}</span> ${esc(t.title)}</a>`, esc(t.phase), badge(TS[s.state], TASK_LABEL[s.state]), esc((t.tests || []).join(', ') || t.evidence || '—'), esc(t.audience || '—')]; }));
   }
   const html = `${tabs('realizza')}${phead({ eyebrow: 'Realizza', title: 'Roadmap verificabile', lead: 'Dal 23 dicembre 2026, a fasi con gate espliciti. Le date sono obiettivi o vincolate a condizioni; nessuna percentuale di avanzamento: conta solo ciò che è registrato.' })}
+<section aria-labelledby="h-rail"><h2 id="h-rail" class="vh">Le fasi in sequenza</h2>${phaseRail(rs, { current: view === 'sequenza' ? app.query.f || '' : '' })}
+<p class="legend"><span><i class="lg t-pronto"></i>pronte</span><span><i class="lg t-pronto_incerto"></i>pronte con riserva</span><span><i class="lg t-bloccato"></i>bloccate</span><span><i class="lg t-da_verificare"></i>da verificare</span><span><i class="lg t-completato"></i>completate attestate</span></p></section>
 <div class="seg" role="group" aria-label="Vista">${[['adesso', 'Cosa posso fare adesso'], ['sequenza', 'Sequenza'], ['elenco', 'Elenco']].map(([k, l]) => `<button type="button" data-action="rview" data-v="${k}" aria-pressed="${view === k}">${l}</button>`).join('')}</div>
 <div class="callout"><strong>Spuntare non completa</strong>Un'attività è «completata attestata» solo quando l'esito e l'evidenza sono registrati nei sorgenti del Faldone (collaudi e attività). Collaudi registrati oggi: ${core.testResults.length}.</div>
 ${body}`;
-  return { title: 'Roadmap', html };
+  const focus = view === 'sequenza' && app.query.f;
+  return { title: 'Roadmap', html, keepScroll: !!focus, mount: (root) => { if (!focus) return; const t = root.querySelector('#ph-' + CSS.escape(focus)); if (t) { t.scrollIntoView({ block: 'start' }); t.focus({ preventScroll: true }); } } };
 }
 
 export function task(app, [id]) {
