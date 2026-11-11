@@ -4,7 +4,7 @@
 (function () {
   'use strict';
   var C = window.LavoroCore, QR = window.LavoroQR, X = window.LavoroCifra, BUNDLE = window.LAVORO_DATI || null;
-  var KEY = 'lavoro.v1', KEY2 = 'lavoro.v2', KIN = 'lavoro.in', CHUNK = 420;
+  var KEY = 'lavoro.v1', KEY2 = 'lavoro.v2', KFAST = 'lavoro.k', FAST = 600, KIN = 'lavoro.in', CHUNK = 420;
   var E = C.esc;
 
   /* ---------- memoria ---------- */
@@ -551,42 +551,69 @@
   }
   function derive(pw, salt, it, done) {
     var e = document.getElementById('err'), bs = document.getElementsByTagName('button'), i;
+    var msg = it > FAST ? 'Primo accesso su questo dispositivo: il controllo può durare anche qualche minuto, poi basteranno pochi secondi. Lascia la pagina aperta… ' : 'Controllo in corso… ';
     for (i = 0; i < bs.length; i++) bs[i].disabled = true;
-    if (e) e.innerHTML = 'Controllo in corso…';
+    if (e) e.innerHTML = msg;
     setTimeout(function () {
-      X.pbkdf2Async(pw, X.unb64(salt), it, function (f) { if (e) e.innerHTML = 'Controllo in corso… ' + Math.round(f * 100) + '%'; }, done);
+      X.pbkdf2Async(pw, X.unb64(salt), it, function (f) { if (e) e.innerHTML = msg + Math.round(f * 100) + '%'; }, done);
     }, 30);
+  }
+  // Accesso rapido: la chiave dei dati precaricati resta sul dispositivo, cifrata con una chiave derivata dalla
+  // stessa password con poche iterazioni. Il file pubblico resta protetto dalle iterazioni piene; il compromesso
+  // riguarda solo chi ha in mano la memoria di questo dispositivo.
+  function fastRec(per) { var f = parse(sget(KFAST)); return f && f.per === (per || BUNDLE.salt) && f.salt && f.it ? f : null; }
+  // Chiave dell'archivio del dispositivo quando è ancora cifrato con una password o un sale precedenti:
+  // se c'è l'accesso rapido di allora si usa quello, altrimenti la derivazione piena.
+  function localKey(pw, box, done) {
+    var f = fastRec(box.salt);
+    if (!f) return derive(pw, box.salt, box.it, done);
+    derive(pw, f.salt, f.it, function (kf) { var kb = X.open(kf, f); done(kb === null ? [] : X.unb64(kb)); });
+  }
+  function fastSave(pw) {
+    if (fastRec() || !canStore) return;
+    var salt = X.random(16), rec = X.seal(X.pbkdf2(pw, salt, FAST), X.b64(key));
+    rec.salt = X.b64(salt); rec.it = FAST; rec.per = BUNDLE.salt;
+    sset(KFAST, JSON.stringify(rec));
   }
   function pwVal() { var el = document.getElementById('f_pw'); return el ? el.value : ''; }
   function openLocal(k, box) { var t = X.open(k, box); if (t === null) lockView('', 'old'); else enter(C.norm(parse(t))); }
   // Entra: archivio del dispositivo, più l'eventuale archivio in chiaro di prima della password, più i dati precaricati.
   function enter(local) {
     var old = parse(sget(KEY));
+    var pw = pend.pw;
     db = local; key = pend.key; locked = false;
     if (old) { old = C.norm(old); C.merge(db, old); if (!db.timer) db.timer = old.timer; if (!sget(KEY2)) db.set = old.set; }
     if (pend.data) C.merge(db, pend.data);
     pend = null;
     save();
     if (canStore) { sdel(KEY); sdel(KIN); }
+    fastSave(pw);
     applySet(); onHash();
   }
   A.showpw = function (el) { var f = document.getElementById('f_pw'); try { f.type = f.type === 'password' ? 'text' : 'password'; el.innerHTML = f.type === 'password' ? 'Mostra la password' : 'Nascondi la password'; } catch (e) { /* alcuni browser non lo permettono */ } };
   A.unlock = function () {
     var pw = pwVal();
     if (!pw) return err('Scrivi la password.');
-    derive(pw, BUNDLE.salt, BUNDLE.it, function (k) {
-      var text = X.open(k, BUNDLE), box = parse(sget(KEY2));
-      if (text === null) return lockView('Password sbagliata.', '');
-      pend = { key: k, data: parse(text) };
-      if (!box || !box.salt) return enter(C.empty());
-      if (box.salt === BUNDLE.salt && box.it === BUNDLE.it) return openLocal(k, box);
-      derive(pw, box.salt, box.it, function (k2) { openLocal(k2, box); });
+    var fast = fastRec();
+    if (fast) return derive(pw, fast.salt, fast.it, function (kf) {
+      var kb = X.open(kf, fast);
+      if (kb === null) return lockView('Password sbagliata.', '');
+      withKey(pw, X.unb64(kb));
     });
+    derive(pw, BUNDLE.salt, BUNDLE.it, function (k) { withKey(pw, k); });
   };
+  function withKey(pw, k) {
+    var text = X.open(k, BUNDLE), box = parse(sget(KEY2));
+    if (text === null) { sdel(KFAST); return lockView('Password sbagliata.', ''); }
+    pend = { key: k, data: parse(text), pw: pw };
+    if (!box || !box.salt) return enter(C.empty());
+    if (box.salt === BUNDLE.salt && box.it === BUNDLE.it) return openLocal(k, box);
+    localKey(pw, box, function (k2) { openLocal(k2, box); });
+  }
   A.recover = function () {
     var pw = pwVal(), box = parse(sget(KEY2));
     if (!pw) return err('Scrivi la password precedente.');
-    derive(pw, box.salt, box.it, function (k) { var t = X.open(k, box); if (t === null) lockView('Password precedente sbagliata.', 'old'); else enter(C.norm(parse(t))); });
+    localKey(pw, box, function (k) { var t = X.open(k, box); if (t === null) lockView('Password precedente sbagliata.', 'old'); else enter(C.norm(parse(t))); });
   };
   A.fresh = function (el) { if (armed(el, 'I dati di questo dispositivo andranno persi. Tocca ancora')) enter(C.empty()); };
   A.lock = function () { location.reload(); };

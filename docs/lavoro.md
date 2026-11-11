@@ -16,6 +16,7 @@ Tiene cantieri, timbratura, rapportini (ore, persone, km, lavori, materiali), sp
 - `lavoro/dati.js` contiene i cantieri del registro dell'ufficio **cifrati con la password**: nel repository, che è pubblico, c'è solo testo illeggibile. All'apertura la pagina chiede la password, decifra e unisce i cantieri all'archivio del dispositivo.
 - Anche l'archivio del dispositivo (`localStorage`, chiave `lavoro.v2`) è cifrato con la stessa password; la chiave resta in memoria finché la pagina è aperta. «Altro → Blocca» la richiude.
 - La cifratura è in `lavoro/cifra.js` (ES5, senza WebCrypto per i Kindle): chiave con PBKDF2-HMAC-SHA256 a 60.000 iterazioni, flusso HMAC-SHA256 a contatore, autenticazione HMAC. I test L11–L13 la confrontano con `node:crypto`.
+- **Accesso rapido.** Sul Kindle la derivazione piena dura minuti. Dopo il primo accesso il dispositivo conserva (`lavoro.k`) la chiave dei dati cifrata con una chiave derivata dalla stessa password con 600 iterazioni: gli accessi successivi durano secondi. Il file pubblico resta a 60.000 iterazioni; il compromesso riguarda solo chi ha in mano la memoria di quel dispositivo.
 - **La protezione vale quanto la password.** Chi scarica `dati.js` può provare password all'infinito sul proprio computer: serve una frase lunga. Le versioni precedenti di `dati.js` restano nella cronologia Git, cifrate con la password di allora.
 - La password e i dati in chiaro non stanno mai nel repository.
 
