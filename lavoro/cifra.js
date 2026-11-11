@@ -15,8 +15,12 @@
   var W = [];
 
   function compress(h, p, off) {
+    for (var i = 0; i < 16; i++) W[i] = (p[off + i * 4] << 24) | (p[off + i * 4 + 1] << 16) | (p[off + i * 4 + 2] << 8) | p[off + i * 4 + 3];
+    core(h);
+  }
+  // Una compressione sul blocco già scritto in W[0..15] come parole da 32 bit.
+  function core(h) {
     var w = W, i, a = h[0], b = h[1], c = h[2], d = h[3], e = h[4], f = h[5], g = h[6], hh = h[7], t1, t2, s0, s1;
-    for (i = 0; i < 16; i++) w[i] = (p[off + i * 4] << 24) | (p[off + i * 4 + 1] << 16) | (p[off + i * 4 + 2] << 8) | p[off + i * 4 + 3];
     for (i = 16; i < 64; i++) {
       s0 = w[i - 15]; s0 = ((s0 >>> 7) | (s0 << 25)) ^ ((s0 >>> 18) | (s0 << 14)) ^ (s0 >>> 3);
       s1 = w[i - 2]; s1 = ((s1 >>> 17) | (s1 << 15)) ^ ((s1 >>> 19) | (s1 << 13)) ^ (s1 >>> 10);
@@ -76,22 +80,36 @@
     return o;
   }
 
-  // PBKDF2-HMAC-SHA256, un solo blocco (32 byte). `stato` permette di proseguire a pezzi senza bloccare la pagina.
+  // PBKDF2-HMAC-SHA256, un solo blocco (32 byte). Il ciclo lavora su parole da 32 bit senza creare oggetti:
+  // sui browser senza compilatore (Kindle) è la differenza tra secondi e minuti. Lo stato permette di
+  // proseguire a pezzi senza bloccare la pagina.
+  function words(b) { var o = [], i; for (i = 0; i < 32; i += 4) o.push((b[i] << 24) | (b[i + 1] << 16) | (b[i + 2] << 8) | b[i + 3]); return o; }
   function pbkdf2Start(password, salt, iter) {
-    var pre = hmacKey(utf8(password)), u = hmacWith(pre, salt.concat([0, 0, 0, 1]));
-    return { pre: pre, u: u, t: u.slice(), done: 1, iter: iter };
+    var pre = hmacKey(utf8(password)), u = words(hmacWith(pre, salt.concat([0, 0, 0, 1])));
+    return { hi: pre.i, ho: pre.o, u: u, t: u.slice(), s: [0, 0, 0, 0, 0, 0, 0, 0], done: 1, iter: iter };
   }
   function pbkdf2Step(st, n) {
-    var end = Math.min(st.iter, st.done + n), u = st.u, t = st.t, pre = st.pre, j;
-    for (; st.done < end; st.done++) { u = hmacWith(pre, u); for (j = 0; j < 32; j++) t[j] ^= u[j]; }
-    st.u = u;
-    return st.done >= st.iter;
+    var end = Math.min(st.iter, st.done + n), hi = st.hi, ho = st.ho, u = st.u, t = st.t, s = st.s, w = W, j, k = st.done;
+    for (; k < end; k++) {
+      // interno: stato già avviato con la chiave, poi 32 byte + riempimento (96 byte in tutto = 768 bit)
+      for (j = 0; j < 8; j++) { w[j] = u[j]; s[j] = hi[j]; }
+      w[8] = -2147483648; w[9] = 0; w[10] = 0; w[11] = 0; w[12] = 0; w[13] = 0; w[14] = 0; w[15] = 768;
+      core(s);
+      for (j = 0; j < 8; j++) { w[j] = s[j]; s[j] = ho[j]; }
+      w[8] = -2147483648; w[9] = 0; w[10] = 0; w[11] = 0; w[12] = 0; w[13] = 0; w[14] = 0; w[15] = 768;
+      core(s);
+      for (j = 0; j < 8; j++) { u[j] = s[j]; t[j] ^= s[j]; }
+    }
+    st.done = k;
+    return k >= st.iter;
   }
-  function pbkdf2(password, salt, iter) { var st = pbkdf2Start(password, salt, iter); pbkdf2Step(st, iter); return st.t; }
+  function pbkdf2(password, salt, iter) { var st = pbkdf2Start(password, salt, iter); pbkdf2Step(st, iter); return out(st.t); }
   function pbkdf2Async(password, salt, iter, progress, done) {
     var st = pbkdf2Start(password, salt, iter);
     (function next() {
-      if (pbkdf2Step(st, 1500)) return done(st.t);
+      var t0 = new Date().getTime();
+      // pezzi da circa un quarto di secondo, qualunque sia la velocità del dispositivo
+      while (new Date().getTime() - t0 < 250) { if (pbkdf2Step(st, 25)) return done(out(st.t)); }
       if (progress) progress(st.done / st.iter);
       setTimeout(next, 0);
     })();
