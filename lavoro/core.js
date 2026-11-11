@@ -12,7 +12,7 @@
   var PAG = [['c', 'Contanti'], ['k', 'Carta'], ['b', 'Bonifico'], ['d', 'Da pagare']];
   var DOC = [['s', 'Scontrino'], ['f', 'Fattura'], ['n', 'Nessuno']];
   var TIPI = [['f', 'Da fare'], ['c', 'Da comprare'], ['t', 'Da chiamare'], ['a', 'Appunto']];
-  var STATI = [['a', 'In corso'], ['s', 'In attesa'], ['c', 'Chiuso']];
+  var STATI = [['a', 'In corso'], ['p', 'Preventivo'], ['s', 'In attesa'], ['v', 'Da verificare'], ['c', 'Chiuso']];
 
   function isArr(x) { return Object.prototype.toString.call(x) === '[object Array]'; }
   function label(list, k) { for (var i = 0; i < list.length; i++) if (list[i][0] === k) return list[i][1]; return ''; }
@@ -66,12 +66,13 @@
   function quarter(ms) { var q = Math.round(ms / 900000) / 4; return q < 0.25 ? 0.25 : q; }
 
   /* ---------- archivio ---------- */
-  function empty() { return { v: 1, cant: [], todo: [], rap: [], spe: [], liste: [], timer: null, set: { fs: 1, off: 0 } }; }
+  function empty() { return { v: 1, cant: [], todo: [], rap: [], spe: [], liste: [], timer: null, rx: null, set: { fs: 1, off: 0 } }; }
   function norm(db) {
     var e = empty(), k;
     if (!db || typeof db !== 'object') return e;
     for (var i = 0; i < COLL.length; i++) { k = COLL[i]; if (isArr(db[k])) e[k] = db[k]; }
     if (db.timer && db.timer.c !== undefined && db.timer.t) e.timer = db.timer;
+    if (db.rx && typeof db.rx === 'object' && db.rx.id) e.rx = db.rx;
     if (db.set && typeof db.set === 'object') { e.set.fs = db.set.fs || 1; e.set.off = db.set.off || 0; }
     return e;
   }
