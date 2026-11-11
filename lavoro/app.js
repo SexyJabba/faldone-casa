@@ -51,6 +51,16 @@
     o.push(['', 'Nessun cantiere']);
     return o;
   }
+  // Scelta del cantiere nei moduli: quelli aperti, oppure il nome di uno nuovo da creare al salvataggio.
+  function cantPick() { return choice('c', 'Cantiere', cantOpts(draft.c), draft.c) + field('nc', 'oppure nuovo cantiere: scrivi il nome', ''); }
+  // Se è stato scritto un nome nuovo lo crea (o riusa quello con lo stesso nome) e lo assegna alla voce.
+  function newCant() {
+    var n = val('nc'), a = C.live(db.cant), i;
+    if (!n) return;
+    for (i = 0; i < a.length; i++) if (a[i].n.toLowerCase() === n.toLowerCase()) { draft.c = a[i].id; return; }
+    draft.c = C.newId();
+    C.put(db.cant, { id: draft.c, n: n, cl: '', ind: '', tel: '', st: 'a', no: '' });
+  }
   function more(key, list, n, rowFn) {
     var lim = ui.more[key] || n, h = '';
     for (var i = 0; i < list.length && i < lim; i++) h += rowFn(list[i]);
@@ -175,7 +185,7 @@
     if (id && (!t || t.x)) return notFound();
     initDraft({ id: id, k: t ? t.k : (q.k || 'f'), c: t ? t.c : (q.c || ''), p: t ? (t.p ? '1' : '0') : '0' });
     t = t || {};
-    return '<h1>' + (id ? 'Modifica' : 'Nuova voce') + '</h1>' + area('t', 'Testo', t.t, 3) + choice('k', 'Tipo', C.TIPI, draft.k) + choice('c', 'Cantiere', cantOpts(draft.c), draft.c) +
+    return '<h1>' + (id ? 'Modifica' : 'Nuova voce') + '</h1>' + area('t', 'Testo', t.t, 3) + choice('k', 'Tipo', C.TIPI, draft.k) + cantPick() +
       choice('p', 'Urgente', [['0', 'No'], ['1', 'Sì']], draft.p) + formEnd('savetodo', id, 'todo', 'fare');
   }
 
@@ -197,7 +207,7 @@
     initDraft(d);
     r = r || {};
     return '<h1>' + (id ? 'Modifica rapportino' : 'Nuovo rapportino') + '</h1>' + (draft.t ? '<p class="box">Ore calcolate dalla timbratura, arrotondate al quarto d\'ora: correggile se serve.</p>' : '') +
-      stepper('g', 'Data', draft.g, 1) + choice('c', 'Cantiere', cantOpts(draft.c), draft.c) + stepper('o', 'Ore lavorate', draft.o, draft.t ? 0.25 : 0.5) + stepper('pe', 'Persone', draft.pe, 1) +
+      stepper('g', 'Data', draft.g, 1) + cantPick() + stepper('o', 'Ore lavorate', draft.o, draft.t ? 0.25 : 0.5) + stepper('pe', 'Persone', draft.pe, 1) +
       area('l', 'Lavori eseguiti', r.l, 4) + area('ma', 'Materiali usati', r.ma, 3) + field('km', 'Km percorsi', r.km ? C.fmtNum(r.km) : '', ' inputmode="decimal"') + formEnd('saverap', id, 'rap', 'rapportini');
   };
 
@@ -217,7 +227,7 @@
     initDraft({ id: id, g: s ? s.g : today(), c: s ? s.c : (q.c || ''), k: s ? s.k : 'm', pg: s ? s.pg : 'k', sc: s ? s.sc : 's' });
     s = s || {};
     return '<h1>' + (id ? 'Modifica spesa' : 'Nuova spesa') + '</h1>' + field('i', 'Importo in euro', s.i ? C.fmtNum(s.i / 100) : '', ' inputmode="decimal"') + choice('k', 'Categoria', C.CAT, draft.k) +
-      field('de', 'Descrizione o fornitore', s.de) + choice('c', 'Cantiere', cantOpts(draft.c), draft.c) + stepper('g', 'Data', draft.g, 1) + choice('pg', 'Pagamento', C.PAG, draft.pg) + choice('sc', 'Documento', C.DOC, draft.sc) + formEnd('savespe', id, 'spe', 'spese');
+      field('de', 'Descrizione o fornitore', s.de) + cantPick() + stepper('g', 'Data', draft.g, 1) + choice('pg', 'Pagamento', C.PAG, draft.pg) + choice('sc', 'Documento', C.DOC, draft.sc) + formEnd('savespe', id, 'spe', 'spese');
   };
 
   V.altro = function () {
@@ -376,12 +386,14 @@
   A.savetodo = function () {
     var t = val('t'); if (!t) return err('Scrivi il testo.');
     var old = draft.id ? C.byId(db.todo, draft.id) : null;
+    newCant();
     C.put(db.todo, { id: draft.id || C.newId(), t: t, k: draft.k, c: draft.c, p: draft.p === '1' ? 1 : 0, d: old ? old.d : 0 }); save(); leave();
   };
   A.saverap = function () {
     var km = val('km'), kmn = km === '' ? 0 : C.parseNum(km);
     if (kmn === null) return err('I km devono essere un numero.');
     if (!draft.o && !val('l')) return err('Indica le ore oppure i lavori eseguiti.');
+    newCant();
     C.put(db.rap, { id: draft.id || C.newId(), g: draft.g, c: draft.c, o: draft.o, pe: draft.pe, l: val('l'), ma: val('ma'), km: kmn });
     if (draft.t) db.timer = null;
     save(); leave(draft.t ? 'oggi' : null);
@@ -389,6 +401,7 @@
   A.savespe = function () {
     var i = C.parseMoney(val('i'));
     if (i === null || i <= 0) return err('Scrivi l\'importo, per esempio 12,50.');
+    newCant();
     C.put(db.spe, { id: draft.id || C.newId(), g: draft.g, c: draft.c, i: i, k: draft.k, de: val('de'), pg: draft.pg, sc: draft.sc }); save(); leave();
   };
   A.del = function (el) {
