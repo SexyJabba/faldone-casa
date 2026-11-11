@@ -16,6 +16,7 @@ python3 -m http.server 8811 --bind 127.0.0.1  # anteprima
 | `content/legacy/` | dati 4.4 migrati (hardware, inventario, tabelle) |
 | `app/` | interfaccia (moduli ES senza dipendenze) e motori puri in `app/lib/` |
 | `tools/` | build, migrazione, test, verifiche nel browser, adapter di integrazione |
+| `lavoro/` | «Lavoro»: cantieri, ore, spese e cose da fare per il Kindle sul Vito o in cantiere — scritto a mano, fuori dalla build ([docs/lavoro.md](docs/lavoro.md)) |
 | `data/`, `schede/`, `e/`, `kit/`, `index.html`, `sw.js` | **generati** dalla build: non modificare a mano |
 | `01_Vault_MD/`, `02_PDF_correnti/`, `04_Sorgenti/`, `07_Piani_di_attivazione/` | Markdown, PDF, evidenze e piani della revisione 4.4 |
 | `docs/` | audit, modello dati, migrazione, manutenzione, rilascio, integrazioni, requisiti, screenshot |
