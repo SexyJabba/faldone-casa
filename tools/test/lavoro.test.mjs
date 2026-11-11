@@ -5,17 +5,19 @@ import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import vm from 'node:vm';
+import nodeCrypto from 'node:crypto';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..');
 const src = (f) => readFileSync(join(ROOT, 'lavoro', f), 'utf8');
-const ctx = vm.createContext({});
+const ctx = vm.createContext({ setTimeout });
 vm.runInContext(src('core.js'), ctx);
 vm.runInContext(src('qr.js'), ctx);
-const C = ctx.LavoroCore, QR = ctx.LavoroQR;
+vm.runInContext(src('cifra.js'), ctx);
+const C = ctx.LavoroCore, QR = ctx.LavoroQR, X = ctx.LavoroCifra;
 const plain = (x) => JSON.parse(JSON.stringify(x));
 
 test('L1 · i file per il Kindle restano ES5 e senza dipendenze esterne', () => {
-  for (const f of ['core.js', 'qr.js', 'app.js']) {
+  for (const f of ['core.js', 'qr.js', 'cifra.js', 'app.js']) {
     const code = src(f).replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
     for (const [re, what] of [[/=>/, 'funzioni freccia'], [/\b(let|const)\s/, 'let/const'], [/`/, 'template'], [/\bclass\s+\w+\s*\{/, 'classi'], [/\b(async|await)\b/, 'async'], [/\.\.\.[\w[]/, 'spread'], [/\b(fetch|XMLHttpRequest)\b/, 'richieste di rete']]) assert.ok(!re.test(code), `${f}: ${what}`);
   }
@@ -137,4 +139,42 @@ test('L10 · archivio danneggiato o di versione ignota non blocca l\'avvio', () 
     const db = C.norm(bad);
     assert.deepEqual(plain(db), plain(C.empty()));
   }
+});
+
+test('L11 · cifratura: SHA-256, HMAC e PBKDF2 identici a node:crypto', () => {
+  const hex = (b) => Buffer.from(plain(b)).toString('hex');
+  for (const n of [0, 1, 55, 56, 63, 64, 65, 119, 120, 500]) {
+    const m = nodeCrypto.randomBytes(n);
+    assert.equal(hex(X.sha256([...m])), nodeCrypto.createHash('sha256').update(m).digest('hex'), `sha256 ${n}`);
+    for (const kl of [7, 64, 90]) { const k = nodeCrypto.randomBytes(kl); assert.equal(hex(X.hmac([...k], [...m])), nodeCrypto.createHmac('sha256', k).update(m).digest('hex'), `hmac ${n}/${kl}`); }
+  }
+  const salt = nodeCrypto.randomBytes(16);
+  assert.equal(hex(X.pbkdf2('frase più lunga €', [...salt], 2500)), nodeCrypto.pbkdf2Sync('frase più lunga €', salt, 2500, 32, 'sha256').toString('hex'));
+});
+
+test('L12 · cifra e decifra; chiave sbagliata o dati alterati non si aprono', () => {
+  const key = X.pbkdf2('una password', [1, 2, 3, 4], 50), text = JSON.stringify({ cant: [{ id: 'c1', n: 'Città «più» €'.repeat(40) }] });
+  const box = plain(X.seal(key, text));
+  assert.equal(X.open(key, box), text);
+  assert.notEqual(plain(X.seal(key, text)).ct, box.ct, 'vettore diverso a ogni cifratura');
+  assert.ok(!Buffer.from(box.ct, 'base64').toString('latin1').includes('Citt'));
+  assert.equal(X.open(X.pbkdf2('altra password', [1, 2, 3, 4], 50), box), null);
+  const ct = Buffer.from(box.ct, 'base64'); ct[5] ^= 1;
+  assert.equal(X.open(key, { ...box, ct: ct.toString('base64') }), null);
+  assert.equal(X.open(key, { ...box, iv: Buffer.alloc(16).toString('base64') }), null);
+  assert.equal(X.open(key, null), null);
+  assert.equal(X.open(key, {}), null);
+});
+
+test('L13 · i dati precaricati nel repository sono solo cifrati', () => {
+  const js = src('dati.js'), m = /window\.LAVORO_DATI = (\{.*\});/.exec(js);
+  assert.ok(m, 'formato di dati.js');
+  const box = JSON.parse(m[1]);
+  assert.ok(box.it >= 60000 && Buffer.from(box.salt, 'base64').length === 16 && Buffer.from(box.iv, 'base64').length === 16 && Buffer.from(box.mac, 'base64').length === 32);
+  const raw = Buffer.from(box.ct, 'base64').toString('latin1');
+  for (const w of ['cant', 'Todi', 'Perugia', '"id"', 'C-00']) assert.ok(!raw.includes(w) && !js.includes(w), `in chiaro: ${w}`);
+  assert.equal(X.open(X.pbkdf2('password', X.unb64(box.salt), 10), box), null);
+  // la password non deve stare nel repository: lo strumento la prende solo dall'ambiente
+  const tool = readFileSync(join(ROOT, 'tools/lavoro-cifra.mjs'), 'utf8');
+  assert.ok(/process\.env\.LAVORO_PASSWORD/.test(tool) && !/LAVORO_PASSWORD\s*=\s*['"]/.test(tool));
 });

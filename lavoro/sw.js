@@ -1,8 +1,8 @@
-// Service worker di «Lavoro»: tiene in cache i cinque file della pagina, così si riapre anche senza rete
+// Service worker di «Lavoro»: tiene in cache i file della pagina, così si riapre anche senza rete
 // sui browser che lo permettono. Rete prima (gli aggiornamenti arrivano subito), cache se la rete manca.
 // I dati dell'utente non passano mai da qui: stanno in localStorage.
-var CACHE = 'lavoro-v1';
-var FILES = ['./', 'style.css', 'core.js', 'qr.js', 'app.js'];
+var CACHE = 'lavoro-v2';
+var FILES = ['./', 'style.css', 'core.js', 'qr.js', 'cifra.js', 'dati.js', 'app.js'];
 
 self.addEventListener('install', function (e) {
   e.waitUntil(caches.open(CACHE).then(function (c) { return c.addAll(FILES); }).then(function () { return self.skipWaiting(); }));

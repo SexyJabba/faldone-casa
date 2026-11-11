@@ -1,9 +1,10 @@
 /* Lavoro — interfaccia. Solo ES5 e DOM di base: deve girare sul browser dei Kindle.
-   Una pagina sola: dopo il primo caricamento non fa più richieste di rete e salva tutto in localStorage. */
+   Una pagina sola: dopo il primo caricamento non fa più richieste di rete e salva tutto in localStorage.
+   Se lavoro/dati.js contiene dati cifrati, chiede la password e tiene cifrato anche l'archivio del dispositivo. */
 (function () {
   'use strict';
-  var C = window.LavoroCore, QR = window.LavoroQR;
-  var KEY = 'lavoro.v1', KIN = 'lavoro.in', CHUNK = 420;
+  var C = window.LavoroCore, QR = window.LavoroQR, X = window.LavoroCifra, BUNDLE = window.LAVORO_DATI || null;
+  var KEY = 'lavoro.v1', KEY2 = 'lavoro.v2', KIN = 'lavoro.in', CHUNK = 420;
   var E = C.esc;
 
   /* ---------- memoria ---------- */
@@ -14,8 +15,16 @@
   function parse(s) { try { return JSON.parse(s); } catch (e) { return null; } }
   (function () { sset('lavoro.prova', '1'); if (canStore && sget('lavoro.prova') !== '1') canStore = false; sdel('lavoro.prova'); })();
 
-  var db = C.norm(parse(sget(KEY)));
-  function save() { sset(KEY, JSON.stringify(db)); }
+  // Con i dati cifrati la pagina parte bloccata: l'archivio si legge solo dopo la password.
+  var locked = !!(BUNDLE && X && BUNDLE.salt && BUNDLE.it), key = null, pend = null;
+  var db = locked ? C.empty() : C.norm(parse(sget(KEY)));
+  function save() {
+    if (locked) return;
+    if (!key) { sset(KEY, JSON.stringify(db)); return; }
+    var box = X.seal(key, JSON.stringify(db));
+    box.salt = BUNDLE.salt; box.it = BUNDLE.it;
+    sset(KEY2, JSON.stringify(box));
+  }
 
   function now() { return new Date(new Date().getTime() + (db.set.off || 0) * 3600000); }
   function today() { return C.ymd(now()); }
@@ -32,9 +41,12 @@
   function area(id, label, val, rows) { return '<label class="l" for="f_' + id + '">' + label + '</label><textarea class="in" id="f_' + id + '" rows="' + (rows || 3) + '">' + E(val) + '</textarea>'; }
   function val(id) { var el = document.getElementById('f_' + id); return el ? C.trim(el.value) : ''; }
   function choice(name, label, opts, cur) {
-    var h = '<div class="l">' + label + '</div><div class="ch">';
+    return '<div class="l">' + label + '</div><div class="ch">' + picks(name, opts, cur) + '</div>';
+  }
+  function picks(name, opts, cur) {
+    var h = '';
     for (var i = 0; i < opts.length; i++) h += btn(E(opts[i][1]), 'pick', ' data-g="' + name + '" data-v="' + E(opts[i][0]) + '"', opts[i][0] === cur ? 'on' : '');
-    return h + '</div>';
+    return h;
   }
   var STEP = {
     g: { fmt: function (v) { return C.fmtDate(v, true); } },
@@ -45,14 +57,17 @@
   function stepper(name, label, v, d) {
     return '<div class="l">' + label + '</div><table class="st"><tr><td class="sb">' + btn('–', 'step', ' data-f="' + name + '" data-d="' + (-d) + '"') + '</td><td class="sv" id="s_' + name + '">' + E(STEP[name].fmt(v)) + '</td><td class="sb">' + btn('+', 'step', ' data-f="' + name + '" data-d="' + d + '"') + '</td></tr></table>';
   }
-  function cantOpts(cur) {
-    var o = [], a = C.live(db.cant);
-    for (var i = 0; i < a.length; i++) if (a[i].st !== 'c' || a[i].id === cur) o.push([a[i].id, a[i].n]);
-    o.push(['', 'Nessun cantiere']);
-    return o;
-  }
   // Scelta del cantiere nei moduli: quelli aperti, oppure il nome di uno nuovo da creare al salvataggio.
-  function cantPick() { return choice('c', 'Cantiere', cantOpts(draft.c), draft.c) + field('nc', 'oppure nuovo cantiere: scrivi il nome', ''); }
+  // In vista quelli in corso; gli altri non chiusi stanno dietro «Altri cantieri» per non allungare il modulo.
+  function cantPick() {
+    var a = C.live(db.cant), main = [], other = [], i, h;
+    a.sort(function (x, y) { return x.n < y.n ? -1 : 1; });
+    for (i = 0; i < a.length; i++) { if (a[i].st === 'a' || a[i].id === draft.c) main.push([a[i].id, a[i].n]); else if (a[i].st !== 'c') other.push([a[i].id, a[i].n]); }
+    main.push(['', 'Nessun cantiere']);
+    h = choice('c', 'Cantiere', main, draft.c);
+    if (other.length) h += btn('Altri cantieri (' + other.length + ')', 'allc', '', 'w') + '<div class="ch" id="allc" style="display:none">' + picks('c', other, draft.c) + '</div>';
+    return h + field('nc', 'oppure nuovo cantiere: scrivi il nome', '');
+  }
   // Se è stato scritto un nome nuovo lo crea (o riusa quello con lo stesso nome) e lo assegna alla voce.
   function newCant() {
     var n = val('nc'), a = C.live(db.cant), i;
@@ -99,7 +114,7 @@
     } else {
       h += '<p class="l">Inizia il lavoro in:</p>';
       for (i = 0; i < act.length; i++) h += btn(E(act[i].n), 'tstart', ' data-id="' + act[i].id + '"', 'w');
-      h += btn('Senza cantiere', 'tstart', ' data-id=""', 'w');
+      h += btn('Senza cantiere', 'tstart', ' data-id=""', 'w') + (a.length > act.length ? lnk('cantieri', 'Altri cantieri…', 'w') : '');
     }
     h += '</div>';
     h += '<div class="q">' + lnk('rapportino/nuovo', '+ Rapportino') + lnk('spesa/nuovo', '+ Spesa') + lnk('fare/nuovo', '+ Da fare') + lnk('fare/nuovo?k=a', '+ Appunto') + '</div>';
@@ -121,7 +136,7 @@
 
   V.cantieri = function () {
     var a = C.live(db.cant), h = '<h1>Cantieri</h1>' + lnk('cantiere/nuovo', '+ Nuovo cantiere', 'pri w'), n = 0, chiusi = 0, i;
-    var ord = { a: 0, s: 1, c: 2 };
+    var ord = { a: 0, p: 1, s: 2, v: 3, c: 4 };
     a.sort(function (x, y) { return (ord[x.st] - ord[y.st]) || (x.n < y.n ? -1 : 1); });
     for (i = 0; i < a.length; i++) {
       if (a[i].st === 'c') { chiusi++; if (!ui.chiusi) continue; }
@@ -142,7 +157,7 @@
     var h = '<h1>' + E(c.n) + ' <span class="tg">' + E(C.label(C.STATI, c.st)) + '</span></h1><table class="kv">' +
       (c.cl ? kv('Cliente', E(c.cl)) : '') + (c.ind ? kv('Indirizzo', nl(c.ind)) : '') + (c.tel ? kv('Telefono', '<b class="big">' + E(c.tel) + '</b>') : '') + (c.no ? kv('Note', nl(c.no)) : '') +
       kv('Ore', C.fmtOre(s.ore) + (s.orePers !== s.ore ? ' (per persone: ' + C.fmtOre(s.orePers) + ')' : '') + ' in ' + s.giorni + ' rapportini') + kv('Km', C.fmtNum(s.km)) + kv('Spese', C.fmtMoney(s.spese)) + '</table>';
-    h += '<div class="q">' + lnk('rapportino/nuovo?c=' + id, '+ Rapportino') + lnk('spesa/nuovo?c=' + id, '+ Spesa') + lnk('fare/nuovo?c=' + id, '+ Da fare') + lnk('cantiere/' + id + '/mod', 'Modifica') + '</div>';
+    h += '<div class="q">' + lnk('rapportino/nuovo?c=' + id, '+ Rapportino') + lnk('spesa/nuovo?c=' + id, '+ Spesa') + lnk('fare/nuovo?c=' + id, '+ Da fare') + lnk('cantiere/' + id + '/mod', 'Modifica') + '</div>' + (db.timer ? '' : btn('Inizia il lavoro qui', 'tstart', ' data-id="' + id + '"', 'w'));
     var open = C.todoOpen(db, id);
     h += '<h2>Da fare (' + open.length + ')</h2>' + (open.length ? more('ct', open, 8, function (t) { return todoRow(t, true); }) : empty('Niente in sospeso.'));
     var rl = C.rapList(db, { c: id }), sl = C.speList(db, { c: id });
@@ -231,7 +246,7 @@
   };
 
   V.altro = function () {
-    return '<h1>Altro</h1>' + lnk('liste', 'Liste di controllo', 'w') + lnk('calcoli', 'Calcoli rapidi', 'w') + lnk('invia', 'Passa i dati al telefono', 'w') + lnk('dati', 'Copie, ripristino, impostazioni', 'w') + lnk('guida', 'Come si usa', 'w') +
+    return '<h1>Altro</h1>' + lnk('liste', 'Liste di controllo', 'w') + lnk('calcoli', 'Calcoli rapidi', 'w') + lnk('invia', 'Passa i dati al telefono', 'w') + lnk('dati', 'Copie, ripristino, impostazioni', 'w') + lnk('guida', 'Come si usa', 'w') + (key ? btn('Blocca (richiede di nuovo la password)', 'lock', '', 'w') : '') +
       '<p><a href="../">Torna al Faldone</a></p>';
   };
 
@@ -325,7 +340,7 @@
   function exportObj() { var o = { app: 'lavoro', v: 1, quando: now().getTime() }; for (var i = 0; i < C.COLL.length; i++) o[C.COLL[i]] = db[C.COLL[i]]; return o; }
 
   V.ricevi = function () {
-    var st = parse(sget(KIN)), h = '<h1>Ricezione dei dati</h1>';
+    var st = db.rx, h = '<h1>Ricezione dei dati</h1>';
     if (ui.rx) { h += '<p class="box big"><b>Dati ricevuti.</b><br>' + ui.rx.nuovi + ' voci nuove, ' + ui.rx.aggiornati + ' aggiornate.</p>' + lnk('rapportini', 'Vai ai rapportini', 'pri w') + lnk('dati', 'Scarica o fai una copia', 'w'); }
     else if (ui.rxErr) h += '<p class="err">' + E(ui.rxErr) + '</p>';
     else if (st && st.missing && st.missing.length) h += '<p class="box big">Ricevuti ' + (st.n - st.missing.length) + ' codici su ' + st.n + '.<br><b>Mancano: ' + st.missing.join(', ') + '</b></p><p>Inquadra gli altri codici dal Kindle: l\'ordine non conta.</p>';
@@ -340,6 +355,7 @@
       '<p><b>Cantieri</b>: cliente, indirizzo, telefono, note e i totali di ore, km e spese. <b>Da fare</b>: lavori, acquisti, telefonate e appunti, anche per cantiere. <b>Ore</b>: rapportini per settimana. <b>Spese</b>: per mese e per categoria.</p>' +
       '<h2>Portare fuori i dati</h2><p>Altro → «Passa i dati al telefono»: il Kindle mostra dei codici QR, il telefono li inquadra e riceve i dati. Sul telefono o sul computer, da «Copie, ripristino, impostazioni», si scaricano i CSV per il foglio di calcolo.</p>' +
       '<p>Il passaggio va solo dal Kindle verso il telefono: il Kindle non ha fotocamera. Ogni dispositivo tiene i propri dati.</p>' +
+      '<h2>Password</h2><p>All\'apertura la pagina chiede la password: senza, non mostra nulla. I cantieri del registro dell\'ufficio arrivano già caricati; quello che aggiungi resta su questo dispositivo, cifrato con la stessa password. «Altro → Blocca» richiude la pagina.</p>' +
       '<h2>Attenzione</h2><p>I dati stanno nella memoria del browser. Se si svuota la cronologia o si ripristina il Kindle, si perdono: passa i dati al telefono con regolarità.</p>';
   };
 
@@ -356,13 +372,14 @@
 
   var A = {};
   A.pick = function (el) {
-    var g = el.getAttribute('data-g'), v = el.getAttribute('data-v'), sib = el.parentNode.childNodes;
-    for (var i = 0; i < sib.length; i++) if (sib[i].className !== undefined) sib[i].className = String(sib[i].className).replace(/\s*\bon\b/g, '');
+    var g = el.getAttribute('data-g'), v = el.getAttribute('data-v'), bs = document.getElementsByTagName('button');
+    for (var i = 0; i < bs.length; i++) if (bs[i].getAttribute('data-g') === g) bs[i].className = String(bs[i].className).replace(/\s*\bon\b/g, '');
     el.className += ' on';
     if (g === 'fs') { db.set.fs = +v; save(); applySet(); return; }
     if (g === 'ca') { calc.ca = v; return; }
     if (draft) draft[g] = v;
   };
+  A.allc = function (el) { var d = document.getElementById('allc'); if (d) d.style.display = 'block'; el.style.display = 'none'; };
   A.step = function (el) {
     var f = el.getAttribute('data-f'), d = parseFloat(el.getAttribute('data-d')), s = STEP[f], v;
     if (f === 'off') { v = (db.set.off || 0) + d; if (v < s.min || v > s.max) return; db.set.off = v; save(); render(); return; }
@@ -422,7 +439,7 @@
     save(); render();
   };
   A.more = function (el) { ui.more[el.getAttribute('data-k')] = +el.getAttribute('data-n'); render(true); };
-  A.tstart = function (el) { db.timer = { c: el.getAttribute('data-id'), t: now().getTime() }; save(); render(); };
+  A.tstart = function (el) { db.timer = { c: el.getAttribute('data-id'), t: now().getTime() }; save(); go('oggi'); };
   A.tcancel = function (el) { if (!armed(el)) return; db.timer = null; save(); render(); };
 
   function curList() { return C.byId(db.liste, route().p[1]); }
@@ -512,21 +529,75 @@
     if (!part) return false;
     ui.rx = null; ui.rxErr = '';
     try {
-      var st = C.receive(parse(sget(KIN)), part);
-      if (st.data !== undefined) { ui.rx = C.merge(db, st.data); save(); sdel(KIN); }
-      else sset(KIN, JSON.stringify(st));
+      var st = C.receive(db.rx, part);
+      if (st.data !== undefined) { ui.rx = C.merge(db, st.data); db.rx = null; }
+      else db.rx = st;
+      save();
     } catch (e) { ui.rxErr = 'Codice non leggibile: riprova a inquadrarlo.'; }
     if (window.history && history.replaceState) { history.replaceState(null, '', '#ricevi'); render(); } else location.hash = 'ricevi';
     return true;
   }
-  function onHash() { if (!incoming()) render(); }
+  function onHash() { if (locked) lockView('', ''); else if (!incoming()) render(); }
+
+  /* ---------- accesso con password ---------- */
+  function lockView(msg, mode) {
+    var h = '<div class="main"><h1>Lavoro</h1>';
+    if (mode === 'old') h += '<p class="box">La password è stata cambiata. Per recuperare i dati salvati su questo dispositivo scrivi la <b>password precedente</b>.</p>';
+    else h += '<p>Cantieri, ore e spese sono protetti da password.</p>';
+    h += '<label class="l" for="f_pw">' + (mode === 'old' ? 'Password precedente' : 'Password') + '</label><input type="password" class="in" id="f_pw" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">' +
+      '<p class="err" id="err">' + E(msg) + '</p><div class="fe">' + btn(mode === 'old' ? 'Recupera i dati' : 'Entra', mode === 'old' ? 'recover' : 'unlock', '', 'pri w') + btn('Mostra la password', 'showpw', '', 'w') +
+      (mode === 'old' ? btn('Continua senza i dati di questo dispositivo', 'fresh', '', 'w') : '') + '</div></div>';
+    document.getElementById('app').innerHTML = h;
+  }
+  function derive(pw, salt, it, done) {
+    var e = document.getElementById('err'), bs = document.getElementsByTagName('button'), i;
+    for (i = 0; i < bs.length; i++) bs[i].disabled = true;
+    if (e) e.innerHTML = 'Controllo in corso…';
+    setTimeout(function () {
+      X.pbkdf2Async(pw, X.unb64(salt), it, function (f) { if (e) e.innerHTML = 'Controllo in corso… ' + Math.round(f * 100) + '%'; }, done);
+    }, 30);
+  }
+  function pwVal() { var el = document.getElementById('f_pw'); return el ? el.value : ''; }
+  function openLocal(k, box) { var t = X.open(k, box); if (t === null) lockView('', 'old'); else enter(C.norm(parse(t))); }
+  // Entra: archivio del dispositivo, più l'eventuale archivio in chiaro di prima della password, più i dati precaricati.
+  function enter(local) {
+    var old = parse(sget(KEY));
+    db = local; key = pend.key; locked = false;
+    if (old) { old = C.norm(old); C.merge(db, old); if (!db.timer) db.timer = old.timer; if (!sget(KEY2)) db.set = old.set; }
+    if (pend.data) C.merge(db, pend.data);
+    pend = null;
+    save();
+    if (canStore) { sdel(KEY); sdel(KIN); }
+    applySet(); onHash();
+  }
+  A.showpw = function (el) { var f = document.getElementById('f_pw'); try { f.type = f.type === 'password' ? 'text' : 'password'; el.innerHTML = f.type === 'password' ? 'Mostra la password' : 'Nascondi la password'; } catch (e) { /* alcuni browser non lo permettono */ } };
+  A.unlock = function () {
+    var pw = pwVal();
+    if (!pw) return err('Scrivi la password.');
+    derive(pw, BUNDLE.salt, BUNDLE.it, function (k) {
+      var text = X.open(k, BUNDLE), box = parse(sget(KEY2));
+      if (text === null) return lockView('Password sbagliata.', '');
+      pend = { key: k, data: parse(text) };
+      if (!box || !box.salt) return enter(C.empty());
+      if (box.salt === BUNDLE.salt && box.it === BUNDLE.it) return openLocal(k, box);
+      derive(pw, box.salt, box.it, function (k2) { openLocal(k2, box); });
+    });
+  };
+  A.recover = function () {
+    var pw = pwVal(), box = parse(sget(KEY2));
+    if (!pw) return err('Scrivi la password precedente.');
+    derive(pw, box.salt, box.it, function (k) { var t = X.open(k, box); if (t === null) lockView('Password precedente sbagliata.', 'old'); else enter(C.norm(parse(t))); });
+  };
+  A.fresh = function (el) { if (armed(el, 'I dati di questo dispositivo andranno persi. Tocca ancora')) enter(C.empty()); };
+  A.lock = function () { location.reload(); };
+  var OPEN = { unlock: 1, recover: 1, fresh: 1, showpw: 1 };
 
   document.onclick = function (ev) {
     ev = ev || window.event;
     var el = ev.target || ev.srcElement;
     while (el && el !== document) {
       var a = el.getAttribute && el.getAttribute('data-a');
-      if (a && A[a]) { if (ev.preventDefault) ev.preventDefault(); A[a](el); return false; }
+      if (a && A[a] && (!locked || OPEN[a])) { if (ev.preventDefault) ev.preventDefault(); A[a](el); return false; }
       el = el.parentNode;
     }
   };
@@ -539,6 +610,7 @@
     if (e) e.innerHTML = elapsed();
   }, 30000);
 
+  document.onkeydown = function (ev) { ev = ev || window.event; if (locked && ev.keyCode === 13) { var b = document.getElementsByTagName('button')[0]; if (b && !b.disabled) A[b.getAttribute('data-a')](b); return false; } };
   applySet();
   onHash();
   try { if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol)) navigator.serviceWorker.register('sw.js'); } catch (e) { /* facoltativo */ }
