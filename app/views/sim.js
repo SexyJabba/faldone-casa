@@ -105,7 +105,7 @@ ${main.length ? `<details><summary>Perché</summary><ul>${main.map((r) => `<li>$
 ${datasets.length ? `<h2 style="font-size:1.1rem">Dati coinvolti</h2>${datasets.map((d) => { const p = sim.protection(d.id); return `<div class="result"><div class="rh"><a href="${href('e/' + d.id)}"><strong>${esc(d.name)}</strong></a> ${st(p.verdict.status)}</div><p class="small">${esc(p.verdict.text)}</p></div>`; }).join('')}` : ''}
 ${missing.length ? `<h2 style="font-size:1.1rem">Informazioni mancanti per decidere</h2><ul>${missing.slice(0, 12).map((m) => `<li>${esc(m)}</li>`).join('')}</ul><p class="small"><a href="${href('contribuisci')}">Domande aperte e prove da eseguire</a></p>` : ''}
 ${procs.length ? `<h2 style="font-size:1.1rem">Procedure pertinenti</h2><ul>${procs.map((p) => `<li><a href="${href('procedura/' + p.id)}">${esc(p.symptom)}</a></li>`).join('')}</ul>` : ''}
-<p><button class="btn ghost" type="button" data-action="sharesim">Copia collegamento allo scenario</button></p>`;
+<p><a class="btn" href="${href('mappa?' + new URLSearchParams(Object.entries({ sim: '1', f: queryFromScenario(scen).f.join(','), o: queryFromScenario(scen).o.join(','), on: queryFromScenario(scen).on.join(',') }).filter(([, v]) => v)))}">Vedi questo scenario sulla mappa</a> <button class="btn ghost" type="button" data-action="sharesim">Copia collegamento allo scenario</button></p>`;
       }
       app.on('cycle', (el) => {
         const e = idx.get(el.dataset.id);

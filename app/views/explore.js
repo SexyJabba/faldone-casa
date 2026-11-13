@@ -30,7 +30,7 @@ export function scope(app, [id]) {
   const { core } = app;
   const s = core.scopes.find((x) => x.id === id);
   if (!s) return { title: 'Ambito', html: '<p>Ambito non trovato.</p>' };
-  if (id === 'inventario') return import('./docs.js').then((m) => m.inventory(app, [], s));
+  if (id === 'inventario') return import('./inventory.js').then((m) => m.inventory(app, [], s));
   const els = core.entities.filter((e) => e.scopes?.includes(id));
   const by = (k) => els.filter((e) => e.kind === k);
   const sect = (t, list) => (list.length ? `<h2>${t}</h2><div class="grid tight">${list.map((e) => `<a class="tile" href="${href('e/' + e.id)}"><span class="t"><span class="code">${esc(e.id)}</span> ${esc(e.name)}</span><p>${esc(e.oneLine)}</p></a>`).join('')}</div>` : '');

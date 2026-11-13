@@ -1,5 +1,6 @@
 import { esc, href, phead, segments } from '../ui.js';
 import { buildSearch, search } from '../lib/search.js';
+import { commands, EXAMPLES } from '../lib/commands.js';
 
 const TYPES = ['scheda', 'servizio', 'macchina', 'dati', 'infrastruttura', 'procedura', 'decisione', 'attività', 'glossario', 'inventario', 'questione', 'impianto'];
 let indexPromise = null;
@@ -8,6 +9,15 @@ function getIndex(app) {
   return indexPromise;
 }
 const resultHtml = (r, i, opt = false) => `<a class="hit" ${opt ? `role="option" id="hit-${i}" aria-selected="false"` : ''} href="${href(r.doc.route)}"><span class="eyebrow">${esc(r.doc.type)}${r.doc.codes?.length ? ` · ${r.doc.codes.slice(0, 4).map(esc).join(' ')}${r.doc.codes.length > 4 ? ` +${r.doc.codes.length - 4}` : ''}` : ''}</span><br><strong>${esc(r.doc.title)}</strong><br><span class="small">${segments(r.snippet)}</span><br><span class="why">Perché: ${esc(r.why.join(' · '))}</span></a>`;
+const cmdHtml = (c, i) => `<a class="hit cmd-hit" role="option" id="cmd-${i}" aria-selected="false" href="${href(c.route)}"><span class="eyebrow">${esc(c.kind)}</span><br><strong>${esc(c.title)}</strong><br><span class="small">${esc(c.sub)}</span></a>`;
+function paletteHome(app) {
+  const recent = (app.data.progress?.recent || []).slice(0, 6);
+  const favs = app.data.favorites.slice(0, 6).map((id) => { const e = app.idx.get(id), c = app.idx.cards.get(id); return e ? { route: 'e/' + id, title: e.name, sub: e.title || '' } : c ? { route: id, title: `${id} · ${c.title}`, sub: 'scheda' } : null; }).filter(Boolean);
+  const row = (r, i, p) => `<a class="hit" role="option" id="${p}-${i}" aria-selected="false" href="${href(r.route)}"><strong>${esc(r.title)}</strong>${r.sub ? ` <span class="small muted">${esc(r.sub)}</span>` : ''}</a>`;
+  return `${recent.length ? `<p class="pal-h">Visti di recente</p>${recent.map((r, i) => row(r, i, 'rec')).join('')}` : ''}${favs.length ? `<p class="pal-h">Preferiti</p>${favs.map((r, i) => row(r, i, 'fav')).join('')}` : ''}
+<p class="pal-h">Prova a chiedere</p><div class="chips pal-ex">${EXAMPLES.map((x) => `<button type="button" class="chip" data-example="${esc(x)}">${esc(x)}</button>`).join('')}</div>
+<p class="muted small">Puoi anche scrivere un codice («INF-03.03»), un problema («non vedo le foto») o una parola comune («furgone», «backup»).</p>`;
+}
 function expl(out) {
   return out.expansions.length ? `<p class="small">Interpretato: ${out.expansions.map((x) => `«${esc(x.word)}» → <strong>${esc(x.means)}</strong> (${x.terms.map(esc).join(', ')})`).join('; ')}</p>` : '';
 }
@@ -49,19 +59,23 @@ export async function palette(app) {
   if (!dlg) {
     dlg = document.createElement('dialog');
     dlg.id = 'palette'; dlg.className = 'palette'; dlg.setAttribute('aria-label', 'Cerca nel Faldone');
-    dlg.innerHTML = `<header><label for="pq" class="vh">Cerca</label><input id="pq" type="search" placeholder="Cerca: codice, servizio, problema…" autocomplete="off" role="combobox" aria-expanded="true" aria-controls="pres" aria-autocomplete="list"><button class="iconbtn" type="button" id="pclose" aria-label="Chiudi">✕</button></header><div class="res" id="pres" role="listbox" aria-label="Risultati"><p class="muted small">Esempi: «non vedo le foto», «INF-03.03», «furgone», «backup».</p></div>`;
+    dlg.innerHTML = `<header><label for="pq" class="vh">Cerca</label><input id="pq" type="search" placeholder="Cerca o chiedi: «cosa succede se manca M2»" autocomplete="off" role="combobox" aria-expanded="true" aria-controls="pres" aria-autocomplete="list"><button class="iconbtn" type="button" id="pclose" aria-label="Chiudi">✕</button></header><div class="res" id="pres" role="listbox" aria-label="Risultati"></div>`;
     document.body.append(dlg);
     const input = dlg.querySelector('#pq'), res = dlg.querySelector('#pres');
     let sel = -1, items = [];
     const mark = () => { items.forEach((a, i) => a.setAttribute('aria-selected', i === sel)); if (items[sel]) { input.setAttribute('aria-activedescendant', items[sel].id); items[sel].scrollIntoView({ block: 'nearest' }); } };
+    const home = () => { res.innerHTML = paletteHome(app); items = [...res.querySelectorAll('.hit')]; sel = -1; input.removeAttribute('aria-activedescendant'); };
+    dlg._home = home;
     let timer;
+    res.addEventListener('click', (e) => { const b = e.target.closest('[data-example]'); if (b) { input.value = b.dataset.example; input.dispatchEvent(new Event('input')); input.focus(); } });
     input.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(async () => {
       let idx;
       try { idx = await getIndex(app); } catch (e) { res.innerHTML = `<p class="errbox">Indice di ricerca non disponibile (${esc(e.message)}). Sei offline? Le pagine già aperte restano consultabili.</p>`; return; }
       const v = input.value;
-      if (!v.trim()) { res.innerHTML = ''; items = []; return; }
+      if (!v.trim()) { home(); return; }
       const o = search(idx, v, { limit: 12 });
-      res.innerHTML = `${expl(o)}${o.results.map((r, i) => resultHtml(r, i, true)).join('') || empty(v)}${o.total > 12 || o.excluded ? `<a class="hit" role="option" id="hit-all" aria-selected="false" href="${href('cerca?q=' + encodeURIComponent(v))}"><strong>Tutti i risultati (${o.total})${o.excluded ? ` · ${o.excluded} di roadmap esclusi` : ''} e filtri →</strong></a>` : ''}`;
+      const cmds = commands(app.core, v);
+      res.innerHTML = `${cmds.map(cmdHtml).join('')}${expl(o)}${o.results.map((r, i) => resultHtml(r, i, true)).join('') || (cmds.length ? '' : empty(v))}${o.total > 12 || o.excluded ? `<a class="hit" role="option" id="hit-all" aria-selected="false" href="${href('cerca?q=' + encodeURIComponent(v))}"><strong>Tutti i risultati (${o.total})${o.excluded ? ` · ${o.excluded} di roadmap esclusi` : ''} e filtri →</strong></a>` : ''}`;
       items = [...res.querySelectorAll('.hit')]; sel = items.length ? 0 : -1; mark();
     }, 80); });
     input.addEventListener('keydown', (e) => {
@@ -76,5 +90,7 @@ export async function palette(app) {
   }
   app.paletteReturn = document.activeElement;
   dlg.showModal();
-  const input = dlg.querySelector('#pq'); input.select(); input.focus();
+  const input = dlg.querySelector('#pq');
+  if (!input.value.trim()) dlg._home();
+  input.select(); input.focus();
 }

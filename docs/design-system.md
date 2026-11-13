@@ -74,6 +74,14 @@ Modulo `app/lib/viz.js`: funzioni pure che restituiscono HTML o SVG a partire da
 | Frontale dello switch | `switchFace(…)` | Rack e porte | numero di porte documentato e destinazioni note; disegno logico, non fisico |
 | Anello del quorum | `quorumRing(voters)` | home | le macchine con voto e la maggioranza necessaria |
 
+## Interazioni (novembre 2026)
+
+- **Simulazione sulla mappa** (`app/views/map.js`, `#mappa?sim=1&f=M2`): lo stesso motore del simulatore colora i nodi. Lo stato è dato da colore, forma nell'angolo del nodo e testo nel pannello; l'elemento guasto ha una croce. La barra viola riassume quorum, servizi per stato ed elementi cambiati rispetto al riferimento, e rimanda al simulatore per cause e procedure. Stessi parametri d'indirizzo del simulatore (`f`, `o`, `on`).
+- **Guida passo passo** delle procedure (`#procedura/ID?g=1&n=…`): un controllo o un passaggio per schermata, «Sì, è così / No, è diverso», riepilogo copiabile per il tecnico. Mostra solo il testo della procedura; se la procedura non prevede un'alternativa lo dice. Le risposte sono le stesse spunte della procedura completa.
+- **Comandi nella ricerca** (`app/lib/commands.js`): forme fisse («cosa succede se manca…», «dove stanno…», «confronta … e …», «da cosa dipende…», nomi di pagina) risolte sul modello; ogni comando apre una vista calcolata. A campo vuoto la palette mostra visti di recente, preferiti ed esempi.
+- **Inventario esplorabile** (`app/views/inventory.js`, motore in `app/lib/inventory.js`): ricerca immediata, faccette con conteggi (categoria, usato da, stato), raggruppamento, griglia con foto o tabella, scheda rapida in un dialogo con precedente/successiva. Le foto di repertorio sono marcate; i pezzi si sommano solo dove la quantità è un numero intero e mai per gli alias.
+- **App installabile e avvisi** (`manifest.webmanifest`, `app.notice` in `app/main.js`): avviso persistente quando una nuova versione ha preso il controllo («Aggiorna ora») e quando si è offline.
+
 ## Larghezze verificate
 
 360, 390, 768, 1280, 1600 px. Sotto 900 px la navigazione principale passa in basso (uso con una mano), la profondità di lettura in una barra propria; nessuna funzione richiede hover o trascinamento preciso (la mappa ha pulsanti di zoom, vista centrata sull'elemento e alternativa a elenco).

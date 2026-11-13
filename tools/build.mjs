@@ -129,7 +129,7 @@ const pres = JSON.parse(readFileSync(join(ROOT, 'content/presentazione/scene.jso
 const appFiles = walk(join(ROOT, 'app')).map((f) => f.slice(ROOT.length + 1));
 const indexHtml = renderShell({ meta: core.meta, scopes: src.scopes, procedures: src.procedures, build });
 write('index.html', indexHtml);
-const precache = ['./', 'index.html', ...appFiles, 'data/core.json', 'data/search.json', 'data/presentazione.json', 'data/impianti.json', 'presentazione.html', ...walk(join(ROOT, 'assets/fonts')).filter((f) => f.endsWith('.woff2')).map((f) => f.slice(ROOT.length + 1)), 'kit/emergenza.html', 'schede/index.html', 'assets/favicon.svg'];
+const precache = ['./', 'index.html', ...appFiles, 'data/core.json', 'data/search.json', 'data/presentazione.json', 'data/impianti.json', 'presentazione.html', ...walk(join(ROOT, 'assets/fonts')).filter((f) => f.endsWith('.woff2')).map((f) => f.slice(ROOT.length + 1)), 'kit/emergenza.html', 'schede/index.html', 'assets/favicon.svg', 'manifest.webmanifest', 'assets/icons/icon-192.png'];
 const sw = readFileSync(join(ROOT, 'tools/templates/sw.js'), 'utf8').replace('__VERSION__', build).replace('__PRECACHE__', JSON.stringify(precache));
 write('sw.js', sw);
 write('data/offline-manifest.json', { build, revision: core.meta.revision, groups: src.groups.map((g) => `data/schede/${g.id}.json`), pages: src.cards.map((c) => `schede/${c.code}.html`) });
