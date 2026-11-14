@@ -1,9 +1,9 @@
 // Service worker del Faldone: solo contenuti pubblici, nessuna risposta autenticata.
 // Generato da tools/build.mjs: non modificare sw.js nella radice.
-const VERSION = 'a79859eb5d10';
+const VERSION = '6e76d7ee5f30';
 const CORE = `faldone-core-${VERSION}`;
 const DOCS = `faldone-docs-${VERSION}`;
-const PRECACHE = ["./","index.html","app/lib/charts.js","app/lib/commands.js","app/lib/energy.js","app/lib/inventory.js","app/lib/model.js","app/lib/qr.js","app/lib/roadmap.js","app/lib/scenes.js","app/lib/search.js","app/lib/sim.js","app/lib/store.js","app/lib/viz.js","app/main.js","app/scenes.css","app/static.css","app/style.css","app/ui.js","app/views/atlas.js","app/views/contribute.js","app/views/costs.js","app/views/docs.js","app/views/emergency.js","app/views/entity.js","app/views/explore.js","app/views/home.js","app/views/impianti.js","app/views/index.js","app/views/inventory.js","app/views/map.js","app/views/paths.js","app/views/presentation.js","app/views/roadmap.js","app/views/search.js","app/views/settings.js","app/views/sim.js","data/core.json","data/search.json","data/presentazione.json","data/impianti.json","presentazione.html","assets/fonts/IBMPlexMono-Medium-Latin1.woff2","assets/fonts/IBMPlexMono-Regular-Latin1.woff2","assets/fonts/IBMPlexSans-Italic-Latin1.woff2","assets/fonts/IBMPlexSans-Medium-Latin1.woff2","assets/fonts/IBMPlexSans-Regular-Latin1.woff2","assets/fonts/IBMPlexSans-SemiBold-Latin1.woff2","kit/emergenza.html","schede/index.html","assets/favicon.svg","manifest.webmanifest","assets/icons/icon-192.png"];
+const PRECACHE = ["./","index.html","app/lib/charts.js","app/lib/commands.js","app/lib/energy.js","app/lib/inventory.js","app/lib/model.js","app/lib/qr.js","app/lib/roadmap.js","app/lib/scenes.js","app/lib/search.js","app/lib/sim.js","app/lib/store.js","app/lib/vault.js","app/lib/viz.js","app/main.js","app/scenes.css","app/static.css","app/style.css","app/ui.js","app/views/atlas.js","app/views/contribute.js","app/views/costs.js","app/views/docs.js","app/views/emergency.js","app/views/entity.js","app/views/explore.js","app/views/home.js","app/views/impianti.js","app/views/index.js","app/views/inventory.js","app/views/map.js","app/views/paths.js","app/views/presentation.js","app/views/roadmap.js","app/views/search.js","app/views/settings.js","app/views/sim.js","app/views/vault.js","data/core.json","data/search.json","data/presentazione.json","data/impianti.json","presentazione.html","assets/fonts/IBMPlexMono-Medium-Latin1.woff2","assets/fonts/IBMPlexMono-Regular-Latin1.woff2","assets/fonts/IBMPlexSans-Italic-Latin1.woff2","assets/fonts/IBMPlexSans-Medium-Latin1.woff2","assets/fonts/IBMPlexSans-Regular-Latin1.woff2","assets/fonts/IBMPlexSans-SemiBold-Latin1.woff2","kit/emergenza.html","schede/index.html","assets/favicon.svg","manifest.webmanifest","assets/icons/icon-192.png"];
 
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(CORE).then((c) => c.addAll(PRECACHE)).then(() => self.skipWaiting()));
@@ -29,7 +29,8 @@ self.addEventListener('fetch', (e) => {
   if (e.request.method !== 'GET' || url.origin !== location.origin) return;
   if (e.request.headers.get('authorization')) return; // mai in cache risposte autenticate
   // dati: rete prima, cache se offline; il resto: cache prima
-  const networkFirst = url.pathname.endsWith('/data/core.json') || url.pathname.endsWith('/index.html') || url.pathname.endsWith('/');
+  // anche l'area riservata e gli impianti: cambiano senza che cambi la versione (nuova password, nuovi dati)
+  const networkFirst = /\/data\/(core|riservato|impianti)\.json$/.test(url.pathname) || url.pathname.endsWith('/index.html') || url.pathname.endsWith('/');
   e.respondWith((async () => {
     const cached = await caches.match(e.request, { ignoreSearch: true });
     if (cached && !networkFirst) return cached;

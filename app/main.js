@@ -4,6 +4,7 @@ import * as store from './lib/store.js';
 import { esc, icon, href } from './ui.js';
 import { routes, resolveRoute } from './views/index.js';
 import { pushRecent } from './lib/commands.js';
+import * as vault from './lib/vault.js';
 
 const $ = (s, r = document) => r.querySelector(s);
 const app = {
@@ -72,6 +73,39 @@ function netbar() {
 // Installazione come app: il browser decide se offrirla; qui si conserva solo la possibilità.
 window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); app.installPrompt = e; document.dispatchEvent(new Event('faldone-installable')); });
 window.addEventListener('appinstalled', () => { app.installPrompt = null; app.toast('Il Faldone è installato su questo dispositivo'); });
+// ---------- area riservata: dati cifrati, chiave in memoria (e, se richiesto, sul dispositivo) ----------
+const VKEY = 'faldone.riservato.k';
+const vget = (st) => { try { return st.getItem(VKEY); } catch { return null; } };
+const vset = (st, v) => { try { if (v === null) st.removeItem(VKEY); else st.setItem(VKEY, v); } catch { /* memoria non disponibile: resta sbloccata solo in questa pagina */ } };
+app.vault = {
+  data: null,
+  box: () => app.load('riservato', 'data/riservato.json').then((b) => (vault.checkBox(b).length ? null : b)).catch(() => null),
+  remembered: () => !!vget(localStorage),
+  /** Dati in chiaro se già sbloccati (in questa pagina, in questa scheda o ricordati sul dispositivo), altrimenti null. */
+  async ready() {
+    if (this.data) return this.data;
+    const raw = vget(sessionStorage) || vget(localStorage);
+    if (!raw) return null;
+    const box = await this.box();
+    if (!box) return null;
+    const d = await vault.importKey(raw).then((k) => vault.openBox(box, k)).catch(() => null);
+    if (d) { this.data = d; tools(); } else { vset(sessionStorage, null); vset(localStorage, null); } // chiave di una password precedente
+    return this.data;
+  },
+  /** true = sbloccata, false = password sbagliata; lancia se il contenuto cifrato non è raggiungibile. */
+  async unlock(password, remember) {
+    const box = await this.box();
+    if (!box) throw new Error('contenuto riservato non raggiungibile');
+    const r = await vault.unlock(box, password);
+    if (!r) return false;
+    this.data = r.data;
+    const raw = await vault.exportKey(r.key);
+    vset(sessionStorage, raw); vset(localStorage, remember ? raw : null);
+    tools();
+    return true;
+  },
+  lock() { this.data = null; vset(sessionStorage, null); vset(localStorage, null); tools(); },
+};
 app.on = (action, fn) => app.handlers.set(action, fn);
 app.go = (route, { replace = false } = {}) => {
   const h = href(route);
@@ -88,6 +122,7 @@ const THEME_LABEL = { auto: 'come il sistema', light: 'chiaro', dark: 'scuro' };
 function tools() {
   const depthBtns = [['capire', 'Capire'], ['approfondire', 'Approfondire'], ['intervenire', 'Intervenire']];
   $('#tools').innerHTML = `<button class="iconbtn searchbtn" type="button" data-action="palette" aria-label="Cerca (scorciatoia / o Ctrl+K)">${icon('search')}<span class="lbl">Cerca</span><kbd class="lbl">/</kbd></button>
+<a class="iconbtn${app.vault.data ? ' on' : ''}" href="#riservato" aria-label="Area riservata: ${app.vault.data ? 'sbloccata' : 'bloccata'}" title="Area riservata: ${app.vault.data ? 'sbloccata' : 'bloccata'}">${icon(app.vault.data ? 'unlock' : 'lock')}</a>
 <a class="iconbtn" href="#preferiti" aria-label="Preferiti e dati locali">${icon('star')}</a>
 <button class="iconbtn" type="button" data-action="theme" aria-label="Tema: ${THEME_LABEL[app.data.prefs.theme]}. Cambia tema" title="Tema: ${THEME_LABEL[app.data.prefs.theme]}">${icon(({ auto: 'auto', light: 'sun', dark: 'theme' })[app.data.prefs.theme] || 'auto')}</button>`;
 }
@@ -259,6 +294,7 @@ document.addEventListener('click', (e) => { for (const m of document.querySelect
   if (loaded.status === 'corrotto') setTimeout(() => app.toast('I dati locali non erano leggibili: ripartiti da zero. Il contenuto originale non è stato cancellato.'), 600);
   app.depth = app.data.prefs.depth || 'capire';
   applyTheme(); tools(); depthbar(); bottomnav(); totop();
+  await app.vault.ready().catch(() => null);
   void routes;
   await render();
   netbar();

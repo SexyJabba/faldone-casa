@@ -35,6 +35,7 @@ export const routes = [
   [/^inventario\/(INV-\d{3})$/, 'inventario', lazy('./inventory.js', 'inventory'), 'documenti'],
   [/^cerca$/, 'cerca', lazy('./search.js', 'searchPage'), ''],
   [/^preferiti$/, 'preferiti', lazy('./settings.js', 'settings'), ''],
+  [/^riservato$/, 'riservato', lazy('./vault.js', 'vaultPage'), ''],
   [/^connettori$/, 'connettori', lazy('./settings.js', 'connectors'), 'realizza'],
 ];
 

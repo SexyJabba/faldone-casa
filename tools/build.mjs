@@ -2,7 +2,7 @@
 // Build del Faldone: content/ → data/, schede/, e/, kit/, index.html, sw.js, docs/migrazione.
 //   node tools/build.mjs           build completa (fallisce se il modello non è valido)
 //   node tools/build.mjs --check   solo validazione
-import { mkdirSync, writeFileSync, rmSync, readFileSync, readdirSync, statSync } from 'node:fs';
+import { mkdirSync, writeFileSync, rmSync, readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
@@ -11,6 +11,8 @@ import { validate } from './lib/validate.mjs';
 import { sanitizeHtml, htmlToText, esc } from './lib/html.mjs';
 import { renderCardPage, renderEntityPage, renderIndexPage, renderKit, renderShell, renderPresentation } from './lib/static.mjs';
 import { wordCount, statusLine } from '../app/lib/scenes.js';
+import { checkBox } from '../app/lib/vault.js';
+import { validatePlan } from './lib/riservato.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CHECK = process.argv.includes('--check');
@@ -88,11 +90,23 @@ const imp = JSON.parse(readFileSync(join(ROOT, 'content/impianti/impianti.json')
     for (const e of l.entities || []) if (!entSet.has(e)) ierr.push(`impianto ${i.id}: entità inesistente ${e}`);
     for (const c of l.cards || []) if (!cardSet.has(c)) ierr.push(`impianto ${i.id}: scheda inesistente ${c}`);
     for (const q of i.questions || []) if (!qSet.has(q)) ierr.push(`impianto ${i.id}: domanda inesistente ${q}`);
+    if (i.plan) ierr.push(...validatePlan(i.id, i.plan, entSet, new Set(imp.impianti.map((x) => x.id))));
     if (i.status.decision === 'approvata') ierr.push(`impianto ${i.id}: un impianto non può risultare approvato senza decisione registrata`);
   }
   if (ierr.length) { ierr.forEach((e) => console.error('errore impianti:', e)); process.exit(1); }
   write('data/impianti.json', imp);
-  for (const i of imp.impianti) docs.push({ id: `IMP:${i.id}`, type: 'impianto', title: i.title, codes: [], text: [i.summary, i.goal, ...(i.components || []).map((c) => `${c.name} ${c.role} ${c.build || ''}`), ...(i.places || []).map((x) => `${x.label} ${x.role}`)].filter(Boolean).join(' '), route: `impianti/${i.id}` });
+  // area riservata: il contenuto cifrato passa così com'è; qui si controllano solo forma e indice pubblico
+  const encFile = join(ROOT, 'content/riservato/riservato.enc.json');
+  if (existsSync(encFile)) {
+    const box = JSON.parse(readFileSync(encFile, 'utf8'));
+    const berr = checkBox(box);
+    for (const id of box.index?.impianti || []) if (!imp.impianti.find((x) => x.id === id)?.riservato) berr.push(`impianto ${id}: è nell'area riservata ma la scheda pubblica non ha "riservato": true`);
+    for (const id of box.index?.entita || []) if (!entSet.has(id)) berr.push(`dati riservati: elemento inesistente ${id}`);
+    for (const x of imp.impianti) if (x.riservato && !(box.index?.impianti || []).includes(x.id)) berr.push(`impianto ${x.id}: segnato come riservato ma assente dall'area riservata`);
+    if (berr.length) { berr.forEach((e) => console.error('errore area riservata:', e)); process.exit(1); }
+    write('data/riservato.json', box);
+  } else if (imp.impianti.some((x) => x.riservato)) { console.error('errore area riservata: ci sono impianti riservati ma manca content/riservato/riservato.enc.json'); process.exit(1); }
+  for (const i of imp.impianti) docs.push({ id: `IMP:${i.id}`, type: 'impianto', title: i.title, codes: [], text: [i.summary, i.goal, ...(i.components || []).map((c) => `${c.name} ${c.role} ${c.build || ''}`), ...(i.places || []).map((x) => `${x.label} ${x.role}`), ...(i.plan?.rooms || []).map((r) => r.name), ...(i.plan?.notes || []).flatMap((n) => n.lines)].filter(Boolean).join(' '), route: `impianti/${i.id}` });
 }
 write('data/search.json', docs);
 

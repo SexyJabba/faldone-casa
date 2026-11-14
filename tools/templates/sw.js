@@ -29,7 +29,8 @@ self.addEventListener('fetch', (e) => {
   if (e.request.method !== 'GET' || url.origin !== location.origin) return;
   if (e.request.headers.get('authorization')) return; // mai in cache risposte autenticate
   // dati: rete prima, cache se offline; il resto: cache prima
-  const networkFirst = url.pathname.endsWith('/data/core.json') || url.pathname.endsWith('/index.html') || url.pathname.endsWith('/');
+  // anche l'area riservata e gli impianti: cambiano senza che cambi la versione (nuova password, nuovi dati)
+  const networkFirst = /\/data\/(core|riservato|impianti)\.json$/.test(url.pathname) || url.pathname.endsWith('/index.html') || url.pathname.endsWith('/');
   e.respondWith((async () => {
     const cached = await caches.match(e.request, { ignoreSearch: true });
     if (cached && !networkFirst) return cached;
