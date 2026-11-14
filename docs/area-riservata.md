@@ -39,6 +39,8 @@ FALDONE_PASSWORD=… node tools/riservato.mjs cifra /fuori/dal/repo/riservato.js
 FALDONE_PASSWORD=… FALDONE_PASSWORD_NUOVA=… node tools/riservato.mjs cambia           # cambiare password
 ```
 
+Una password sotto i 12 caratteri è rifiutata; il proprietario può imporla aggiungendo `--corta` (minimo assoluto 8), sapendo che il file cifrato è pubblico e che una password breve o comune si può indovinare per tentativi.
+
 `cifra` rifiuta un file in chiaro che si trovi dentro il repository e rifiuta di sovrascrivere un contenuto che la password indicata non apre.
 
 ## Regole

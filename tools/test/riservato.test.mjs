@@ -33,6 +33,9 @@ test('la chiave ricordata riapre il contenuto senza la password; una chiave vecc
 
 test('password corte rifiutate; normalizzazione degli accenti', async () => {
   await assert.rejects(() => sealBox(sample, 'corta', { salt, iv, iterations: IT }), /troppo corta/);
+  await assert.rejects(() => sealBox(sample, 'nove-cara', { salt, iv, iterations: IT }), /almeno 12/, 'sotto i 12 caratteri serve una scelta esplicita');
+  assert.ok(await sealBox(sample, 'nove-cara', { salt, iv, iterations: IT, allowShort: true }));
+  await assert.rejects(() => sealBox(sample, 'sette77', { salt, iv, iterations: IT, allowShort: true }), /sotto gli 8/);
   assert.equal(cleanPassword(' caffè '), 'caffè');
   assert.ok(ITERATIONS >= 600000);
 });

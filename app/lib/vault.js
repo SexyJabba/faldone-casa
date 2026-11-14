@@ -45,8 +45,9 @@ export async function unlock(box, password) {
 export const indexOf = (data) => ({ impianti: Object.keys(data.impianti || {}).sort(), entita: Object.keys(data.entita || {}).sort() });
 
 /** Cifra un oggetto. salt e iv sono Uint8Array casuali (16 e 12 byte): l'iv non va mai riusato con la stessa chiave. */
-export async function sealBox(data, password, { salt, iv, iterations = ITERATIONS, updated = null } = {}) {
-  if (cleanPassword(password).length < 12) throw new Error('password troppo corta: servono almeno 12 caratteri');
+export async function sealBox(data, password, { salt, iv, iterations = ITERATIONS, updated = null, allowShort = false } = {}) {
+  if (cleanPassword(password).length < 12 && !allowShort) throw new Error('password troppo corta: servono almeno 12 caratteri');
+  if (cleanPassword(password).length < 8) throw new Error('password troppo corta: sotto gli 8 caratteri non si cifra');
   const key = await deriveKey(password, b64(salt), iterations);
   const ct = await subtle().encrypt({ name: 'AES-GCM', iv, additionalData: enc.encode('faldone-riservato-v1') }, key, enc.encode(JSON.stringify(data)));
   return { v: 1, kdf: 'PBKDF2-SHA256', cipher: 'AES-256-GCM', it: iterations, salt: b64(salt), iv: b64(iv), ct: b64(ct), index: indexOf(data), updated };

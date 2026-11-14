@@ -4,6 +4,8 @@
 //   FALDONE_PASSWORD=… node tools/riservato.mjs cifra /fuori/dal/repo/riservato.json         aggiornare
 //   FALDONE_PASSWORD=… FALDONE_PASSWORD_NUOVA=… node tools/riservato.mjs cambia              cambiare password
 //   node tools/riservato.mjs genera                                                         proporre una password casuale
+// Una password sotto i 12 caratteri è rifiutata, salvo aggiungere --corta (scelta del proprietario: il file cifrato è
+// pubblico e una password breve o comune si può indovinare per tentativi).
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { randomBytes, randomInt } from 'node:crypto';
 import { join, dirname, resolve, relative } from 'node:path';
@@ -22,14 +24,16 @@ async function write(data, password) {
   const imp = JSON.parse(readFileSync(join(ROOT, 'content/impianti/impianti.json'), 'utf8')).impianti;
   const errs = validatePrivate(data, imp, new Set(src.entities.map((e) => e.id)));
   if (errs.length) fail(errs.map((e) => 'errore: ' + e).join('\n'));
-  const box = await sealBox(data, password, { salt: randomBytes(16), iv: randomBytes(12), updated: new Date().toISOString().slice(0, 10) }).catch((e) => fail(e.message));
+  const box = await sealBox(data, password, { salt: randomBytes(16), iv: randomBytes(12), updated: new Date().toISOString().slice(0, 10), allowShort: SHORT }).catch((e) => fail(e.message));
+  if (password.trim().length < 12) console.error('Attenzione: password sotto i 12 caratteri. Il file cifrato è pubblico: una password breve o comune si può indovinare per tentativi.');
   if (!(await unlock(box, password))) fail('Verifica fallita: il contenuto appena cifrato non si riapre.');
   mkdirSync(dirname(OUT), { recursive: true });
   writeFileSync(OUT, JSON.stringify(box, null, 1) + '\n');
   return box;
 }
 
-const [cmd, file] = process.argv.slice(2);
+const SHORT = process.argv.includes('--corta');
+const [cmd, file] = process.argv.slice(2).filter((a) => a !== '--corta');
 if (cmd === 'genera') {
   // 4 gruppi da 5 caratteri senza lettere ambigue: circa 99 bit
   const A = 'abcdefghjkmnpqrstuvwxyz23456789';
