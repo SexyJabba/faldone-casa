@@ -3,6 +3,7 @@ import { buildIndex } from './lib/model.js';
 import * as store from './lib/store.js';
 import { esc, icon, href } from './ui.js';
 import { routes, resolveRoute } from './views/index.js';
+import { pushRecent } from './lib/commands.js';
 
 const $ = (s, r = document) => r.querySelector(s);
 const app = {
@@ -49,6 +50,28 @@ app.toast = (msg) => {
   t.className = 'toast'; t.setAttribute('role', 'status'); t.textContent = msg;
   document.body.append(t); setTimeout(() => t.remove(), 4200);
 };
+// Avviso persistente in fondo alla pagina (aggiornamento, offline): resta finché non si agisce o non si chiude.
+app.notice = (id, text, actionLabel, onAction) => {
+  document.getElementById('notice-' + id)?.remove();
+  if (!text) return;
+  const n = document.createElement('div');
+  n.id = 'notice-' + id; n.className = 'notice'; n.setAttribute('role', 'status');
+  const t = document.createElement('span'); t.textContent = text; n.append(t);
+  if (actionLabel) { const b = document.createElement('button'); b.type = 'button'; b.className = 'btn primary'; b.textContent = actionLabel; b.addEventListener('click', onAction); n.append(b); }
+  const x = document.createElement('button'); x.type = 'button'; x.className = 'iconbtn'; x.setAttribute('aria-label', 'Chiudi avviso'); x.textContent = '✕'; x.addEventListener('click', () => n.remove()); n.append(x);
+  let box = document.getElementById('notices');
+  if (!box) { box = document.createElement('div'); box.id = 'notices'; box.className = 'notices'; document.body.append(box); }
+  box.append(n);
+};
+function netbar() {
+  const set = () => app.notice('offline', navigator.onLine ? '' : 'Sei offline. Restano consultabili le pagine già aperte, quelle scaricate e il kit di emergenza.');
+  window.addEventListener('online', () => { set(); app.toast('Di nuovo online'); });
+  window.addEventListener('offline', set);
+  if (!navigator.onLine) set();
+}
+// Installazione come app: il browser decide se offrirla; qui si conserva solo la possibilità.
+window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); app.installPrompt = e; document.dispatchEvent(new Event('faldone-installable')); });
+window.addEventListener('appinstalled', () => { app.installPrompt = null; app.toast('Il Faldone è installato su questo dispositivo'); });
 app.on = (action, fn) => app.handlers.set(action, fn);
 app.go = (route, { replace = false } = {}) => {
   const h = href(route);
@@ -128,6 +151,8 @@ async function render() {
   main.removeAttribute('aria-busy');
   document.title = `${out.title} · Il Faldone ${app.core.meta.revision}`;
   out.mount?.(main);
+  // recenti per la ricerca: solo pagine di contenuto, su questo dispositivo
+  if (/^(e\/|procedura\/|percorsi\/.|impianti\/|inventario\/|realizza\/(attivita|decisioni)\/)/.test(path) || app.idx.cards.has(path)) { app.data.progress = { ...app.data.progress, recent: pushRecent(app.data.progress?.recent, { route: path, title: out.title }) }; app.persist(); }
   // posizione: ripristino tornando indietro, altrimenti inizio pagina e focus sul titolo
   const saved = sessionStorage.getItem(scrollKey(location.hash));
   if (app.navType === 'pop' && saved !== null) window.scrollTo(0, Number(saved));
@@ -236,7 +261,15 @@ document.addEventListener('click', (e) => { for (const m of document.querySelect
   applyTheme(); tools(); depthbar(); bottomnav(); totop();
   void routes;
   await render();
+  netbar();
   if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
-    navigator.serviceWorker.register('sw.js').catch(() => {});
+    // Una nuova versione prende il controllo da sola, ma le pagine già aperte usano ancora i file vecchi:
+    // lo si dice e si offre di ricaricare, senza farlo al posto della persona.
+    const hadController = !!navigator.serviceWorker.controller;
+    navigator.serviceWorker.addEventListener('controllerchange', () => { if (hadController) app.notice('update', 'È disponibile una nuova versione del Faldone.', 'Aggiorna ora', () => location.reload()); });
+    navigator.serviceWorker.register('sw.js').then((reg) => {
+      let last = Date.now();
+      document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && Date.now() - last > 10 * 60 * 1000) { last = Date.now(); reg.update().catch(() => {}); } });
+    }).catch(() => {});
   }
 })();

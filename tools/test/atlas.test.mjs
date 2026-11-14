@@ -2,7 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { atlas } from '../../app/views/atlas.js';
-import { inventory } from '../../app/views/docs.js';
+import { inventory } from '../../app/views/inventory.js';
+import { prepare, filter } from '../../app/lib/inventory.js';
 import { bars } from '../../app/lib/charts.js';
 import { buildIndex } from '../../app/lib/model.js';
 const core = JSON.parse(readFileSync(new URL('../../data/core.json', import.meta.url)));
@@ -17,9 +18,12 @@ test('ogni tema offre schede reali e collegamenti senza valori indefiniti', () =
   }
 });
 test('inventario: filtri combinati e assenza di risultati esplicita', async () => {
+  // l'elenco è disegnato nel browser: i filtri si provano sul motore puro, la vista deve offrire i controlli
+  const items = prepare(inv, core.entities);
+  assert.equal(filter(items, {q:'impossibile-nessuna-voce',cat:['hdd'],photo:true,linked:'si'}).length, 0);
   const {html} = await inventory(app({q:'impossibile-nessuna-voce',cat:'hdd',photo:'1',linked:'1'}));
-  assert.ok(html.includes('Nessuna voce corrisponde'));
-  assert.ok(html.includes('0 voci su'));
+  assert.ok(html.includes('id="inv-q"') && html.includes('impossibile-nessuna-voce'));
+  assert.ok(!html.includes('undefined'));
   const detail = await inventory(app({}), ['INV-001']);
   assert.ok(detail.html.includes(inv.items[0].model));
 });

@@ -97,7 +97,7 @@ export function renderShell({ meta, scopes, procedures, build }) {
 <meta name="theme-color" content="#f4f6f8" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#121820" media="(prefers-color-scheme: dark)">
 <meta name="description" content="Atlante operativo dell'infrastruttura di casa, laboratorio e Vito. Revisione ${esc(meta.revision)}.">
 <title>Il Faldone · revisione ${esc(meta.revision)}</title>
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="app/style.css?v=${build}"><link rel="stylesheet" href="app/scenes.css?v=${build}">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png"><meta name="apple-mobile-web-app-title" content="Faldone"><link rel="stylesheet" href="app/style.css?v=${build}"><link rel="stylesheet" href="app/scenes.css?v=${build}">
 <link rel="modulepreload" href="app/main.js?v=${build}"></head>
 <body><a class="skip" href="#main">Vai al contenuto</a>
 <div class="app" id="app">

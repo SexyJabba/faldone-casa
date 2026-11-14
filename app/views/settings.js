@@ -15,6 +15,9 @@ ${app.storeStatus === 'migrato' || app.data.migratedFrom44 ? '<div class="callou
 <h2>Esporta e importa</h2><div class="card"><p><button class="btn" type="button" data-action="export">Esporta i dati locali (.json)</button></p>
 <label class="f">Importa un file esportato<input type="file" accept="application/json,.json" data-change="import"></label><div id="impout" aria-live="polite"></div>
 <p class="small muted">L'importazione mostra prima un'anteprima: nessun appunto viene sovrascritto senza la tua scelta. Il file viene letto come testo e non esegue nulla.</p></div>
+<h2>Installa come app</h2><div class="card" id="installcard"><p>Su telefono, tablet e computer il Faldone si può installare: si apre a tutto schermo dalla schermata principale e funziona anche senza rete con ciò che è già stato scaricato.</p>
+<p><button class="btn primary" type="button" data-action="install" id="installbtn"${app.installPrompt ? '' : ' hidden'}>Installa il Faldone</button></p>
+<p class="small muted" id="installhint">${window.matchMedia('(display-mode: standalone)').matches ? 'Stai già usando la versione installata.' : 'Se il pulsante non compare, usa il menu del browser: «Installa app» o «Aggiungi a schermata Home» (su iPhone e iPad: Condividi → Aggiungi a Home).'}</p></div>
 <h2>Consultazione offline</h2><div class="card" id="offline"><p>Il sito registra le pagine visitate per la consultazione offline. Puoi scaricare ora tutte le schede pubbliche (${core.meta.counts.cards} pagine e ${core.meta.counts.groups} testi).</p>
 <p><button class="btn" type="button" data-action="cacheall">Scarica tutto per l'offline</button> <a class="btn ghost" href="kit/emergenza.html">Kit di emergenza</a></p><p class="small" id="offstat">Revisione ${esc(core.meta.revision)}, build ${esc(core.meta.build)}.</p>
 <p class="small muted">Solo documentazione pubblica: nessuna risposta autenticata o dato di sicurezza viene messo in cache.</p></div>
@@ -22,6 +25,10 @@ ${app.storeStatus === 'migrato' || app.data.migratedFrom44 ? '<div class="callou
   return {
     title: 'Preferiti e dati locali', html,
     mount: (root) => {
+      const showInstall = () => { const b = root.querySelector('#installbtn'); if (b) b.hidden = !app.installPrompt; };
+      document.addEventListener('faldone-installable', showInstall);
+      app.cleanup = () => document.removeEventListener('faldone-installable', showInstall);
+      app.on('install', async () => { const p = app.installPrompt; if (!p) return; p.prompt(); const r = await p.userChoice.catch(() => null); app.installPrompt = null; showInstall(); if (r?.outcome !== 'accepted') app.toast('Installazione annullata: puoi rifarla dal menu del browser'); });
       app.on('export', () => download(`faldone-dati-locali-${new Date().toISOString().slice(0, 10)}.json`, store.exportData(app.data, core.meta.revision), 'application/json'));
       app.on('import', async (el) => {
         const f = el.files[0]; if (!f) return;
