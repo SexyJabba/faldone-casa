@@ -12,7 +12,7 @@ Fasi A–E completate per il nucleo pubblico: migrazione, modello, build, interf
 
 ## Impianti di casa
 
-Nuova sezione `#impianti` (fonte: `content/impianti/impianti.json`). La VMC è compilata come «ipotesi avanzata da rifinire» (decisione DEC-VMC, domande Q-VMC-*). Da compilare: impianto elettrico, idrico, rete dei sensori, allarme, telecamere, rete LAN cablata, fotovoltaico, planimetria e suddivisione.
+Nuova sezione `#impianti` (fonte: `content/impianti/impianti.json`). La VMC è compilata come «ipotesi avanzata da rifinire» (decisione DEC-VMC, domande Q-VMC-*). La planimetria è compilata ma sta nell'area riservata cifrata (`content/riservato/`, vedi `docs/area-riservata.md`): la scheda pubblica è solo un segnaposto. Da compilare: impianto elettrico, idrico, rete dei sensori, allarme, telecamere, rete LAN cablata, fotovoltaico.
 
 ## Comandi per riprendere
 

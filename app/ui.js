@@ -35,6 +35,7 @@ export const ICON = {
   path: '<circle cx="5" cy="18" r="2.5"/><circle cx="19" cy="6" r="2.5"/><path d="M7.5 18H14a3.5 3.5 0 0 0 0-7h-4a3.5 3.5 0 0 1 0-7h6.5"/>',
   sim: '<path d="M12 3v8M7 5.6a8 8 0 1 0 10 0"/>',
   lock: '<rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14.5v2.5"/>',
+  unlock: '<rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 7.5-2M12 14.5v2.5"/>',
   wifi: '<path d="M2 8.5a15 15 0 0 1 20 0M5.5 12.5a10 10 0 0 1 13 0M9 16.2a5 5 0 0 1 6 0M12 20h.01M3 3l18 18"/>',
   bulb: '<path d="M9 18h6M10 21h4M8 14a6 6 0 1 1 8 0c-.7.7-1 1.5-1 2.5H9c0-1-.3-1.8-1-2.5z"/>',
   file: '<path d="M6 3h9l4 4v14H6zM14 3v5h5"/><circle cx="11.5" cy="14" r="2.5"/><path d="M13.5 16l2 2"/>',

@@ -1,3 +1,8 @@
 node_modules/
 *.log
 .DS_Store
+
+# area riservata: nel repository solo il contenuto cifrato
+content/riservato/*
+!content/riservato/riservato.enc.json
+/riservato*.json

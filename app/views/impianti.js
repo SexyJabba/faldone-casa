@@ -1,25 +1,39 @@
 // Impianti di casa: sezione documentale fuori dalla baseline approvata, ogni impianto con il proprio stato.
-import { badge, esc, href, phead, ctxbar, table } from '../ui.js';
+import { badge, esc, href, phead, ctxbar, table, icon } from '../ui.js';
+import { floorPlan } from '../lib/viz.js';
+import { mergeImpianto } from '../lib/vault.js';
+import { lockForm, bindLock } from './vault.js';
+
+const itn = (n, d = 2) => Number(n).toLocaleString('it-IT', { minimumFractionDigits: d, maximumFractionDigits: d });
 
 const stateTag = (st) => (st.decision === 'ipotesi' ? badge('unknown', st.label) : badge('on_demand', st.label));
 
 export async function impianti(app) {
   const d = await app.load('impianti', 'data/impianti.json');
-  const done = d.impianti.filter((i) => i.components);
+  const done = d.impianti.filter((i) => i.components || i.riservato);
   const html = `${ctxbar([['Esplora', 'esplora'], ['Impianti di casa']])}${phead({ eyebrow: 'Casa e ambienti', title: 'Impianti di casa', lead: 'Gli impianti che la domotica dovrà governare. Sono documentati qui man mano, ciascuno con il proprio stato: non fanno parte del progetto approvato 4.4.' })}
 <p class="small muted">${done.length} di ${d.impianti.length} compilati.</p>
-<div class="grid">${d.impianti.map((i) => `<a class="tile" href="${href('impianti/' + i.id)}"><span class="t">${esc(i.title)}</span><p>${esc(i.summary)}</p><span class="meta">${stateTag(i.status)}</span></a>`).join('')}</div>`;
+<div class="grid">${d.impianti.map((i) => `<a class="tile" href="${href('impianti/' + i.id)}"><span class="t">${esc(i.title)}${i.riservato ? ` <span class="lockmark" title="Area riservata">${icon('lock')}<span class="vh">area riservata</span></span>` : ''}</span><p>${esc(i.summary)}</p><span class="meta">${stateTag(i.status)}</span></a>`).join('')}</div>`;
   return { title: 'Impianti di casa', html };
 }
 
 export async function impianto(app, [id]) {
   const d = await app.load('impianti', 'data/impianti.json');
-  const i = d.impianti.find((x) => x.id === id);
+  let i = d.impianti.find((x) => x.id === id);
+  if (i?.riservato) {
+    const data = await app.vault.ready();
+    if (!data) {
+      const html = `${ctxbar([['Esplora', 'esplora'], ['Impianti di casa', 'impianti'], [i.short]])}${phead({ eyebrow: 'Impianto · area riservata', title: i.title, lead: esc(i.summary) })}${lockForm(app, { title: 'Sezione riservata', text: `«${i.title}» contiene dati sensibili della casa: si legge solo con la password dell'area riservata.` })}`;
+      return { title: i.title, html, mount: () => bindLock(app, () => app.go(app.route + (location.hash.includes('?') ? '?' + location.hash.split('?')[1] : ''), { replace: true })) };
+    }
+    i = mergeImpianto(i, data);
+  }
   if (!i) return { title: 'Impianto', html: `${phead({ title: 'Impianto non trovato' })}<p><a href="${href('impianti')}">Tutti gli impianti</a></p>` };
   const { idx } = app;
   const ent = (ids = []) => ids.filter((e) => idx.get(e)).map((e) => `<a class="chip" href="${href('e/' + e)}">${esc(idx.get(e).name)}</a>`).join('');
   const cards = (cs = []) => cs.map((c) => `<a class="code" href="${href(c)}">${esc(c)}</a>`).join(' · ');
   const crumbs = ctxbar([['Esplora', 'esplora'], ['Impianti di casa', 'impianti'], [i.short]]);
+  if (i.plan) return planView(app, i, crumbs);
   if (!i.components) {
     const r = i.related || {};
     const html = `${crumbs}${phead({ eyebrow: 'Impianto', title: i.title, lead: esc(i.summary), extra: `<p>${stateTag(i.status)}</p>` })}
@@ -47,4 +61,49 @@ ${(r.entities?.length || r.cards?.length) ? `<h2>Che cosa c'è già nel Faldone<
 <div class="card"><h3>Altri impianti</h3><ul class="list">${d.impianti.filter((x) => x.id !== i.id).map((x) => `<li><a href="${href('impianti/' + x.id)}">${esc(x.title)}</a> <span class="small muted">${esc(x.status.label)}</span></li>`).join('')}</ul></div>
 </aside></div>`;
   return { title: i.title, html };
+}
+
+// Planimetria: schema cliccabile delle stanze, con gli apparati del modello collocati nel loro luogo.
+function planView(app, i, crumbs) {
+  const { core, idx } = app;
+  const plan = i.plan, st = i.status;
+  const inRoom = (r) => (r.place ? core.entities.filter((e) => e.place === r.place && e.kind !== 'place') : []);
+  const total = plan.rooms.reduce((a, r) => a + r.area, 0);
+  let sel = plan.rooms.some((r) => r.id === app.query.r) ? app.query.r : '';
+  const detail = () => {
+    const r = plan.rooms.find((x) => x.id === sel);
+    if (!r) return `<div class="card"><h2 class="h3">Nessuna stanza selezionata</h2><p class="small">Tocca una stanza nello schema o nella tabella: vedrai superficie, altezze e gli apparati del Faldone che si trovano lì.</p><p class="small muted">Il numero nel cerchio indica quanti apparati del modello sono collocati nella stanza.</p></div>`;
+    const dev = inRoom(r), pl = r.place && idx.get(r.place);
+    return `<div class="card"><p class="eyebrow">Stanza</p><h2 class="h3" style="margin-top:4px" id="fp-sel" tabindex="-1">${esc(r.name)}</h2>
+<dl class="kv"><dt>Superficie</dt><dd>${itn(r.area)} m²</dd><dt>Altezza</dt><dd>da ${itn(r.hmin)} a ${itn(r.hmax)} m</dd><dt>Ingombro</dt><dd>${itn(r.w)} × ${itn(r.d)} m <span class="small muted">(rettangolo dello schema)</span></dd></dl>
+${pl ? `<p class="small">${esc(pl.oneLine || '')}</p>` : ''}
+${dev.length ? `<p class="small"><strong>Apparati del Faldone qui (${dev.length})</strong></p><div class="chips">${dev.map((e) => `<a class="chip" href="${href('e/' + e.id)}"><span class="code">${esc(e.id)}</span>${e.title ? ' ' + esc(e.title) : ''}</a>`).join('')}</div>` : `<p class="small muted">${r.place ? 'Nessun apparato del modello collocato qui.' : 'Stanza non ancora collegata a un luogo del modello: gli apparati non sono collocati.'}</p>`}
+<div class="phead"><div class="actions">${pl ? `<a class="btn primary" href="${href('e/' + pl.id)}">Scheda del luogo</a>` : ''}${r.impianto ? `<a class="btn primary" href="${href('impianti/' + r.impianto)}">Impianto VMC</a>` : ''}${dev.length ? `<a class="btn" href="${href('mappa?s=' + dev[0].id)}">Vedi sulla mappa</a>` : ''}<button class="btn ghost" type="button" data-action="fp-clear">Deseleziona</button></div></div></div>`;
+  };
+  const html = `${crumbs}${phead({ eyebrow: `Impianto · ${esc(plan.level)} · <span class="lockmark">${icon('unlock')} area riservata</span>`, title: i.title, lead: esc(i.summary), extra: `<p>${stateTag(st)}</p>` })}
+<div class="callout warn"><strong>Schema, non rilievo</strong>${esc(st.note)} Fonte: ${esc(st.source)}.</div>
+<div class="pagecols mapcols"><div><figure class="viz"><div class="viz-scroll" tabindex="0" role="region" aria-label="Planimetria schematica" id="fp-area">${floorPlan(plan, { sel, count: (r) => inRoom(r).length })}</div>
+<figcaption class="small muted">${esc(plan.schematic)} Le stanze con fondo tratteggiato hanno altezza massima sotto 1,50 m.${plan.demolition ? ' ' + esc(plan.demolition) : ''}</figcaption></figure></div>
+<aside class="aside" id="fp-detail" aria-live="polite">${detail()}</aside></div>
+<h2>Stanze</h2><p class="small muted">${plan.rooms.length} vani · ${itn(total)} m² sommando le superfici del CAD, compresi i vani bassi.</p>
+${table(['Stanza', 'Superficie', 'Altezza minima', 'Altezza massima', 'Apparati del Faldone'], plan.rooms.map((r) => [`<a href="${href('impianti/' + i.id + '?r=' + r.id)}" data-action="fp-pick" data-id="${esc(r.id)}">${esc(r.name)}</a>`, `${itn(r.area)} m²`, `${itn(r.hmin)} m`, `${itn(r.hmax)} m`, inRoom(r).map((e) => `<a href="${href('e/' + e.id)}">${esc(e.id)}</a>`).join(', ') || (r.impianto ? `<a href="${href('impianti/' + r.impianto)}">VMC</a>` : '—')]), { caption: 'Stanze del piano' })}
+<h2>Note del CAD</h2><p class="small muted">Trascritte dal modello del ${esc(new Date(plan.cadDate + 'T12:00:00Z').toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }))}. Le «quote raccolte» sono bozze, non coordinate con la base.</p>
+${plan.notes.map((n, k) => `<details${k === 0 ? ' open' : ''}><summary>${esc(n.title.charAt(0) + n.title.slice(1).toLowerCase())}</summary><ul>${n.lines.map((l) => `<li>${esc(l)}</li>`).join('')}</ul></details>`).join('')}
+${(i.related?.cards?.length) ? `<p class="small">Schede collegate: ${i.related.cards.map((c) => `<a class="code" href="${href(c)}">${esc(c)}</a>`).join(' · ')}</p>` : ''}`;
+  return {
+    title: i.title, html, keepScroll: !!sel,
+    mount: (root) => {
+      const area = root.querySelector('#fp-area'), det = root.querySelector('#fp-detail');
+      const pick = (id, { focusDetail = false } = {}) => {
+        sel = id; app.setQuery({ r: sel });
+        area.innerHTML = floorPlan(plan, { sel, count: (r) => inRoom(r).length });
+        det.innerHTML = detail();
+        if (focusDetail) det.querySelector('#fp-sel')?.focus(); else area.querySelector(`[data-room="${CSS.escape(id)}"]`)?.focus();
+      };
+      area.addEventListener('click', (e) => { const g = e.target.closest('[data-room]'); if (g) pick(g.dataset.room === sel ? '' : g.dataset.room); });
+      area.addEventListener('keydown', (e) => { const g = e.target.closest('[data-room]'); if (g && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); pick(g.dataset.room === sel ? '' : g.dataset.room); } });
+      app.on('fp-pick', (el) => { pick(el.dataset.id, { focusDetail: true }); det.scrollIntoView({ block: 'nearest' }); });
+      app.on('fp-clear', () => { const was = sel; pick(''); area.querySelector(`[data-room="${CSS.escape(was)}"]`)?.focus(); });
+    },
+  };
 }

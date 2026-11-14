@@ -73,6 +73,7 @@ Modulo `app/lib/viz.js`: funzioni pure che restituiscono HTML o SVG a partire da
 | Matrice delle protezioni | `protectionMatrix(rows)` | Dati e copie | dati × meccanismo; il segno distingue provata, prevista, non attiva, «non è una copia indipendente» |
 | Frontale dello switch | `switchFace(…)` | Rack e porte | numero di porte documentato e destinazioni note; disegno logico, non fisico |
 | Anello del quorum | `quorumRing(voters)` | home | le macchine con voto e la maggioranza necessaria |
+| Planimetria schematica | `floorPlan(plan)` | Impianti › Planimetria (area riservata) | un rettangolo per stanza, da centro e dimensioni del CAD (nord in alto, scala 1 m); stanze cliccabili con superficie, altezze e apparati del modello collocati lì; i muri veri non sono disegnati |
 
 ## Interazioni (novembre 2026)
 
@@ -81,6 +82,12 @@ Modulo `app/lib/viz.js`: funzioni pure che restituiscono HTML o SVG a partire da
 - **Comandi nella ricerca** (`app/lib/commands.js`): forme fisse («cosa succede se manca…», «dove stanno…», «confronta … e …», «da cosa dipende…», nomi di pagina) risolte sul modello; ogni comando apre una vista calcolata. A campo vuoto la palette mostra visti di recente, preferiti ed esempi.
 - **Inventario esplorabile** (`app/views/inventory.js`, motore in `app/lib/inventory.js`): ricerca immediata, faccette con conteggi (categoria, usato da, stato), raggruppamento, griglia con foto o tabella, scheda rapida in un dialogo con precedente/successiva. Le foto di repertorio sono marcate; i pezzi si sommano solo dove la quantità è un numero intero e mai per gli alias.
 - **App installabile e avvisi** (`manifest.webmanifest`, `app.notice` in `app/main.js`): avviso persistente quando una nuova versione ha preso il controllo («Aggiorna ora») e quando si è offline.
+
+## Area riservata
+
+- **Modulo di sblocco** `lockForm()` + `bindLock()` (`app/views/vault.js`): riquadro con lucchetto, campo password, «Ricorda su questo dispositivo», esito annunciato (`role="status"`). Si usa al posto del contenuto di una sezione riservata; a password giusta la vista si ridisegna.
+- **Lucchetto in testata**: mostra se l'area è bloccata o sbloccata e porta a `#riservato`, dove si blocca di nuovo e si legge che cosa è protetto.
+- **Segno** `.lockmark` accanto ai titoli delle sezioni riservate.
 
 ## Larghezze verificate
 

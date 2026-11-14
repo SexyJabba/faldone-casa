@@ -158,3 +158,35 @@ export function quorumRing(voters) {
 ${pts.map(([x, y, v]) => `<a href="${href('e/' + v.id)}" aria-label="${esc(v.name)}: ${esc(v.title || '')}"><circle class="q-node" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r}"/><text class="q-id" x="${x.toFixed(1)}" y="${(y + 4).toFixed(1)}" text-anchor="middle">${esc(clip(v.name, 4))}</text></a>`).join('')}
 </svg>`;
 }
+
+// ---------------------------------------------------------------------------
+// 6. Planimetria schematica: un rettangolo per stanza, da centro e dimensioni del CAD
+// ---------------------------------------------------------------------------
+const itn = (n, d = 2) => Number(n).toLocaleString('it-IT', { minimumFractionDigits: d, maximumFractionDigits: d });
+/** Estremi di una stanza in metri: x verso est, z verso sud (nord = −z nel CAD). */
+export const roomBox = (r) => ({ x0: r.x - r.w / 2, x1: r.x + r.w / 2, z0: r.z - r.d / 2, z1: r.z + r.d / 2 });
+
+/** plan: {rooms:[{id,name,area,hmin,hmax,x,z,w,d}]}; count(room) → numero di apparati da mostrare; sel: id selezionato. */
+export function floorPlan(plan, { sel = '', count = () => 0, k = 58 } = {}) {
+  const rooms = plan.rooms || [];
+  if (!rooms.length) return '';
+  const boxes = rooms.map(roomBox);
+  const minX = Math.min(...boxes.map((b) => b.x0)), maxX = Math.max(...boxes.map((b) => b.x1)), minZ = Math.min(...boxes.map((b) => b.z0)), maxZ = Math.max(...boxes.map((b) => b.z1));
+  const M = 26, TOP = 14, W = (maxX - minX) * k + 2 * M + 46, H = (maxZ - minZ) * k + TOP + M + 34;
+  const px = (x) => M + (x - minX) * k, py = (z) => TOP + (z - minZ) * k;
+  const cell = (r, i) => {
+    const b = boxes[i], w = r.w * k, h = r.d * k, n = count(r);
+    const small = w < 84 || h < 60, tiny = w < 62;
+    const words = r.name.split(' ');
+    const lines = tiny ? words : w < 110 && r.name.length > 12 ? [words.slice(0, Math.ceil(words.length / 2)).join(' '), words.slice(Math.ceil(words.length / 2)).join(' ')].filter(Boolean) : [r.name];
+    const cx = px(r.x), cy = py(r.z), lh = small ? 11.5 : 15;
+    const y0 = cy - ((lines.length - 1) * lh + (small ? 12 : 16)) / 2 + 3;
+    return `<g class="fp-room${r.id === sel ? ' sel' : ''}${r.hmax < 1.5 ? ' low' : ''}" tabindex="0" role="button" aria-pressed="${r.id === sel}" data-room="${esc(r.id)}"><title>${esc(`${r.name}: ${itn(r.area)} m², altezza da ${itn(r.hmin)} a ${itn(r.hmax)} m`)}</title><rect x="${px(b.x0).toFixed(1)}" y="${py(b.z0).toFixed(1)}" width="${w.toFixed(1)}" height="${h.toFixed(1)}" rx="3"/>${lines.map((l, j) => `<text class="fp-n${small ? ' s' : ''}" x="${cx.toFixed(1)}" y="${(y0 + j * lh).toFixed(1)}" text-anchor="middle">${esc(l)}</text>`).join(' ')} <text class="fp-a${small ? ' s' : ''}" x="${cx.toFixed(1)}" y="${(y0 + lines.length * lh + (small ? 0 : 2)).toFixed(1)}" text-anchor="middle">${itn(r.area)} m²</text>${n ? `<g class="fp-dev" aria-hidden="true"><circle cx="${(px(b.x1) - 13).toFixed(1)}" cy="${(py(b.z0) + 13).toFixed(1)}" r="9"/><text x="${(px(b.x1) - 13).toFixed(1)}" y="${(py(b.z0) + 17).toFixed(1)}" text-anchor="middle">${n}</text></g>` : ''}</g>`;
+  };
+  const sx = M, sy = H - 14;
+  return `<svg class="vz-plan" viewBox="0 0 ${W.toFixed(0)} ${H.toFixed(0)}" width="${W.toFixed(0)}" height="${H.toFixed(0)}" role="group" aria-label="${esc(`Planimetria schematica: ${rooms.length} vani. Il nord è in alto.`)}">
+${rooms.map(cell).join('')}
+<g class="fp-north" aria-hidden="true" transform="translate(${(W - 26).toFixed(0)},34)"><path d="M0 -16L6 4L0 0L-6 4z"/><text x="0" y="18" text-anchor="middle">N</text></g>
+<g class="fp-scale" aria-hidden="true"><path d="M${sx} ${sy}h${k}M${sx} ${sy - 4}v8M${sx + k} ${sy - 4}v8"/><text x="${sx + k + 8}" y="${sy + 4}">1 m</text></g>
+</svg>`;
+}

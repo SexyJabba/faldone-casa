@@ -776,3 +776,41 @@ body.presenting .notices{bottom:76px}
 /* mappa su schermi stretti: il dettaglio va sotto la mappa, non di fianco */
 @media (max-width:1000px){.mapcols{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:600px){[data-action=simtoggle]{margin:8px 0 0!important;width:100%;justify-content:center}}
+
+/* planimetria schematica */
+.vz-plan{min-width:520px;width:100%;max-width:760px}
+.fp-room{cursor:pointer}
+.fp-room rect{fill:var(--card);stroke:var(--line2);stroke-width:1.5}
+.fp-room.low rect{fill:url(#fp-hatch) var(--bg2);fill:var(--bg2);stroke-dasharray:5 3}
+.fp-room:hover rect{stroke:var(--accent);fill:var(--accentbg)}
+.fp-room.sel rect{stroke:var(--accent);stroke-width:3;fill:var(--accentbg);stroke-dasharray:none}
+.fp-room:focus-visible{outline:none}.fp-room:focus-visible rect{stroke:var(--focus);stroke-width:3}
+.fp-n{font-size:14px;font-weight:600;fill:var(--fg)}.fp-n.s{font-size:10.5px}
+.fp-a{font-size:12px;fill:var(--muted);font-family:var(--mono)}.fp-a.s{font-size:9.5px}
+.fp-dev circle{fill:var(--accent)}.fp-dev text{fill:var(--card);font-size:11px;font-weight:700}
+.fp-north path{fill:var(--accent)}.fp-north text{font-size:11px;font-weight:700;fill:var(--fg)}
+.fp-scale path{stroke:var(--muted);stroke-width:1.5;fill:none}.fp-scale text{font-size:11px;fill:var(--muted)}
+
+.tile .meta .st,.phead .st{white-space:normal;border-radius:12px;text-align:left}
+
+/* ============================================================
+   Area riservata
+   ============================================================ */
+.lockcard{max-width:560px;margin:16px 0;border-color:var(--line2)}
+.lock-h{display:flex;gap:14px;align-items:flex-start}
+.lock-h h2{margin:0 0 4px;font-size:1.125rem}.lock-h p{margin:0;color:var(--muted)}
+.lock-h .ic{width:44px;height:44px}.lock-h .ic svg{width:24px;height:24px}
+.lock-f{display:grid;gap:12px;margin:16px 0 12px}
+.lock-f input[type=password]{min-height:48px;font-size:1.05rem;font-family:var(--mono);letter-spacing:.02em}
+.lock-r{display:flex;gap:10px;align-items:center;font-size:.9375rem}
+.lock-r input{width:20px;height:20px;flex:none}
+.lock-f .btn{justify-content:center}
+.lock-s{min-height:1.4em;margin:0;color:var(--bad);font-weight:500}
+.lockmark{display:inline-flex;align-items:center;gap:4px;color:var(--muted);font-weight:500}
+.lockmark svg{width:15px;height:15px}
+.iconbtn.on{color:var(--ok);border-color:color-mix(in srgb,var(--ok) 45%,var(--line))}
+.privcard{margin-top:24px;border-left:4px solid var(--accent)}
+.privcard h2{display:flex;align-items:center;gap:8px;margin-top:0;font-size:1.125rem}
+@media (max-width:420px){.top .tools{gap:4px}.iconbtn{min-width:38px;padding:6px 8px}}
+
+h2.h3{font-size:1rem;font-weight:600;margin:0 0 .5em}h2.h3:focus{outline:none}

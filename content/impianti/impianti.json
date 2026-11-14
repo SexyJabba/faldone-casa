@@ -348,20 +348,25 @@
    "short": "Planimetria",
    "status": {
     "decision": null,
-    "label": "Da compilare"
+    "label": "Riservata · si apre con la password"
    },
-   "summary": "Piani, stanze, sottotetto e posizione di impianti e apparati.",
+   "summary": "Piani, stanze e posizione di impianti e apparati. Il contenuto è riservato: si legge solo dopo aver sbloccato l'area riservata.",
    "related": {
     "entities": [
      "P-CASA",
      "P-SALA",
-     "P-LAB"
+     "P-LAB",
+     "P-CUCINA",
+     "P-CAMERA",
+     "P-SALONE",
+     "P-INGRESSO"
     ],
     "cards": [
      "REV4-CLIENT",
      "ATL-30"
     ]
-   }
+   },
+   "riservato": true
   }
  ]
 }

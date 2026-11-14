@@ -21,9 +21,11 @@ const PAGES = [
   ['esplora/dati', 'Dati e copie', 'dati copie backup protezioni'],
   ['esplora/rack', 'Rack e porte', 'rack porte switch'],
   ['impianti', 'Impianti di casa', 'impianti vmc casa'],
+  ['impianti/planimetria', 'Planimetria della casa (area riservata)', 'planimetria pianta stanze casa piano'],
   ['percorsi', 'Percorsi leggibili', 'percorsi flusso'],
   ['presenta', 'Il progetto in cinque minuti', 'presentazione progetto cinque minuti tour'],
   ['preferiti', 'Preferiti e dati locali', 'preferiti impostazioni dati locali offline esporta'],
+  ['riservato', 'Area riservata', 'riservato riservata password sblocca blocca protetto privato'],
   ['contribuisci', 'Questioni aperte', 'questioni domande aperte contribuisci segnala'],
 ].map(([route, title, kw]) => ({ route, title, stems: new Set(tokens(title + ' ' + kw).map(stem)) }));
 

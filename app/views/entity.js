@@ -1,4 +1,5 @@
-import { badge, esc, href, phead, ctxbar, dims, st, ev, kind, mech, factValue, srcLinks, table } from '../ui.js';
+import { badge, esc, href, phead, ctxbar, dims, st, ev, kind, mech, factValue, srcLinks, table, icon } from '../ui.js';
+import { lockForm, bindLock } from './vault.js';
 import { REL_LABEL, walk } from '../lib/model.js';
 import { egoGraph } from '../lib/viz.js';
 import { simulate, ST, ST_LABEL, sharesDomain, copyReadiness, diff } from '../lib/sim.js';
@@ -27,7 +28,18 @@ export function condText(c, idx) {
   return '';
 }
 
-export function entity(app, [id]) {
+export async function entity(app, p) {
+  const out = entityView(app, p);
+  // dati riservati dell'elemento: l'indice pubblico dice solo se esistono
+  const box = await app.vault.box();
+  if (!out.entityId || !box?.index.entita.includes(out.entityId)) return out;
+  const data = await app.vault.ready();
+  const rows = data?.entita?.[out.entityId];
+  const sec = rows ? `<section class="card privcard" aria-labelledby="h-priv"><h2 id="h-priv">${icon('unlock')} Dati riservati</h2><dl class="kv">${rows.map((r) => `<dt>${esc(r.label)}</dt><dd>${r.value === null ? '<span class="muted">non noto</span>' : esc(r.value)}${r.note ? `<br><span class="small muted">${esc(r.note)}</span>` : ''}</dd>`).join('')}</dl></section>` : lockForm(app, { title: 'Dati riservati di questo elemento', text: 'Indirizzi, porte e altri dettagli sensibili si leggono solo con la password dell\'area riservata.' });
+  const mount0 = out.mount;
+  return { ...out, html: out.html + sec, mount: (root) => { mount0?.(root); if (!rows) bindLock(app, () => app.go(app.route, { replace: true })); } };
+}
+function entityView(app, [id]) {
   const { idx, core } = app;
   const e = idx.get(id);
   if (!e) return { title: 'Non trovato', html: `${phead({ title: `Elemento ${id} non trovato` })}<p>Nessun elemento con questo identificativo. <a href="#cerca?q=${encodeURIComponent(id)}">Cerca «${esc(id)}»</a>.</p>` };
@@ -156,6 +168,6 @@ ${tests.length ? `<div class="card"><h3>Collaudi</h3><ul class="list">${tests.ma
 ${decisions.length || tasks.length ? `<div class="card"><h3>Progetto</h3><ul class="list">${decisions.map((d) => `<li><a href="${href('realizza/decisioni/' + d.id)}">${esc(d.title)}</a></li>`).join('')}${tasks.map((t) => `<li><a href="${href('realizza/attivita/' + t.id)}"><span class="code">${esc(t.id)}</span> ${esc(t.title)}</a></li>`).join('')}</ul></div>` : ''}
 ${issues.length ? `<div class="card"><h3>Questioni aperte</h3><ul class="list">${issues.map((q) => `<li><a href="${href('contribuisci/' + q.id)}">${esc(q.title)}</a></li>`).join('')}</ul></div>` : ''}
 </aside></div>`;
-  return { title: e.name, html };
+  return { title: e.name, html, entityId: e.id };
 }
 void ST; void ST_LABEL; void sharesDomain;

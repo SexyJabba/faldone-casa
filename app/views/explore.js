@@ -15,7 +15,7 @@ export function explore(app) {
     ['esplora/dati', 'data', 'Dati e copie', `${n('dataset')} insiemi di dati, ${n('storage')} archivi, ${n('copy')} protezioni.`],
     ['esplora/rete', 'network', 'Rete', `${n('network')} reti e collegamenti, WAN, VLAN, radio.`],
     ['esplora/rack', 'rack', 'Rack e porte', 'Vista logica del rack e dello switch.'],
-    ['impianti', 'plug', 'Impianti di casa', 'VMC compilata come ipotesi; corrente, acqua, sensori, allarme, telecamere, LAN, fotovoltaico, planimetria da compilare.'],
+    ['impianti', 'plug', 'Impianti di casa', 'Planimetria del piano con le stanze, VMC compilata come ipotesi; corrente, acqua, sensori, allarme, telecamere, LAN e fotovoltaico da compilare.'],
     ['inventario', 'box', 'Inventario', `${core.meta.counts.inventory} voci con assegnazione e foto.`],
   ].map(([r, i, t, d]) => `<a class="tile" href="${href(r)}">${ic(i)}<span class="t">${t}${go}</span><p>${esc(d)}</p></a>`).join('')}</div>
 <h2>Viste collegate</h2><div class="grid cols3">${[
@@ -37,7 +37,7 @@ export function scope(app, [id]) {
   const world = null;
   void world;
   const html = `${ctxbar([['Esplora', 'esplora'], [s.name]])}<div data-scope="${s.id}" class="scope-bar" style="padding-top:8px">${phead({ eyebrow: 'Ambito', title: s.name, lead: esc(app.depth === 'capire' ? s.simple : s.tagline + ' ' + s.simple) })}</div>
-<p class="small">Schede di riferimento: ${s.cards.map((c) => `<a class="code" href="${href(c)}">${esc(c)}</a>`).join(' · ')}</p>${id === 'casa' ? `<div class="callout"><strong>Impianti di casa</strong>Ventilazione, corrente, acqua, sensori, allarme e altri impianti che la domotica dovrà governare. <a href="${href('impianti')}">Vai agli impianti</a></div>` : ''}
+<p class="small">Schede di riferimento: ${s.cards.map((c) => `<a class="code" href="${href(c)}">${esc(c)}</a>`).join(' · ')}</p>${id === 'casa' ? `<div class="callout"><strong>Impianti di casa</strong>Ventilazione, corrente, acqua, sensori, allarme e altri impianti che la domotica dovrà governare. <a href="${href('impianti')}">Vai agli impianti</a> · <a href="${href('impianti/planimetria')}">Apri la planimetria</a></div>` : ''}
 ${sect('Servizi', by('service'))}${sect('Macchine e apparati', [...by('node'), ...by('device')])}${sect('Dati, archivi e copie', [...by('dataset'), ...by('storage'), ...by('copy')])}${sect('Reti', by('network'))}${sect('Luoghi', by('place'))}`;
   return { title: s.name, html };
 }
