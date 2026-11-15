@@ -115,6 +115,12 @@ Modulo `app/lib/viz.js`: funzioni pure che restituiscono HTML o SVG a partire da
 - **Spaccato**: solo per i modelli di cui l'inventario ha una foto dell'interno (`CUTAWAY_SOURCE`); per gli altri la pagina dice che l'interno non è documentato. Le etichette vengono dai dati dell'entità; un dato mancante è scritto come mancante.
 - **Riservatezza**: nessun indirizzo, porta o posizione nella casa oltre al nome del luogo già pubblico nel modello.
 
+## Faldone stampabile
+
+- **Pagina** `#documenti/stampa` (`app/views/stampa.js`): intero, a blocchi, a schede; pagine, fogli e peso vengono dai PDF generati, mai stimati. Se un PDF è più vecchio del testo, la pagina lo dice.
+- **Fogli** (`app/stampa.css`): a schermo fogli chiari su un piano grigio con la barra «Stampa»; in stampa A4 con testata blu, codice in alto a destra e piè di pagina «codice | revisione | data». Sono documenti a sé, senza barra laterale.
+- **Tabelle**: dentro un contenitore scorrevole raggiungibile da tastiera (`role="group"`), che in stampa non taglia nulla; l'intestazione si ripete a ogni pagina.
+
 ## Area riservata
 
 - **Modulo di sblocco** `lockForm()` + `bindLock()` (`app/views/vault.js`): riquadro con lucchetto, campo password, «Ricorda su questo dispositivo», esito annunciato (`role="status"`). Si usa al posto del contenuto di una sezione riservata; a password giusta la vista si ridisegna.

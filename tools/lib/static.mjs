@@ -20,16 +20,17 @@ function page({ title, depth = 1, body, inlineCss = false, desc = '' }) {
   return `<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
 <title>${esc(title)} · Il Faldone</title>${desc ? `<meta name="description" content="${esc(desc)}">` : ''}${inlineCss ? '' : `<link rel="icon" href="${up}assets/favicon.svg" type="image/svg+xml">`}${css}</head>
-<body><a class="skip" href="#contenuto">Vai al contenuto</a><header class="sh"><a class="brand" href="${up}index.html">Il Faldone</a><nav aria-label="Navigazione statica"><a href="${up}schede/index.html">Indice delle schede</a> · <a href="${up}kit/emergenza.html">Emergenza</a> · <a href="${up}index.html">Versione interattiva</a></nav></header>
+<body><a class="skip" href="#contenuto">Vai al contenuto</a><header class="sh"><a class="brand" href="${up}index.html">Il Faldone</a><nav aria-label="Navigazione statica"><a href="${up}schede/index.html">Indice delle schede</a> · <a href="${up}stampa/index.html">Faldone stampabile</a> · <a href="${up}kit/emergenza.html">Emergenza</a> · <a href="${up}index.html">Versione interattiva</a></nav></header>
 <main id="contenuto">${body}</main></body></html>`;
 }
 
-const rewriteLinks = (html, cardSet, prefix = '') => html.replace(/href="#([A-Za-z0-9.-]+)"/g, (m, code) => (cardSet.has(code) ? `href="${prefix}${code}.html"` : m));
+const rewriteLinks = (html, cardSet, prefix = '') => html.replace(/<table\b/g, '<div class="tablewrap" tabindex="0" role="group" aria-label="Tabella"><table').replace(/<\/table>/g, '</table></div>').replace(/href="#([A-Za-z0-9.-]+)"/g, (m, code) => (cardSet.has(code) ? `href="${prefix}${code}.html"` : m));
 
 export function renderCardPage(ctx, g, code) {
   const card = ctx.cards.find((c) => c.code === code);
   const cardSet = new Set(ctx.cards.map((c) => c.code));
   const others = g.codes.filter((c) => c !== code);
+  const sheet = ctx.cards.find((c) => c.group === g.id).code; // la scheda stampabile porta il primo codice del testo
   const ents = (ctx.usedBy.get(code) || []).map((id) => ctx.entities.find((e) => e.id === id)).filter(Boolean);
   const body = `<p class="eyebrow">${esc(card.block)} · ${esc(ctx.blocks[card.block] || '')} · Revisione ${esc(ctx.meta.revision)}</p>
 <h1><span class="code">${esc(code)}</span> ${esc(ctx.groupTitle(g))}</h1>
@@ -37,7 +38,7 @@ export function renderCardPage(ctx, g, code) {
 ${others.length ? `<p class="note">Testo comune a ${others.length + 1} schede: ${others.map((c) => `<a href="${c}.html">${esc(c)}</a>`).join(', ')}. La parte specifica di ${esc(code)} è in fondo.</p>` : ''}
 <article class="doc">${rewriteLinks(sanitizeHtml(g.html), cardSet)}${g.tails[code] ? `<section class="tail"><h2>Parte specifica di ${esc(code)}</h2>${rewriteLinks(sanitizeHtml(g.tails[code]), cardSet)}</section>` : ''}</article>
 ${ents.length ? `<h2>Elementi descritti</h2><ul>${ents.map((e) => `<li><a href="../e/${e.id}.html">${esc(e.name)}</a> — ${esc(e.oneLine)}</li>`).join('')}</ul>` : ''}
-<p class="links"><a href="../${esc(card.pdf)}">PDF della scheda</a> · <a href="../${esc(card.md)}">Sorgente Markdown</a> · <a href="../index.html#${esc(code)}">Apri nella versione interattiva</a></p>
+<p class="links"><a href="../stampa/scheda/${esc(sheet)}.html">Scheda stampabile</a> · <a href="../stampa/pdf/${esc(sheet)}.pdf">PDF della scheda</a> · <a href="../${esc(card.pdf)}">PDF d'archivio 4.4</a> · <a href="../${esc(card.md)}">Sorgente Markdown</a> · <a href="../index.html#${esc(code)}">Apri nella versione interattiva</a></p>
 <footer class="sf">Il Faldone · revisione ${esc(ctx.meta.revision)} del ${esc(ctx.meta.documentDate)} · Documentazione di progetto, nessuna telemetria.</footer>`;
   return page({ title: `${code} ${ctx.groupTitle(g)}`, body, desc: card.title });
 }
@@ -109,7 +110,7 @@ export function renderShell({ meta, scopes, procedures, build }) {
 <section class="hero"><p class="eyebrow">Il Faldone · revisione ${esc(meta.revision)}</p><h1>Atlante dell'infrastruttura</h1><p><a class="btn primary" href="presentazione.html">Scopri il progetto in 5 minuti</a></p>
 <p>${esc(meta.statement)}</p>
 <ul class="intents">${intents.map(([k, t, r]) => `<li><a href="#${r}">${esc(t)}</a></li>`).join('')}</ul>
-<noscript><p class="warn">La versione interattiva richiede JavaScript. Senza JavaScript puoi leggere <a href="presentazione.html">il progetto in cinque minuti</a>, consultare <a href="schede/index.html">tutte le schede</a>, il <a href="kit/emergenza.html">kit di emergenza</a> e il <a href="INF_Faldone-completo-navigabile.pdf">PDF completo</a>.</p>
+<noscript><p class="warn">La versione interattiva richiede JavaScript. Senza JavaScript puoi leggere <a href="presentazione.html">il progetto in cinque minuti</a>, consultare <a href="schede/index.html">tutte le schede</a>, il <a href="kit/emergenza.html">kit di emergenza</a> e il <a href="stampa/index.html">Faldone stampabile</a>.</p>
 <h2>Ambiti</h2><ul>${scopes.map((s) => `<li><strong>${esc(s.name)}</strong>: ${esc(s.simple)}</li>`).join('')}</ul>
 <h2>In caso di problemi</h2><ul>${procedures.filter((p) => p.emergency).map((p) => `<li><a href="kit/emergenza.html#${p.id}">${esc(p.symptom)}</a></li>`).join('')}</ul></noscript></section>
 </main>

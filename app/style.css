@@ -1136,3 +1136,8 @@ a:hover .ri-mark circle,a:focus-visible .ri-mark circle{fill:#ffd166}
 .dv-svg{display:block;max-width:100%;height:auto}
 .dv-svg text{font-family:var(--mono)}
 .dv-svg .rk-sub{font-size:8px;fill:#3a444d;font-family:var(--sans)}
+
+/* Faldone stampabile */
+.st-stats{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin-bottom:14px}
+.st-whole{margin:14px 0 22px}
+#st-sheets li{padding:6px 0}#st-sheets [hidden]{display:none}

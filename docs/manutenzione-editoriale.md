@@ -16,7 +16,20 @@ Se la build si ferma, il messaggio dice quale riferimento manca o quale regola �
 3. Non cambiare i codici nell'intestazione `<!--faldone {...} -->`: sono gli identificativi stabili. Per aggiungere un nuovo codice serve anche una voce in `content/corpus/cards.json` con PDF e Markdown.
 4. Build: la modifica arriva a ricerca, pagine statiche di tutti i codici del gruppo, kit e sito (verificato dal test A23).
 
-I PDF e l'EPUB della 4.4 non vengono rigenerati da questa build: restano marcati come revisione 4.4.
+Dopo la build, se il testo di una scheda è cambiato, si rigenera il suo PDF: `node tools/stampa.mjs` (serve Playwright con Chromium). Lo strumento rifà solo i PDF il cui testo è cambiato; le prove falliscono se qualche PDF è rimasto indietro.
+
+I PDF e l'EPUB d'archivio della 4.4 (`02_PDF_correnti/`, `INF_*.pdf`) non vengono rigenerati: restano marcati come revisione 4.4.
+
+## Faldone stampabile
+
+Il raccoglitore a schede sostituibili si genera dagli stessi testi del sito; non c'è più una copia da allineare altrove.
+
+- **Una scheda per testo.** Un testo che vale per più codici è una scheda sola, sotto il suo primo codice (nell'ordine di `cards.json`); l'indice di ogni blocco dice in quale scheda si legge ciascun codice.
+- **Pagine** (rifatte da `node tools/build.mjs`): `stampa/index.html` (indice senza JavaScript), `stampa/faldone.html` (intero), `stampa/blocco-XX.html` (un blocco, completo da solo), `stampa/scheda/CODICE.html` (una scheda), `stampa/parti/` (frontespizio e indici dei blocchi). Impaginazione in `tools/lib/stampa.mjs` e `app/stampa.css`.
+- **PDF** (rifatti da `node tools/stampa.mjs`): un file per scheda e per parte in `stampa/pdf/`, sempre con pagine pari, con codice, revisione, data e «pagina n di N» della scheda in ogni piè di pagina. `stampa/pdf/manifest.json` registra da quale testo è nato ogni PDF.
+- **PDF intero e di blocco**: non sono file nel repository. Li compone il browser al momento, unendo i PDF delle schede (`app/lib/pdfmerge.js`), dalla pagina `#documenti/stampa`.
+- **Se cambia l'impaginazione** (`app/stampa.css` o il modello di pagina) tutti i PDF risultano da rigenerare: è voluto.
+- Data e revisione stampate sono quelle del documento (`meta.revision`, `meta.documentDate`): il corpus non ha una data per singola scheda e non se ne inventa una.
 
 ## Aggiornare un nodo
 
