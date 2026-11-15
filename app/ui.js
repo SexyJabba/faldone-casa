@@ -18,6 +18,7 @@ export const ICON = {
   sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/>',
   auto: '<circle cx="12" cy="12" r="9"/><path d="M12 3v18M12 7l5.5 5.5M12 12l4 4" />',
   arrow: '<path d="M5 12h14M13 6l6 6-6 6"/>',
+  sidebar: '<rect x="3" y="4.5" width="18" height="15" rx="3"/><path d="M9 4.5v15M5.5 8.5h1M5.5 11.5h1"/>',
   up: '<path d="M12 19V5M6 11l6-6 6 6"/>',
   atlas: '<path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2zM9 4v14M15 6v14"/>',
   check: '<circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/>',

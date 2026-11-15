@@ -5,6 +5,7 @@ import { esc, icon, href } from './ui.js';
 import { routes, resolveRoute } from './views/index.js';
 import { pushRecent } from './lib/commands.js';
 import * as vault from './lib/vault.js';
+import { navRouteFor } from './lib/nav.js';
 
 const $ = (s, r = document) => r.querySelector(s);
 const app = {
@@ -121,6 +122,7 @@ app.setQuery = (q) => {
 const THEME_LABEL = { auto: 'come il sistema', light: 'chiaro', dark: 'scuro' };
 function tools() {
   const depthBtns = [['capire', 'Capire'], ['approfondire', 'Approfondire'], ['intervenire', 'Intervenire']];
+  if (!document.querySelector('[data-action=sidebar]')) $('#top-l').insertAdjacentHTML('afterbegin', `<button class="iconbtn" type="button" data-action="sidebar" aria-controls="sidebar" aria-expanded="true" aria-label="Nascondi la barra laterale">${icon('sidebar')}</button>`), $('#top-l').insertAdjacentHTML('beforeend', '<span class="top-title" id="top-title" aria-hidden="true"></span>');
   $('#tools').innerHTML = `<button class="iconbtn searchbtn" type="button" data-action="palette" aria-label="Cerca (scorciatoia / o Ctrl+K)">${icon('search')}<span class="lbl">Cerca</span><kbd class="lbl">/</kbd></button>
 <a class="iconbtn${app.vault.data ? ' on' : ''}" href="#riservato" aria-label="Area riservata: ${app.vault.data ? 'sbloccata' : 'bloccata'}" title="Area riservata: ${app.vault.data ? 'sbloccata' : 'bloccata'}">${icon(app.vault.data ? 'unlock' : 'lock')}</a>
 <a class="iconbtn" href="#preferiti" aria-label="Preferiti e dati locali">${icon('star')}</a>
@@ -149,8 +151,34 @@ function totop() {
   let ticking = false;
   window.addEventListener('scroll', () => { if (ticking) return; ticking = true; requestAnimationFrame(() => { b.hidden = window.scrollY < 700; ticking = false; }); }, { passive: true });
 }
-function markNav(area) {
+function markNav(area, path = '') {
   document.querySelectorAll('[data-nav]').forEach((a) => { if (a.dataset.nav === area) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
+  const side = navRouteFor(path, { kindOf: (id) => app.idx.get(id)?.kind, isCard: (c) => app.idx.cards.has(c) });
+  document.querySelectorAll('[data-side]').forEach((a) => { if (a.dataset.side === side) { a.setAttribute('aria-current', 'page'); const box = a.closest('.side-nav'); if (box && (a.offsetTop < box.scrollTop || a.offsetTop + a.offsetHeight > box.scrollTop + box.clientHeight)) box.scrollTop = a.offsetTop - box.clientHeight / 2; } else a.removeAttribute('aria-current'); });
+}
+// ---------- barra laterale: fissa sugli schermi larghi (richiudibile), a scomparsa su quelli stretti ----------
+const wide = () => window.matchMedia('(min-width: 1000px)').matches;
+const sideOpen = () => (wide() ? !document.body.classList.contains('sb-collapsed') : document.body.classList.contains('sb-open'));
+function sidebar() {
+  const sb = $('#sidebar');
+  const scrim = document.createElement('div'); scrim.className = 'scrim'; scrim.dataset.action = 'sidebar-close'; $('#app').append(scrim);
+  const sync = () => {
+    const open = sideOpen();
+    sb.inert = !open;
+    const b = document.querySelector('[data-action=sidebar]');
+    if (b) { b.setAttribute('aria-expanded', open); b.setAttribute('aria-label', open ? 'Nascondi la barra laterale' : 'Mostra la barra laterale'); }
+  };
+  app.sidebarSync = sync;
+  app.toggleSidebar = (force) => {
+    if (wide()) { const c = force === undefined ? !document.body.classList.contains('sb-collapsed') : !force; document.body.classList.toggle('sb-collapsed', c); app.data.prefs.sidebar = c ? 'chiusa' : 'aperta'; app.persist(); }
+    else document.body.classList.toggle('sb-open', force === undefined ? !document.body.classList.contains('sb-open') : force);
+    sync();
+    if (!wide() && sideOpen()) (sb.querySelector('[aria-current=page]') || sb.querySelector('a'))?.focus();
+  };
+  if (app.data.prefs.sidebar === 'chiusa') document.body.classList.add('sb-collapsed');
+  sb.addEventListener('click', (e) => { if (e.target.closest('a') && !wide()) app.toggleSidebar(false); });
+  window.matchMedia('(min-width: 1000px)').addEventListener('change', () => { document.body.classList.remove('sb-open'); sync(); });
+  sync();
 }
 
 // ---------- router ----------
@@ -171,7 +199,8 @@ async function render() {
   app.handlers.clear();
   app.onKey = null;
   document.body.classList.remove('presenting');
-  markNav(area);
+  markNav(area, path);
+  if (!wide() && document.body.classList.contains('sb-open')) app.toggleSidebar?.(false);
   app.renderCount = (app.renderCount || 0) + 1;
   const main = $('#main');
   main.setAttribute('aria-busy', 'true');
@@ -185,6 +214,7 @@ async function render() {
   if (app.prev !== location.hash) { main.classList.remove('enter'); void main.offsetWidth; main.classList.add('enter'); }
   main.removeAttribute('aria-busy');
   document.title = `${out.title} · Il Faldone ${app.core.meta.revision}`;
+  const tt = document.getElementById('top-title'); if (tt) tt.textContent = out.title;
   out.mount?.(main);
   // recenti per la ricerca: solo pagine di contenuto, su questo dispositivo
   if (/^(e\/|procedura\/|percorsi\/.|impianti\/|inventario\/|realizza\/(attivita|decisioni)\/)/.test(path) || app.idx.cards.has(path)) { app.data.progress = { ...app.data.progress, recent: pushRecent(app.data.progress?.recent, { route: path, title: out.title }) }; app.persist(); }
@@ -212,6 +242,8 @@ document.addEventListener('click', (e) => {
     app.data.prefs.theme = order[(order.indexOf(app.data.prefs.theme) + 1) % 3];
     app.persist(); applyTheme(); tools(); document.querySelector('[data-action=theme]')?.focus(); app.toast(`Tema: ${THEME_LABEL[app.data.prefs.theme]}`); return;
   }
+  if (a === 'sidebar') { app.toggleSidebar(); return; }
+  if (a === 'sidebar-close') { app.toggleSidebar(false); document.querySelector('[data-action=sidebar]')?.focus(); return; }
   if (a === 'depth') { setDepth(el.dataset.v); return; }
   if (a === 'totop') { window.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion:reduce)').matches ? 'auto' : 'smooth' }); ($('#main h1') || $('#main')).focus({ preventScroll: true }); return; }
   if (a === 'print') { window.print(); return; }
@@ -274,6 +306,7 @@ document.addEventListener('keydown', (e) => {
   if (e.key !== 'Escape') return;
   const pops = document.querySelectorAll('.pop');
   if (pops.length) { pops.forEach((p) => p.remove()); return; }
+  if (!wide() && document.body.classList.contains('sb-open')) { app.toggleSidebar(false); document.querySelector('[data-action=sidebar]')?.focus(); return; }
   const m = document.querySelector('details.menu[open]');
   if (m) { m.open = false; m.querySelector('summary').focus(); }
 });
@@ -293,7 +326,7 @@ document.addEventListener('click', (e) => { for (const m of document.querySelect
   if (loaded.status === 'migrato') { app.persist(); setTimeout(() => app.toast('Preferiti e impostazioni della 4.4 recuperati su questo dispositivo.'), 600); }
   if (loaded.status === 'corrotto') setTimeout(() => app.toast('I dati locali non erano leggibili: ripartiti da zero. Il contenuto originale non è stato cancellato.'), 600);
   app.depth = app.data.prefs.depth || 'capire';
-  applyTheme(); tools(); depthbar(); bottomnav(); totop();
+  applyTheme(); tools(); sidebar(); depthbar(); bottomnav(); totop();
   await app.vault.ready().catch(() => null);
   void routes;
   await render();

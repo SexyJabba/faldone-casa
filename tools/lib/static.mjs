@@ -7,6 +7,7 @@ import { renderScene } from '../../app/lib/scenes.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..');
 const STATIC_CSS = () => readFileSync(join(ROOT, 'app/static.css'), 'utf8');
+import { sidebarHtml } from '../../app/lib/nav.js';
 
 const DEC = { ipotesi: 'Ipotesi', proposta: 'Proposta', approvata: 'Approvata', superata: 'Superata', da_chiarire: 'Da chiarire' };
 const REAL = { da_acquisire: 'Da acquisire', ordinato: 'Ordinato / dichiarato', disponibile: 'Disponibile', installato: 'Installato', configurato: 'Configurato', collaudato: 'Collaudato', dismesso: 'Dismesso', non_attestato: 'Installazione non attestata' };
@@ -94,16 +95,16 @@ export function renderShell({ meta, scopes, procedures, build }) {
   const intents = [['capire', 'Voglio capire il progetto', 'percorsi/cinque-minuti'], ['trovare', 'Voglio trovare un servizio o una macchina', 'esplora'], ['guasto', 'Qualcosa non funziona', 'emergenza'], ['realizza', 'Voglio realizzare il prossimo passo', 'realizza'], ['aiuto', 'Voglio aiutare o verificare una scelta', 'contribuisci']];
   return `<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
-<meta name="theme-color" content="#f4f6f8" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#121820" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f2f4f7" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0b1016" media="(prefers-color-scheme: dark)">
 <meta name="description" content="Atlante operativo dell'infrastruttura di casa, laboratorio e Vito. Revisione ${esc(meta.revision)}.">
 <title>Il Faldone · revisione ${esc(meta.revision)}</title>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png"><meta name="apple-mobile-web-app-title" content="Faldone"><link rel="stylesheet" href="app/style.css?v=${build}"><link rel="stylesheet" href="app/scenes.css?v=${build}">
 <link rel="modulepreload" href="app/main.js?v=${build}"></head>
 <body><a class="skip" href="#main">Vai al contenuto</a>
 <div class="app" id="app">
-<header class="top" role="banner"><a class="brand" href="#"><span class="mark" aria-hidden="true">F</span><span><strong>Il Faldone</strong><small>Rev ${esc(meta.revision)} · progetto</small></span></a>
-<nav class="primary" aria-label="Navigazione principale"><a href="#" data-nav="">Panoramica</a><a href="#esplora" data-nav="esplora">Esplora</a><a href="#emergenza" data-nav="emergenza">Usa e risolvi</a><a href="#realizza" data-nav="realizza">Realizza</a><a href="#documenti" data-nav="documenti">Documentazione</a></nav>
-<div class="tools" id="tools"></div></header>
+<aside class="sidebar" id="sidebar">${sidebarHtml({ revision: esc(meta.revision) })}</aside>
+<div class="content">
+<header class="top" role="banner"><div class="top-l" id="top-l"><a class="brand brand-top" href="#" aria-label="Il Faldone, panoramica"><span class="mark" aria-hidden="true">F</span><strong>Il Faldone</strong></a></div><div class="tools" id="tools"></div></header>
 <main id="main" tabindex="-1">
 <section class="hero"><p class="eyebrow">Il Faldone · revisione ${esc(meta.revision)}</p><h1>Atlante dell'infrastruttura</h1><p><a class="btn primary" href="presentazione.html">Scopri il progetto in 5 minuti</a></p>
 <p>${esc(meta.statement)}</p>
@@ -113,6 +114,7 @@ export function renderShell({ meta, scopes, procedures, build }) {
 <h2>In caso di problemi</h2><ul>${procedures.filter((p) => p.emergency).map((p) => `<li><a href="kit/emergenza.html#${p.id}">${esc(p.symptom)}</a></li>`).join('')}</ul></noscript></section>
 </main>
 <footer class="foot"><span>Il Faldone · revisione ${esc(meta.revision)} del ${esc(meta.documentDate)}</span><span>Documentazione di progetto · nessuna telemetria collegata</span><span><a href="schede/index.html">Versione senza JavaScript</a> · <a href="kit/emergenza.html">Kit offline</a></span></footer>
+</div>
 </div>
 <script type="module" src="app/main.js?v=${build}"></script></body></html>`;
 }
