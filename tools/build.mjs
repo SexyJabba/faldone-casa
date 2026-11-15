@@ -12,6 +12,7 @@ import { sanitizeHtml, htmlToText, esc } from './lib/html.mjs';
 import { renderCardPage, renderEntityPage, renderIndexPage, renderKit, renderShell, renderPresentation } from './lib/static.mjs';
 import { wordCount, statusLine } from '../app/lib/scenes.js';
 import { checkBox } from '../app/lib/vault.js';
+import { validateRack } from '../app/lib/rack.js';
 import { validatePlan } from './lib/riservato.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -48,9 +49,10 @@ const core = {
   scopes: src.scopes, entities: norm.entities, relations: norm.relations, aliases: norm.aliases,
   tests: src.tests, testResults: src.testResults, tasksDone: [], roadmap: src.roadmap, decisions: src.decisions, issues: src.issues,
   procedures: src.procedures, paths: src.paths, glossary, synonyms: src.synonyms, connectors: src.connectors, energy: src.energy, scenarios: src.scenarios,
-  cards: cardsSlim, groups: groupIndex, blocks: src.legacy.blocks,
+  cards: cardsSlim, groups: groupIndex, blocks: src.legacy.blocks, rack: src.rack,
   acquisitions: src.legacy.config.acquisitions, profiles: src.legacy.profiles,
 };
+{ const rerr = validateRack(src.rack, new Set(norm.entities.map((e) => e.id))); for (const c of src.rack.source || []) if (!src.cards.some((x) => x.code === c)) rerr.push(`rack: scheda inesistente ${c}`); if (rerr.length) { rerr.forEach((e) => console.error('errore', e)); process.exit(1); } }
 const coreJson = JSON.stringify(core);
 const hasher = createHash('sha256').update(coreJson);
 for (const f of walk(join(ROOT, 'app'))) hasher.update(f.slice(ROOT.length)).update(readFileSync(f));

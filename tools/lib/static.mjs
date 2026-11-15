@@ -102,7 +102,7 @@ export function renderShell({ meta, scopes, procedures, build }) {
 <link rel="modulepreload" href="app/main.js?v=${build}"></head>
 <body><a class="skip" href="#main">Vai al contenuto</a>
 <div class="app" id="app">
-<aside class="sidebar" id="sidebar">${sidebarHtml({ revision: esc(meta.revision) })}</aside>
+<aside class="sidebar" id="sidebar" aria-label="Barra laterale">${sidebarHtml({ revision: esc(meta.revision) })}</aside>
 <div class="content">
 <header class="top" role="banner"><div class="top-l" id="top-l"><a class="brand brand-top" href="#" aria-label="Il Faldone, panoramica"><span class="mark" aria-hidden="true">F</span><strong>Il Faldone</strong></a></div><div class="tools" id="tools"></div></header>
 <main id="main" tabindex="-1">

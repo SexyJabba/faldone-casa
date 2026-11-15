@@ -98,6 +98,15 @@ Modulo `app/lib/viz.js`: funzioni pure che restituiscono HTML o SVG a partire da
 - **Inventario esplorabile** (`app/views/inventory.js`, motore in `app/lib/inventory.js`): ricerca immediata, faccette con conteggi (categoria, usato da, stato), raggruppamento, griglia con foto o tabella, scheda rapida in un dialogo con precedente/successiva. Le foto di repertorio sono marcate; i pezzi si sommano solo dove la quantità è un numero intero e mai per gli alias.
 - **App installabile e avvisi** (`manifest.webmanifest`, `app.notice` in `app/main.js`): avviso persistente quando una nuova versione ha preso il controllo («Aggiorna ora») e quando si è offline.
 
+## Rack disegnato
+
+- **Motore** `app/lib/rack.js` (puro): disposizione in colonne da N unità, posto libero più vicino, spostamenti, verifiche (sovrapposizioni, peso in basso, calore in alto) e riepilogo per colonna. Non somma dati mancanti.
+- **Resa** `app/lib/rackviz.js` (puro, SVG): armadio, montanti, frontali per tipo (`server`, `storage`, `switch`, `shelf`, `blank`, `power`, `panel`) e interno di una macchina visto dall'alto. È un oggetto disegnato su una scena scura, uguale in tema chiaro e scuro: qui gli angoli seguono l'oggetto, non la regola «tutto squadrato».
+- **Onestà del disegno**: le spie seguono l'accensione di progetto (verde sempre accesa, ambra a richiesta) e la didascalia lo dice; il display della power station non mostra numeri; nell'interno compaiono solo le parti registrate in inventario, contate solo se la quantità è un numero e la voce appartiene a quella macchina soltanto; l'alimentatore non registrato è tratteggiato.
+- **Accessibilità**: il disegno è `aria-hidden`; ogni pezzo ha sopra un rettangolo trasparente con nome, altezza e stato (`role="button"`, `aria-pressed`). Accanto c'è sempre l'elenco dei pezzi in testo.
+- **Pubblico** (`#esplora/rack`, `app/views/rack.js`): ordine funzionale della 4.4 da `content/model/rack.json`, selezione, «Apri il case», servizi ospitati e collegamenti. Nessuna misura della nicchia.
+- **Riservato** (`#impianti/planimetria?v=sala`, `app/views/sala.js`): compositore con falda, quote, aria, ripiani in cima, case veri, trascinamento con aggancio all'unità libera, comandi equivalenti da tastiera, verifiche di profondità e portata d'aria. Le prove restano sul dispositivo (`progress.sala`); «Copia la composizione» produce il JSON da salvare nell'area riservata.
+
 ## Area riservata
 
 - **Modulo di sblocco** `lockForm()` + `bindLock()` (`app/views/vault.js`): riquadro con lucchetto, campo password, «Ricorda su questo dispositivo», esito annunciato (`role="status"`). Si usa al posto del contenuto di una sezione riservata; a password giusta la vista si ridisegna.

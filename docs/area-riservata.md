@@ -28,6 +28,7 @@ Le parti più sensibili del Faldone (oggi: la planimetria di casa) sono pubblica
 ```
 
 - `impianti.<id>`: si sovrappone alla scheda pubblica dell'impianto, che in `content/impianti/impianti.json` deve avere `"riservato": true` e nessun dato sensibile (solo titolo, riassunto generico, collegamenti).
+- `impianti.planimetria.sala`: la sala server per il compositore (`vano`, `colonne` con `u_max` e `utile_cm`, `ripiani`, `aria`, `patch`, `casi`, `pezzi` con `ref` a un elemento del modello, `proposta`, `ventilazione`, `ps`, `scenari`). Controllata da `validateSala` prima di cifrare. La disposizione pubblica, generica, sta invece in `content/model/rack.json`.
 - `entita.<id>`: righe «etichetta, valore, nota» mostrate in fondo alla scheda dell'elemento dopo lo sblocco. È il posto per indirizzi, VLAN, porte, numeri di serie quando verranno decisi. Un dato non noto resta `null`: non si inventa.
 
 ## Comandi
