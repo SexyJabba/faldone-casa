@@ -2,27 +2,42 @@
 
 File: `app/style.css` (sito), `app/static.css` (pagine statiche e kit). Nessun font remoto: IBM Plex è servito in locale.
 
-## Identità
+## Identità (dal 15 novembre 2026)
 
-Linguaggio unico ispirato a IBM Carbon (disciplina tipografica, griglia a multipli di 4/8 px, superfici sobrie), con soluzioni puntuali da AWS Cloudscape (pagina di risorsa come «hub»: sintesi, una azione primaria, dettagli e relazioni), Microsoft Learn (colonna di lettura e indice contestuale) e PatternFly (tabelle, filtri, menu di azioni). Nessuna libreria di componenti installata, nessun marchio o asset proprietario.
+Tre scelte tengono insieme l'aspetto del sito:
 
-| Token | Chiaro | Uso |
-|---|---|---|
-| `--color-canvas` | `#f4f6f8` | fondo della pagina |
-| `--color-surface` | `#ffffff` | superfici, tabelle, schede |
-| `--color-surface-subtle` | `#edf1f4` | intestazioni di tabella, barre |
-| `--color-text` / `--color-text-secondary` | `#18212b` / `#526171` | testo |
-| `--color-border` / `--color-border-strong` | `#d6dde5` / `#b9c4cf` | bordi |
-| `--color-accent` (+ hover, subtle) | `#14505c` | azioni primarie, selezione |
-| `--color-focus` | `#0f62fe` | anello di focus |
+1. **Navigazione e cornice da applicazione da scrivania.** Barra laterale con tutte le sezioni raggruppate (elenco sorgenti), barra degli strumenti in alto con titolo della pagina, ricerca e strumenti. Barra laterale, barra degli strumenti, menu, ricerca e avvisi sono in «vetro»: traslucidi, con sfocatura dello sfondo. Il contenuto resta su superfici piene, per la leggibilità.
+2. **Palette enterprise.** Blu su neutri freddi; i colori di stato e degli ambiti non cambiano.
+3. **Calibri e angoli squadrati.** Nessun angolo arrotondato. Restano tonde solo le forme che portano un significato (vedi sotto).
 
-Ogni token ha il valore scuro corrispondente (`prefers-color-scheme` e scelta manuale). I nomi brevi usati dai componenti (`--bg`, `--card`, `--fg`, `--muted`, `--line`, `--accent`) sono alias dei token.
+Nessuna libreria di componenti, nessun marchio o asset di terzi: lo stile è un riferimento, non una copia.
 
-Tipografia: **IBM Plex Sans** e **IBM Plex Mono**, file locali in `assets/fonts/` (sottoinsieme Latin1, licenza OFL in `assets/fonts/OFL.txt`), `font-display: swap`, con pila di riserva di sistema. Mono solo per codici e identificativi. Titoli di pagina 26–32 px a peso 400; presentazione 28–44 px con testo 17–22 px; testo documentale 16 px con interlinea 1,6; controlli 14 px; metadati 13 px.
+| Token | Chiaro | Scuro | Uso |
+|---|---|---|---|
+| `--color-canvas` | `#f2f4f7` | `#0b1016` | fondo della pagina (sotto una sfumatura blu tenue) |
+| `--color-surface` | `#ffffff` | `#151b23` | superfici, tabelle, schede |
+| `--color-surface-subtle` | `#eceff3` | `#1b222c` | intestazioni di tabella |
+| `--color-text` / `--color-text-secondary` | `#101820` / `#56616d` | `#e9edf2` / `#a4afbb` | testo |
+| `--color-border` / `--color-border-strong` | `#d7dce2` / `#b7bfc8` | `#2a333e` / `#3c4754` | bordi |
+| `--color-accent` (+ hover, subtle) | `#0063b8` | `#6db6f7` | azioni primarie, selezione, collegamenti (contrasto AA anche sul fondo tenue) |
+| `--accent-bright` | `#0672cb` | `#3d9bef` | icone e sfumature decorative, mai testo piccolo |
+| `--glass`, `--glass-strong`, `--glass-line` | bianco al 64 % / 84 % | grigio-blu al 60 % / 86 % | vetro della cornice; `--blur` è la sfocatura |
+| `--fill`, `--fill2` | nero al 6 % / 10 % | bianco al 7 % / 12 % | fondi di campi, selettori, passaggio del mouse |
 
-Superfici (revisione grafica del 9 novembre 2026): angoli da 10 px per schede e tessere (`--r`), 6 px per controlli (`--r2`), 16 px per il riquadro di apertura della home; bordi sottili e un'ombra appena percettibile (`--shadow`), che cresce solo al passaggio su un elemento cliccabile (`--shadow-hover`); ombre piene solo su menu, dialoghi e pannelli sovrapposti. Testata e barra inferiore traslucide. Le animazioni (ingresso della pagina, sollevamento delle tessere) sono brevi e spente con `prefers-reduced-motion`.
+I nomi brevi usati dai componenti (`--bg`, `--card`, `--fg`, `--muted`, `--line`, `--accent`) sono alias dei token.
 
-Icone: tratto da 1,8 px su griglia 24, in linea nel codice (`ICON` in `app/ui.js`), nessuna libreria. Sono sempre decorative (`aria-hidden`): il testo accanto porta il significato. `ic(nome)` le mette in un riquadro tinto; negli ambiti il riquadro prende il colore dell'ambito.
+Tipografia: **Calibri** dove è installato (Windows, Office); altrove **Carlito**, compatibile nelle metriche e libero, servito in locale da `assets/fonts/` (licenza OFL in `assets/fonts/OFL-Carlito.txt`). Calibri è più piccolo a parità di corpo, quindi il testo base è 17 px. Ha solo normale e grassetto: i pesi intermedi sono dichiarati esplicitamente come l'uno o l'altro. **IBM Plex Mono** resta per codici e identificativi.
+
+Geometria: `border-radius: 0` ovunque (regola globale in coda a `app/style.css`). Eccezioni volute, perché la forma è il significato: stato «disponibile» (cerchio pieno) e «su richiesta» (cerchio vuoto), copie nella matrice delle protezioni, gate superato nel binario delle fasi. Nei grafici SVG i rettangoli sono squadrati con `rx: 0`.
+
+Superfici: bordi sottili e ombra appena percettibile sul contenuto; ombre piene su menu, finestre e pannelli sovrapposti. Con `prefers-reduced-transparency` il vetro diventa pieno; con `prefers-reduced-motion` spariscono le animazioni.
+
+## Navigazione
+
+- **Barra laterale** (`app/lib/nav.js`, un'unica definizione usata dalla pagina generata e dall'app): fissa da 1200 px in su e richiudibile dal pulsante nella barra degli strumenti (la scelta è ricordata); sotto i 1200 px è un pannello a scomparsa con velo, che si chiude scegliendo una voce, con Esc o toccando fuori. Quando è nascosta è `inert`. La voce attiva segue la pagina: una scheda macchina accende «Macchine», una scheda documentale «Schede».
+- **Barra degli strumenti**: pulsante della barra laterale, titolo della pagina (decorativo: il titolo vero è l'`h1`), ricerca, area riservata, preferiti, tema.
+- **Barra inferiore** sotto i 900 px: le cinque aree principali a portata di pollice.
+- Con la barra laterale visibile le file di pastiglie «Sezioni di…» in cima alle pagine sono nascoste, perché le stesse voci sono nella barra.
 
 ## Colori con significato fisso (sempre con testo e forma)
 
@@ -39,7 +54,7 @@ Ambiti: `--s-sala`, `--s-casa`, `--s-lab`, `--s-vito`, `--s-terzi`, `--s-inv` (b
 
 ## Componenti
 
-- **Testata globale**: marchio, cinque aree principali, poi gli strumenti (ricerca, preferiti, tema). Il livello di dettaglio compare in una barra propria solo dove ha effetto (schede, procedure, percorsi).
+- **Livello di dettaglio**: selettore segmentato in una barra propria, solo dove ha effetto (schede, procedure, percorsi).
 - **Barra delle azioni di una risorsa** `.actionbar`: una azione primaria, al massimo due secondarie, il resto nel menu «Altre azioni» (chiudibile con Esc).
 - **Cornice della presentazione** `.pres-*` e **schemi** `.pv-*` (`app/scenes.css`): vedi `docs/presentazione.md`.
 - **Testata di pagina** `phead()`: occhiello, titolo, sintesi, azioni.
@@ -91,4 +106,4 @@ Modulo `app/lib/viz.js`: funzioni pure che restituiscono HTML o SVG a partire da
 
 ## Larghezze verificate
 
-360, 390, 768, 1280, 1600 px. Sotto 900 px la navigazione principale passa in basso (uso con una mano), la profondità di lettura in una barra propria; nessuna funzione richiede hover o trascinamento preciso (la mappa ha pulsanti di zoom, vista centrata sull'elemento e alternativa a elenco).
+360, 390, 768, 1280, 1440 px. Sotto 900 px le aree principali passano in basso (uso con una mano), la profondità di lettura in una barra propria; nessuna funzione richiede hover o trascinamento preciso (la mappa ha pulsanti di zoom, vista centrata sull'elemento e alternativa a elenco).
