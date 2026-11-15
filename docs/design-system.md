@@ -106,6 +106,14 @@ Modulo `app/lib/viz.js`: funzioni pure che restituiscono HTML o SVG a partire da
 - **Accessibilità**: il disegno è `aria-hidden`; ogni pezzo ha sopra un rettangolo trasparente con nome, altezza e stato (`role="button"`, `aria-pressed`). Accanto c'è sempre l'elenco dei pezzi in testo.
 - **Pubblico** (`#esplora/rack`, `app/views/rack.js`): ordine funzionale della 4.4 da `content/model/rack.json`, selezione, «Apri il case», servizi ospitati e collegamenti. Nessuna misura della nicchia.
 - **Riservato** (`#impianti/planimetria?v=sala`, `app/views/sala.js`): compositore con falda, quote, aria, ripiani in cima, case veri, trascinamento con aggancio all'unità libera, comandi equivalenti da tastiera, verifiche di profondità e portata d'aria. Le prove restano sul dispositivo (`progress.sala`); «Copia la composizione» produce il JSON da salvare nell'area riservata.
+- **Scena scorrevole**: `.rack-stage` è una regione con nome e `tabindex="0"`, così chi usa la tastiera può scorrerla quando il disegno è più largo dello schermo.
+
+## Postazioni e client
+
+- **Pagina** `#esplora/postazioni` (`app/views/clients.js`): tutte le macchine del modello che hanno un luogo e non stanno nel rack, raggruppate per luogo; ogni apparato è un pulsante (`aria-pressed`) con il suo disegno.
+- **Resa** `app/lib/deviceviz.js` (puro, SVG): l'aspetto esterno si sceglie da `hardware.platform` (mini PC, thin client, portatile, MacBook, pannello); un modello non riconosciuto resta senza disegno specifico. Il disegno è indicativo del tipo di apparato, non una fotografia.
+- **Spaccato**: solo per i modelli di cui l'inventario ha una foto dell'interno (`CUTAWAY_SOURCE`); per gli altri la pagina dice che l'interno non è documentato. Le etichette vengono dai dati dell'entità; un dato mancante è scritto come mancante.
+- **Riservatezza**: nessun indirizzo, porta o posizione nella casa oltre al nome del luogo già pubblico nel modello.
 
 ## Area riservata
 

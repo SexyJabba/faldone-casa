@@ -62,10 +62,11 @@ ${ents.map((e) => `<div class="rack-ent"><p><a href="${href('e/' + e.id)}"><stro
   };
   const st0 = stageHtml();
   const html = `${ctxbar([['Esplora', 'esplora'], ['Rack e porte']])}${phead({ eyebrow: 'Sala server', title: 'Rack e porte', lead: 'Il rack com\'è pensato nella revisione 4.4: due montanti, le macchine in ordine di funzione. Tocca un pezzo, apri un case, guarda che cosa c\'è dentro e a che cosa è collegato.' })}
-<div class="pagecols mapcols rack-cols"><div><div class="rack-stage" id="rack-stage">${st0.html}</div>
+<div class="pagecols mapcols rack-cols"><div><div class="rack-stage" id="rack-stage" tabindex="0" role="region" aria-label="Rack, disegno">${st0.html}</div>
 <p class="small muted">${esc(core.rack.note)} Fonte: <a href="${href('REV4-RACK')}">REV4-RACK</a>. Le spie seguono il progetto (accese le macchine sempre attive, ambra quelle a richiesta): non sono lo stato reale, nessun monitoraggio è collegato.</p></div>
 <aside class="aside" id="rack-panel" aria-label="Dettaglio del pezzo" aria-live="polite">${panel(st0)}</aside></div>
 <div class="callout"><strong>Misure, case e prove di montaggio</strong>La nicchia, i case veri e il compositore per spostare i pezzi e valutare come montare tutto sono nell'area riservata. <a href="${href('impianti/planimetria?v=sala')}">Apri il compositore</a> ${icon('lock')}</div>
+<p><a class="btn" href="${href('esplora/postazioni')}">Postazioni e client fuori dal rack ${icon('arrow')}</a></p>
 ${tables.html}`;
   return {
     title: 'Rack e porte', html, keepScroll: !!sel,

@@ -12,6 +12,7 @@ export const NAV = [
     ['esplora/dati', 'Dati e copie', 'data', '^esplora/dati'],
     ['esplora/rete', 'Rete', 'network', '^esplora/rete'],
     ['esplora/rack', 'Rack e porte', 'rack', '^esplora/rack'],
+    ['esplora/postazioni', 'Postazioni e client', 'lab', '^esplora/postazioni'],
     ['mappa', 'Mappa relazionale', 'map', '^mappa'],
     ['percorsi', 'Percorsi', 'path', '^percorsi'],
     ['impianti', 'Impianti di casa', 'plug', '^impianti'],
