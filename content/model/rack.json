@@ -1,0 +1,20 @@
+{
+ "source": ["REV4-RACK"],
+ "note": "Schema funzionale della revisione 4.4: dice in che ordine stanno le funzioni nei due montanti. I riferimenti in U non sostituiscono la tavola di montaggio; case, ingombri e passacavi non sono definiti qui.",
+ "columns": [
+  {"id": "SX", "name": "Montante sinistro", "u": 18},
+  {"id": "DX", "name": "Montante destro", "u": 23}
+ ],
+ "slots": [
+  {"id": "SW", "col": "SX", "from": 17, "u": 2, "face": "switch", "entities": ["SW"], "label": "Rete"},
+  {"id": "M1", "col": "SX", "from": 13, "u": 4, "face": "server", "entities": ["M1"]},
+  {"id": "M2", "col": "SX", "from": 9, "u": 4, "face": "server", "entities": ["M2"]},
+  {"id": "M5", "col": "SX", "from": 5, "u": 4, "face": "server", "entities": ["M5"]},
+  {"id": "SERVIZI", "col": "SX", "from": 1, "u": 4, "face": "shelf", "entities": ["S1", "S3", "S4"], "label": "Servizi e accessi"},
+  {"id": "M3", "col": "DX", "from": 20, "u": 4, "face": "server", "entities": ["M3"]},
+  {"id": "M4", "col": "DX", "from": 16, "u": 4, "face": "storage", "entities": ["M4"]},
+  {"id": "M6", "col": "DX", "from": 12, "u": 4, "face": "server", "entities": ["M6"]},
+  {"id": "RISERVA", "col": "DX", "from": 8, "u": 4, "face": "blank", "entities": [], "label": "Riserva · spazio di servizio"},
+  {"id": "ENERGIA", "col": "DX", "from": 1, "u": 7, "face": "power", "entities": ["PS-RACK"], "label": "Energia · area tecnica"}
+ ]
+}

@@ -13,7 +13,7 @@ export function loadSources(root) {
     entities: [...m('infra.json'), ...m('services.json'), ...m('data.json')],
     tests: m('tests.json'), testResults: results, roadmap: m('roadmap.json'), decisions: m('decisions.json'),
     issues: m('issues.json'), procedures: m('procedures.json'), paths: m('paths.json'), glossary: m('glossary.json'),
-    synonyms: m('synonyms.json'), connectors: m('connectors.json'), energy: m('energy.json'), scenarios: m('scenarios.json'),
+    synonyms: m('synonyms.json'), connectors: m('connectors.json'), energy: m('energy.json'), scenarios: m('scenarios.json'), rack: m('rack.json'),
     cards: J(root, 'content/corpus/cards.json'), groups: loadGroups(root),
     legacy: { config: l('config.json'), hardware: l('hardware.json'), inventory: l('inventory.json'), photos: l('photos.json'), ecosystem: l('ecosystem.json'), opportunities: l('opportunities.json'), profiles: l('profiles.json'), blocks: l('blocks.json'), glossary: l('glossary-44.json'), diagrams: l('diagrams.json') },
   };

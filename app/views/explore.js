@@ -99,19 +99,18 @@ ${table(['Servizio', 'Permette di', 'Gira su', 'Per chi', 'Di riferimento'], svc
 <p><a href="${href('mappa?l=rete')}">Vedi i collegamenti sulla mappa</a></p>`;
     return { title: 'Rete', html };
   }
-  if (what === 'rack') return rack(app);
+  if (what === 'rack') return import('./rack.js').then((m) => m.rack(app));
   return { title: 'Esplora', html: '' };
 }
 
-function rack(app) {
+/** Tabelle e frontale dello switch: la parte testuale della pagina del rack. */
+export function rackTables(app) {
   const { idx, core } = app;
   const sw = idx.get('SW');
   const sfp = core.relations.filter((r) => r.type === 'connected_to' && r.toId === 'SW' && /SFP\+ (\d+)/.test(r.label || ''));
   const port = (n) => sfp.find((r) => r.label.includes(`SFP+ ${n}`));
   const inRack = core.entities.filter((e) => e.place === 'P-SALA' && (e.kind === 'node' || e.kind === 'device'));
-  const html = `${ctxbar([['Esplora', 'esplora'], ['Rack e porte']])}${phead({ eyebrow: 'Sala server', title: 'Rack e porte', lead: 'Rappresentazione logica: le posizioni in U, le stanze e le porte RJ45 non sono documentate e non vengono assegnate per riempire il disegno.' })}
-<div class="callout warn"><strong>Vista logica, non fisica</strong>${esc(idx.get('P-SALA').facts.coordinate.note)} Fonte: <a href="${href('REV4-RACK')}">REV4-RACK</a>.</div>
-<h2>Switch ${esc(sw.name)}</h2>
+  const html = `<h2>Switch ${esc(sw.name)}</h2>
 <p>${factValue(sw.facts.rj45)} · ${factValue(sw.facts.sfp)} · PoE: ${factValue(sw.facts.poe)} · ${dims(sw.status, { compact: true })}</p>
 ${switchFace({ name: sw.name, rj45: sw.facts.rj45?.value, sfp: sw.facts.sfp?.value, rj45Note: sw.facts.rj45Assignment?.note, assigned: new Map(sfp.map((r) => [Number(r.label.match(/SFP\+ (\d+)/)[1]), { id: r.fromId, label: r.label }])) })}
 <div class="tablewrap" tabindex="0" role="region" aria-label="Tabella"><table><caption class="vh">Porte SFP+ dello switch</caption><thead><tr><th scope="col">Porta</th><th scope="col">Velocità</th><th scope="col">Destinazione</th><th scope="col">Interfaccia</th><th scope="col">Natura</th></tr></thead><tbody>
@@ -121,7 +120,7 @@ ${[49, 50, 51, 52].map((n) => { const r = port(n); return `<tr><th scope="row">S
 ${table(['Elemento', 'Funzione', 'Alimentazione', 'Collegamenti', 'Etichetta'], inRack.map((e) => [`<a href="${href('e/' + e.id)}"><span class="code">${esc(e.id)}</span> ${esc(e.name)}</a>`, esc(e.title || ''), idx.out(e.id, 'powered_by').map((r) => `${esc(idx.get(r.toId).name)} ${ev(r.evidenceKind)}`).join('') || '<span class="muted">n.d.</span>', idx.out(e.id, 'connected_to').map((r) => esc(r.label || idx.get(r.toId).name)).join('<br>') || '—', `<a href="${href('e/' + e.id)}#etichetta" data-action="label" data-id="${esc(e.id)}">Etichetta</a>`]))}
 <div id="labelbox"></div>`;
   return {
-    title: 'Rack e porte', html,
+    html,
     mount: () => {
       app.on('label', async (el) => {
         const { qrSvg } = await import('../lib/qr.js');

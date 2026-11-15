@@ -67,7 +67,7 @@ test('il contenuto pubblicato è cifrato, coerente con le schede pubbliche e sen
   const files = [...readdirSync(join(ROOT, 'data')).filter((f) => f.endsWith('.json') && f !== 'riservato.json').map((f) => `data/${f}`), 'content/impianti/impianti.json', 'index.html', 'sw.js'];
   for (const f of files) {
     const t = readFileSync(join(ROOT, f), 'utf8');
-    for (const mark of ['"rooms"', '"hmin"', '"hmax"', '"cadDate"']) assert.ok(!t.includes(mark), `${f} contiene «${mark}»`);
+    for (const mark of ['"rooms"', '"hmin"', '"hmax"', '"cadDate"', '"vano"', '"utile_cm"', '"u_max"']) assert.ok(!t.includes(mark), `${f} contiene «${mark}»`);
   }
   assert.ok(!existsSync(join(ROOT, 'content/riservato/riservato.json')), 'il file in chiaro non sta nel repository');
 });

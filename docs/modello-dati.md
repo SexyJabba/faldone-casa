@@ -84,3 +84,7 @@ ID univoci e ben formati; riferimenti a entità, schede, inventario, collaudi, d
 - Blackout: autonomia non dichiarata ⇒ non determinabile.
 - Protezione dei dati: una copia vale come recupero garantito solo con collaudo registrato; proposte non attive, snapshot/mirror/sync non sono copie indipendenti; dominio di guasto condiviso (stesso disco, macchina, luogo) segnalato.
 - Ogni esito porta i motivi e la catena di cause; le ipotesi sono marcate come tali; nessuna simulazione modifica il modello.
+
+## Rack (`content/model/rack.json`)
+
+Disposizione pubblica e generica dei pezzi nei due montanti: `columns` (`id`, `name`, `u`) e `slots` (`id`, `col`, `from` = prima unità dal basso, `u` = altezza, `face` = tipo di frontale, `entities` = elementi del modello ospitati, `label`). Viene dallo schema funzionale della 4.4 (`REV4-RACK`): i riferimenti in U non sostituiscono la tavola di montaggio. La build rifiuta sovrapposizioni, pezzi fuori colonna e riferimenti inesistenti. Misure della nicchia, case e prove di montaggio stanno nell'area riservata.

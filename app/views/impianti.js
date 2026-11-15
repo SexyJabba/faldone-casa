@@ -33,7 +33,12 @@ export async function impianto(app, [id]) {
   const ent = (ids = []) => ids.filter((e) => idx.get(e)).map((e) => `<a class="chip" href="${href('e/' + e)}">${esc(idx.get(e).name)}</a>`).join('');
   const cards = (cs = []) => cs.map((c) => `<a class="code" href="${href(c)}">${esc(c)}</a>`).join(' · ');
   const crumbs = ctxbar([['Esplora', 'esplora'], ['Impianti di casa', 'impianti'], [i.short]]);
-  if (i.plan) return planView(app, i, crumbs);
+  if (i.plan) {
+    const v = app.query.v === 'sala' && i.sala ? 'sala' : 'pianta';
+    const tabs = i.sala ? `<div class="seg plan-tabs" role="group" aria-label="Vista"><a class="segb" href="${href('impianti/' + i.id)}" ${v === 'pianta' ? 'aria-current="page"' : ''}>Pianta del piano</a><a class="segb" href="${href('impianti/' + i.id + '?v=sala')}" ${v === 'sala' ? 'aria-current="page"' : ''}>Sala server · compositore</a></div>` : '';
+    if (v === 'sala') return import('./sala.js').then((m) => m.salaView(app, i, crumbs, tabs));
+    return planView(app, i, crumbs, tabs);
+  }
   if (!i.components) {
     const r = i.related || {};
     const html = `${crumbs}${phead({ eyebrow: 'Impianto', title: i.title, lead: esc(i.summary), extra: `<p>${stateTag(i.status)}</p>` })}
@@ -64,7 +69,7 @@ ${(r.entities?.length || r.cards?.length) ? `<h2>Che cosa c'è già nel Faldone<
 }
 
 // Planimetria: schema cliccabile delle stanze, con gli apparati del modello collocati nel loro luogo.
-function planView(app, i, crumbs) {
+function planView(app, i, crumbs, tabs = '') {
   const { core, idx } = app;
   const plan = i.plan, st = i.status;
   const inRoom = (r) => (r.place ? core.entities.filter((e) => e.place === r.place && e.kind !== 'place') : []);
@@ -78,9 +83,9 @@ function planView(app, i, crumbs) {
 <dl class="kv"><dt>Superficie</dt><dd>${itn(r.area)} m²</dd><dt>Altezza</dt><dd>da ${itn(r.hmin)} a ${itn(r.hmax)} m</dd><dt>Ingombro</dt><dd>${itn(r.w)} × ${itn(r.d)} m <span class="small muted">(rettangolo dello schema)</span></dd></dl>
 ${pl ? `<p class="small">${esc(pl.oneLine || '')}</p>` : ''}
 ${dev.length ? `<p class="small"><strong>Apparati del Faldone qui (${dev.length})</strong></p><div class="chips">${dev.map((e) => `<a class="chip" href="${href('e/' + e.id)}"><span class="code">${esc(e.id)}</span>${e.title ? ' ' + esc(e.title) : ''}</a>`).join('')}</div>` : `<p class="small muted">${r.place ? 'Nessun apparato del modello collocato qui.' : 'Stanza non ancora collegata a un luogo del modello: gli apparati non sono collocati.'}</p>`}
-<div class="phead"><div class="actions">${pl ? `<a class="btn primary" href="${href('e/' + pl.id)}">Scheda del luogo</a>` : ''}${r.impianto ? `<a class="btn primary" href="${href('impianti/' + r.impianto)}">Impianto VMC</a>` : ''}${dev.length ? `<a class="btn" href="${href('mappa?s=' + dev[0].id)}">Vedi sulla mappa</a>` : ''}<button class="btn ghost" type="button" data-action="fp-clear">Deseleziona</button></div></div></div>`;
+<div class="phead"><div class="actions">${pl ? `<a class="btn primary" href="${href('e/' + pl.id)}">Scheda del luogo</a>` : ''}${r.impianto ? `<a class="btn primary" href="${href('impianti/' + r.impianto)}">Impianto VMC</a>` : ''}${r.id === 'sala-server' && i.sala ? `<a class="btn" href="${href('impianti/' + i.id + '?v=sala')}">Compositore del rack</a>` : ''}${dev.length ? `<a class="btn" href="${href('mappa?s=' + dev[0].id)}">Vedi sulla mappa</a>` : ''}<button class="btn ghost" type="button" data-action="fp-clear">Deseleziona</button></div></div></div>`;
   };
-  const html = `${crumbs}${phead({ eyebrow: `Impianto · ${esc(plan.level)} · <span class="lockmark">${icon('unlock')} area riservata</span>`, title: i.title, lead: esc(i.summary), extra: `<p>${stateTag(st)}</p>` })}
+  const html = `${crumbs}${tabs}${phead({ eyebrow: `Impianto · ${esc(plan.level)} · <span class="lockmark">${icon('unlock')} area riservata</span>`, title: i.title, lead: esc(i.summary), extra: `<p>${stateTag(st)}</p>` })}
 <div class="callout warn"><strong>Schema, non rilievo</strong>${esc(st.note)} Fonte: ${esc(st.source)}.</div>
 <div class="pagecols mapcols"><div><figure class="viz"><div class="viz-scroll" tabindex="0" role="region" aria-label="Planimetria schematica" id="fp-area">${floorPlan(plan, { sel, count: (r) => inRoom(r).length })}</div>
 <figcaption class="small muted">${esc(plan.schematic)} Le stanze con fondo tratteggiato hanno altezza massima sotto 1,50 m.${plan.demolition ? ' ' + esc(plan.demolition) : ''}</figcaption></figure></div>
