@@ -113,7 +113,7 @@ ${p.tipo === 'rack' && p.face !== 'switch' && p.face !== 'panel' ? `<label class
 <p class="lead">Sposta i pezzi nei due montanti per valutare come montare tutto. Le prove restano su questo dispositivo finché non le copi.</p>
 <div class="callout warn"><strong>Stime da verificare</strong>${esc(sala.revisione)} ${esc(sala.fonte)}</div>
 <div class="sala-actions"><button class="btn" type="button" data-action="sala-preset" data-id="proposta">Proposta del 21 ottobre</button><button class="btn" type="button" data-action="sala-preset" data-id="pubblico">Schema della 4.4</button><button class="btn" type="button" data-action="sala-preset" data-id="vuoto">Svuota il rack</button><button class="btn primary" type="button" data-action="sala-copy">Copia la composizione</button></div>
-<div class="pagecols mapcols rack-cols"><div><div class="rack-stage sala-stage" id="sala-stage">${stage(a0)}</div><div id="sala-trayw">${tray()}</div>
+<div class="pagecols mapcols rack-cols"><div><div class="rack-stage sala-stage" id="sala-stage" tabindex="0" role="region" aria-label="Sala server, disegno">${stage(a0)}</div><div id="sala-trayw">${tray()}</div>
 <p class="small muted">Vista frontale schematica: l'altezza segue le unità rack (1 U = ${itn(sala.u_cm, 3)} cm), la larghezza è allargata per leggibilità. ${esc(sala.vano.luogo)}. ${esc(sala.vano.porta)}. ${esc(sala.vano.retro)}.</p></div>
 <aside class="aside" id="sala-panel" aria-label="Pezzo selezionato e verifiche" aria-live="polite">${panel(a0)}</aside></div>
 <h2>Tutti i dati della sala server</h2>

@@ -14,7 +14,8 @@ export function explore(app) {
     ['esplora/servizi', 'service', 'Servizi', `${n('service')} servizi con ciò che permettono di fare.`],
     ['esplora/dati', 'data', 'Dati e copie', `${n('dataset')} insiemi di dati, ${n('storage')} archivi, ${n('copy')} protezioni.`],
     ['esplora/rete', 'network', 'Rete', `${n('network')} reti e collegamenti, WAN, VLAN, radio.`],
-    ['esplora/rack', 'rack', 'Rack e porte', 'Vista logica del rack e dello switch.'],
+    ['esplora/rack', 'rack', 'Rack e porte', 'Il rack disegnato: apri i case e guarda che cosa c\'è dentro.'],
+    ['esplora/postazioni', 'lab', 'Postazioni e client', 'Gli apparati nelle stanze, in laboratorio, sul Vito e dagli amici.'],
     ['impianti', 'plug', 'Impianti di casa', 'Planimetria del piano con le stanze, VMC compilata come ipotesi; corrente, acqua, sensori, allarme, telecamere, LAN e fotovoltaico da compilare.'],
     ['inventario', 'box', 'Inventario', `${core.meta.counts.inventory} voci con assegnazione e foto.`],
   ].map(([r, i, t, d]) => `<a class="tile" href="${href(r)}">${ic(i)}<span class="t">${t}${go}</span><p>${esc(d)}</p></a>`).join('')}</div>

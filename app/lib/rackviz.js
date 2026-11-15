@@ -72,6 +72,9 @@ ${R(x + 26, y + 6, 10, 4.500, 'rx=".6" fill="#1d6fb8" stroke="#06080a" stroke-wi
 ${led(p, x + 48, y + 8, power === 'on' ? 'on' : power === 'stby' ? 'stby' : 'off')}${led(p, x + 58, y + 8, power === 'on' ? 'act blink' : 'off')}${led(p, x + 68, y + 8, power === 'on' ? 'net' : 'off')}
 <text x="${x + 44}" y="${y + 18.500}" class="rk-tiny">PWR  HDD  NET</text>`.replace(/\.(\d)00/g, '.$1');
 
+/** Particolari riusati dagli altri disegni (postazioni e client). */
+export const KIT = { R, screw, led, fanBehind, esc, clip };
+
 // ---------------------------------------------------------------------------
 // frontali
 // ---------------------------------------------------------------------------

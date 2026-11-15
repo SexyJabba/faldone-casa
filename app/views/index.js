@@ -5,6 +5,7 @@ export const routes = [
   [/^atlante$/, 'atlante', lazy('./atlas.js', 'atlas'), 'esplora'],
   [/^$/, 'home', lazy('./home.js', 'home'), ''],
   [/^esplora$/, 'esplora', lazy('./explore.js', 'explore'), 'esplora'],
+  [/^esplora\/postazioni$/, 'postazioni', lazy('./clients.js', 'clients'), 'esplora'],
   [/^esplora\/(macchine|servizi|dati|rete|rack)$/, 'lista', lazy('./explore.js', 'list'), 'esplora'],
   [/^ambito\/([a-z-]+)$/, 'ambito', lazy('./explore.js', 'scope'), 'esplora'],
   [/^e\/([A-Za-z0-9._-]+)$/, 'entità', lazy('./entity.js', 'entity'), 'esplora'],

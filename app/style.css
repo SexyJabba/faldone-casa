@@ -1121,3 +1121,18 @@ a:hover .ri-mark circle,a:focus-visible .ri-mark circle{fill:#ffd166}
 .sala-checks li.warn{border-color:var(--warn);background:var(--warnbg)}.sala-checks li.warn::before{content:"!";color:var(--warn)}
 .sala-checks li.err{border-color:var(--bad);background:var(--badbg)}.sala-checks li.err::before{content:"✕";color:var(--bad)}
 .sala-checks li.info::before{content:"i";color:var(--muted)}
+
+/* postazioni e client */
+.dev-stage{padding:18px}
+.dev-rooms{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:center;gap:14px;position:relative}
+.dev-room{border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.025);padding:10px 10px 6px}
+.dev-h{margin:0 0 4px;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9fb1c1}
+.dev-row{display:flex;flex-wrap:wrap;gap:4px;justify-content:center}
+.dev-room{flex:0 1 auto;min-width:196px}
+.dev-item{background:none;border:2px solid transparent;padding:2px;cursor:pointer;line-height:0;transition:transform .18s ease-out,border-color .15s}
+.dev-item:hover{transform:translateY(-3px);border-color:rgba(140,190,245,.45)}
+.dev-item[aria-pressed=true]{border-color:#57a9f5;background:rgba(87,169,245,.08)}
+.dev-item:focus-visible{outline:3px solid #ffd166;outline-offset:1px}
+.dv-svg{display:block;max-width:100%;height:auto}
+.dv-svg text{font-family:var(--mono)}
+.dv-svg .rk-sub{font-size:8px;fill:#3a444d;font-family:var(--sans)}
