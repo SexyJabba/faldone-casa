@@ -14,6 +14,7 @@ import { wordCount, statusLine } from '../app/lib/scenes.js';
 import { checkBox } from '../app/lib/vault.js';
 import { validateRack } from '../app/lib/rack.js';
 import { validatePlan } from './lib/riservato.mjs';
+import { renderBinder } from './lib/stampa.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CHECK = process.argv.includes('--check');
@@ -29,13 +30,17 @@ if (CHECK) process.exit(0);
 
 const write = (rel, data) => { const f = join(ROOT, rel); mkdirSync(dirname(f), { recursive: true }); writeFileSync(f, typeof data === 'string' ? data : JSON.stringify(data)); };
 for (const d of ['data', 'schede', 'e', 'kit']) rmSync(join(ROOT, d), { recursive: true, force: true });
+// del Faldone stampabile si rifanno le pagine; i PDF in stampa/pdf li produce tools/stampa.mjs
+for (const d of ['stampa/scheda', 'stampa/parti']) rmSync(join(ROOT, d), { recursive: true, force: true });
+if (existsSync(join(ROOT, 'stampa'))) for (const f of readdirSync(join(ROOT, 'stampa'))) if (f.endsWith('.html')) rmSync(join(ROOT, 'stampa', f));
 
 // ---------- corpus ----------
 const groupTitle = (g) => g.title || src.cards.find((c) => c.code === g.codes[0])?.title || g.codes[0];
 const cardsSlim = src.cards.map((c) => ({ code: c.code, title: c.title, block: c.block, scope: c.scope, group: c.group, pdf: c.pdf, md: c.md }));
-const groupIndex = src.groups.map((g) => ({ id: g.id, n: g.n, title: groupTitle(g), codes: g.codes, untitled: !g.title }));
+const sheetCode = (g) => src.cards.find((c) => c.group === g.id).code; // la scheda stampabile porta il primo codice del testo
+const groupIndex = src.groups.map((g) => ({ id: g.id, n: g.n, title: groupTitle(g), codes: g.codes, sheet: sheetCode(g), untitled: !g.title }));
 for (const g of src.groups) {
-  write(`data/schede/${g.id}.json`, { id: g.id, title: groupTitle(g), codes: g.codes, html: sanitizeHtml(g.html), tails: Object.fromEntries(Object.entries(g.tails).map(([k, v]) => [k, sanitizeHtml(v)])) });
+  write(`data/schede/${g.id}.json`, { id: g.id, title: groupTitle(g), codes: g.codes, sheet: sheetCode(g), html: sanitizeHtml(g.html), tails: Object.fromEntries(Object.entries(g.tails).map(([k, v]) => [k, sanitizeHtml(v)])) });
 }
 
 // ---------- glossario ----------
@@ -119,6 +124,18 @@ write('schede/index.html', renderIndexPage(ctx));
 for (const e of norm.entities) write(`e/${e.id}.html`, renderEntityPage(ctx, e));
 write('kit/emergenza.html', renderKit({ ...ctx, procedures: src.procedures, scopes: src.scopes, issues: src.issues }));
 
+// ---------- Faldone stampabile: schede sostituibili, blocchi, raccoglitore intero ----------
+{
+  const site = existsSync(join(ROOT, 'CNAME')) ? `https://${readFileSync(join(ROOT, 'CNAME'), 'utf8').trim()}` : '';
+  const binder = renderBinder({ ...ctx, site }, readFileSync(join(ROOT, 'app/stampa.css'), 'utf8'));
+  if (binder.plan.orphan.length) { console.error(`errore stampa: schede in un blocco senza nome: ${binder.plan.orphan.join(', ')}`); process.exit(1); }
+  for (const [f, html] of Object.entries(binder.files)) write(f, html);
+  write('data/stampa.json', binder.manifest);
+  const pm = existsSync(join(ROOT, 'stampa/pdf/manifest.json')) ? JSON.parse(readFileSync(join(ROOT, 'stampa/pdf/manifest.json'), 'utf8')) : { files: {} };
+  const stale = [...binder.manifest.parts, ...binder.manifest.sheets].filter((x) => pm.files[x.code || x.id]?.hash !== x.hash);
+  console.log(`Faldone stampabile: ${binder.manifest.sheets.length} schede in ${binder.manifest.blocks.length} blocchi.${stale.length ? ` ${stale.length} PDF da rigenerare: node tools/stampa.mjs` : ' PDF aggiornati.'}`);
+}
+
 // ---------- presentazione «Il progetto in cinque minuti» ----------
 const pres = JSON.parse(readFileSync(join(ROOT, 'content/presentazione/scene.json'), 'utf8'));
 {
@@ -159,7 +176,7 @@ write('docs/migrazione/mappa-rotte.csv', routes.map((r) => r.join(',')).join('\n
 
 // ---------- controllo privacy sugli output pubblici ----------
 const PRIVATE = [/\/Users\//, /[A-Za-z0-9._%+-]+@(gmail|icloud|outlook|yahoo)\.[a-z]+/i, /\bjabba\b/i, /(password|token|apikey)\s*[:=]\s*\S{6,}/i];
-const outFiles = ['data', 'schede', 'e', 'kit'].flatMap((d) => walk(join(ROOT, d))).concat([join(ROOT, 'index.html'), join(ROOT, 'sw.js'), join(ROOT, 'presentazione.html')]);
+const outFiles = ['data', 'schede', 'e', 'kit', 'stampa'].flatMap((d) => walk(join(ROOT, d))).filter((f) => !f.endsWith('.pdf')).concat([join(ROOT, 'index.html'), join(ROOT, 'sw.js'), join(ROOT, 'presentazione.html')]);
 const leaks = [];
 for (const f of outFiles) { const s = readFileSync(f, 'utf8'); for (const re of PRIVATE) if (re.test(s)) leaks.push(`${f.slice(ROOT.length + 1)}: ${re}`); }
 if (leaks.length) { console.error('Dati privati negli output pubblici:\n' + leaks.join('\n')); process.exit(1); }

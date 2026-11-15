@@ -4,6 +4,7 @@ Atlante operativo dell'infrastruttura di casa, sala server, laboratorio e Vito: 
 
 ```sh
 node tools/build.mjs                          # valida content/ e genera il sito
+node tools/stampa.mjs                         # rigenera i PDF delle schede cambiate (Faldone stampabile)
 node --test tools/test/*.test.mjs             # test
 python3 -m http.server 8811 --bind 127.0.0.1  # anteprima
 ```
@@ -19,6 +20,7 @@ python3 -m http.server 8811 --bind 127.0.0.1  # anteprima
 | `content/riservato/` | area riservata: dati sensibili **cifrati** con password (planimetria e, man mano, altri dati); si aggiorna con `tools/riservato.mjs` ([docs/area-riservata.md](docs/area-riservata.md)) |
 | `lavoro/` | «Lavoro»: cantieri, ore, spese e cose da fare per il Kindle sul Vito o in cantiere — scritto a mano, fuori dalla build ([docs/lavoro.md](docs/lavoro.md)) |
 | `data/`, `schede/`, `e/`, `kit/`, `index.html`, `sw.js` | **generati** dalla build: non modificare a mano |
+| `stampa/` | Faldone stampabile, **generato**: pagine dalla build, PDF delle schede da `tools/stampa.mjs` ([manutenzione editoriale](docs/manutenzione-editoriale.md#faldone-stampabile)) |
 | `01_Vault_MD/`, `02_PDF_correnti/`, `04_Sorgenti/`, `07_Piani_di_attivazione/` | Markdown, PDF, evidenze e piani della revisione 4.4 |
 | `docs/` | audit, modello dati, migrazione, manutenzione, rilascio, integrazioni, requisiti, screenshot |
 

@@ -114,5 +114,10 @@ test('A23 · una modifica editoriale si propaga a ricerca, pagina statica e dati
     assert.match(readFileSync(join(tmp, 'schede/INF-03.03.html'), 'utf8'), /Parolaprovaunica/);
     assert.match(readFileSync(join(tmp, 'schede/ATL-06.html'), 'utf8'), /Parolaprovaunica/, 'il testo comune si aggiorna per tutti i codici del gruppo');
     assert.match(readFileSync(join(tmp, 'data/schede/g023.json'), 'utf8'), /Parolaprovaunica/);
+    // anche il Faldone stampabile: scheda, blocco, raccoglitore intero; e il PDF di quella scheda risulta da rigenerare
+    for (const p of ['stampa/scheda/INF-03.03.html', 'stampa/blocco-03.html', 'stampa/blocco-S01.html', 'stampa/faldone.html']) assert.match(readFileSync(join(tmp, p), 'utf8'), /Parolaprovaunica/, p);
+    const h = (root) => JSON.parse(readFileSync(join(root, 'data/stampa.json'), 'utf8')).sheets;
+    const changed = h(tmp).filter((s, i) => s.hash !== h(ROOT)[i].hash).map((s) => s.code);
+    assert.deepEqual(changed, ['INF-03.03'], 'cambia solo la scheda toccata');
   } finally { rmSync(tmp, { recursive: true, force: true }); }
 });

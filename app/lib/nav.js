@@ -35,6 +35,7 @@ export const NAV = [
     ['documenti', 'Schede', 'docs', '^documenti$'],
     ['glossario', 'Glossario', 'bulb', '^glossario'],
     ['documenti/revisioni', 'Revisioni e fonti', 'file', '^documenti/revisioni'],
+    ['documenti/stampa', 'Faldone stampabile', 'file', '^documenti/stampa'],
     ['documenti/download', 'Download', 'offline', '^documenti/download'],
     ['guida', 'Come si usa', 'explore', '^guida'],
   ] },

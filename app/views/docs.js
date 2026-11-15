@@ -1,6 +1,6 @@
 import { esc, href, phead, ctxbar, table } from '../ui.js';
 
-export const dtabs = (cur) => `<nav class="chips" aria-label="Sezioni di Documentazione" style="margin-bottom:12px">${[['documenti', 'Schede'], ['glossario', 'Glossario'], ['inventario', 'Inventario'], ['documenti/revisioni', 'Revisioni e fonti'], ['documenti/download', 'Download'], ['guida', 'Come si usa']].map(([r, l]) => `<a class="chip" href="${href(r)}" ${r === cur ? 'aria-current="page"' : ''}>${l}</a>`).join('')}</nav>`;
+export const dtabs = (cur) => `<nav class="chips" aria-label="Sezioni di Documentazione" style="margin-bottom:12px">${[['documenti', 'Schede'], ['glossario', 'Glossario'], ['inventario', 'Inventario'], ['documenti/revisioni', 'Revisioni e fonti'], ['documenti/stampa', 'Stampa'], ['documenti/download', 'Download'], ['guida', 'Come si usa']].map(([r, l]) => `<a class="chip" href="${href(r)}" ${r === cur ? 'aria-current="page"' : ''}>${l}</a>`).join('')}</nav>`;
 
 export function library(app) {
   const { core } = app;
@@ -43,7 +43,7 @@ ${others.length ? `<p class="small">Testo comune a ${others.length + 1} codici: 
 <article class="doc" id="doc">${g.html}${tail ? `<section class="tail"><h2 id="specifica">Parte specifica di ${esc(code)}</h2>${tail}</section>` : ''}</article>
 <nav class="phead" aria-label="Schede vicine"><div class="actions">${prev ? `<a class="btn ghost" href="${href(prev.code)}">← ${esc(prev.code)}</a>` : ''}${next ? `<a class="btn ghost" href="${href(next.code)}">${esc(next.code)} →</a>` : ''}</div></nav></div>
 <aside class="aside" aria-label="Strumenti della scheda"><div class="card"><h3>In questa scheda</h3><nav class="toc" id="toc"></nav></div>
-<div class="card"><h3>Formati</h3><p><a href="${esc(c.pdf)}">PDF della scheda</a><br><a href="${esc(c.md)}">Sorgente Markdown</a><br><a href="schede/${esc(code)}.html">Pagina statica stampabile</a></p>
+<div class="card"><h3>Formati</h3><p><a href="stampa/scheda/${esc(g.sheet)}.html">Scheda stampabile</a><br><a href="stampa/pdf/${esc(g.sheet)}.pdf">PDF della scheda</a>${g.sheet !== code ? ` <span class="small muted">(sotto il codice ${esc(g.sheet)})</span>` : ''}<br><a href="${esc(c.md)}">Sorgente Markdown</a><br><a href="schede/${esc(code)}.html">Pagina senza JavaScript</a><br><a href="${esc(c.pdf)}">PDF d'archivio 4.4</a></p>
 <p><button class="btn ghost" type="button" data-action="fav" data-id="${esc(code)}" aria-pressed="${app.isFav(code)}"><span class="lbl">${app.isFav(code) ? 'Nei preferiti' : 'Aggiungi ai preferiti'}</span></button></p>
 <button class="chip" type="button" data-action="copy" data-text="${esc(`${code} · ${g.title}`)}">Copia riferimento</button></div>
 ${ents.length ? `<div class="card"><h3>Elementi descritti</h3><ul class="list">${ents.map((e) => `<li><a href="${href('e/' + e.id)}">${esc(e.name)}</a><br><span class="small muted">${esc(e.title || '')}</span></li>`).join('')}</ul></div>` : ''}
@@ -109,7 +109,7 @@ export function misc(app, [which]) {
   const { core } = app;
   if (which === 'download') {
     const files = [['INF_Faldone-completo-navigabile.pdf', 'Faldone completo navigabile (PDF, circa 41 MB)'], ['INF_Atlante-rev4.4.pdf', 'Atlante 4.4 (PDF)'], ['INF_Manuale-operativo.pdf', 'Manuale operativo (PDF)'], ['INF_Integrazioni.pdf', 'Integrazioni (PDF)'], ['INF_Profili-operativi.pdf', 'Profili operativi (PDF)'], ['Sfoglia-le-mappe-rev4.4.pdf', 'Mappe 4.4 (PDF)'], ['Faldone-infrastruttura-Kindle.epub', 'Versione EPUB per lettori'], ['kit/emergenza.html', 'Kit di emergenza offline (HTML autonomo, stampabile)'], ['schede/index.html', 'Tutte le schede senza JavaScript'], ['docs/migrazione/mappa-codici.csv', 'Mappa dei codici e delle rotte (CSV)']];
-    const html = `${dtabs('documenti/download')}${phead({ eyebrow: 'Documentazione', title: 'Formati e download', lead: 'I PDF e l\'EPUB sono quelli della revisione 4.4, generati il 1 novembre 2026: non contengono le funzioni interattive di questo sito.' })}<ul class="list">${files.map(([f, l]) => `<li><a href="${esc(f)}">${esc(l)}</a></li>`).join('')}</ul>`;
+    const html = `${dtabs('documenti/download')}${phead({ eyebrow: 'Documentazione', title: 'Formati e download', lead: 'Il Faldone da stampare si genera dal sito ed è sempre aggiornato. I PDF e l\'EPUB qui sotto sono l\'archivio della revisione 4.4, generati il 1 novembre 2026: non si aggiornano più.' })}<p><a class="btn primary" href="${href('documenti/stampa')}">Faldone stampabile aggiornato</a></p><h2>Archivio della revisione 4.4</h2><ul class="list">${files.map(([f, l]) => `<li><a href="${esc(f)}">${esc(l)}</a></li>`).join('')}</ul>`;
     return { title: 'Download', html };
   }
   const html = `${dtabs('documenti/revisioni')}${phead({ eyebrow: 'Documentazione', title: 'Revisioni e fonti', lead: 'Da dove viene ogni informazione e quale prevale.' })}

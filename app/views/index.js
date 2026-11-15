@@ -29,6 +29,7 @@ export const routes = [
   [/^contribuisci\/([A-Z0-9-]+)$/, 'questione', lazy('./contribute.js', 'issue'), 'realizza'],
   [/^documenti$/, 'documenti', lazy('./docs.js', 'library'), 'documenti'],
   [/^documenti\/(revisioni|download)$/, 'doc', lazy('./docs.js', 'misc'), 'documenti'],
+  [/^documenti\/stampa$/, 'stampa', lazy('./stampa.js', 'stampa'), 'documenti'],
   [/^glossario$/, 'glossario', lazy('./docs.js', 'glossary'), 'documenti'],
   [/^glossario\/(.+)$/, 'glossario', lazy('./docs.js', 'glossary'), 'documenti'],
   [/^guida$/, 'guida', lazy('./docs.js', 'guide'), 'documenti'],
