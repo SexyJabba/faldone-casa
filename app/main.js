@@ -110,6 +110,7 @@ app.vault = {
 app.on = (action, fn) => app.handlers.set(action, fn);
 app.go = (route, { replace = false } = {}) => {
   const h = href(route);
+  if (!h.startsWith('#')) { location.href = h; return; }
   if (replace) { history.replaceState(history.state, '', h); render(); } else if (location.hash === h) render(); else location.hash = h;
 };
 app.setQuery = (q) => {

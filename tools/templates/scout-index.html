@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#f5efe4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#191612" media="(prefers-color-scheme: dark)">
+<title>Lo Scout — quaderno di scoperte</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Lo Scout">
+<link rel="stylesheet" href="style.css">
+<style>
+.vetrina{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;margin:0 auto;padding:8px 16px;max-width:1100px;font-size:.85rem;color:var(--muted);border-bottom:1px solid var(--line)}
+.vetrina a{white-space:nowrap}.vetrina .sp{flex:1}
+#vetrina-note{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px auto;max-width:1100px;padding:10px 16px;background:var(--soft);border-left:3px solid var(--accent)}
+#vetrina-note[hidden],[hidden]{display:none!important}
+#lock .remember{display:flex;gap:8px;align-items:center;font-weight:400}
+#lock .remember input{width:auto}
+#lock-msg{min-height:1.4em}
+</style>
+</head>
+<body class="login">
+<main id="lock-main"><form id="lock" hidden>
+  <h1>Lo Scout</h1>
+  <p>Quaderno privato di scoperte, in vetrina nel Faldone. Si apre con la password dell'area riservata.</p>
+  <label>Parola d'accesso<input type="password" name="password" autocomplete="current-password" required></label>
+  <label class="remember"><input type="checkbox" name="remember"> Ricorda su questo dispositivo</label>
+  <button>Entra</button>
+  <p id="lock-msg" role="status"></p>
+  <p class="hint"><a href="../index.html">Torna al Faldone</a></p>
+</form></main>
+<header class="mast" id="mast" hidden>
+  <a class="brand" href="#/scoperte"><span class="brand-name">Lo Scout</span><span class="brand-sub">quaderno privato di scoperte</span></a>
+  <nav class="nav" id="nav" aria-label="Sezioni"></nav>
+</header>
+<aside class="vetrina" id="vetrina-bar" aria-label="Vetrina online" hidden><span>Vetrina online · archivio del <b id="vetrina-date"></b>. Le reazioni e le note che scrivi qui restano su questo dispositivo; la ricerca di nuovi annunci e le note AI sono solo sullo Scout acceso sul computer.</span><span class="sp"></span><a href="../index.html">Faldone</a><button type="button" class="btn small" id="vetrina-lock">Blocca</button></aside>
+<aside id="vetrina-note" aria-label="Avviso della vetrina" hidden></aside>
+<main id="app" tabindex="-1" hidden><p class="loading">Apro il quaderno…</p></main>
+<div id="toast" role="status" aria-live="polite"></div>
+<script type="module" src="motore.js"></script>
+<script defer src="app.js"></script>
+</body>
+</html>

@@ -21,7 +21,6 @@ export const NAV = [
   { title: 'Usa e risolvi', items: [
     ['emergenza', 'Qualcosa non funziona', 'fix', '^emergenza|^procedura/'],
     ['simula', 'Simulatore', 'sim', '^simula'],
-    ['officina/', 'Officina del Vito', 'van', '^$a'], // app a sé, in officina/: si apre come pagina, non come rotta
   ] },
   { title: 'Realizza', items: [
     ['realizza', 'Roadmap', 'build', '^realizza$|^realizza/attivita'],
@@ -39,6 +38,10 @@ export const NAV = [
     ['documenti/stampa', 'Faldone stampabile', 'file', '^documenti/stampa'],
     ['documenti/download', 'Download', 'offline', '^documenti/download'],
     ['guida', 'Come si usa', 'explore', '^guida'],
+  ] },
+  { title: 'App personali', items: [ // app a sé nelle loro cartelle: si aprono come pagine, non come rotte
+    ['officina/', 'Officina del Vito', 'van', '^$a'],
+    ['scout/', 'Lo Scout', 'explore', '^$a'],
   ] },
   { title: 'Su questo dispositivo', items: [
     ['riservato', 'Area riservata', 'lock', '^riservato'],
