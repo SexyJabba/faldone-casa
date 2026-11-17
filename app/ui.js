@@ -4,7 +4,8 @@ import { ST_LABEL } from './lib/sim.js';
 
 export const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 export const attr = esc;
-export const href = (route) => '#' + encodeURI(String(route));
+// una rotta che finisce con «/» è un'app a sé nella sua cartella (officina/, scout/): collegamento normale
+export const href = (route) => (String(route).endsWith('/') ? String(route) : '#' + encodeURI(String(route)));
 
 export const ICON = {
   home: '<path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',

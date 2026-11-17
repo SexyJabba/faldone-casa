@@ -19,6 +19,7 @@ python3 -m http.server 8811 --bind 127.0.0.1  # anteprima
 | `tools/` | build, migrazione, test, verifiche nel browser, adapter di integrazione |
 | `content/riservato/` | area riservata: dati sensibili **cifrati** con password (planimetria e, man mano, altri dati); si aggiorna con `tools/riservato.mjs` ([docs/area-riservata.md](docs/area-riservata.md)) |
 | `officina/` | «Officina del Vito»: app a sé per ripristino e allestimento del Vito (lavori, mappa del vano, simulatore, budget, manuali), online su `/officina/`; dati solo nel dispositivo ([officina/README.md](officina/README.md), [officina/docs/STATO.md](officina/docs/STATO.md)) |
+| `scout/` | vetrina dello Scout (auto, moto, gommoni): interfaccia e logica dello Scout nel browser, archivio **cifrato** con la password dell'area riservata; **generata** da `tools/scout-vetrina.mjs` ([docs/scout.md](docs/scout.md)) |
 | `lavoro/` | «Lavoro»: cantieri, ore, spese e cose da fare per il Kindle sul Vito o in cantiere — scritto a mano, fuori dalla build ([docs/lavoro.md](docs/lavoro.md)) |
 | `data/`, `schede/`, `e/`, `kit/`, `index.html`, `sw.js` | **generati** dalla build: non modificare a mano |
 | `stampa/` | Faldone stampabile, **generato**: pagine dalla build, PDF delle schede da `tools/stampa.mjs` ([manutenzione editoriale](docs/manutenzione-editoriale.md#faldone-stampabile)) |
