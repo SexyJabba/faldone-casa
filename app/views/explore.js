@@ -39,7 +39,7 @@ export function scope(app, [id]) {
   void world;
   const html = `${ctxbar([['Esplora', 'esplora'], [s.name]])}<div data-scope="${s.id}" class="scope-bar" style="padding-top:8px">${phead({ eyebrow: 'Ambito', title: s.name, lead: esc(app.depth === 'capire' ? s.simple : s.tagline + ' ' + s.simple) })}</div>
 <p class="small">Schede di riferimento: ${s.cards.map((c) => `<a class="code" href="${href(c)}">${esc(c)}</a>`).join(' · ')}</p>${id === 'casa' ? `<div class="callout"><strong>Impianti di casa</strong>Ventilazione, corrente, acqua, sensori, allarme e altri impianti che la domotica dovrà governare. <a href="${href('impianti')}">Vai agli impianti</a> · <a href="${href('impianti/planimetria')}">Apri la planimetria</a></div>` : ''}
-${sect('Servizi', by('service'))}${sect('Macchine e apparati', [...by('node'), ...by('device')])}${sect('Dati, archivi e copie', [...by('dataset'), ...by('storage'), ...by('copy')])}${sect('Reti', by('network'))}${sect('Luoghi', by('place'))}`;
+${id === 'vito' ? `<div class="callout"><strong>Officina e camper</strong>Ripristino del Vito e allestimento modulare lavoro/camper: lavori guidati, mappa del vano, simulatore di energia, acqua e calore, budget, manuali. È un'app a sé: i dati restano nel dispositivo su cui la usi. <a href="officina/">Apri l'officina del Vito</a></div>` : ''}${sect('Servizi', by('service'))}${sect('Macchine e apparati', [...by('node'), ...by('device')])}${sect('Dati, archivi e copie', [...by('dataset'), ...by('storage'), ...by('copy')])}${sect('Reti', by('network'))}${sect('Luoghi', by('place'))}`;
   return { title: s.name, html };
 }
 

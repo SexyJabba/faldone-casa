@@ -6,5 +6,6 @@
 - Non inventare consegne, collaudi, telemetria, porte, VLAN, indirizzi o capacità: un dato mancante resta `null` con `ev: "unknown"` e, se serve, una domanda in `content/model/issues.json`.
 - Non promuovere una proposta ad approvata; le decisioni sono del proprietario.
 - Il repository è pubblico. I dati sensibili (planimetria, indirizzi, porte, allarme, telecamere) vanno solo nell'area riservata cifrata: mai in chiaro in sorgenti, file generati, test, commit o screenshot. La password non si scrive nel repository. Vedi `docs/area-riservata.md`.
+- `officina/` è l'app «Vito — Officina e Camper», scritta a mano e fuori dalla build: le sue regole sono in `officina/CLAUDE.md` e `officina/docs/CONSEGNA.md`. Niente VIN, targa o dati personali nei suoi file (il repository è pubblico); nuovo file JS → `FILES` e `VERSIONE` in `officina/sw.js`.
 - Gli script di build Python citati in `01_Vault_MD/AGENTS.md` non esistono più nel repository: la build attuale è `tools/build.mjs`.
 - Dettagli: `docs/manutenzione-editoriale.md`, `docs/modello-dati.md`.

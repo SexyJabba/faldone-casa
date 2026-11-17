@@ -6,6 +6,7 @@ const PAGES = [
   ['mappa', 'Mappa relazionale', 'mappa relazioni schema grafo'],
   ['mappa?sim=1', 'Simula un guasto sulla mappa', 'simula simulazione guasto mappa'],
   ['simula', 'Simulatore di dipendenze e guasti', 'simulatore simula guasto scenario'],
+  ['ambito/vito', 'Officina e camper del Vito', 'officina camper vito furgone allestimento ripristino lavori tagliando'],
   ['emergenza', 'Qualcosa non funziona?', 'emergenza problema guasto aiuto procedura'],
   ['realizza', 'Roadmap', 'roadmap fasi attivita realizza piano'],
   ['realizza/decisioni', 'Decisioni', 'decisioni scelte'],
