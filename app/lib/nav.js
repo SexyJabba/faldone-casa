@@ -21,6 +21,7 @@ export const NAV = [
   { title: 'Usa e risolvi', items: [
     ['emergenza', 'Qualcosa non funziona', 'fix', '^emergenza|^procedura/'],
     ['simula', 'Simulatore', 'sim', '^simula'],
+    ['officina/', 'Officina del Vito', 'van', '^$a'], // app a sé, in officina/: si apre come pagina, non come rotta
   ] },
   { title: 'Realizza', items: [
     ['realizza', 'Roadmap', 'build', '^realizza$|^realizza/attivita'],
@@ -58,5 +59,5 @@ export function navRouteFor(path, { kindOf = () => null, isCard = () => false } 
 /** Marcatura della barra laterale. Senza JavaScript restano collegamenti normali. */
 export function sidebarHtml({ revision = '' } = {}) {
   return `<a class="brand" href="#"><span class="mark" aria-hidden="true">F</span><span><strong>Il Faldone</strong><small>Rev ${revision} · progetto</small></span></a>
-<nav class="side-nav" aria-label="Navigazione principale">${NAV.map((g, i) => `<div class="side-group"${g.title ? ` role="group" aria-labelledby="sg-${i}"` : ''}>${g.title ? `<p class="side-h" id="sg-${i}">${g.title}</p>` : ''}${g.items.map(([r, l, ic]) => `<a href="#${r}" data-side="${r}">${icon(ic)}<span>${l}</span></a>`).join('')}</div>`).join('')}</nav>`;
+<nav class="side-nav" aria-label="Navigazione principale">${NAV.map((g, i) => `<div class="side-group"${g.title ? ` role="group" aria-labelledby="sg-${i}"` : ''}>${g.title ? `<p class="side-h" id="sg-${i}">${g.title}</p>` : ''}${g.items.map(([r, l, ic]) => (r.endsWith('/') ? `<a href="${r}">${icon(ic)}<span>${l}</span></a>` : `<a href="#${r}" data-side="${r}">${icon(ic)}<span>${l}</span></a>`)).join('')}</div>`).join('')}</nav>`;
 }
